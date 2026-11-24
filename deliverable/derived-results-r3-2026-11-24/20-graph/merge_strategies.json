@@ -1,0 +1,98 @@
+{
+ "_meta": {
+  "thr": 0.75,
+  "n_groups": 510,
+  "time_axis": "osd",
+  "covis_groups": [
+   [
+    "318",
+    "320"
+   ]
+  ]
+ },
+ "runs": [
+  {
+   "mode": "base",
+   "n_after": 443,
+   "merged": 67,
+   "blocked": {
+    "cam_overlap": 2005,
+    "peak": 23,
+    "attr": 28
+   },
+   "pos_hit": 5,
+   "pos_n": 34,
+   "neg_hit": 0,
+   "neg_n": 80,
+   "surv": 54,
+   "n_rev": 76,
+   "judged": 43,
+   "good": 40,
+   "prec": 0.9302325581395349
+  },
+  {
+   "mode": "osd",
+   "n_after": 443,
+   "merged": 67,
+   "blocked": {
+    "cam_overlap": 2013,
+    "peak": 11,
+    "attr": 31
+   },
+   "pos_hit": 7,
+   "pos_n": 34,
+   "neg_hit": 1,
+   "neg_n": 80,
+   "surv": 49,
+   "n_rev": 76,
+   "judged": 43,
+   "good": 39,
+   "prec": 0.9069767441860465
+  },
+  {
+   "mode": "covis60",
+   "n_after": 444,
+   "merged": 66,
+   "blocked": {
+    "cam_overlap": 2011,
+    "peak": 9,
+    "attr": 29,
+    "viol_60": 6,
+    "viol_cams:305/320": 3,
+    "viol_cams:305/323": 2,
+    "viol_cams:305/318": 1
+   },
+   "pos_hit": 7,
+   "pos_n": 34,
+   "neg_hit": 1,
+   "neg_n": 80,
+   "surv": 48,
+   "n_rev": 76,
+   "judged": 42,
+   "good": 38,
+   "prec": 0.9047619047619048
+  },
+  {
+   "mode": "covis300",
+   "n_after": 444,
+   "merged": 66,
+   "blocked": {
+    "cam_overlap": 2013,
+    "peak": 10,
+    "attr": 31,
+    "viol_300": 2,
+    "viol_cams:305/320": 1,
+    "viol_cams:305/318": 1
+   },
+   "pos_hit": 7,
+   "pos_n": 34,
+   "neg_hit": 1,
+   "neg_n": 80,
+   "surv": 49,
+   "n_rev": 76,
+   "judged": 43,
+   "good": 39,
+   "prec": 0.9069767441860465
+  }
+ ]
+}

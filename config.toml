@@ -1,0 +1,89 @@
+# human-count 服务配置
+# 所有路径可为绝对路径；相对路径相对于本项目根目录。
+
+[camera]
+# RTSP 拉流地址。格式：rtsp://<用户>:<密码>@<IP>:554/<路径>
+# 海康常见路径示例：
+#   主码流 rtsp://admin:pass@192.168.1.64:554/Streaming/Channels/101
+#   子码流 rtsp://admin:pass@192.168.1.64:554/Streaming/Channels/102
+# 建议先接子码流（分辨率低、CPU 推理更快）
+url = "rtsp://admin:password@192.168.1.64:554/Streaming/Channels/102"
+
+# 传输协议：tcp 更稳定，udp 延迟低但易丢包
+transport = "tcp"
+
+# 抽帧间隔（秒）。CPU 推理约 8~9 秒/帧，建议 >= 5
+sample_interval_secs = 10
+
+# 读流超时（秒），超时后触发重连
+read_timeout_secs = 15
+
+# ffmpeg 可执行文件路径。
+#   - 若 ffmpeg 已在 PATH 中，保持 "ffmpeg" 即可
+#   - 否则填完整路径。本机当前使用 gyan.dev 的 7.1 essentials build
+#     （已含 RTSP demuxer / bgr24 rawvideo 输出，满足本项目拉流需求）
+ffmpeg_path = "D:/dev/ffmpeg/bin/ffmpeg.exe"
+
+# 解码输出尺寸（钉死给 ffmpeg 的 -s 参数；Rust 侧按此字节数读帧）。
+# 必须与摄像头码流分辨率一致，否则 ffmpeg 会做缩放（多耗 CPU 且可能变形）。
+# 海康子码流常见 704x576 / 640x480；主码流 1920x1080。请按实际修改。
+width = 704
+height = 576
+
+[camera.reconnect]
+# 断流重连退避
+initial_secs = 1
+max_secs = 30
+factor = 2.0
+
+[input]
+# 单张图片输入模式（仅用于离线端到端验证，不用于生产）。
+# 运行 `human-count --image <path>` 时会读此图跑一遍完整链路。
+# 支持 jpg / png。
+image_path = ""
+
+[model]
+# ONNX 模型路径（由 tools/export_onnx.py 生成）
+onnx_path = "models/onnx/groundingdino.onnx"
+
+# 文本 prompt（英文，权重内置 BERT 为英文词表，中文会失效）
+text_prompt = "person"
+
+# 后处理阈值
+box_threshold = 0.25
+text_threshold = 0.25
+nms_iou_threshold = 0.7
+
+# 预处理：先按比例缩放，shortest_edge=800 且 longest_edge<=1333
+shortest_edge = 800
+longest_edge = 1333
+
+# 推理线程数（0 表示交给 ORT 默认）
+intra_threads = 4
+
+# 执行提供者："auto" | "cpu" | "dml"
+#   auto（默认）：先尝试 DirectML（AMD/Intel/NVIDIA 显卡经 DX12 加速），
+#                 失败时自动回退 CPU 并打印告警。
+#   cpu         ：仅用 CPU（原行为）。
+#   dml         ：强制 DirectML，注册失败直接报错。
+# 注意：DML 需要新版 DirectML.dll 与 human-count.exe 同目录
+#       （可执行文件目录优先于 System32）。vendored 副本：
+#       vendor/ort/onnxruntime/lib/DirectML.dll（2025-05 版，约 18 MB）。
+#       缺失时会被 System32 的 2020 旧版（约 1.2 MB）顶替——DML 注册仍会
+#       “成功”但静默回退 CPU；服务启动自检会就此打印告警。
+# 实测（RX 5700 XT，2560x1440 视频 → 预处理 1333x750）：
+#       CPU 约 9.5 s/帧 → DML 稳态约 0.42 s/帧（22×；首帧含内核编译约 1.0 s，
+#       进程冷启动后的第一帧最坏约 3.5 s）。
+execution_provider = "auto"
+
+[output]
+# 每次检测结果以一行 JSON 追加到此文件（JSONL）
+jsonl_path = "output/detections.jsonl"
+
+# 可选：检测到人数达到阈值时 POST 到该 webhook（留空则关闭）
+alert_webhook = ""
+alert_min_count = 1
+
+[logging]
+# RUST_LOG 风格过滤器
+level = "info"

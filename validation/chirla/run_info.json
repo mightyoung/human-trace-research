@@ -1,0 +1,68 @@
+{
+  "dataset": "CHIRLA",
+  "subset": {
+    "gallery": [
+      "c1_000",
+      "c2_000",
+      "c3_000",
+      "c4_000",
+      "c5_000",
+      "c6_000",
+      "c7_000"
+    ],
+    "query": [
+      "c1_001",
+      "c1_002",
+      "c2_001",
+      "c2_002",
+      "c3_001",
+      "c3_002",
+      "c4_001",
+      "c4_002"
+    ]
+  },
+  "counts": {
+    "gallery_tracks": 158,
+    "gallery_labeled": 158,
+    "query_tracks": 52,
+    "query_identities": 9,
+    "answerable": 47
+  },
+  "gt_match": {
+    "iou_min": 0.5,
+    "purity_switch": 0.8,
+    "matched_min": 0.5,
+    "frame_offset": 1,
+    "no_match": 22,
+    "id_switch": 24
+  },
+  "params": {
+    "fps": 2.5,
+    "stride": 12,
+    "imgsz": 1280,
+    "thr_in": 0.15,
+    "thr_out": 0.25,
+    "same_min": 0.9,
+    "min_frames": 6
+  },
+  "deviations": [
+    "CHIRLA 30 FPS，按每 12 帧取 1 → 2.5 FPS（现场 25 FPS 每 10 帧取 1）",
+    "seq_001/002 的 camera_5/6/7 标注为空，只跑 camera_1..4（查询侧实际 4 机位）",
+    "特征口径沿用历史 BGR，与冻结基线一致，未开 --rgb",
+    "轨迹真值为自动 IoU 匹配（非人工标注），purity/matched_frac 阈值见 gt_match",
+    "self-cal 在本数据上无可行工作点：θ=1.40（网格下界）时覆盖仅 0.034、可评估共现对 3 个 → 按 min_eval=100/26 全部落空；改按 --min-eval 0 跑满 35/42 个配置，A_baseline 只接受 2/52 条 → 判定为「无法判定」而非硬判成立/不成立",
+    "查询与图库相隔约 50 分钟（seq_000 11:14 vs seq_001 12:03 / seq_002 12:09），同人余弦从跨机位同场 0.758 掉到跨场 0.662，异人稳定在 0.57–0.59 → 可分间距被削掉约一半，这是覆盖塌到 3% 的根因（非校准/聚类参数问题）"
+  ],
+  "diagnostics": {
+    "gallery_same_person_same_cam_cos": 0.837,
+    "gallery_same_person_cross_cam_cos": 0.758,
+    "gallery_diff_person_cos": 0.592,
+    "gallery_auc": 0.857,
+    "query_vs_gallery_same_cos": 0.662,
+    "query_vs_gallery_diff_cos": 0.569,
+    "query_vs_gallery_auc": 0.758,
+    "track_top1_cross_cam": 0.288,
+    "track_top1_same_cam": 0.365,
+    "note": "图库内可分性良好（AUC .857），塌陷只发生在跨场查询 → 域偏移，不是表征能力不足"
+  }
+}

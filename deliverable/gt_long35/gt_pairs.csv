@@ -1,0 +1,127 @@
+﻿pair,a,b,label,level,src,note
+305-316,305:94,316:11,1,entity,gil_relay,edge177:人工确认（PRT 批）→ 支持 active
+305-316,316:28,305:147,1,entity,gil_relay,edge171:判为同一人 → relay 边成立；身份层漏接（邻居 g0041 vs 源 ['
+316-318,316:22,318:66,1,entity,gil_relay,edge136:人工确认（PRT 批）→ 支持 active
+316-318,316:62,318:76,1,entity,gil_relay,edge138:人工确认（PRT 批）→ 支持 active
+316-323,316:99,323:130,1,entity,gil_relay,edge141:人工确认（PRT 批）→ 支持 active
+316-323,323:65,316:65,1,entity,gil_relay,edge160:人工确认（PRT 批）→ 支持 active
+316-323,316:102,323:139,0,entity,gil_relay,edge143:人工否证（PRT 批）→ 建议 rejected/复检
+316-323,316:56,323:76,0,entity,gil_relay,edge198:判为不同人 → relay 边为假链（候选剔除）
+316-323,316:89,323:112,0,entity,gil_relay,edge241:判为不同人 → relay 边为假链（候选剔除）
+316-323,323:112,316:113,0,entity,gil_relay,edge228:判为不同人 → relay 边为假链（候选剔除）
+316-323,323:48,316:65,0,entity,gil_relay,edge220:判为不同人 → relay 边为假链（候选剔除）
+316-343,343:11,316:22,1,track,gil_pair,user
+316-343,343:11,316:45,1,track,gil_pair,user
+316-343,343:11,316:49,1,track,gil_pair,user
+316-343,343:12,316:27,1,track,gil_pair,seed
+316-343,343:12,316:28,1,track,gil_pair,seed
+316-343,343:13,316:24,1,track,gil_pair,user
+316-343,343:13,316:26,1,track,gil_pair,user
+316-343,343:48,316:88,1,track,gil_pair,seed
+316-343,343:53,316:94,1,track,gil_pair,seed
+316-343,343:53,316:99,1,track,gil_pair,seed
+316-343,343:53,316:113,1,track,gil_pair,seed
+316-343,343:56,316:116,1,track,gil_pair,seed
+316-343,343:57,316:134,1,track,gil_pair,seed
+316-343,343:12,316:26,0,track,gil_pair,user
+316-343,343:12,316:33,0,track,gil_pair,user
+316-343,343:17,316:52,0,track,gil_pair,user
+316-343,343:17,316:53,0,track,gil_pair,user
+316-343,343:19,316:53,0,track,gil_pair,user
+316-343,343:31,316:70,0,track,gil_pair,user
+316-343,343:32,316:63,0,track,gil_pair,user
+316-343,343:35,316:70,0,track,gil_pair,user
+316-343,343:35,316:75,0,track,gil_pair,user
+316-343,343:35,316:78,0,track,gil_pair,user
+316-343,343:40,316:82,0,track,gil_pair,user
+316-343,343:42,316:82,0,track,gil_pair,user
+316-343,343:48,316:92,0,track,gil_pair,user
+316-343,343:48,316:95,0,track,gil_pair,user
+316-343,343:50,316:94,0,track,gil_pair,user
+316-343,343:53,316:102,0,track,gil_pair,seed
+316-343,343:53,316:106,0,track,gil_pair,seed
+316-343,343:53,316:112,0,track,gil_pair,user
+318-320,318:1,320:1,1,track,labels_json,CONF
+318-320,318:120,320:18,1,track,labels_json,CONF
+318-320,318:120,320:23,1,track,labels_json,CONF
+318-320,318:120,320:19,1,track,labels_json,CONF
+318-320,318:128,320:21,1,track,labels_json,MODERATE
+318-320,318:139,320:24,1,track,labels_json,CONF
+318-320,318:14,320:3,1,track,labels_json,CONF
+318-320,318:14,320:4,1,track,labels_json,CONF
+318-320,318:146,320:28,1,track,labels_json,CONF
+318-320,318:37,320:11,1,track,labels_json,CONF
+318-320,318:69,320:14,1,track,labels_json,CONF
+318-320,318:1,320:3,0,track,labels_json,REJ
+318-320,318:1,320:4,0,track,labels_json,REJ
+318-320,318:10,320:1,0,track,labels_json,REJ
+318-320,318:104,320:18,0,track,labels_json,REJ
+318-320,318:111,320:18,0,track,labels_json,REJ
+318-320,318:120,320:21,0,track,labels_json,REJ
+318-320,318:123,320:18,0,track,labels_json,REJ
+318-320,318:123,320:19,0,track,labels_json,REJ
+318-320,318:123,320:21,0,track,labels_json,REJ
+318-320,318:124,320:18,0,track,labels_json,REJ
+318-320,318:126,320:18,0,track,labels_json,REJ
+318-320,318:127,320:19,0,track,labels_json,REJ
+318-320,318:127,320:21,0,track,labels_json,REJ
+318-320,318:128,320:19,0,track,labels_json,REJ
+318-320,318:131,320:24,0,track,labels_json,REJ
+318-320,318:131,320:23,0,track,labels_json,REJ
+318-320,318:131,320:28,0,track,labels_json,REJ
+318-320,318:131,320:21,0,track,labels_json,REJ
+318-320,318:131,320:25,0,track,labels_json,REJ
+318-320,318:131,320:27,0,track,labels_json,REJ
+318-320,318:131,320:26,0,track,labels_json,REJ
+318-320,318:132,320:21,0,track,labels_json,REJ
+318-320,318:132,320:24,0,track,labels_json,REJ
+318-320,318:132,320:25,0,track,labels_json,REJ
+318-320,318:132,320:26,0,track,labels_json,REJ
+318-320,318:132,320:23,0,track,labels_json,REJ
+318-320,318:139,320:21,0,track,labels_json,REJ
+318-320,318:14,320:1,0,track,labels_json,REJ
+318-320,318:142,320:26,0,track,labels_json,REJ
+318-320,318:142,320:28,0,track,labels_json,REJ
+318-320,318:142,320:27,0,track,labels_json,REJ
+318-320,318:142,320:21,0,track,labels_json,REJ
+318-320,318:146,320:21,0,track,labels_json,REJ
+318-320,318:146,320:27,0,track,labels_json,REJ
+318-320,318:146,320:26,0,track,labels_json,REJ
+318-320,318:15,320:1,0,track,labels_json,REJ
+318-320,318:15,320:4,0,track,labels_json,REJ
+318-320,318:3,320:1,0,track,labels_json,REJ
+318-320,318:3,320:4,0,track,labels_json,REJ
+318-320,318:3,320:3,0,track,labels_json,REJ
+318-320,318:43,320:11,0,track,labels_json,REJ
+318-320,318:46,320:11,0,track,labels_json,REJ
+318-320,318:50,320:11,0,track,labels_json,REJ
+318-320,318:53,320:11,0,track,labels_json,REJ
+318-320,318:57,320:11,0,track,labels_json,REJ
+318-320,318:58,320:11,0,track,labels_json,REJ
+318-320,318:61,320:14,0,track,labels_json,REJ
+318-320,318:61,320:11,0,track,labels_json,REJ
+318-320,318:7,320:1,0,track,labels_json,REJ
+318-320,318:7,320:18,0,track,labels_json,REJ
+318-320,318:7,320:11,0,track,labels_json,REJ
+318-320,318:7,320:21,0,track,labels_json,REJ
+318-320,318:7,320:4,0,track,labels_json,REJ
+318-320,318:7,320:19,0,track,labels_json,REJ
+318-320,318:7,320:14,0,track,labels_json,REJ
+318-320,318:7,320:3,0,track,labels_json,REJ
+318-320,318:72,320:14,0,track,labels_json,REJ
+318-320,318:98,320:26,0,track,labels_json,REJ
+318-320,318:98,320:18,0,track,labels_json,REJ
+318-320,318:98,320:24,0,track,labels_json,REJ
+318-320,318:98,320:19,0,track,labels_json,REJ
+318-320,318:98,320:21,0,track,labels_json,REJ
+318-320,318:98,320:25,0,track,labels_json,REJ
+318-320,318:98,320:23,0,track,labels_json,REJ
+318-323,323:3,318:21,1,entity,gil_relay,edge158:判为同一人 → relay 边成立；身份层漏接（邻居 g0150 vs 源 ['
+318-323,323:3,318:23,1,entity,gil_relay,edge158:判为同一人 → relay 边成立；身份层漏接（邻居 g0150 vs 源 ['
+318-323,323:3,318:25,1,entity,gil_relay,edge238:判为同一人 → relay 边成立；身份层漏接（邻居 g0073 vs 源 ['
+318-323,318:45,323:48,0,entity,gil_relay,edge216:判为不同人 → relay 边为假链（候选剔除）
+318-323,318:54,323:48,0,entity,gil_relay,edge221:判为不同人 → relay 边为假链（候选剔除）
+318-323,323:28,318:51,0,entity,gil_relay,edge162:人工否证（PRT 批）→ 建议 rejected/复检
+318-323,323:48,318:71,0,entity,gil_relay,edge187:判为不同人 → relay 边为假链（候选剔除）
+323-343,343:53,323:112,1,entity,gil_relay,edge202:判为同一人 → relay 边成立；身份层漏接（邻居 g0077 vs 源 ['
+323-343,323:105,343:50,0,entity,gil_relay,edge152:人工否证（PRT 批）→ 建议 rejected/复检

@@ -1,0 +1,341 @@
+{
+ "_meta": {
+  "built_at": "2026-11-11 21:45",
+  "note": "r3 稀有类富集批次补标 16 条后的收口核查"
+ },
+ "batch": {
+  "n": 16,
+  "items": [
+   {
+    "key": "323#104",
+    "entity": "323-E068",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": 0.0052,
+    "gate": "block"
+   },
+   {
+    "key": "316#17",
+    "entity": "316-E009",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": 0.0002,
+    "gate": "block"
+   },
+   {
+    "key": "323#218",
+    "entity": "323-E133",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": 0.0019,
+    "gate": "block"
+   },
+   {
+    "key": "316#64",
+    "entity": "",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": null,
+    "gate": "no_entity"
+   },
+   {
+    "key": "323#59",
+    "entity": "323-E036",
+    "tag": "valid",
+    "attrs": {
+     "top_color": "黑",
+     "bottom_color": "黑",
+     "top_type": "长袖",
+     "bottom_type": "长裤",
+     "gender": "男",
+     "backpack": "否",
+     "carrying": "是"
+    },
+    "is_person": 0.0733,
+    "gate": "block"
+   },
+   {
+    "key": "316#168",
+    "entity": "",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": null,
+    "gate": "no_entity"
+   },
+   {
+    "key": "323#571",
+    "entity": "323-E330",
+    "tag": "valid",
+    "attrs": {
+     "top_color": "红",
+     "bottom_color": "黑",
+     "top_type": "长袖",
+     "gender": "男",
+     "glasses": "是",
+     "age_group": "青年",
+     "mask": "否",
+     "hat": "否",
+     "backpack": "否"
+    },
+    "is_person": 0.9351,
+    "gate": "pass"
+   },
+   {
+    "key": "316#268",
+    "entity": "",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": null,
+    "gate": "no_entity"
+   },
+   {
+    "key": "323#206",
+    "entity": "323-E130",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": 0.0,
+    "gate": "block"
+   },
+   {
+    "key": "323#82",
+    "entity": "323-E055",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": 0.0128,
+    "gate": "block"
+   },
+   {
+    "key": "323#125",
+    "entity": "323-E077",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": 0.0106,
+    "gate": "block"
+   },
+   {
+    "key": "323#511",
+    "entity": "323-E322",
+    "tag": "valid",
+    "attrs": {
+     "bottom_color": "黑",
+     "gender": "男",
+     "glasses": "是",
+     "top_color": "红",
+     "hat": "否"
+    },
+    "is_person": 0.9689,
+    "gate": "pass"
+   },
+   {
+    "key": "323#473",
+    "entity": "323-E294",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": 0.0018,
+    "gate": "block"
+   },
+   {
+    "key": "323#68",
+    "entity": "",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": null,
+    "gate": "no_entity"
+   },
+   {
+    "key": "323#231",
+    "entity": "323-E148",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": 0.0036,
+    "gate": "block"
+   },
+   {
+    "key": "316#163",
+    "entity": "",
+    "tag": "notperson",
+    "attrs": {},
+    "is_person": null,
+    "gate": "no_entity"
+   }
+  ],
+  "valid": 3,
+  "notperson": 13,
+  "blocked_by_gate": 9,
+  "no_entity": 5
+ },
+ "pool": {
+  "total": 756,
+  "labeled": 640,
+  "unlabeled": 116,
+  "unlabeled_by": {
+   "305|r2": 2,
+   "316|r2": 41,
+   "318|r2": 3,
+   "323|r2": 70
+  },
+  "dist": {
+   "occluded": 1,
+   "valid": 460,
+   "notperson": 145,
+   "blur": 11,
+   "no_train": 23
+  }
+ },
+ "is_person_gate": {
+  "index_built": "2026-11-11 07:57",
+  "n_train": 457,
+  "valid_with_entity": 451,
+  "false_negative": 10,
+  "fn_rate": 0.0222,
+  "notperson_with_entity": 83,
+  "false_positive": 2,
+  "fn_items": [
+   {
+    "key": "316#6",
+    "entity": "316-E004",
+    "is_person": 0.011,
+    "cam": "316",
+    "attrs": {
+     "top_color": "黑",
+     "gender": "男",
+     "age_group": "青年",
+     "hat": "否"
+    }
+   },
+   {
+    "key": "343#73",
+    "entity": "343-E058",
+    "is_person": 0.0246,
+    "cam": "343",
+    "attrs": {
+     "gender": "女",
+     "bottom_type": "长裤",
+     "top_color": "黑",
+     "bottom_color": "黑",
+     "hat": "否"
+    }
+   },
+   {
+    "key": "323#59",
+    "entity": "323-E036",
+    "is_person": 0.0733,
+    "cam": "323",
+    "attrs": {
+     "top_color": "黑",
+     "bottom_color": "黑",
+     "top_type": "长袖",
+     "bottom_type": "长裤",
+     "gender": "男",
+     "backpack": "否",
+     "carrying": "是"
+    }
+   },
+   {
+    "key": "305#524",
+    "entity": "305-E124",
+    "is_person": 0.0874,
+    "cam": "305",
+    "attrs": {
+     "top_color": "蓝",
+     "top_type": "长袖",
+     "gender": "男",
+     "hat": "否",
+     "backpack": "否",
+     "carrying": "否"
+    }
+   },
+   {
+    "key": "323#86",
+    "entity": "323-E057",
+    "is_person": 0.1259,
+    "cam": "323",
+    "attrs": {
+     "top_color": "棕",
+     "bottom_color": "蓝",
+     "bottom_type": "长裤",
+     "gender": "男",
+     "backpack": "否"
+    }
+   },
+   {
+    "key": "323#407",
+    "entity": "323-E253",
+    "is_person": 0.1481,
+    "cam": "323",
+    "attrs": {
+     "top_color": "红",
+     "gender": "男",
+     "hat": "否",
+     "backpack": "否",
+     "carrying": "否",
+     "top_type": "长袖"
+    }
+   },
+   {
+    "key": "316#187",
+    "entity": "316-E079",
+    "is_person": 0.2112,
+    "cam": "316",
+    "attrs": {
+     "top_color": "黑",
+     "gender": "男",
+     "age_group": "青年",
+     "hat": "否",
+     "mask": "否",
+     "bottom_type": "长裤",
+     "top_type": "长袖"
+    }
+   },
+   {
+    "key": "323#273",
+    "entity": "323-E174",
+    "is_person": 0.3832,
+    "cam": "323",
+    "attrs": {
+     "bottom_color": "黑",
+     "top_type": "长袖",
+     "top_color": "蓝",
+     "gender": "男",
+     "backpack": "否"
+    }
+   },
+   {
+    "key": "343#46",
+    "entity": "343-E037",
+    "is_person": 0.4267,
+    "cam": "343",
+    "attrs": {
+     "top_color": "蓝",
+     "gender": "男",
+     "hat": "否",
+     "backpack": "否"
+    }
+   },
+   {
+    "key": "318#140",
+    "entity": "318-E095",
+    "is_person": 0.4964,
+    "cam": "318",
+    "attrs": {
+     "top_color": "黑",
+     "top_type": "长袖",
+     "gender": "男",
+     "hat": "否"
+    }
+   }
+  ],
+  "fp_items": [
+   {
+    "key": "320#29",
+    "entity": "320-E019",
+    "is_person": 0.8345
+   },
+   {
+    "key": "316#160",
+    "entity": "316-E071",
+    "is_person": 0.8299
+   }
+  ]
+ }
+}

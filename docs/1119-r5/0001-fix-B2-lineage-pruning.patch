@@ -1,0 +1,20 @@
+--- a/src/rfb/research/mme_baselines.py	2026-11-12 07:03:17.989169748 +0000
++++ b/src/rfb/research/mme_baselines.py	2026-11-12 07:03:18.035192188 +0000
+@@ -404,7 +404,16 @@
+             ancestors.update(str(item) for item in row.get("derived_from", ()))
+             lineage = tuple(str(item) for item in row.get("lineage", ()))
+             ancestors.update(lineage[:-1])
+-        pruned = [row for row in retained if str(row["root_id"]) not in ancestors]
++        # 2026-11-12 fix: ``derived_from`` carries *event* ids (see
++        # ``PublicEvent.method_value``) while ``lineage`` carries root ids.
++        # The previous test compared root ids only, so a declared
++        # ``derived_from`` edge never pruned anything and B2 collapsed to B1.
++        pruned = [
++            row
++            for row in retained
++            if str(row["root_id"]) not in ancestors
++            and str(row.get("event_id", "")) not in ancestors
++        ]
+         retained = pruned or retained[-1:]
+     elif method_id in {"B3", "B5"}:
+         retained = _strongest_per_root(retained)

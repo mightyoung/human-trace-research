@@ -1,0 +1,243 @@
+{
+ "params": {
+  "emb_dir": "tmp/full/emb12",
+  "face": "tmp/full/face8",
+  "det": "output_crosscam_local/1012_yolo8_dd",
+  "gt": "deliverable/paper-package-2026-11-10/20-data/e4-full-corpus/gt_8seg.json",
+  "segs": "305_test_544 305_train_529 318_test_534 318_train_525 320_test_518 320_train_514 323_test_527 323_train_510",
+  "proto": "full",
+  "pool_k": 3,
+  "pool_max": 8,
+  "tau": [
+   0.7,
+   0.75,
+   0.8,
+   0.85
+  ],
+  "main_tau": 0.8,
+  "sigma": 0.6,
+  "tau_face": [
+   0.25,
+   0.3,
+   0.35,
+   0.4,
+   0.45
+  ],
+  "face_margin": 0.02,
+  "gallery_mode": "train",
+  "out": "tmp/derived/pose_pool_real_check.json",
+  "dump_queries": "tmp/derived/selector_queries_179.csv",
+  "dump_pools": "tmp/derived/selector_pools.json"
+ },
+ "stat": {
+  "w_gt": 65,
+  "w_gt_usable": 22,
+  "w_gt_gallery": 18,
+  "w_real": 19,
+  "w_real_ok": 18,
+  "w_oracle": 19,
+  "w_real_bad": 1
+ },
+ "table": {
+  "0.7": {
+   "s0": [
+    141,
+    179
+   ],
+   "s5": [
+    142,
+    179
+   ],
+   "s0+gt": [
+    165,
+    179
+   ],
+   "s0+gt_usable": [
+    145,
+    179
+   ],
+   "s0+gt_gallery": [
+    143,
+    179
+   ],
+   "s0+real": [
+    143,
+    179
+   ],
+   "s0+real_oracle_cov": [
+    143,
+    179
+   ],
+   "s5+gt": [
+    166,
+    179
+   ],
+   "s5+gt_usable": [
+    146,
+    179
+   ],
+   "s5+gt_gallery": [
+    144,
+    179
+   ],
+   "s5+real": [
+    144,
+    179
+   ],
+   "s5+real_oracle_cov": [
+    144,
+    179
+   ]
+  },
+  "0.75": {
+   "s0": [
+    131,
+    179
+   ],
+   "s5": [
+    136,
+    179
+   ],
+   "s0+gt": [
+    159,
+    179
+   ],
+   "s0+gt_usable": [
+    137,
+    179
+   ],
+   "s0+gt_gallery": [
+    135,
+    179
+   ],
+   "s0+real": [
+    135,
+    179
+   ],
+   "s0+real_oracle_cov": [
+    135,
+    179
+   ],
+   "s5+gt": [
+    160,
+    179
+   ],
+   "s5+gt_usable": [
+    140,
+    179
+   ],
+   "s5+gt_gallery": [
+    138,
+    179
+   ],
+   "s5+real": [
+    138,
+    179
+   ],
+   "s5+real_oracle_cov": [
+    138,
+    179
+   ]
+  },
+  "0.8": {
+   "s0": [
+    101,
+    179
+   ],
+   "s5": [
+    122,
+    179
+   ],
+   "s0+gt": [
+    142,
+    179
+   ],
+   "s0+gt_usable": [
+    112,
+    179
+   ],
+   "s0+gt_gallery": [
+    110,
+    179
+   ],
+   "s0+real": [
+    110,
+    179
+   ],
+   "s0+real_oracle_cov": [
+    110,
+    179
+   ],
+   "s5+gt": [
+    149,
+    179
+   ],
+   "s5+gt_usable": [
+    127,
+    179
+   ],
+   "s5+gt_gallery": [
+    125,
+    179
+   ],
+   "s5+real": [
+    125,
+    179
+   ],
+   "s5+real_oracle_cov": [
+    125,
+    179
+   ]
+  },
+  "0.85": {
+   "s0": [
+    57,
+    179
+   ],
+   "s5": [
+    83,
+    179
+   ],
+   "s0+gt": [
+    100,
+    179
+   ],
+   "s0+gt_usable": [
+    64,
+    179
+   ],
+   "s0+gt_gallery": [
+    62,
+    179
+   ],
+   "s0+real": [
+    62,
+    179
+   ],
+   "s0+real_oracle_cov": [
+    62,
+    179
+   ],
+   "s5+gt": [
+    111,
+    179
+   ],
+   "s5+gt_usable": [
+    87,
+    179
+   ],
+   "s5+gt_gallery": [
+    85,
+    179
+   ],
+   "s5+real": [
+    85,
+    179
+   ],
+   "s5+real_oracle_cov": [
+    85,
+    179
+   ]
+  }
+ }
+}

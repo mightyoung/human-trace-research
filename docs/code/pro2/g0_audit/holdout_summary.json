@@ -1,0 +1,79 @@
+{
+  "freeze_checked": 8,
+  "freeze_passed": 8,
+  "freeze_details": [
+    {
+      "manifest_line": 12,
+      "original_path": "docs/PREREGISTRATION_holdout_2026-10-24.md",
+      "package_path": "/Users/muyi/Downloads/dev/human-count/docs/1026-v3/human-count-package-2026-10-26/03_preregistration/PREREGISTRATION_holdout_2026-10-24.md",
+      "expected": "236ea1db65cc4c392d920da2986167f0b1288ed1d20c32dafef232f2c19e0496",
+      "actual": "236ea1db65cc4c392d920da2986167f0b1288ed1d20c32dafef232f2c19e0496",
+      "matches": true
+    },
+    {
+      "manifest_line": 13,
+      "original_path": "docs/preregistration_holdout_2026-10-24.json",
+      "package_path": "/Users/muyi/Downloads/dev/human-count/docs/1026-v3/human-count-package-2026-10-26/03_preregistration/preregistration_holdout_2026-10-24.json",
+      "expected": "1aaabedd734fecc672a5fa7892f3caf56f982c689a758948cd35484f07e03d7a",
+      "actual": "1aaabedd734fecc672a5fa7892f3caf56f982c689a758948cd35484f07e03d7a",
+      "matches": true
+    },
+    {
+      "manifest_line": 14,
+      "original_path": "tools/prereg_holdout_window.py",
+      "package_path": "/Users/muyi/Downloads/dev/human-count/docs/1026-v3/human-count-package-2026-10-26/03_preregistration/tools/prereg_holdout_window.py",
+      "expected": "9a90bd6a2ac42fb0b198dc40d45db9a8f63e9b0e7cedf26292797165c7c676c2",
+      "actual": "9a90bd6a2ac42fb0b198dc40d45db9a8f63e9b0e7cedf26292797165c7c676c2",
+      "matches": true
+    },
+    {
+      "manifest_line": 15,
+      "original_path": "tools/run_holdout.sh",
+      "package_path": "/Users/muyi/Downloads/dev/human-count/docs/1026-v3/human-count-package-2026-10-26/03_preregistration/tools/run_holdout.sh",
+      "expected": "9e30bef668c44369d458b77cca27dd20b8ab69839819642e7b755f658e5091d4",
+      "actual": "9e30bef668c44369d458b77cca27dd20b8ab69839819642e7b755f658e5091d4",
+      "matches": true
+    },
+    {
+      "manifest_line": 16,
+      "original_path": "tools/verify_preeg_hashes.py",
+      "package_path": "/Users/muyi/Downloads/dev/human-count/docs/1026-v3/human-count-package-2026-10-26/03_preregistration/tools/verify_preeg_hashes.py",
+      "expected": "4bbd6b6ca839dc371d65b758ff50899636506d11daed532465406c9aee99ebf8",
+      "actual": "4bbd6b6ca839dc371d65b758ff50899636506d11daed532465406c9aee99ebf8",
+      "matches": true
+    },
+    {
+      "manifest_line": 17,
+      "original_path": "tools/run_holdout_analysis.sh",
+      "package_path": "/Users/muyi/Downloads/dev/human-count/docs/1026-v3/human-count-package-2026-10-26/03_preregistration/tools/run_holdout_analysis.sh",
+      "expected": "3d257ea19722f44d519678e9e267ab5cbfa639cb4e5e38212325267d02918c2e",
+      "actual": "3d257ea19722f44d519678e9e267ab5cbfa639cb4e5e38212325267d02918c2e",
+      "matches": true
+    },
+    {
+      "manifest_line": 18,
+      "original_path": "tools/holdout_eval.py",
+      "package_path": "/Users/muyi/Downloads/dev/human-count/docs/1026-v3/human-count-package-2026-10-26/03_preregistration/tools/holdout_eval.py",
+      "expected": "d43fa3e8c0892feb1df2a9553685a0e6806fa1619ac804b677c7fd2b02288048",
+      "actual": "d43fa3e8c0892feb1df2a9553685a0e6806fa1619ac804b677c7fd2b02288048",
+      "matches": true
+    },
+    {
+      "manifest_line": 19,
+      "original_path": "tools/holdout_make_templates.py",
+      "package_path": "/Users/muyi/Downloads/dev/human-count/docs/1026-v3/human-count-package-2026-10-26/03_preregistration/tools/holdout_make_templates.py",
+      "expected": "031c29265d6ba85906d3e4a3674b0ef95326f5a8d314417896d02cc33232c9bf",
+      "actual": "031c29265d6ba85906d3e4a3674b0ef95326f5a8d314417896d02cc33232c9bf",
+      "matches": true
+    }
+  ],
+  "curve_rows": 2646,
+  "configurations": 42,
+  "feasible_configurations": [],
+  "max_evaluable_pairs": 81,
+  "max_pairs_with_same_at_least_point90": 74,
+  "query_counts": [
+    68
+  ],
+  "note": "68 evaluable queries cannot contain 100 answerable queries. This is distinct from the 100-pair operating-point constraint. Hash agreement does not establish freeze time."
+}

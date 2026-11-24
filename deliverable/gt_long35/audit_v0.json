@@ -1,0 +1,453 @@
+{
+ "_meta": {
+  "n": 126,
+  "n_l1": 106,
+  "n_l2": 20,
+  "covered_pairs": [
+   "305-316",
+   "316-318",
+   "316-323",
+   "316-343",
+   "318-320",
+   "318-323",
+   "323-343"
+  ],
+  "missing_pairs": [
+   "305-318",
+   "305-320",
+   "305-323",
+   "305-343",
+   "316-320",
+   "318-343",
+   "320-323",
+   "320-343"
+  ],
+  "v0_meta": {
+   "thr": 0.75,
+   "n_before": 510,
+   "n_after": 434,
+   "merged": 76,
+   "cross_cam": 60,
+   "r4_identities": 10,
+   "sweep": [
+    {
+     "thr": 0.6,
+     "recall": 0.818,
+     "fp": 11,
+     "n_neg": 52,
+     "precision": 0.45
+    },
+    {
+     "thr": 0.65,
+     "recall": 0.818,
+     "fp": 5,
+     "n_neg": 52,
+     "precision": 0.643
+    },
+    {
+     "thr": 0.68,
+     "recall": 0.818,
+     "fp": 4,
+     "n_neg": 52,
+     "precision": 0.692
+    },
+    {
+     "thr": 0.7,
+     "recall": 0.727,
+     "fp": 1,
+     "n_neg": 52,
+     "precision": 0.889
+    },
+    {
+     "thr": 0.72,
+     "recall": 0.727,
+     "fp": 1,
+     "n_neg": 52,
+     "precision": 0.889
+    },
+    {
+     "thr": 0.75,
+     "recall": 0.727,
+     "fp": 0,
+     "n_neg": 52,
+     "precision": 1.0
+    },
+    {
+     "thr": 0.78,
+     "recall": 0.455,
+     "fp": 0,
+     "n_neg": 52,
+     "precision": 1.0
+    },
+    {
+     "thr": 0.8,
+     "recall": 0.364,
+     "fp": 0,
+     "n_neg": 52,
+     "precision": 1.0
+    },
+    {
+     "thr": 0.85,
+     "recall": 0.0,
+     "fp": 0,
+     "n_neg": 52,
+     "precision": 1.0
+    }
+   ]
+  },
+  "s1_meta": {
+   "n_tracks": 1574,
+   "thr": 0.78,
+   "nested": 0.6,
+   "min_frames": 10,
+   "n_identities": 510,
+   "n_entities_before": 1202,
+   "conflict_clusters": 0,
+   "poached": 27,
+   "cross_cam_identities": 42,
+   "max_size": 67,
+   "r4_hit": 13
+  }
+ },
+ "by_pair": {
+  "318-320": {
+   "n": 75,
+   "v0_1": 11,
+   "v0_hit_1": 5,
+   "s1_hit_1": 4,
+   "lv_track": 75,
+   "ok_1": 11,
+   "ok_hit_1": 5,
+   "v0_0": 64,
+   "ok_0": 52
+  },
+  "316-343": {
+   "n": 31,
+   "v0_1": 13,
+   "lv_track": 31,
+   "ok_1": 13,
+   "v0_0": 18,
+   "ok_0": 18
+  },
+  "316-318": {
+   "n": 2,
+   "v0_1": 2,
+   "lv_entity": 2,
+   "ok_1": 2
+  },
+  "316-323": {
+   "n": 7,
+   "v0_1": 2,
+   "lv_entity": 7,
+   "ok_1": 2,
+   "v0_0": 5,
+   "ok_0": 5
+  },
+  "323-343": {
+   "n": 2,
+   "v0_0": 1,
+   "lv_entity": 2,
+   "ok_0": 1,
+   "v0_1": 1,
+   "ok_1": 1
+  },
+  "318-323": {
+   "n": 7,
+   "v0_1": 3,
+   "lv_entity": 7,
+   "ok_1": 3,
+   "v0_0": 4,
+   "ok_0": 4
+  },
+  "305-316": {
+   "n": 2,
+   "v0_1": 2,
+   "lv_entity": 2,
+   "ok_1": 2
+  }
+ },
+ "by_pair_l1": {
+  "318-320": {
+   "n": 75,
+   "v0_1": 11,
+   "v0_hit_1": 5,
+   "s1_hit_1": 4,
+   "lv_track": 75,
+   "ok_1": 11,
+   "ok_hit_1": 5,
+   "v0_0": 64,
+   "ok_0": 52
+  },
+  "316-343": {
+   "n": 31,
+   "v0_1": 13,
+   "lv_track": 31,
+   "ok_1": 13,
+   "v0_0": 18,
+   "ok_0": 18
+  }
+ },
+ "fails": [
+  {
+   "kind": "漏接",
+   "pair": "318-320",
+   "a": "318:37",
+   "b": "320:11",
+   "level": "track",
+   "src": "labels_json",
+   "note": "CONF"
+  },
+  {
+   "kind": "漏接",
+   "pair": "318-320",
+   "a": "318:69",
+   "b": "320:14",
+   "level": "track",
+   "src": "labels_json",
+   "note": "CONF"
+  },
+  {
+   "kind": "漏接",
+   "pair": "318-320",
+   "a": "318:139",
+   "b": "320:24",
+   "level": "track",
+   "src": "labels_json",
+   "note": "CONF"
+  },
+  {
+   "kind": "漏接",
+   "pair": "318-320",
+   "a": "318:1",
+   "b": "320:1",
+   "level": "track",
+   "src": "labels_json",
+   "note": "CONF"
+  },
+  {
+   "kind": "漏接",
+   "pair": "318-320",
+   "a": "318:14",
+   "b": "320:4",
+   "level": "track",
+   "src": "labels_json",
+   "note": "CONF"
+  },
+  {
+   "kind": "漏接",
+   "pair": "318-320",
+   "a": "318:120",
+   "b": "320:19",
+   "level": "track",
+   "src": "labels_json",
+   "note": "CONF"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:11",
+   "b": "316:22",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "user"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:11",
+   "b": "316:45",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "user"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:11",
+   "b": "316:49",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "user"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:12",
+   "b": "316:27",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "seed"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:12",
+   "b": "316:28",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "seed"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:13",
+   "b": "316:24",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "user"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:13",
+   "b": "316:26",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "user"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:48",
+   "b": "316:88",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "seed"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:53",
+   "b": "316:94",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "seed"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:53",
+   "b": "316:99",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "seed"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:53",
+   "b": "316:113",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "seed"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:56",
+   "b": "316:116",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "seed"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-343",
+   "a": "343:57",
+   "b": "316:134",
+   "level": "track",
+   "src": "gil_pair",
+   "note": "seed"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-318",
+   "a": "316:22",
+   "b": "318:66",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge136:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-318",
+   "a": "316:62",
+   "b": "318:76",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge138:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-323",
+   "a": "316:99",
+   "b": "323:130",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge141:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "kind": "漏接",
+   "pair": "318-323",
+   "a": "323:3",
+   "b": "318:21",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge158:判为同一人 → relay 边成立；身份层漏接（邻居 g0150 vs 源 ['"
+  },
+  {
+   "kind": "漏接",
+   "pair": "318-323",
+   "a": "323:3",
+   "b": "318:23",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge158:判为同一人 → relay 边成立；身份层漏接（邻居 g0150 vs 源 ['"
+  },
+  {
+   "kind": "漏接",
+   "pair": "316-323",
+   "a": "323:65",
+   "b": "316:65",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge160:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "kind": "漏接",
+   "pair": "305-316",
+   "a": "316:28",
+   "b": "305:147",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge171:判为同一人 → relay 边成立；身份层漏接（邻居 g0041 vs 源 ['"
+  },
+  {
+   "kind": "漏接",
+   "pair": "305-316",
+   "a": "305:94",
+   "b": "316:11",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge177:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "kind": "漏接",
+   "pair": "323-343",
+   "a": "343:53",
+   "b": "323:112",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge202:判为同一人 → relay 边成立；身份层漏接（邻居 g0077 vs 源 ['"
+  },
+  {
+   "kind": "漏接",
+   "pair": "318-323",
+   "a": "323:3",
+   "b": "318:25",
+   "level": "entity",
+   "src": "gil_relay",
+   "note": "edge238:判为同一人 → relay 边成立；身份层漏接（邻居 g0073 vs 源 ['"
+  }
+ ]
+}

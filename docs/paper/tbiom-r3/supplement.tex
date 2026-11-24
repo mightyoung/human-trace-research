@@ -1,0 +1,212 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{booktabs,array,xcolor,url,amsmath}
+\usepackage[T1]{fontenc}\usepackage{mathptmx}\usepackage[scaled=0.9]{helvet}\usepackage{courier}
+\newcounter{aq}
+\DeclareRobustCommand{\AQ}[1]{\stepcounter{aq}{\color{red}\textbf{[AQ-S\arabic{aq}: #1]}}}
+\newcommand{\ra}{$\rightarrow$}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\title{Supplementary Material\\[4pt]\large How Much Identity Can a Camera Network Deliver? A Three-Probe Diagnostic and a Tiered Delivery Protocol for Cross-Camera Re-Identification}
+\author{}\date{}
+\begin{document}
+\maketitle
+\vspace{-3em}
+This document gives the entry point and result file of each experiment, the environment, the data splits, the composition of the truth sets, and material moved out of the main article for length: the concentration table of the capture-change study, the deliverable statement for D1, the gait measurements and the operating cost. Domains D1, D2 and D3 are as defined in the article and are never pooled.
+
+\section{Entry points by experiment}
+All experiments are deterministic given the track tables and embeddings; no training is involved. Paths are relative to the project repository, which is not part of this submission: the scripts and derived result files are available from the corresponding author on request under the data-use agreement stated in the article's Data Availability section, and nothing here should be read as a claim that they accompany the submission.
+
+\begin{description}\itemsep2pt\raggedright\sloppy
+\item[Cross-camera AUC, six configurations and per pair] \path{tmp/full/emb_auc.py} (\texttt{--by-pair}) \ra\ \path{emb_auc_out.txt}
+\item[Attribute gate] \path{tmp/full/attr_filter_ingraph.py} \ra\ \path{attr_filter_ingraph.json}
+\item[Graph construction and merge strategies] \path{tmp/full/spacetime_ingraph.py} with\\ \texttt{MODES=base,osd,covis60,covis300 THR=0.75} \ra\ \path{spacetime_ingraph.json}
+\item[Temporal audit on the OSD clock] \path{tmp/full/spacetime_audit.py} \ra\ \path{spacetime_audit.json}
+\item[Review queue, ingestion, constrained colouring] \path{tools/build_spacetime_review.py}, \path{tools/ingest_spacetime_review.py}, \path{tools/apply_spacetime_truth.py} \ra\ \path{long35_crosscam_attr8_v1.json}
+\item[Pose-conditioned templates and pool] \path{tools/exp_pose_pool_real.py} \ra\ \path{pose_pool_real.json}. Oracle and measured write rules run inside one causal loop (pool entries are written only from observations earlier than the query; the query is left out), so all rows of the selector table share one query set and denominator.
+\item[Pairwise verifier and partition-level splitter] \path{tmp/full/spacetime_verifier.py}, \path{tmp/full/verifier_split.py} \ra\ \path{spacetime_signal.json}, \path{verifier_out.txt}, \path{verifier_split.json}
+\item[Capture-change cells] \path{tools/e21_xday.py}, \path{tools/e21_xday_audit.py}, \path{tools/e21_xday_table.py} \ra\ \path{matrix.json}, \path{audit.json}
+\end{description}
+
+\section{Environment}
+Python 3.11; \texttt{numpy}, \texttt{scipy}, \texttt{scikit-learn}, \texttt{opencv-python}, \texttt{onnxruntime-gpu}. \emph{Detector:} YOLO8, person class, official pretrained weights, used without site fine-tuning in all three domains. The domains differ in sampling stride and tracker settings, not in detector; RF-DETR was benchmarked as a candidate replacement on a separate detection set and is not behind any number in the article. \emph{Tracker:} ByteTrack with \texttt{track\_high\_thresh} 0.10, \texttt{track\_low\_thresh} 0.05, \texttt{new\_track\_thresh} 0.12, \texttt{match\_thresh} 0.85 and \texttt{fuse\_score} enabled; \texttt{track\_buffer} is 60 at a sampling stride of 5 for the build (gallery) portions and 100 at a stride of 3 for the query portions, the buffer being counted in processed frames, so both cover about 12~s of real time. \emph{Appearance:} OSNet-x1.0 trained on MSMT17, used as-is. \emph{Face:} SCRFD-2.5G detection, five-point alignment, ArcFace 512-d embeddings, using \texttt{w600k\_r50} for the D1 pixel-budget study and \texttt{w600k\_mbf} for the D2 selector pool. \emph{Second image encoder, E2:} EmbeddingGemma-2, 768-d image embeddings.
+
+\section{Data splits}
+\begin{table}[h]\centering
+\caption{Domains}
+\begin{tabular}{@{}llp{3.2cm}p{6.2cm}@{}}
+\toprule
+Domain & Days & Cameras & Role\\
+\midrule
+D1 & 1 & 6 (305, 316, 318, 320, 323, 343); four at 2560$\times$1440, two (318, 323) at 1920$\times$1080; 25 fps, 2,099 s & Deployment-scale graph, truth sets T1 and T2, probes, tiers L1, L2, L3, partition experiments\\
+D2 & 1 & same floor, 8 segments & 445 named tracks over 26 identities; identity-level recall (L0) and selector experiments (L2+). Not used for merge precision\\
+D3 & 3 (10-22, 10-23, 10-26) & 6 per day, different positions from D1 & Capture-change study only; build portion 0--720 s, query portion from 810 s; no identity truth\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Truth-set composition and annotation reliability}
+\begin{table}[h]\centering
+\caption{Adjudicated pairs by source (D1)}
+\begin{tabular}{@{}lccccp{5cm}@{}}
+\toprule
+Source & Pairs & Same & Different & Camera pairs & Purpose\\
+\midrule
+T1 (prior-sampled) & 126 & 34 & 92 & 7 & tests the merge rule; 34/80 have embeddings for both tracks\\
+T2 (contradiction-triggered) & 27 & 12 & 15 & 10 & tests constraint repair\\
+Total & 153 & 46 & 107 & 12 (union) & never pooled into one precision figure\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+T2 at group level: 27 contradictions touch 15 groups; 7 are mixed and 8 pure after adjudication. Twenty of the 27 pairs lie outside T1 coverage and 6 are partially covered. The longest same-person co-occurrence across a pair surveyed as disjoint is 815~s (cameras 305 and 320).
+
+\begin{table}[h]\centering
+\caption{Annotation reliability by layer}
+\begin{tabular}{@{}lccp{3.5cm}@{}}
+\toprule
+Layer & Items & Second annotator & Cohen's $\kappa$ (95\% CI)\\
+\midrule
+Gallery membership (track \ra\ identity) & 257 & yes, blind & 0.925 (0.891--0.958)\\
+Gallery membership, person-containing subset & 236 & yes, blind & 0.945 (0.913--0.972)\\
+Pair verdicts T1 and T2 & 153 & no & not computed\\
+Judged merges (attribute-gate precision) & 63 & no & not computed\\
+Judged-merge re-check & 41 & revisited by the same adjudicator & 17 different / 11 revised to same / 13 unresolved\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The gallery $\kappa$ is computed after aligning the two annotators' independently invented name spaces (28 mappings, 4 one-to-many). Camera 323 carries 15 of the 18 disagreements ($\kappa = 0.811$ over its 69 tracks); 305 reaches 0.977, and 318 and 320 reach 1.000 on their subsets. These 257 tracks are the gallery layer of D1 (cameras 305, 318, 320 and 323). No number in the article is computed from this layer: it is reported only as evidence that the annotation protocol is reproducible under a blind second pass, and the pair verdicts that do carry the results have a single annotator, as the table above states.
+
+A second pass, in which the two annotators' numbering was re-aligned after the disagreements had been revisited (2026-10-26), gives $\kappa = 0.937$ (0.904--0.966) on the gallery layer and $0.959$ (0.931--0.982) on the person-containing subset ($n = 236$). The gain comes from a cleaner partition of identities, not from changed verdicts: the eight revised items were already concordant in the first pass, so their marginal contribution to $\kappa$ is zero. The table reports the first-pass figures; the difference is 0.012 and changes no conclusion drawn here.
+
+\section{Capture-change study: concentration of covered queries}
+\begin{table}[h]\centering
+\caption{Same cells as the nine-cell table of the article. Covered: queries whose two feature-set scores both reach $\theta = 0.90$, out of 766, 957 and 300 query tracks for query days 10-22, 10-23 and 10-26. $K$: clusters that receive at least one covered query; $H/\log K$: entropy of the covered-query distribution over those clusters; max: share of covered queries in the largest of them}
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+Gallery day & Query day & $K$ & Covered & $H/\log K$ & Max cluster\\
+\midrule
+10-22 & 10-22 & 27 & 376 & 0.850 & 16.2\%\\
+10-22 & 10-23 & 21 & 469 & 0.809 & 23.7\%\\
+10-22 & 10-26 & 16 & 110 & 0.877 & 20.0\%\\
+10-23 & 10-22 & 24 & 342 & 0.371 & 76.0\%\\
+10-23 & 10-23 & 39 & 555 & 0.653 & 40.2\%\\
+10-23 & 10-26 & 15 & 110 & 0.516 & 67.3\%\\
+10-26 & 10-22 & 12 & 303 & 0.296 & 83.8\%\\
+10-26 & 10-23 & 11 & 367 & 0.275 & 86.4\%\\
+10-26 & 10-26 & 31 & 195 & 0.643 & 50.3\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The denominator belongs to the query day and is the same in all three galleries of that day; the three query days have 766, 957 and 300 query tracks. Every share in this table is taken over that denominator, and the table above is reproducible from the per-cell query files by thresholding both feature-set scores at 0.90.
+
+Read against its own same-day cell, the largest cluster grows in all six cross-day cells (by 3.8 to 36.1 points) and normalised entropy falls in five of six. The exception is 10-22\ra10-26, where entropy rises slightly (0.850 \ra\ 0.877) while fm still goes from 5.2\% to 9.8\%, and the largest cluster grows from 16.2\% to 20.0\% --- the same cell that an absolute threshold would miss. That is the reason concentration is offered as a screen and not as an acceptance test.
+
+Two caveats apply to this table. Its denominator is all query tracks (766, 957 and 300), whereas the nine-cell table of the article counts evaluable pairs after the invalid-segment filter, so the two are not directly comparable row by row. And the generating run predates that filter; its configuration is not preserved in the released package, so these cells are reported as recorded rather than as reproducible. The reproducible variant is the one in the article.
+
+\section{Deliverable statement for D1}
+\begin{table}[h]\centering
+\caption{The form in which a system is accepted or rejected}
+\begin{tabular}{@{}p{4.6cm}cp{6.4cm}@{}}
+\toprule
+Claim & Tier & Status and evidence\\
+\midrule
+Same-camera identity across time & L0 & 42.3\% of same-camera cross-period pairs (D2)\\
+Cross-camera identity, 318--320 & L1 & AUC 0.904 (OSNet), 0.994 (E2); 11 positives\\
+Cross-camera identity, other pairs & L1 & Not available; candidates only (316--343 at 0.231)\\
+Precision on judged merges & L2 & 40/43 = 0.930 with the attribute gate\\
+Contradiction-triggered merged pairs & --- & 12/27 same-person; 7 of 15 groups mixed\\
+Selector recall, named identities & L2+ & 56.4\% \ra\ 68.2\% without a face (D2, 179 queries)\\
+Face-based verification & P1 & Not available: 7.9\% usable, median face-box width 52 px\\
+Automatic repair of a merged group & --- & Not available; L3 required\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Gait as a candidate fourth probe}
+Both populations are D1. Of the 1,473 D1 tracks that are evaluable here --- 305: 182, 316: 216, 318: 381, 320: 145, 323: 469, 343: 80 --- 204 (13.8\%) contain a walking segment of at least two seconds whose median box height exceeds 100~px. Of the 538 D1 observations that carry a gallery identity label, 74 do. The gap between the two denominators is the point: most tracks have no identity label, and most labelled observations have no usable walking segment. On the 63 tracks that also pass a silhouette quality gate (34 identities, 1,953 pairs, 44 evaluable rank-1 queries), a keypoint descriptor reaches AUC 0.613 (95\% CI 0.496--0.720), a silhouette-dynamics descriptor 0.632 (0.534--0.725) and a gait energy image 0.656 (0.547--0.766), against 0.865 (0.796--0.926) for appearance on the same tracks, and 0\% to 11.4\% rank-1 against 45.5\%. Fusing gait into the appearance score degrades ranking monotonically (AUC 0.778 at weight 0.2, 0.684 at 0.5). The residual gait signal is stronger in cross-camera pairs (0.670) than same-camera pairs (0.575), which suggests body build more than gait phase. Gait needs a walking segment, sufficient body height and a side view; a floor of workstations rarely supplies them. We therefore propose three probes.
+
+\section{External check of P2 on WILDTRACK}\label{sec:supp-wildtrack}
+
+\emph{Why this check.} Section V-B claims only that a region observed by both cameras is where L1 may be attempted; an earlier draft claimed that such a region makes L1 available. To test the stronger claim we need a site with a global identity label and calibrated views, which our floor does not supply. WILDTRACK (T.~Chavdarova \emph{et al.}, CVPR 2018; cited as~[14] in the main text) provides seven synchronised cameras over one plaza with global person IDs.
+
+\emph{Protocol.} 400 annotated frames; 20 frames per view sampled evenly; 1{,}855 crops with 8\% padding; OSNet-x1.0 (MSMT17), 512-d, $\ell_2$-normalised. Co-visibility of a pair is $\sum_t \mathbf{1}[\text{visible in both}] / \sum_t \mathbf{1}[\text{visible in either}]$ over all 400 frames. Positive pairs are the same personID in two views at different times; negatives are random different-personID pairs of equal count. AUC is Mann--Whitney with identity-level bootstrap (1{,}000 draws).
+
+\emph{Co-visibility does not order pairs by AUC.} Across 21 pairs, co-visibility spans 0.00--0.89 and cross-time AUC spans 0.350--0.901 (median 0.755). The two correlate at $r=0.179$ ($\rho=0.161$), and at $r=-0.05$ once pairs with fewer than 30 shared identities are dropped. Banding by co-visibility leaves the medians flat: 0.739, 0.817 and 0.755 for co-visibility $\ge0.5$, 0.2--0.5 and $<0.2$.
+
+\emph{An identity-composition confound, and its control.} Raw pair AUC falls as the shared identity set grows (228 identities: 0.711; 43 identities: 0.901), because the people two distant cameras both see are the salient ones. Resampling 15 identities per pair 200 times removes the trend ($\rho=-0.153$) and leaves the null intact. Any per-pair AUC comparison at a multi-camera site should control this.
+
+\emph{Region-level A/B.} Box feet are back-projected to the ground plane through the calibrations; a pair of crops counts as in-region when both feet fall in grid cells visible to both cameras (60~cm grid). Of 21 pairs, 17 admit both an in-region and an out-region estimate:
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Pair & AUC in & AUC out & $\Delta$ & $n_{\text{pos,in}}$\\
+\midrule
+C4--C7 & 0.984 & 0.614 & $+0.371$ & 174\\
+C2--C5 & 0.890 & 0.592 & $+0.299$ & 8\\
+C1--C4 & 0.893 & 0.705 & $+0.188$ & 453\\
+C3--C5 & 0.740 & 0.647 & $+0.093$ & 1{,}242\\
+C3--C6 & 0.714 & 0.657 & $+0.056$ & 1{,}542\\
+C1--C6 & 0.701 & 0.884 & $-0.183$ & 1{,}519\\
+C5--C7 & 0.731 & 0.905 & $-0.174$ & 11\\
+C3--C4 & 0.788 & 0.911 & $-0.123$ & 471\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Median $\Delta=+0.042$; 11 of 17 pairs are positive. Neither optical-axis angle, camera baseline, geometric overlap nor person height explains the residual ($|r|\le0.18$). The camera-index to device-name mapping is not distributed with the archive; we recovered it by maximising agreement between grid-predicted overlap and measured co-visibility over all $7!$ assignments ($\rho=0.639$). The mapping affects the geometric columns only, not the co-visibility result.
+
+\emph{Pixel sweep.} The same crops, downsampled to a target person height by area averaging and then restored to the model input size by cubic interpolation; 15 identities per pair, 200 draws:
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+Target height (px) & 320 & 160 & 112 & 80 & 56 & 40 & 24 & 16\\
+Median AUC & 0.795 & 0.791 & 0.786 & 0.778 & 0.768 & 0.733 & 0.706 & 0.671\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A person 16~px tall is still ranked above chance, so the failure of cross-camera appearance on our floor is not a pixel-budget effect, and P1 is a face-channel constraint rather than a general one. The interaction with co-visibility is not stable ($r=+0.45$ at 16~px, $-0.23$ at 40~px) and we draw no conclusion from it.
+
+\emph{Limits.} One dataset, one encoder, 20 frames per view; in-region positives fall to 8--11 for two pairs, which we do not treat as evidence. Synthetic degradation omits sensor noise, motion blur and compression, so 0.671 at 16~px is an upper bound. Foot-point back-projection assumes upright persons on a plane; the region test also inherits the recovered camera-index mapping, and no alternative assignment was evaluated. The 21 pairs share seven cameras and one person pool, so they are not 21 independent site tests.
+
+\section{Sensitivity of the L2+ selector to a box-height floor and to the decision rule}\label{sec:supp-sens}
+
+The 179 queries behind the L2+ row of the main text are not filtered by person-box height, and neither are the morning library tracks. Applying a 60~px floor to both --- the operating point of the selector we deploy --- leaves 157 queries and changes what the box-height kernel contributes.
+
+\begin{table}[h]
+\centering
+\caption{Selector recall at $\tau=0.80$ on D2 under a $2\times2$ box-height floor.}
+\label{tab:sens}
+\begin{tabular}{lcccc}
+\toprule
+Library & Query & $n$ & Plain mean & Kernel \\
+\midrule
+unfiltered & unfiltered & 179 & 101 & 125 \\
+unfiltered & $\ge 60$~px & 157 & 89 & 109 \\
+$\ge 60$~px & unfiltered & 179 & 101 & 121 \\
+$\ge 60$~px & $\ge 60$~px & 157 & 100 & 108 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Either floor alone leaves the kernel a gain of 20 queries; both together leave it 8. The third row shows why: filtering the library already lifts the plain mean on the surviving queries from 89 to 100, which is most of what the kernel was doing. We therefore report the L2+ gain as conditional on an unfiltered library, not as an increment that survives the quality gate we deploy.
+
+A second sensitivity concerns the decision rule rather than the representation. Replacing the absolute test $s_1\ge\tau$ by a relative one, $s_1-s_2\ge m$, moves recall at a fixed number of false accepts. With library and queries unfiltered, one false accept admits 116 queries against 56 for the absolute rule, and four admit 118 against 112; the kernel reaches 130 at four. The two remedies do not combine: applying both gives 115 at four false accepts, consistent with both acting on the same score-scale defect. Because the relative rule ignores absolute similarity, it applies only to the closed-set setting of this experiment and would need an absolute floor in open-set deployment.
+
+\section{Operating cost}
+\emph{Adjudication.} 27 items in 20--30 minutes by one adjudicator on a phone, offline: about 45--67~s per item, or 30--40 items per operator-hour. The adjudication surface is one self-contained HTML file with embedded images (2.05~MB for 27 items); verdicts export as JSON. Generating it takes about 10 minutes on first run.
+
+\emph{Probes.} P1 and P3 run on existing detections in under an hour each. P2 is a site task of about half a day for six cameras. Its external check (Section~\ref{sec:supp-wildtrack}) costs about four minutes of GPU time once 1{,}855 crops exist, plus roughly twenty minutes of calibration handling.
+
+\emph{What was not measured.} Queue length beyond a 35-minute capture, and adjudication cost as a function of queue length.
+
+\end{document}

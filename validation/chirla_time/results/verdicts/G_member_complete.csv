@@ -1,0 +1,6 @@
+﻿query_id,cam,cluster_local,q_pid,c_pid,verdict,cluster_n_lab,cluster_n_ids,top_share,cluster_mixed
+c5_000q#2,c5,14,,,U,0,0,0.0,0
+c5_000q#21,c5,18,3,3,C,4,1,1.0,0
+c6_000q#4,c6,2,1,1,C,6,2,0.833,1
+c6_000q#9,c6,1,,,U,0,0,0.0,0
+c6_000q#10,c6,12,9,9,C,4,1,1.0,0

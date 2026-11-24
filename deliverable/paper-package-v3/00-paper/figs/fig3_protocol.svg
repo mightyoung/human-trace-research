@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 430" width="700" height="430" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5a5a5a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="430" fill="#ffffff"/>
+
+  <text x="14" y="20" font-size="10" fill="#8a1c1c" letter-spacing="1.4">THREE PROBES — MEASURED IN ONE DAY</text>
+  <text x="336" y="20" font-size="10" fill="#8a1c1c" letter-spacing="1.4">DELIVERY TIERS — HIGHEST SUPPORTED</text>
+
+  <!-- ===== P1 ===== -->
+  <rect x="14" y="34" width="214" height="94" fill="#f2f7f6" stroke="#1f6f6b" stroke-width="1.4"/>
+  <text x="26" y="52" font-size="11" fill="#1f6f6b" letter-spacing="1">P1 · FACE PIXEL BUDGET</text>
+  <text x="26" y="70" font-size="10" fill="#1a1a1a">measure: median face width,</text>
+  <text x="26" y="83" font-size="10" fill="#1a1a1a">usable-face share over 200 tracks</text>
+  <text x="26" y="101" font-size="9.5" fill="#5a5a5a">80 px or more → face tiers available</text>
+  <text x="26" y="114" font-size="9.5" fill="#5a5a5a">below 60 px  → face tiers off (52 px here)</text>
+
+  <!-- ===== P2 ===== -->
+  <rect x="14" y="146" width="214" height="94" fill="#f1f4f9" stroke="#2b4f81" stroke-width="1.4"/>
+  <text x="26" y="164" font-size="11" fill="#2b4f81" letter-spacing="1">P2 · REGIONAL CO-VISIBILITY</text>
+  <text x="26" y="182" font-size="10" fill="#1a1a1a">measure: shared region per</text>
+  <text x="26" y="195" font-size="10" fill="#1a1a1a">camera pair (homography / survey)</text>
+  <text x="26" y="213" font-size="9.5" fill="#5a5a5a">yes → AUC of .90 or more, that pair</text>
+  <text x="26" y="226" font-size="9.5" fill="#5a5a5a">no  → L1 unavailable, that pair</text>
+
+  <!-- ===== P3 ===== -->
+  <rect x="14" y="258" width="214" height="94" fill="#faf5ec" stroke="#a86a1a" stroke-width="1.4"/>
+  <text x="26" y="276" font-size="11" fill="#a86a1a" letter-spacing="1">P3 · WARDROBE DIVERSITY</text>
+  <text x="26" y="294" font-size="10" fill="#1a1a1a">measure: size of the modal</text>
+  <text x="26" y="307" font-size="10" fill="#1a1a1a">clothing class over a day</text>
+  <text x="26" y="325" font-size="9.5" fill="#5a5a5a">small class → veto is informative</text>
+  <text x="26" y="338" font-size="9.5" fill="#5a5a5a">large class → veto weak (118 here)</text>
+
+  <!-- 汇流 -->
+  <path d="M228,81 L262,81 L262,205 L280,205" fill="none" stroke="#5a5a5a" stroke-width="1.2" marker-end="url(#ar3)"/>
+  <path d="M228,193 L262,193 L262,205" fill="none" stroke="#5a5a5a" stroke-width="1.2"/>
+  <path d="M228,305 L262,305 L262,205" fill="none" stroke="#5a5a5a" stroke-width="1.2"/>
+
+  <!-- ===== 阶梯 ===== -->
+  <g>
+    <!-- L0 -->
+    <rect x="336" y="298" width="350" height="46" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.3"/>
+    <text x="350" y="316" font-size="11.5" fill="#1a1a1a">L0 · same camera across time</text>
+    <text x="350" y="333" font-size="10" fill="#5a5a5a">42.3% recall · no probe needed</text>
+    <rect x="600" y="305" width="74" height="16" fill="#f0f0f0"/>
+    <text x="637" y="317" font-size="8.5" text-anchor="middle" fill="#5a5a5a">always on</text>
+
+    <!-- L1 -->
+    <rect x="356" y="242" width="330" height="46" fill="#ffffff" stroke="#2b4f81" stroke-width="1.3"/>
+    <text x="370" y="260" font-size="11.5" fill="#1a1a1a">L1 · co-visible region</text>
+    <text x="370" y="277" font-size="10" fill="#5a5a5a">AUC .904 (OSNet) / .994 (E2)</text>
+    <rect x="614" y="249" width="60" height="16" fill="#e7edf6"/>
+    <text x="644" y="261" font-size="8.5" text-anchor="middle" fill="#2b4f81">gated by P2</text>
+
+    <!-- L2 -->
+    <rect x="376" y="186" width="310" height="46" fill="#ffffff" stroke="#a86a1a" stroke-width="1.3"/>
+    <text x="390" y="204" font-size="11.5" fill="#1a1a1a">L2 · attribute-consistency veto</text>
+    <text x="390" y="221" font-size="10" fill="#5a5a5a">merge precision .730 → .930</text>
+    <rect x="622" y="193" width="52" height="16" fill="#f6eddd"/>
+    <text x="648" y="205" font-size="8.5" text-anchor="middle" fill="#a86a1a">by P3</text>
+
+    <!-- L2+ -->
+    <rect x="396" y="130" width="290" height="46" fill="#ffffff" stroke="#1f6f6b" stroke-width="1.3"/>
+    <text x="410" y="148" font-size="11.5" fill="#1a1a1a">L2+ · pose-conditioned templates</text>
+    <text x="410" y="165" font-size="10" fill="#5a5a5a">selector recall 56.4 → 68.2 → 79.3%</text>
+    <rect x="628" y="137" width="46" height="16" fill="#e6f0ee"/>
+    <text x="651" y="149" font-size="8.5" text-anchor="middle" fill="#1f6f6b">+P1</text>
+
+    <!-- L3 -->
+    <rect x="416" y="74" width="270" height="46" fill="#faf6f3" stroke="#8a1c1c" stroke-width="1.6"/>
+    <text x="430" y="92" font-size="11.5" fill="#8a1c1c">L3 · human adjudication queue</text>
+    <text x="430" y="109" font-size="10" fill="#5a5a5a">27 items / 20–30 min · 27/27 honoured</text>
+    <rect x="620" y="81" width="54" height="16" fill="#f4e6e6"/>
+    <text x="647" y="93" font-size="8.5" text-anchor="middle" fill="#8a1c1c">budget</text>
+  </g>
+
+  <!-- 向上的轴 -->
+  <line x1="322" y1="344" x2="322" y2="74" stroke="#c9c9c9" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- 注脚 -->
+  <line x1="14" y1="366" x2="686" y2="366" stroke="#d8d8d8" stroke-width="1"/>
+  <text x="14" y="385" font-size="9.5" fill="#1a1a1a">An integrator buys the highest tier its probes and its operator budget support. Upward: more identity, stronger preconditions, fewer eligible sites.</text>
+  <text x="14" y="402" font-size="9.5" fill="#8a1c1c">Tiers cannot be collapsed: a pairwise verifier with AUC .833 destroyed 3 of 5 correct merges, monotonically in its threshold (§7).</text>
+  <text x="14" y="419" font-size="9" fill="#5a5a5a">Boundaries are calibrated on one site; the ordering of the probes is what transfers.</text>
+</svg>

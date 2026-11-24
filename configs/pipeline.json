@@ -1,0 +1,128 @@
+{
+ "version": 1,
+ "updated": "2026-11-11T14:30",
+ "note": "生产/评测链路的默认开关。改动前先看 docs/mainline-production-config-2026-11-11.md 的理由列。",
+ "scenarios": {
+  "long_volume": {
+   "desc": "7 卷全天（v2486 v2518 v2526 v2534 v2540 v2545 v2559，1823 条有嵌入轨）",
+   "clustering": {
+    "linkage": "average",
+    "thr": 0.78,
+    "cooc_nested": 0.6,
+    "cooc_veto_frames": 10,
+    "post_split": true
+   },
+   "position_merge": {
+    "enabled": false,
+    "why": "人工判读 26 组无真值合并：13 同 / 13 异 = 50.0%（CI 32-68%）。cos 与 pos 对同人/异人均无区分力（中位 .713 vs .712、1.00 vs .98）。A/B 两臂叠加人脸锚点后终点完全相同 → 对真值零贡献，真值外 26% 错连接。净负，摘掉。",
+    "evidence": "docs/mainline-merge-judge-result-2026-11-11.md"
+   },
+   "face_anchor": {
+    "enabled": true,
+    "tau_face": 0.45,
+    "cams": "all",
+    "min_fid_tracks": 2,
+    "dom_frac": 0.6
+   },
+   "expected": {
+    "base_P": 0.9861,
+    "base_R": 0.461,
+    "P": 0.9931,
+    "R": 0.9383,
+    "F1": 0.9649,
+    "macro": 0.741,
+    "fp": 2,
+    "n_pos": 308,
+    "n_pred": 291,
+    "clusters": 136,
+    "max_cluster": 150,
+    "n_fid": 76,
+    "n_merge": 9,
+    "note": "R/P 只在 86 条真值轨（70 轨有嵌入）上算，n_pos 308；cross-camera 60 对已全部接上。"
+   }
+  },
+  "short_segment": {
+   "desc": "8 段 15 分钟（305/318/320/323 × train/test，445 有嵌入具名轨中的 432 条进配对评估）",
+   "clustering": {
+    "linkage": "average",
+    "thr": 0.78,
+    "cooc_nested": 0.6,
+    "cooc_veto_frames": 10,
+    "post_split": true
+   },
+   "position_merge": {
+    "enabled": false,
+    "pos_min": 0.8,
+    "cos_min": 0.65,
+    "veto_frames": 10,
+    "min_support": 30,
+    "precondition": "只有在同一时段、一人一座时成立；跨小时的卷不适用（7 卷判读 47.8%）",
+    "verdict": "8 段 10 次合并 = 8 好 / 2 坏 = 80%",
+    "gain": "P 0.9744→0.9733（-0.11）R 0.3446→0.3839（+3.93）",
+    "why": "8 段人工判读 10 次合并 = 8 好 / 2 坏 = 80%，同样低于 95% 停止线；按「长卷关、短片段开」分两套是看了结果再按场景挑。论文链路统一关闭，作为消融项保留。",
+    "ablation": {
+     "P": "0.9744→0.9733（-0.11）",
+     "R": "0.3446→0.3839（+3.93）",
+     "verdict_8of10": "80%",
+     "note": "产品上是否在短片段开启是另一个决定，未定"
+    }
+   },
+   "face_anchor": {
+    "enabled": true,
+    "tau_face": 0.45,
+    "cams_on": [
+     "305",
+     "318",
+     "320"
+    ],
+    "cams_off": [
+     "323"
+    ]
+   },
+   "expected": {
+    "base_P": 0.9744,
+    "base_R": 0.3446,
+    "P": 0.9808,
+    "R": 0.5368,
+    "F1": 0.6939,
+    "macro": 0.516,
+    "fp": 72,
+    "note": "增益 78% 来自 female3，自助法下界为 0，不可外推。",
+    "base_note": "关闭位置合并后的基线（=步骤 1 的 thr .78 基线）"
+   }
+  },
+  "gt": {
+   "8seg": "tmp/full/gt_8seg.json（494 轨 / 26 身份），修正版 tmp/full/gt_8seg_fixed.json（剔除 305_train_529#2，轨内 ID switch）",
+   "on_vol": "deliverable/step3_anchor_7vol/gt_on_vol.json（86 轨，仅 v2534/v2518）",
+   "known_noise": [
+    {
+     "pair": "ov-03",
+     "tracks": [
+      "323_train_510#8312",
+      "305_train_529#2"
+     ],
+     "verdict": "不同人",
+     "cause": "305_train_529#2 长 849 帧、5 次比较 4 同 1 异 → 轨内 ID switch，已从 GT 剔除"
+    },
+    {
+     "pair": "ov-05",
+     "tracks": [
+      "323_train_510#287",
+      "320_train_514#109"
+     ],
+     "verdict": "不同人",
+     "cause": "323#287 与本身份其他轨 cos .632（对照 .764）；不在任何簇里，无指标影响"
+    },
+    {
+     "pair": "ov-07",
+     "tracks": [
+      "323_train_510#975",
+      "318_train_525#965"
+     ],
+     "verdict": "不同人",
+     "cause": "外观无法裁决（.754 vs .723）；改名影响 P -0.0025"
+    }
+   ]
+  }
+ }
+}

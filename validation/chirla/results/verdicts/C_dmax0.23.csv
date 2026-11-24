@@ -1,0 +1,2 @@
+﻿query_id,cam,cluster_local,q_pid,c_pid,verdict,cluster_n_lab,cluster_n_ids,top_share,cluster_mixed
+c2_002#1,c2,3,10,10,C,2,2,0.5,1

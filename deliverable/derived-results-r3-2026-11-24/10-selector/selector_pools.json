@@ -1,0 +1,57 @@
+{
+ "pool_k": 3,
+ "pool_max": 8,
+ "tau_face": 0.35,
+ "face_margin": 0.02,
+ "n_writes": 19,
+ "n_writes_correct": 18,
+ "n_evicted": 1,
+ "entries": [
+  {
+   "camera": "305",
+   "identity": "female3",
+   "n_tracks": 8,
+   "tracks": [
+    "305_test_544#227",
+    "305_test_544#360",
+    "305_test_544#2178",
+    "305_test_544#3379",
+    "305_test_544#3548",
+    "305_test_544#7105",
+    "305_test_544#7238",
+    "305_test_544#7882"
+   ]
+  },
+  {
+   "camera": "305",
+   "identity": "male12",
+   "n_tracks": 7,
+   "tracks": [
+    "305_test_544#5",
+    "305_test_544#335",
+    "305_test_544#891",
+    "305_test_544#1153",
+    "305_test_544#1618",
+    "305_test_544#3597",
+    "305_test_544#5361"
+   ]
+  },
+  {
+   "camera": "318",
+   "identity": "female1",
+   "n_tracks": 1,
+   "tracks": [
+    "318_test_534#1769"
+   ]
+  },
+  {
+   "camera": "318",
+   "identity": "female5",
+   "n_tracks": 2,
+   "tracks": [
+    "318_test_534#1231",
+    "318_test_534#1813"
+   ]
+  }
+ ]
+}

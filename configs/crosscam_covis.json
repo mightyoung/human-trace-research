@@ -1,0 +1,55 @@
+{
+  "_readme": "机位对可视性图。用途：判定「同一时刻出现在两台相机」能否作为『必为不同人』的负样本。判据 = SIFT+RANSAC 单应后把 A 投影到 B、在重叠区算灰度相关（5 个时刻）。vis=true 才能互斥；vis=false 时互斥由物理保证，与标注质量无关。详见 docs/d1-covis-model-2026-11-09.md",
+  "_updated": "2026-11-09",
+  "_criterion": "5 个时刻相关系数中位 >= 0.30 且最小 >= 0.15 记为 vis=true；中位在 [0.15,0.30) 记 marginal=慎用",
+  "_warning": "内点率/匹配数不能单独用于判定：1012 305x318 内点率 0.32、投影覆盖 0.78，投影相关只有 0.13，属误配。必须看投影相关。",
+
+  "e21_2026-10-22": {
+    "source": "SIFT+RANSAC, 5 时刻 (源起录后 1770/1950/2130/2310/2490 s)",
+    "pairs": {
+      "茶水间|行政走廊通道":        {"vis": true,  "marginal": false, "inliers": 78,  "ratio": 0.75, "warp_corr_median": 0.49,
+                                     "corr": [0.51, 0.42, 0.50, 0.46, 0.49]},
+      "茶水间|电梯间":              {"vis": false, "marginal": true,  "inliers": 40,  "ratio": 0.51, "warp_corr_median": 0.25,
+                                     "corr": [0.25, 0.27, 0.28, 0.15, 0.25]},
+      "办公区2|行政走廊通道":        {"vis": false, "marginal": false, "inliers": 62,  "ratio": 0.61, "warp_corr_median": 0.04,
+                                     "corr": [0.06, 0.09, 0.03, 0.01, 0.04]},
+      "办公区2|电梯间":              {"vis": false, "marginal": false, "inliers": 7,   "ratio": 0.22, "warp_corr_median": 0.06,
+                                     "corr": [-0.57, 0.10, 0.06, -0.29, 0.13]},
+      "办公区1|电梯间":              {"vis": false, "marginal": false, "inliers": 18,  "ratio": 0.30, "warp_corr_median": -0.02,
+                                     "corr": [-0.01, 0.30, -0.14, -0.13, -0.02]},
+      "办公区2|茶水间":              {"vis": false, "marginal": false, "inliers": 20,  "ratio": 0.34, "warp_corr_median": -0.04,
+                                     "corr": [-0.04, -0.15, -0.04, -0.12, -0.04]},
+      "办公区1|办公区2":             {"vis": false, "marginal": false, "inliers": 57,  "ratio": 0.51, "warp_corr_median": -0.13,
+                                     "corr": [-0.14, -0.11, -0.16, -0.13, -0.07]},
+      "办公区1|行政走廊通道":        {"vis": false, "marginal": false, "inliers": 162, "ratio": 0.82, "warp_corr_median": -0.15,
+                                     "corr": [-0.17, -0.17, -0.14, -0.14, -0.11],
+                                     "note": "内点率全场最高 0.82 却是负相关——内点率不可靠的教科书例子"},
+      "办公区1|茶水间":              {"vis": false, "marginal": false, "inliers": 54,  "ratio": 0.59, "warp_corr_median": -0.17,
+                                     "corr": [-0.19, -0.17, -0.19, -0.16, -0.14]}
+    },
+    "caveat": "茶水间用的是 茶水间_merged.mp4（A/B 两路拼接），后 3 个取样点可能落进 B 段，时间映射未校。但 5 点全正且量级一致，定性结论不受影响。",
+    "usable_pairs_for_negative": ["办公区1|办公区2", "办公区1|电梯间", "办公区1|行政走廊通道", "办公区1|茶水间",
+                                  "办公区2|电梯间", "办公区2|行政走廊通道", "办公区2|茶水间", "电梯间|行政走廊通道"],
+    "blocked_pairs": ["茶水间|行政走廊通道"],
+    "marginal_pairs": ["茶水间|电梯间"],
+    "negative_yield": {"total_simultaneous_pairs": 6902, "usable_after_vis_filter": 5749}
+  },
+
+  "1012": {
+    "source": "SIFT+RANSAC, 5 时刻 (14:30:00 起 60/240/420/600/780 s)",
+    "pairs": {
+      "305|318": {"vis": false, "marginal": false, "inliers": 17, "ratio": 0.32, "warp_corr_median": 0.13,
+                  "corr": [0.13, 0.00, 0.10, 0.21, 0.15]},
+      "318|320": {"vis": true, "marginal": false, "note": "项目原有目检结论：真重叠（本次未重测）"}
+    },
+    "correction": "第一版曾把 16 对『同身份同时在场』判为共视致污（2.26%）。已推翻：投影相关仅 0.13，且 2 对 160px body 框目检确认为不同的人。该 16 对是跨机位 pid 撞名，属标注噪声。",
+    "retracted": {"contamination_rate": 0.0226, "reason": "标注噪声，非共视"}
+  },
+
+  "_open_issue": {
+    "title": "跨机位 pid 撞名",
+    "evidence": "2/2 可辨的『同 pid 跨机位』对目检为不同的人（female1、female3，160 px body 框，同一时刻场景完全不同）",
+    "scope": "不影响跨机位同场负样本（依赖物理不重叠）；影响任何按 pid 跨机位分组的指标",
+    "mitigation": "跨机位使用 pid 前先过 evaluable=1 ∧ box_type=body ∧ 框高下限；本轮 16 对里 11 对是 head 框、5 对 evaluable=0"
+  }
+}

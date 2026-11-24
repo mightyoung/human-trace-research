@@ -1,0 +1,65 @@
+{
+  "dataset": "CHIRLA (within-session time split, 非预注册)",
+  "subset": {
+    "gallery": [
+      "c1_000g",
+      "c2_000g",
+      "c3_000g",
+      "c4_000g",
+      "c5_000g",
+      "c6_000g",
+      "c7_000g"
+    ],
+    "query": [
+      "c1_000q",
+      "c2_000q",
+      "c3_000q",
+      "c4_000q",
+      "c5_000q",
+      "c6_000q",
+      "c7_000q"
+    ]
+  },
+  "counts": {
+    "gallery_tracks": 97,
+    "gallery_labeled": 97,
+    "query_tracks": 61,
+    "query_identities": 8,
+    "answerable": 61
+  },
+  "gt_match": {
+    "iou_min": 0.5,
+    "purity_switch": 0.8,
+    "matched_min": 0.5,
+    "frame_offset": 1,
+    "no_match": 20,
+    "id_switch": 19
+  },
+  "params": {
+    "fps": 2.5,
+    "stride": 12,
+    "imgsz": 1280,
+    "thr_in": 0.15,
+    "thr_out": 0.25,
+    "same_min": 0.9,
+    "min_frames": 6
+  },
+  "deviations": [
+    "非预注册的第二分析：预注册设计（seq_000→seq_001/002）因跨场 50 分钟域偏移不可用，这是补救实验，不能替代主结果",
+    "θ 网格下界从 1.40 扩到 -0.60：K 从 111 降到 16 时 z 校准整体下移，生产网格落不到可用区间；规则不变",
+    "same 门槛从 0.90 放宽到 0.82：本数据 a/b 同簇率最高只有 0.821，0.90 无解；放宽只为拿到描述性工作点，不作判定",
+    "特征口径沿用历史 BGR，与冻结基线一致",
+    "轨迹真值为自动 IoU 匹配（非人工标注）"
+  ],
+  "design": "seq_000 前 60% 帧作图库、后 40% 作查询，7 机位同步；切分帧 5350/8916",
+  "diagnostics": {
+    "query_vs_gallery_same_cos": 0.763,
+    "query_vs_gallery_diff_cos": 0.589,
+    "query_vs_gallery_auc": 0.845,
+    "track_top1": 0.77,
+    "ab_same_max": 0.846,
+    "ab_same_at_relaxed_point": 0.821,
+    "ab_same_max_correction": "2026-11-09 更正：原记 ab_same_max=0.821，按 results/curve.csv 完整网格复核后真实上界为 0.8462（θ=1.10, evaluable=25）。0.821 是放宽到 0.82 门槛那个工作点的观测值，不是上界。结论不变：上界仍低于 0.90，冻结判据在该数据上不可达",
+    "note": "同场切分后表征完全可用（top-1 77%%，AUC .845），但 a/b 同簇率上界约 0.846 —— 整条轨迹只有 2-5 秒，两半各 2-3 个采样帧，特征不稳。冻结的 same≥0.90 判据在这类短轨迹数据上不可达"
+  }
+}

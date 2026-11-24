@@ -1,0 +1,173 @@
+{
+  "name": "yolo26s-dd-camaware",
+  "created": "2026-10-19",
+  "updated": "2026-10-24 07:50",
+  "authorized_by": "用户 2026-10-19 06:56「按照建议执行吧」+ 12:26「按照你的落地排序执行」+ 15:13「按照B吧」（授权启用 veto_dmax=0.30）；用户 2026-10-24 07:45「关掉吧」（授权关闭 veto_dmax，回到无否决基线）",
+  "detector": "yolo26s-seg",
+  "note": "1012 跨机位判定的生产配置：YOLO26s-seg + ByteTrack，检测后做同帧去重（IoU>=0.5 丢低分框），再 a/b 分片与 OSNet 编码；图库改为机位感知聚类（机位内紧聚类 -> 跨机位 complete-linkage 合并，禁止同机位再合并）。same 门槛沿用 0.90，未改判据。",
+  "primary": "yolo8dd",
+  "variants": {
+    "baseline": "output_crosscam_local/1012_osnet_emb",
+    "yolo8dd": "output_crosscam_local/1012_yolo8_dd_emb"
+  },
+  "cooc_map": {
+    "yolo8dd": "output_crosscam_local/1012_yolo8_dd"
+  },
+  "cluster": {
+    "mode": "camera",
+    "thr_in": 0.15,
+    "thr_out": 0.25,
+    "veto_dmax": null,
+    "veto_disabled": "2026-10-24 07:45 用户决定关闭。逐条真值（gt v2）下 veto 是纯负收益：C 118→90（−28，p<1e-4）、覆盖 0.664→0.528；MARS 外部验证同向（−15，p=.0026）。下面的 veto_rationale 保留为历史依据（其 AUC 0.769 是簇级目检口径，与逐条真值的 0.952/0.521 不同源，勿再引用）。",
+    "veto_rationale": "簇纯度否决：簇内最大成对余弦距离 >= 0.30 的簇整簇弃用、不建原型。依据 39 个已人工判定簇（24 对 / 13 错）——d_max 是唯一有稳定信号的簇级特征（AUC 0.769，好簇中位 0.160 / 坏簇 0.291）；机制是机位内 average-linkage 只约束平均距离，链式串人会在簇内留下长成对距离，而跨机位 complete-linkage 不产生这种情况。留一交叉验证每折切点稳定在 0.29–0.30。详见 docs/cluster-purity-signal-2026-10-19.md",
+    "rationale": "camera bias：同机位特征天然更近，全局 average-linkage 会把同机位的不同人并簇。机位内收紧到 0.15，跨机位用 complete-linkage 0.25 合并；参数平台见 docs/camera-aware-clustering-2026-10-19.md",
+    "thr_out_review": "2026-11-09 复评 thr_out=0.20，结论「不切」，保持 0.25。理由：(1) 0.20 在 E21 六机位三天上是零代价（Δcov +0.0002 / Δfm +0.01pp），但在 1012 四机位生产数据上 fm 从 14 对涨到 21 对（+50%）；(2) 根因是 θ=1.55 处 same 精确等于 0.900000，以零余量通过门槛，self-cal 把聚类变纯的收益全部兑换成 coverage；(3) 固定 θ=1.85 比较时 0.20 确实更纯（fm 12 vs 14 对、same 0.9128 vs 0.9079），但这点收益被自校准吃掉；(4) 跨机位纯度收益只能由离线负样本证明（污染率 12.4%→8.9%），现有评测指标无一直接度量它。若将来要切，须同时加 --fm-budget 0.0125 锁工作点（代价 −2 条覆盖换 −2 对误合并）。完整证据见 docs/e21-results-2026-11-09.md §14/§15/§16。",
+    "thr_default_mismatch": "⚠ cluster_camera_aware.camera_aware_labels() 的函数签名默认值仍是 0.12/0.20（历史遗留，与本节生产值不一致）。当前 tools 下 21 处调用全部显式传参，默认值从未生效；新增调用时必须显式传 thr_in/thr_out，不可省略。默认值修正留到冻结包重建时一并做（改它会动 BASELINE_FREEZE 的 code 哈希）。",
+    "fallback": {
+      "mode": "global",
+      "hier_thr": 0.2
+    }
+  },
+  "scorer": {
+    "mode": "proto",
+    "note": "proto = 簇原型余弦 + 每身份 z 校准 + 会话均值对齐（历史口径）。krecip 候选见 candidate，切换只需 --scorer krecip。",
+    "candidate": {
+      "mode": "krecip",
+      "k1": 18,
+      "k2": 6,
+      "lambda": 0.5,
+      "expected": {
+        "coverage": 0.694,
+        "same": 0.906,
+        "false_merge": 0.0119,
+        "note": "k1 15-22 为可用平台，k1=10 崩到 0.39、k1>=25 fm 抬头；对 k1 敏感，换检测器后需重标"
+      }
+    }
+  },
+  "same_min": 0.90,
+  "min_eval": 100,
+  "expected": {
+    "coverage": 0.664,
+    "same": 0.908,
+    "false_merge": 0.0153,
+    "fm_pairs": "14/918",
+    "thr": 1.85,
+    "K": 111,
+    "tr": 579,
+    "te": 229,
+    "n_cooc": 1120,
+    "veto_dmax": null,
+    "labeled_precision": 0.9516,
+    "labeled_precision_note": "逐条真值（gt v2）口径 = C/(C+W) = 118/124。簇级目检口径的 0.806 / 0.643 已作废，勿混用。",
+    "correct_labels": "118/229 = 0.5153",
+    "wrong_labels": "6/229 = 0.0262",
+    "previous_with_veto": {
+      "date": "2026-10-19 15:15 – 2026-10-24 07:50",
+      "coverage": 0.528,
+      "same": 0.901,
+      "false_merge": 0.0148,
+      "thr": 1.85,
+      "K": 100,
+      "labeled_precision": 0.947,
+      "correct_C": 90,
+      "delta_C_vs_no_veto": -28,
+      "p": "<1e-4",
+      "reason_disabled": "逐条真值下纯负收益；42 配置无一显著优于无 veto 基线；MARS 外部验证同向（−15，p=.0026）。d_max 对『簇是否混人』AUC 0.952、对『簇是否产生错判』AUC 0.521 → 要清的混人簇与错判不同源。"
+    },
+    "cross_camera_clusters": "58%（全局 0.20 仅 19%）",
+    "honest_coverage": {
+      "before_global020": 0.507,
+      "after": 0.598,
+      "note": "按 12:40 头框目检口径扣掉头框接受（改前 14 条、改后 15 条）；新增 24 条里只有 1 条是头框"
+    },
+    "gallery_fm_pairs": "48/2086",
+    "baseline_same_gate": {
+      "coverage": 0.423,
+      "same": 0.903,
+      "false_merge": 0.0196,
+      "fm_pairs": "8/408"
+    },
+    "previous_global020": {
+      "coverage": 0.568,
+      "same": 0.908,
+      "false_merge": 0.0075,
+      "fm_pairs": "6/805",
+      "K": 109,
+      "cross_camera_clusters": "19%"
+    }
+  },
+  "d4_truth": {
+    "date": "2026-10-24",
+    "note": "逐条真值（D4）下的真实效果。与 expected 里基于簇级目检的旧口径（labeled_precision 0.806 / correct_labels 87-229）冲突时，**以本块为准**；旧块保留仅作审计线索，不要引用。",
+    "truth_version": "gt v2（2026-10-23 23:35，229 条可评估全部有标注；no-human 22 条不计入接受集）",
+    "baseline_no_veto": {
+      "K": 111,
+      "theta": 1.85,
+      "coverage": 0.664,
+      "accepted": 124,
+      "C": 118,
+      "W": 6,
+      "U": 0,
+      "precision": 0.9516,
+      "C_over_229": 0.5153
+    },
+    "with_veto_0_30": {
+      "coverage": 0.528,
+      "C": 90,
+      "delta_C": -28,
+      "precision": 0.947,
+      "p": "<1e-4"
+    },
+    "verdict": "veto_dmax=0.30 在逐条真值下是负收益（正确数 118→90），42 配置无一显著优于无 veto 基线；『要清的混人簇，其症状与错判不同源』——d_max 对簇是否混人 AUC 0.952，对簇是否产生错判 AUC 0.521。",
+    "scope": "『d_max 测得出混人、测不出有害』只在 4 机位部署设置下成立；MARS 外部验证上两者几乎等强（0.742 vs 0.699），见 deliverable/data-request-v2/NUMBERS.md §20–§21。",
+    "action": "已于 2026-10-24 07:45 按用户指令关闭（cluster.veto_dmax=null），部署回到无否决基线：K 111 / θ 1.85 / cov 0.664 / same 0.908 / fm 1.53% / C 118。",
+    "source": "deliverable/data-request-v2/results/precision.csv（gt v2 重建）｜docs/v04-review-2026-10-23.md"
+  },
+  "fm_audit": {
+    "csv": "output_crosscam_local/selector_osnet_1012/fm_pairs_cam1525.csv",
+    "note": "14 对中 5 对为同一人的头肩/全身重复框（包含率>=0.99），属检测级重复轨迹，掩膜去重（U3 掩膜实验）通过后应消失；其余 9 对是真误合并，4 对集中在 323。"
+  },
+  "pipeline": [
+    "tools/yolo_track_det.py --seg {seg} --stride 5|10 --out-dir output_crosscam_local/1012_yolo8",
+    "tools/dedup_detections.py --in-dir output_crosscam_local/1012_yolo8 --out-dir output_crosscam_local/1012_yolo8_dd --iou 0.5",
+    "tools/make_ab_jsonl.py --in-jsonl <dd>/{seg}/{seg}_detections.jsonl --out-prefix output_crosscam_local/1012_yolo8_dd_ab/{seg} --min-frames 6",
+    "tools/encode_1012_osnet_seq.py --seg {seg} --device cpu --ab-dir output_crosscam_local/1012_yolo8_dd_ab --out-dir output_crosscam_local/1012_yolo8_dd_emb",
+    "tools/eval_det_switch.py --profile configs/selector_deploy.json"
+  ],
+  "rollback": "① 去掉 cluster.veto_dmax（回到 cov 0.664 / same 0.908 / fm 1.53%、精度 0.643）；② 把 cluster.mode 改回 global、hier_thr 0.2，即回到 10-19 上午的 yolo8dd 口径（cov 0.568 / same 0.908 / fm 0.75%）；③ 检测器回滚则把 primary 指回 baseline。",
+  "veto_audit": {
+    "date": "2026-10-19",
+    "dropped_clusters": 11,
+    "of_which_audited": "8 个已人工判定：6 坏（29/36/45/60/84/101）、2 好（55 误伤 1 条、69 误伤 3 条）",
+    "of_which_unaudited": "簇 46 / 54 无接受轨迹（影响为零）；簇 98 仅 1 条 a-b 分歧轨迹（本身无唯一定义）",
+    "conclusion": "否决对覆盖与精度的影响 100% 来自已审的 8 个簇，无需补目检。",
+    "side_effect": "veto 对所有 variant 生效，baseline（DINO+OSNet）参考值同步变为 K=120 / cov 0.273 / same 0.900 / fm 0.85%；与历史 baseline 数字（0.332）横比时必须先确认是否带 veto。",
+    "pending": "未在不同会话数据上复验 0.30；same 0.901 仅高于判据 0.001，属贴线。"
+  },
+  "evidence": [
+    "docs/u1-yolo-4cam-2026-10-19.md",
+    "docs/camera-aware-clustering-2026-10-19.md",
+    "docs/neighbor-implementation-survey-2026-10-19.md",
+    "docs/gallery-expansion-2026-10-19.md"
+  ],
+  "negated_directions": {
+    "date": "2026-10-19",
+    "rgb_channel": {
+      "try": "encode_1012_osnet_seq.py --rgb（cv2 BGR→RGB 修正；torchreid 对 numpy 输入不做转换，历史口径一直是通道颠倒的）",
+      "result": "A_baseline 逐条真值 C 118→67（−51）、覆盖 0.664→0.358、θ 1.85→2.55、K 111→116；配对救回 2 / 弄丢 53，McNemar p=8.6e-14，ΔC CI [−65,−38]；四个机位全负（305 −26 / 318 −9 / 320 −1 / 323 −15）",
+      "control": "固定 θ 下也是全负（θ=1.85：覆盖 0.664→0.533、same 0.908→0.877；θ=1.40/2.40/2.70 同向）→ 不是 self-cal 选点问题",
+      "mechanism": "跨机位同人余弦 0.607→0.568、异人 0.527→0.502 → 绝对边际 0.080→0.066（−18%）；而 AUC 反而升 0.8695→0.8768、a/b 自一致不变（图库 .915/.913）→ 排序更好但阈值吃的是绝对边际",
+      "action": "不切换；--rgb 保持默认关。若将来改成 rank-based / top-k 判定再重测（AUC 证据站在 RGB 一边）。详见 docs/rgb-ab-2026-10-24.md"
+    },
+    "gallery_expansion": {
+      "try": "图库侧 make_ab_jsonl --min-frames 6→4（图库 579→675，+96 条；查询侧不动）",
+      "result": "cov 0.664→0.537、same 0.908→0.902、fm 1.53%→0.75%、θ 1.85→2.20；逐条真值 C/229 0.515→0.437（−18），精度 0.952→0.971",
+      "top1_control": "与 θ 无关的 top-1 身份命中率 76.8%→76.2%（−4 条）——扩容未带来任何新身份",
+      "mechanism": "96 条新增里 47 条并入已有簇、17 条成 7 个 2–3 条碎片簇，argmax 命中率仅 3.3%；K 111→123 使 z 校准基准漂移，同 θ 下覆盖与一致率同时下降，self-cal 被迫抬 θ",
+      "hard_limit": "229 条中 11 条（male21/male22/male23/female8）在图库侧不存在任何 ≥4 帧轨迹 → 可答上限 196/229=85.6%，放宽帧数碰不到",
+      "action": "生产配置不变；不要重跑"
+    }
+  },
+  "false_merge_audit": "output_crosscam_local/selector_osnet_1012/fm_pairs_yolo_dd.csv",
+  "caveat": "去重是检测后处理；2026-10-19 08:20 已验证 iou 0.7+去重 与 iou 0.5 的框集合逐帧一致。机位感知聚类的 fm 1.53% 仍在 2% 预算内，但高于全局口径的 0.75%；跨机位误合并无共现约束可查（共现只存在于同一机位内），已用簇内相似度下界（最小 0.64、中位 0.76）作替代校验。"
+}

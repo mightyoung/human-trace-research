@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+    <marker id="arR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a1c1c"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="400" fill="#ffffff"/>
+
+  <!-- 阶段标签 -->
+  <text x="14" y="20" font-size="10" fill="#8a1c1c" letter-spacing="1.4">1 — CAPTURE / TRACK</text>
+  <text x="238" y="20" font-size="10" fill="#8a1c1c" letter-spacing="1.4">2 — IDENTITY GRAPH</text>
+  <text x="452" y="20" font-size="10" fill="#8a1c1c" letter-spacing="1.4">3 — DELIVERY</text>
+
+  <!-- Stage 1 -->
+  <rect x="14" y="32" width="88" height="80" fill="#f4f1ea" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="58" y="56" font-size="12" text-anchor="middle" fill="#1a1a1a">6 cameras</text>
+  <text x="58" y="72" font-size="10" text-anchor="middle" fill="#5a5a5a">2 × 1080p</text>
+  <text x="58" y="85" font-size="10" text-anchor="middle" fill="#5a5a5a">4 × 1440p</text>
+  <text x="58" y="101" font-size="9.5" text-anchor="middle" fill="#8a1c1c">35 min, 25 fps</text>
+
+  <line x1="106" y1="72" x2="128" y2="72" stroke="#555" stroke-width="1.4" marker-end="url(#ar)"/>
+
+  <rect x="132" y="32" width="86" height="80" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="175" y="58" font-size="11.5" text-anchor="middle" fill="#1a1a1a">Detect +</text>
+  <text x="175" y="73" font-size="11.5" text-anchor="middle" fill="#1a1a1a">ByteTrack</text>
+  <text x="175" y="96" font-size="10" text-anchor="middle" fill="#5a5a5a">1,894 tracks</text>
+
+  <line x1="222" y1="72" x2="244" y2="72" stroke="#555" stroke-width="1.4" marker-end="url(#ar)"/>
+
+  <rect x="248" y="32" width="92" height="80" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="294" y="53" font-size="11.5" text-anchor="middle" fill="#1a1a1a">OSNet-x1.0</text>
+  <text x="294" y="69" font-size="10" text-anchor="middle" fill="#5a5a5a">frozen, 512-d</text>
+  <text x="294" y="83" font-size="10" text-anchor="middle" fill="#5a5a5a">8-frame mean</text>
+  <text x="294" y="100" font-size="9.5" text-anchor="middle" fill="#8a1c1c">no training</text>
+
+  <!-- 折到第二行 -->
+  <path d="M294,112 L294,136 L58,136 L58,158" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#ar)"/>
+
+  <!-- Stage 2 -->
+  <rect x="14" y="162" width="106" height="66" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.3"/>
+  <text x="67" y="184" font-size="11" text-anchor="middle" fill="#1a1a1a">within-camera</text>
+  <text x="67" y="198" font-size="11" text-anchor="middle" fill="#1a1a1a">clustering</text>
+  <text x="67" y="216" font-size="9.5" text-anchor="middle" fill="#5a5a5a">cos .15, average</text>
+
+  <line x1="124" y1="195" x2="144" y2="195" stroke="#555" stroke-width="1.4" marker-end="url(#ar)"/>
+
+  <rect x="148" y="162" width="150" height="66" fill="#f4f1ea" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="223" y="182" font-size="11" text-anchor="middle" fill="#1a1a1a">cross-camera greedy merge</text>
+  <text x="223" y="197" font-size="9.5" text-anchor="middle" fill="#5a5a5a">cos ≥ .75 · co-occurrence</text>
+  <text x="223" y="210" font-size="9.5" text-anchor="middle" fill="#5a5a5a">· attr ≥ 8/9</text>
+  <text x="223" y="224" font-size="9.5" text-anchor="middle" fill="#8a1c1c">→ transitive closure</text>
+
+  <line x1="302" y1="195" x2="322" y2="195" stroke="#555" stroke-width="1.4" marker-end="url(#ar)"/>
+
+  <rect x="326" y="162" width="84" height="66" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.4"/>
+  <text x="368" y="187" font-size="17" text-anchor="middle" fill="#1a1a1a">443</text>
+  <text x="368" y="203" font-size="10" text-anchor="middle" fill="#5a5a5a">identities</text>
+  <text x="368" y="218" font-size="9.5" text-anchor="middle" fill="#5a5a5a">1,574 tracks</text>
+
+  <!-- audit -->
+  <line x1="414" y1="195" x2="432" y2="195" stroke="#555" stroke-width="1.4" marker-end="url(#ar)"/>
+  <rect x="436" y="158" width="104" height="74" fill="#ffffff" stroke="#8a1c1c" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="488" y="177" font-size="10.5" text-anchor="middle" fill="#8a1c1c">OSD-clock audit</text>
+  <text x="488" y="193" font-size="10" text-anchor="middle" fill="#5a5a5a">27 contradictions</text>
+  <text x="488" y="207" font-size="10" text-anchor="middle" fill="#5a5a5a">15 groups / 10 pairs</text>
+  <text x="488" y="223" font-size="9.5" text-anchor="middle" fill="#5a5a5a">selects review items</text>
+
+  <!-- Stage 3 -->
+  <line x1="544" y1="195" x2="562" y2="195" stroke="#8a1c1c" stroke-width="1.5" marker-end="url(#arR)"/>
+  <rect x="566" y="158" width="120" height="74" fill="#faf6f3" stroke="#8a1c1c" stroke-width="1.6"/>
+  <text x="626" y="178" font-size="11" text-anchor="middle" fill="#8a1c1c">ranked review queue</text>
+  <text x="626" y="194" font-size="9.5" text-anchor="middle" fill="#5a5a5a">3 frames per side,</text>
+  <text x="626" y="207" font-size="9.5" text-anchor="middle" fill="#5a5a5a">identical OSD instants</text>
+  <text x="626" y="223" font-size="9.5" text-anchor="middle" fill="#5a5a5a">27 items / 20–30 min</text>
+
+  <!-- 回写 -->
+  <path d="M626,232 L626,252 L223,252 L223,232" fill="none" stroke="#8a1c1c" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arR)"/>
+  <text x="424" y="247" font-size="9.5" text-anchor="middle" fill="#8a1c1c">write-back as must-link / must-differ</text>
+
+  <line x1="14" y1="272" x2="686" y2="272" stroke="#d8d8d8" stroke-width="1"/>
+  <text x="14" y="292" font-size="9.5" fill="#8a1c1c" letter-spacing="1.1">WHAT FORCES THE TIERED PROTOCOL</text>
+
+  <text x="14" y="316" font-size="10.5" fill="#1a1a1a">(i) P2 gives observation, not matching</text>
+  <text x="14" y="332" font-size="9.5" fill="#5a5a5a">aggregate AUC .450–.622 at this site;</text>
+  <text x="14" y="345" font-size="9.5" fill="#5a5a5a">shared region adds .04 on WILDTRACK</text>
+
+  <text x="238" y="316" font-size="10.5" fill="#1a1a1a">(ii) P1 decides face tiers</text>
+  <text x="238" y="332" font-size="9.5" fill="#5a5a5a">7.9% usable faces, 52 px median;</text>
+  <text x="238" y="345" font-size="9.5" fill="#5a5a5a">60 px separates .352 from .847</text>
+
+  <text x="470" y="316" font-size="10.5" fill="#1a1a1a">(iii) constraints do not compose</text>
+  <text x="470" y="332" font-size="9.5" fill="#5a5a5a">a pairwise verifier (AUC .833)</text>
+  <text x="470" y="345" font-size="9.5" fill="#5a5a5a">destroys 3 of 5 correct merges</text>
+
+  <text x="14" y="378" font-size="9" fill="#8a1c1c">Red dashed path: human verdicts re-enter as constraints, never as a similarity threshold.</text>
+</svg>

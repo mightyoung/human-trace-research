@@ -1,0 +1,57 @@
+[package]
+name = "human-count"
+version = "0.1.0"
+edition = "2021"
+description = "RTSP camera human detection service powered by GroundingDINO (ONNX Runtime)"
+
+[dependencies]
+anyhow = "1"
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+clap = { version = "4", features = ["derive"] }
+ctrlc = "3"
+
+# Inference: ONNX Runtime via ort (构建时下载预编译 ORT 二进制)。
+#
+# 版本选择的坑：rc.13 只提供 ORT 1.28 预编译包，且是直接用 MSVC STL 14.40+ 构建的；
+# 本机 MSVC 工具集是 14.38（VS2022 17.8），链接时会缺 __std_search_1 /
+# __std_remove_1 / __std_max_element_f 等 STL 向量化算法符号而失败。
+# rc.10 对应 ORT 1.22.0，与本机工具集兼容，且提供无 DirectML 的干净发行包。
+# 注意：rc.10 没有 tls-native feature（TLS 由 ort-sys 的 ureq 依赖直接启用）。
+#
+# 执行提供者：
+#   - directml：Windows + DX12 显卡（本机 AMD RX 5700 XT）GPU 加速。
+#     ORT 侧为静态链接（vendor/ort 的 DML 版静态库已含 DmlExecutionProvider），
+#     运行期需要新版 DirectML.dll 与 human-count.exe 同目录（vendored 副本见
+#     vendor/ort/onnxruntime/lib/DirectML.dll；System32 自带的 2020 版过旧）。
+#     配置项 [model].execution_provider = "auto" | "cpu" | "dml"（默认 auto：
+#     尝试 DML，失败自动回退 CPU）。
+ort = { version = "=2.0.0-rc.10", default-features = false, features = [
+    "ndarray",
+    "download-binaries",
+    "std",
+    "directml",
+] }
+# 必须与 ort rc.10 期望的版本一致（0.16），否则 ort 的 trait 实现在
+# 另一个 ndarray 版本上，from_array 等调用会编译失败。
+ndarray = "0.16"
+
+# 静态图片读取（仅用于离线端到端验证：--image）。
+# 纯 Rust 解码，不引入任何原生依赖。
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
+
+# RTSP 拉流：调用外部 ffmpeg 可执行文件（见 src/capture.rs）。
+# 不链接 OpenCV / FFmpeg SDK —— 构建期保持零原生依赖。
+# ffmpeg 是运行时依赖，通过 config.toml 的 camera.ffmpeg_path 指定。
+
+# 可选 webhook 告警走系统 curl（见 src/output.rs），
+# 不直接依赖 ureq，以免与 ort-sys 的 ureq 3 + TLS 需求产生版本统一冲突。
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

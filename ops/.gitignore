@@ -1,0 +1,9 @@
+# 台账运行时数据（权威库在本机，不入库）
+ops.db
+ops.db-wal
+ops.db-shm
+logs/
+db_backup/
+_selftest_tmp/
+
+# 保留：schema.sql（结构定义）、imports/（远程来源证据）、reports/（run 产物示例）

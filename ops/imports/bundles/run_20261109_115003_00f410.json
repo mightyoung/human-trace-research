@@ -1,0 +1,124 @@
+{
+ "bundle_version": 1,
+ "exported_at": "2026-11-09 11:50:40",
+ "source": {
+  "db": "ops/ops.db",
+  "host": "r4900g3-UniServer-R4900-G3",
+  "root": "."
+ },
+ "run": {
+  "id": "run_20261109_115003_00f410",
+  "name": "intent-cc-e2e",
+  "kind": "train",
+  "entrypoint": "/home/r4900g3/miniconda3/envs/rfdetr/bin/python intent_cc/intent_model_cc.py --train intent_cc/1012_train_cc.npz --val intent_cc/1012_val_cc.npz --test intent_cc/1012_test_cc.npz --out-dir intent_cc/_e2e_ops --epochs 3 --d-model 64 --layers 1 --heads 2 --ff 128 --batch 256 --device cpu",
+  "params_json": "{\"cmd\": [\"/home/r4900g3/miniconda3/envs/rfdetr/bin/python\", \"intent_cc/intent_model_cc.py\", \"--train\", \"intent_cc/1012_train_cc.npz\", \"--val\", \"intent_cc/1012_val_cc.npz\", \"--test\", \"intent_cc/1012_test_cc.npz\", \"--out-dir\", \"intent_cc/_e2e_ops\", \"--epochs\", \"3\", \"--d-model\", \"64\", \"--layers\", \"1\", \"--heads\", \"2\", \"--ff\", \"128\", \"--batch\", \"256\", \"--device\", \"cpu\"], \"epochs\": \"3\", \"purpose\": \"routeB_e2e\"}",
+  "env_json": "{\"code\": {\"bytes\": 11926, \"path\": \"intent_cc/intent_model_cc.py\", \"sha1\": \"dc9903d60066c46eba77278571899f2dbee25410\"}, \"cuda\": true, \"cuda_version\": \"13.0\", \"cwd\": \".\", \"executable\": \"../miniconda3/envs/rfdetr/bin/python\", \"host\": \"r4900g3-UniServer-R4900-G3\", \"platform\": \"Linux-6.8.0-138-generic-x86_64-with-glibc2.35\", \"python\": \"3.11.15\", \"torch\": \"2.11.0+cu130\"}",
+  "dataset_id": "ds_intent_1012_cc",
+  "model_id": null,
+  "host": "r4900g3-UniServer-R4900-G3",
+  "gpu": "0, NVIDIA L20, 46068 MiB | 1, NVIDIA L20, 46068 MiB",
+  "git_rev": null,
+  "status": "succeeded",
+  "started_at": "2026-11-09 11:50:03",
+  "ended_at": "2026-11-09 11:50:16",
+  "exit_code": 0,
+  "log_uri": "ops/logs/run_20261109_115003_00f410.log",
+  "metrics_json": null,
+  "out_dir": "intent_cc/_e2e_ops",
+  "note": null,
+  "created_at": "2026-11-09 11:50:03"
+ },
+ "metrics": [
+  {
+   "run_id": "run_20261109_115003_00f410",
+   "step": 1,
+   "name": "loss",
+   "value": 1.4188555203951323
+  },
+  {
+   "run_id": "run_20261109_115003_00f410",
+   "step": 1,
+   "name": "val_acc",
+   "value": 0.659870250231696
+  },
+  {
+   "run_id": "run_20261109_115003_00f410",
+   "step": 1,
+   "name": "val_f1",
+   "value": 0.35342715150535875
+  },
+  {
+   "run_id": "run_20261109_115003_00f410",
+   "step": 2,
+   "name": "loss",
+   "value": 1.2743641229776235
+  },
+  {
+   "run_id": "run_20261109_115003_00f410",
+   "step": 2,
+   "name": "val_acc",
+   "value": 0.670064874884152
+  },
+  {
+   "run_id": "run_20261109_115003_00f410",
+   "step": 2,
+   "name": "val_f1",
+   "value": 0.38496487117240114
+  },
+  {
+   "run_id": "run_20261109_115003_00f410",
+   "step": 3,
+   "name": "loss",
+   "value": 1.2314218145150404
+  },
+  {
+   "run_id": "run_20261109_115003_00f410",
+   "step": 3,
+   "name": "val_acc",
+   "value": 0.6654309545875811
+  },
+  {
+   "run_id": "run_20261109_115003_00f410",
+   "step": 3,
+   "name": "val_f1",
+   "value": 0.3642604642048107
+  }
+ ],
+ "artifacts": [
+  {
+   "id": 1,
+   "run_id": "run_20261109_115003_00f410",
+   "kind": "pt",
+   "uri": "intent_cc/_e2e_ops/best.pt",
+   "bytes": 148121,
+   "sha1": "7ff596e96d4691f3577deafe883a18eec8b77c35",
+   "summary_json": null,
+   "at": "2026-11-09 11:50:16"
+  },
+  {
+   "id": 2,
+   "run_id": "run_20261109_115003_00f410",
+   "kind": "json",
+   "uri": "intent_cc/_e2e_ops/metrics_full.json",
+   "bytes": 8579,
+   "sha1": "b151035070d19f13897d9f8ad534c764d74dd92c",
+   "summary_json": null,
+   "at": "2026-11-09 11:50:16"
+  }
+ ],
+ "experiments": [],
+ "dataset": {
+  "id": "ds_intent_1012_cc",
+  "name": "ds_intent_1012_cc",
+  "kind": null,
+  "root_uri": null,
+  "file_count": 0,
+  "total_bytes": 0,
+  "dialect": null,
+  "manifest_uri": null,
+  "snapshot_hash": null,
+  "created_at": "2026-11-09 11:50:03",
+  "note": "ops_run 自动登记"
+ },
+ "model": null
+}

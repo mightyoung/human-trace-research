@@ -1,0 +1,9 @@
+# FROZEN 2026-10-24 — signature lines intentionally left blank; see docs/preeg_signature_2026-10-24.md
+# Load-bearing set: preregistration (md + json), window-selection script, runner, hash checker.
+# Excluded on purpose: the signature sheet, so that signing later does not change these hashes.
+# verify from the repository root: sha256sum -c docs/preeg_freeze_2026-10-24.sha256
+2bc4133b24ac9401b8229be4c8895797363431280140c7fa6a5eea32b8f36c85  docs/PREREGISTRATION_holdout_2026-10-24.md
+d540415ab81c943af996783dbaecc68b56b434d6fc729a07da4f5b38dc2f6e76  docs/preregistration_holdout_2026-10-24.json
+41a3e181e84658308b094337169e23620cabfc4ca15e2917e338f7a5f425bb54  tools/prereg_holdout_window.py
+9ebb0db188e1e98a0cf9fcb51a362752c69c8cbb052ddc591f16b1ba973ae1ed  tools/run_holdout.sh
+4bbd6b6ca839dc371d65b758ff50899636506d11daed532465406c9aee99ebf8  tools/verify_preeg_hashes.py

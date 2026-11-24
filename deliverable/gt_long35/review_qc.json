@@ -1,0 +1,181 @@
+{
+ "_meta": {
+  "built": "2026-11-12 09:55",
+  "note": "166 条判读的抽检核对：用拼版原图复核用户判定"
+ },
+ "rows": [
+  {
+   "m": "M002",
+   "q": "Q055",
+   "pair": "316-318",
+   "score": 0.884,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "same",
+   "agree": false,
+   "why": "紫短袖+黑长裤+黑发，A/B 三张同款，明确同人"
+  },
+  {
+   "m": "M005",
+   "q": "Q111",
+   "pair": "305-316",
+   "score": 0.8626,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "same",
+   "agree": false,
+   "why": "深蓝工装外套+白T+黑裤，背面视角一致"
+  },
+  {
+   "m": "M006",
+   "q": "Q030",
+   "pair": "305-318",
+   "score": 0.8541,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "same",
+   "agree": false,
+   "why": "深蓝工装外套+白领+黑短发，A/B 同款"
+  },
+  {
+   "m": "M009",
+   "q": "Q096",
+   "pair": "316-318",
+   "score": 0.8432,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "unsure",
+   "agree": false,
+   "why": "A 女性白鞋、B 侧暗且第3张俯视，判不准"
+  },
+  {
+   "m": "M011",
+   "q": "Q156",
+   "pair": "305-318",
+   "score": 0.8422,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "same",
+   "agree": false,
+   "why": "黑衣+白领，B 侧偏暗但体型一致"
+  },
+  {
+   "m": "M013",
+   "q": "Q015",
+   "pair": "305-323",
+   "score": 0.8408,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "diff",
+   "agree": true,
+   "why": "A 蓝色短袖 T、B 深色长袖外套，装束不同"
+  },
+  {
+   "m": "M014",
+   "q": "Q142",
+   "pair": "305-316",
+   "score": 0.8396,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "same",
+   "agree": false,
+   "why": "浅米色上衣+深色裤，同款"
+  },
+  {
+   "m": "M019",
+   "q": "Q157",
+   "pair": "323-343",
+   "score": 0.8263,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "same",
+   "agree": false,
+   "why": "灰绿上衣+卡其裤，同款"
+  },
+  {
+   "m": "M021",
+   "q": "Q143",
+   "pair": "305-318",
+   "score": 0.8236,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "diff",
+   "agree": true,
+   "why": "A 女式米白外套+黑包、B 男士白T+深色外套"
+  },
+  {
+   "m": "M073",
+   "q": "Q057",
+   "pair": "305-343",
+   "score": 0.7585,
+   "kind": "merge",
+   "user": "diff",
+   "qc": "diff",
+   "agree": true,
+   "why": "A 深色上衣、B 浅蓝衬衫，明确异人"
+  },
+  {
+   "m": "M001",
+   "q": "Q076",
+   "pair": "316-318",
+   "score": 0.892,
+   "kind": "merge",
+   "user": "same",
+   "qc": "same",
+   "agree": true,
+   "why": "棕黄外套+深色裤，同款"
+  },
+  {
+   "m": "M003",
+   "q": "Q082",
+   "pair": "316-318",
+   "score": 0.8727,
+   "kind": "merge",
+   "user": "same",
+   "qc": "same",
+   "agree": true,
+   "why": "米白外套+深色裤，同款"
+  },
+  {
+   "m": "M004",
+   "q": "Q102",
+   "pair": "305-316",
+   "score": 0.8634,
+   "kind": "merge",
+   "user": "same",
+   "qc": "same",
+   "agree": true,
+   "why": "深蓝外套，同款"
+  },
+  {
+   "m": "M007",
+   "q": "Q060",
+   "pair": "305-316",
+   "score": 0.8498,
+   "kind": "merge",
+   "user": "same",
+   "qc": "same",
+   "agree": true,
+   "why": "深蓝上衣，同款"
+  },
+  {
+   "m": "M008",
+   "q": "Q054",
+   "pair": "305-318",
+   "score": 0.8474,
+   "kind": "merge",
+   "user": "same",
+   "qc": "same",
+   "agree": true,
+   "why": "深色外套+白T，同款"
+  }
+ ],
+ "merge_crosstab": {
+  "diff|same": 6,
+  "diff|unsure": 1,
+  "diff|diff": 3,
+  "same|same": 5
+ },
+ "n_merge": 15,
+ "n_disagree": 7
+}

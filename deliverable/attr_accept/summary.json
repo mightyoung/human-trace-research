@@ -1,0 +1,1041 @@
+{
+ "pa": {
+  "gender": {
+   "n": 800,
+   "given": 800,
+   "coverage": 1.0,
+   "acc_given": 0.855,
+   "acc_all_abstain_wrong": 0.855,
+   "ok": {
+    "n": 800,
+    "acc": 0.855
+   },
+   "ref": {
+    "n": 0,
+    "acc": null
+   },
+   "gt_dist": {
+    "男": 486,
+    "女": 314
+   },
+   "confusion": [
+    [
+     "男",
+     "男",
+     450
+    ],
+    [
+     "女",
+     "女",
+     234
+    ],
+    [
+     "女",
+     "男",
+     80
+    ],
+    [
+     "男",
+     "女",
+     36
+    ]
+   ]
+  },
+  "top_type": {
+   "n": 763,
+   "given": 763,
+   "coverage": 1.0,
+   "acc_given": 0.856,
+   "acc_all_abstain_wrong": 0.856,
+   "ok": {
+    "n": 763,
+    "acc": 0.856
+   },
+   "ref": {
+    "n": 0,
+    "acc": null
+   },
+   "gt_dist": {
+    "长袖": 448,
+    "短袖": 315
+   },
+   "confusion": [
+    [
+     "长袖",
+     "长袖",
+     430
+    ],
+    [
+     "短袖",
+     "短袖",
+     223
+    ],
+    [
+     "短袖",
+     "长袖",
+     92
+    ],
+    [
+     "长袖",
+     "短袖",
+     18
+    ]
+   ]
+  },
+  "bottom_type": {
+   "n": 797,
+   "given": 797,
+   "coverage": 1.0,
+   "acc_given": 0.806,
+   "acc_all_abstain_wrong": 0.806,
+   "ok": {
+    "n": 183,
+    "acc": 0.721
+   },
+   "ref": {
+    "n": 614,
+    "acc": 0.831
+   },
+   "gt_dist": {
+    "长裤": 653,
+    "短裤": 79,
+    "裙": 65
+   },
+   "confusion": [
+    [
+     "长裤",
+     "长裤",
+     642
+    ],
+    [
+     "短裤",
+     "长裤",
+     79
+    ],
+    [
+     "裙",
+     "长裤",
+     64
+    ],
+    [
+     "长裤",
+     "短裤",
+     11
+    ]
+   ]
+  },
+  "glasses": {
+   "n": 800,
+   "given": 800,
+   "coverage": 1.0,
+   "acc_given": 0.414,
+   "acc_all_abstain_wrong": 0.414,
+   "ok": {
+    "n": 184,
+    "acc": 0.543
+   },
+   "ref": {
+    "n": 616,
+    "acc": 0.375
+   },
+   "gt_dist": {
+    "否": 586,
+    "是": 214
+   },
+   "tpr": 0.879,
+   "fpr": 0.756,
+   "auc": 0.6613,
+   "ap": 0.4028,
+   "base_ap": 0.268
+  },
+  "hat": {
+   "n": 800,
+   "given": 800,
+   "coverage": 1.0,
+   "acc_given": 0.86,
+   "acc_all_abstain_wrong": 0.86,
+   "ok": {
+    "n": 800,
+    "acc": 0.86
+   },
+   "ref": {
+    "n": 0,
+    "acc": null
+   },
+   "gt_dist": {
+    "否": 689,
+    "是": 111
+   },
+   "tpr": 0.0,
+   "fpr": 0.001,
+   "auc": 0.5219,
+   "ap": 0.1459,
+   "base_ap": 0.139
+  },
+  "backpack": {
+   "n": 800,
+   "given": 184,
+   "coverage": 0.23,
+   "acc_given": 0.717,
+   "acc_all_abstain_wrong": 0.165,
+   "ok": {
+    "n": 0,
+    "acc": null
+   },
+   "ref": {
+    "n": 184,
+    "acc": 0.717
+   },
+   "gt_dist": {
+    "否": 120,
+    "是": 64
+   },
+   "tpr": 0.25,
+   "fpr": 0.033,
+   "auc": 0.7074,
+   "ap": 0.6316,
+   "base_ap": 0.348
+  },
+  "carrying": {
+   "n": 800,
+   "given": 184,
+   "coverage": 0.23,
+   "acc_given": 0.761,
+   "acc_all_abstain_wrong": 0.175,
+   "ok": {
+    "n": 0,
+    "acc": null
+   },
+   "ref": {
+    "n": 184,
+    "acc": 0.761
+   },
+   "gt_dist": {
+    "否": 141,
+    "是": 43
+   },
+   "tpr": 0.186,
+   "fpr": 0.064,
+   "auc": 0.6348,
+   "ap": 0.3609,
+   "base_ap": 0.234
+  }
+ },
+ "holdout": {
+  "meta": {
+   "n_item": 457,
+   "n_entity": 397,
+   "bands": {
+    "S": 25,
+    "M": 185,
+    "L": 247
+   },
+   "is_person": {
+    "n_pos": 457,
+    "n_neg": 144,
+    "auc": 0.9858,
+    "acc": 0.9584
+   }
+  },
+  "fields": {
+   "gender": {
+    "n": 454,
+    "acc": 0.967,
+    "f1": 0.9626,
+    "majority": 0.6674,
+    "promised": {
+     "n": 454,
+     "acc": 0.9669603524229075
+    },
+    "ref": {
+     "n": 0,
+     "acc": null
+    },
+    "abstain": 0,
+    "conf_sweep": [
+     {
+      "thr": 0.5,
+      "keep": 454,
+      "keep_rate": 1.0,
+      "acc": 0.967
+     },
+     {
+      "thr": 0.6,
+      "keep": 452,
+      "keep_rate": 0.9956,
+      "acc": 0.9668
+     },
+     {
+      "thr": 0.7,
+      "keep": 448,
+      "keep_rate": 0.9868,
+      "acc": 0.9732
+     },
+     {
+      "thr": 0.8,
+      "keep": 438,
+      "keep_rate": 0.9648,
+      "acc": 0.9886
+     },
+     {
+      "thr": 0.9,
+      "keep": 416,
+      "keep_rate": 0.9163,
+      "acc": 0.9904
+     }
+    ],
+    "binary": null,
+    "dropped": {},
+    "per_class": {
+     "女": {
+      "n": 151,
+      "p": 0.9595,
+      "r": 0.9404
+     },
+     "男": {
+      "n": 303,
+      "p": 0.9706,
+      "r": 0.9802
+     }
+    }
+   },
+   "top_color": {
+    "n": 439,
+    "acc": 0.8884,
+    "f1": 0.8655,
+    "majority": 0.2506,
+    "promised": {
+     "n": 439,
+     "acc": 0.8883826879271071
+    },
+    "ref": {
+     "n": 0,
+     "acc": null
+    },
+    "abstain": 0,
+    "conf_sweep": [
+     {
+      "thr": 0.5,
+      "keep": 419,
+      "keep_rate": 0.9544,
+      "acc": 0.9165
+     },
+     {
+      "thr": 0.6,
+      "keep": 399,
+      "keep_rate": 0.9089,
+      "acc": 0.9348
+     },
+     {
+      "thr": 0.7,
+      "keep": 373,
+      "keep_rate": 0.8497,
+      "acc": 0.9517
+     },
+     {
+      "thr": 0.8,
+      "keep": 352,
+      "keep_rate": 0.8018,
+      "acc": 0.9489
+     },
+     {
+      "thr": 0.9,
+      "keep": 308,
+      "keep_rate": 0.7016,
+      "acc": 0.9675
+     }
+    ],
+    "binary": null,
+    "dropped": {},
+    "per_class": {
+     "棕": {
+      "n": 87,
+      "p": 0.9091,
+      "r": 0.9195
+     },
+     "灰": {
+      "n": 10,
+      "p": 0.75,
+      "r": 0.6
+     },
+     "白": {
+      "n": 48,
+      "p": 0.9362,
+      "r": 0.9167
+     },
+     "紫": {
+      "n": 21,
+      "p": 0.8947,
+      "r": 0.8095
+     },
+     "红": {
+      "n": 18,
+      "p": 0.8947,
+      "r": 0.9444
+     },
+     "绿": {
+      "n": 61,
+      "p": 0.9167,
+      "r": 0.9016
+     },
+     "蓝": {
+      "n": 110,
+      "p": 0.8632,
+      "r": 0.9182
+     },
+     "黑": {
+      "n": 84,
+      "p": 0.8642,
+      "r": 0.8333
+     }
+    }
+   },
+   "top_type": {
+    "n": 373,
+    "acc": 0.941,
+    "f1": 0.9283,
+    "majority": 0.7131,
+    "promised": {
+     "n": 359,
+     "acc": 0.9415041782729805
+    },
+    "ref": {
+     "n": 14,
+     "acc": 0.9285714285714286
+    },
+    "abstain": 0,
+    "conf_sweep": [
+     {
+      "thr": 0.5,
+      "keep": 359,
+      "keep_rate": 1.0,
+      "acc": 0.9415
+     },
+     {
+      "thr": 0.6,
+      "keep": 351,
+      "keep_rate": 0.9777,
+      "acc": 0.9573
+     },
+     {
+      "thr": 0.7,
+      "keep": 340,
+      "keep_rate": 0.9471,
+      "acc": 0.9647
+     },
+     {
+      "thr": 0.8,
+      "keep": 323,
+      "keep_rate": 0.8997,
+      "acc": 0.9783
+     },
+     {
+      "thr": 0.9,
+      "keep": 304,
+      "keep_rate": 0.8468,
+      "acc": 0.9868
+     }
+    ],
+    "binary": null,
+    "dropped": {},
+    "per_class": {
+     "短袖": {
+      "n": 107,
+      "p": 0.8899,
+      "r": 0.9065
+     },
+     "长袖": {
+      "n": 266,
+      "p": 0.9621,
+      "r": 0.9549
+     }
+    }
+   },
+   "bottom_color": {
+    "n": 289,
+    "acc": 0.9135,
+    "f1": 0.8879,
+    "majority": 0.6159,
+    "promised": {
+     "n": 207,
+     "acc": 0.9420289855072463
+    },
+    "ref": {
+     "n": 80,
+     "acc": 0.85
+    },
+    "abstain": 2,
+    "conf_sweep": [
+     {
+      "thr": 0.5,
+      "keep": 207,
+      "keep_rate": 1.0,
+      "acc": 0.942
+     },
+     {
+      "thr": 0.6,
+      "keep": 201,
+      "keep_rate": 0.971,
+      "acc": 0.9652
+     },
+     {
+      "thr": 0.7,
+      "keep": 195,
+      "keep_rate": 0.942,
+      "acc": 0.9692
+     },
+     {
+      "thr": 0.8,
+      "keep": 185,
+      "keep_rate": 0.8937,
+      "acc": 0.9838
+     },
+     {
+      "thr": 0.9,
+      "keep": 175,
+      "keep_rate": 0.8454,
+      "acc": 0.9829
+     }
+    ],
+    "binary": null,
+    "dropped": {
+     "灰": 2,
+     "棕": 3
+    },
+    "per_class": {
+     "白": {
+      "n": 38,
+      "p": 0.8205,
+      "r": 0.8421
+     },
+     "蓝": {
+      "n": 73,
+      "p": 0.88,
+      "r": 0.9041
+     },
+     "黑": {
+      "n": 178,
+      "p": 0.9486,
+      "r": 0.9326
+     }
+    }
+   },
+   "bottom_type": {
+    "n": 280,
+    "acc": 0.9929,
+    "f1": 0.9624,
+    "majority": 0.95,
+    "promised": {
+     "n": 208,
+     "acc": 0.9951923076923077
+    },
+    "ref": {
+     "n": 71,
+     "acc": 0.9859154929577465
+    },
+    "abstain": 1,
+    "conf_sweep": [
+     {
+      "thr": 0.5,
+      "keep": 208,
+      "keep_rate": 1.0,
+      "acc": 0.9952
+     },
+     {
+      "thr": 0.6,
+      "keep": 207,
+      "keep_rate": 0.9952,
+      "acc": 1.0
+     },
+     {
+      "thr": 0.7,
+      "keep": 207,
+      "keep_rate": 0.9952,
+      "acc": 1.0
+     },
+     {
+      "thr": 0.8,
+      "keep": 205,
+      "keep_rate": 0.9856,
+      "acc": 1.0
+     },
+     {
+      "thr": 0.9,
+      "keep": 204,
+      "keep_rate": 0.9808,
+      "acc": 1.0
+     }
+    ],
+    "binary": null,
+    "dropped": {
+     "裙": 3
+    },
+    "per_class": {
+     "短裤": {
+      "n": 14,
+      "p": 0.9286,
+      "r": 0.9286
+     },
+     "长裤": {
+      "n": 266,
+      "p": 0.9962,
+      "r": 0.9962
+     }
+    }
+   },
+   "glasses": {
+    "n": 315,
+    "acc": 0.9492,
+    "f1": 0.9477,
+    "majority": 0.581,
+    "promised": {
+     "n": 180,
+     "acc": 0.9277777777777778
+    },
+    "ref": {
+     "n": 124,
+     "acc": 0.9838709677419355
+    },
+    "abstain": 11,
+    "conf_sweep": [
+     {
+      "thr": 0.5,
+      "keep": 180,
+      "keep_rate": 1.0,
+      "acc": 0.9278
+     },
+     {
+      "thr": 0.6,
+      "keep": 174,
+      "keep_rate": 0.9667,
+      "acc": 0.9368
+     },
+     {
+      "thr": 0.7,
+      "keep": 165,
+      "keep_rate": 0.9167,
+      "acc": 0.9515
+     },
+     {
+      "thr": 0.8,
+      "keep": 152,
+      "keep_rate": 0.8444,
+      "acc": 0.9868
+     },
+     {
+      "thr": 0.9,
+      "keep": 142,
+      "keep_rate": 0.7889,
+      "acc": 0.9859
+     }
+    ],
+    "binary": {
+     "ap": 0.9892,
+     "auc": 0.986,
+     "tpr": 0.9617,
+     "fpr": 0.0682,
+     "n_pos": 183,
+     "n_neg": 132,
+     "base_ap": 0.581
+    },
+    "dropped": {},
+    "per_class": {
+     "否": {
+      "n": 132,
+      "p": 0.9462,
+      "r": 0.9318
+     },
+     "是": {
+      "n": 183,
+      "p": 0.9514,
+      "r": 0.9617
+     }
+    }
+   },
+   "hat": {
+    "n": 442,
+    "acc": 0.9955,
+    "f1": 0.9694,
+    "majority": 0.9615,
+    "promised": {
+     "n": 442,
+     "acc": 0.995475113122172
+    },
+    "ref": {
+     "n": 0,
+     "acc": null
+    },
+    "abstain": 0,
+    "conf_sweep": [
+     {
+      "thr": 0.5,
+      "keep": 442,
+      "keep_rate": 1.0,
+      "acc": 0.9955
+     },
+     {
+      "thr": 0.6,
+      "keep": 441,
+      "keep_rate": 0.9977,
+      "acc": 0.9977
+     },
+     {
+      "thr": 0.7,
+      "keep": 441,
+      "keep_rate": 0.9977,
+      "acc": 0.9977
+     },
+     {
+      "thr": 0.8,
+      "keep": 440,
+      "keep_rate": 0.9955,
+      "acc": 0.9977
+     },
+     {
+      "thr": 0.9,
+      "keep": 440,
+      "keep_rate": 0.9955,
+      "acc": 0.9977
+     }
+    ],
+    "binary": {
+     "ap": 0.9857,
+     "auc": 0.9994,
+     "tpr": 0.9412,
+     "fpr": 0.0024,
+     "n_pos": 17,
+     "n_neg": 425,
+     "base_ap": 0.0385
+    },
+    "dropped": {},
+    "per_class": {
+     "否": {
+      "n": 425,
+      "p": 0.9976,
+      "r": 0.9976
+     },
+     "是": {
+      "n": 17,
+      "p": 0.9412,
+      "r": 0.9412
+     }
+    }
+   },
+   "backpack": {
+    "n": 363,
+    "acc": 0.9284,
+    "f1": 0.6715,
+    "majority": 0.9504,
+    "promised": {
+     "n": 0,
+     "acc": null
+    },
+    "ref": {
+     "n": 229,
+     "acc": 0.9213973799126638
+    },
+    "abstain": 134,
+    "conf_sweep": [
+     {
+      "thr": 0.5,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     },
+     {
+      "thr": 0.6,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     },
+     {
+      "thr": 0.7,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     },
+     {
+      "thr": 0.8,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     },
+     {
+      "thr": 0.9,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     }
+    ],
+    "binary": {
+     "ap": 0.4579,
+     "auc": 0.8659,
+     "tpr": 0.4444,
+     "fpr": 0.0464,
+     "n_pos": 18,
+     "n_neg": 345,
+     "base_ap": 0.0496
+    },
+    "dropped": {},
+    "per_class": {
+     "否": {
+      "n": 345,
+      "p": 0.9705,
+      "r": 0.9536
+     },
+     "是": {
+      "n": 18,
+      "p": 0.3333,
+      "r": 0.4444
+     }
+    }
+   },
+   "carrying": {
+    "n": 307,
+    "acc": 0.9283,
+    "f1": 0.7605,
+    "majority": 0.9088,
+    "promised": {
+     "n": 0,
+     "acc": null
+    },
+    "ref": {
+     "n": 213,
+     "acc": 0.9014084507042254
+    },
+    "abstain": 94,
+    "conf_sweep": [
+     {
+      "thr": 0.5,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     },
+     {
+      "thr": 0.6,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     },
+     {
+      "thr": 0.7,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     },
+     {
+      "thr": 0.8,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     },
+     {
+      "thr": 0.9,
+      "keep": 0,
+      "keep_rate": 0.0,
+      "acc": null
+     }
+    ],
+    "binary": {
+     "ap": 0.6661,
+     "auc": 0.8963,
+     "tpr": 0.5,
+     "fpr": 0.0287,
+     "n_pos": 28,
+     "n_neg": 279,
+     "base_ap": 0.0912
+    },
+    "dropped": {},
+    "per_class": {
+     "否": {
+      "n": 279,
+      "p": 0.9509,
+      "r": 0.9713
+     },
+     "是": {
+      "n": 28,
+      "p": 0.6364,
+      "r": 0.5
+     }
+    }
+   }
+  }
+ },
+ "room": {
+  "frames": [
+   {
+    "cam": "305",
+    "sec": 1600,
+    "n": 10,
+    "bands": {
+     "L": 3,
+     "M": 5,
+     "S": 2
+    },
+    "wall_ms": 786.2,
+    "timing": {
+     "det": 20.0,
+     "crop": 23.8,
+     "emb": 718.2,
+     "head": 12.1,
+     "total": 754.4
+    },
+    "same_as_host": true,
+    "is_person_min": 0.98,
+    "det_conf_min": 0.5987
+   },
+   {
+    "cam": "305",
+    "sec": 1900,
+    "n": 10,
+    "bands": {
+     "L": 4,
+     "M": 5,
+     "S": 1
+    },
+    "wall_ms": 813.6,
+    "timing": {
+     "det": 19.5,
+     "crop": 22.9,
+     "emb": 734.5,
+     "head": 21.6,
+     "total": 779.3
+    },
+    "same_as_host": true,
+    "is_person_min": 0.9961,
+    "det_conf_min": 0.4214
+   },
+   {
+    "cam": "305",
+    "sec": 900,
+    "n": 8,
+    "bands": {
+     "L": 2,
+     "M": 6
+    },
+    "wall_ms": 658.7,
+    "timing": {
+     "det": 25.9,
+     "crop": 28.1,
+     "emb": 575.8,
+     "head": 14.0,
+     "total": 618.2
+    },
+    "same_as_host": true,
+    "is_person_min": 0.9994,
+    "det_conf_min": 0.5098
+   },
+   {
+    "cam": "318",
+    "sec": 900,
+    "n": 4,
+    "bands": {
+     "M": 2,
+     "S": 2
+    },
+    "wall_ms": 256.3,
+    "timing": {
+     "det": 21.1,
+     "crop": 21.7,
+     "emb": 199.3,
+     "head": 11.1,
+     "total": 232.3
+    },
+    "same_as_host": true,
+    "is_person_min": 0.918,
+    "det_conf_min": 0.3618
+   },
+   {
+    "cam": "316",
+    "sec": 1660,
+    "n": 1,
+    "bands": {
+     "L": 1
+    },
+    "wall_ms": 322.7,
+    "timing": {
+     "det": 18.9,
+     "crop": 19.8,
+     "emb": 265.2,
+     "head": 8.7,
+     "total": 293.7
+    },
+    "same_as_host": true,
+    "is_person_min": 0.9665,
+    "det_conf_min": 0.9257
+   },
+   {
+    "cam": "320",
+    "sec": 1200,
+    "n": 1,
+    "bands": {
+     "M": 1
+    },
+    "wall_ms": 193.4,
+    "timing": {
+     "det": 18.1,
+     "crop": 18.4,
+     "emb": 126.2,
+     "head": 8.4,
+     "total": 153.0
+    },
+    "same_as_host": true,
+    "is_person_min": 0.9985,
+    "det_conf_min": 0.8476
+   },
+   {
+    "cam": "323",
+    "sec": 600,
+    "n": 1,
+    "bands": {
+     "M": 1
+    },
+    "wall_ms": 182.0,
+    "timing": {
+     "det": 22.6,
+     "crop": 22.9,
+     "emb": 128.7,
+     "head": 8.6,
+     "total": 160.3
+    },
+    "same_as_host": true,
+    "is_person_min": 0.9861,
+    "det_conf_min": 0.6045
+   },
+   {
+    "cam": "316",
+    "sec": 400,
+    "n": 0,
+    "bands": {},
+    "wall_ms": 48.4,
+    "timing": {
+     "det": 17.8,
+     "crop": 17.9,
+     "emb": 0,
+     "head": 0,
+     "total": 17.9
+    },
+    "same_as_host": true,
+    "is_person_min": null,
+    "det_conf_min": null
+   },
+   {
+    "cam": "343",
+    "sec": 800,
+    "n": 0,
+    "bands": {},
+    "wall_ms": 49.1,
+    "timing": {
+     "det": 24.6,
+     "crop": 24.7,
+     "emb": 0,
+     "head": 0,
+     "total": 24.7
+    },
+    "same_as_host": true,
+    "is_person_min": null,
+    "det_conf_min": null
+   }
+  ]
+ }
+}

@@ -1,0 +1,280 @@
+{
+ "built": "2026-11-12T20:35:30",
+ "from": "labels_20261112.json",
+ "n_items": 27,
+ "n_labeled": 27,
+ "n_usable": 27,
+ "caveat": "可疑样本（已合并+时空矛盾），只用于合并精度，不可用于 AUC/召回",
+ "items": [
+  {
+   "a": "305:173",
+   "b": "320:45",
+   "pair": "305-320",
+   "label": 1,
+   "overlap_s": 815.0,
+   "group": 13,
+   "source": "spacetime_review",
+   "item": "sp01"
+  },
+  {
+   "a": "305:2",
+   "b": "318:362",
+   "pair": "305-318",
+   "label": 0,
+   "overlap_s": 337.4,
+   "group": 37,
+   "source": "spacetime_review",
+   "item": "sp02"
+  },
+  {
+   "a": "305:173",
+   "b": "320:27",
+   "pair": "305-320",
+   "label": 0,
+   "overlap_s": 226.0,
+   "group": 13,
+   "source": "spacetime_review",
+   "item": "sp03"
+  },
+  {
+   "a": "305:2",
+   "b": "318:177",
+   "pair": "305-318",
+   "label": 0,
+   "overlap_s": 203.2,
+   "group": 37,
+   "source": "spacetime_review",
+   "item": "sp04"
+  },
+  {
+   "a": "305:389",
+   "b": "323:529",
+   "pair": "305-323",
+   "label": 1,
+   "overlap_s": 117.0,
+   "group": 11,
+   "source": "spacetime_review",
+   "item": "sp05"
+  },
+  {
+   "a": "305:611",
+   "b": "323:411",
+   "pair": "305-323",
+   "label": 0,
+   "overlap_s": 107.0,
+   "group": 9,
+   "source": "spacetime_review",
+   "item": "sp06"
+  },
+  {
+   "a": "305:745",
+   "b": "320:159",
+   "pair": "305-320",
+   "label": 0,
+   "overlap_s": 69.2,
+   "group": 13,
+   "source": "spacetime_review",
+   "item": "sp07"
+  },
+  {
+   "a": "305:692",
+   "b": "323:411",
+   "pair": "305-323",
+   "label": 0,
+   "overlap_s": 63.6,
+   "group": 9,
+   "source": "spacetime_review",
+   "item": "sp08"
+  },
+  {
+   "a": "323:1",
+   "b": "343:2",
+   "pair": "323-343",
+   "label": 0,
+   "overlap_s": 31.8,
+   "group": 14,
+   "source": "spacetime_review",
+   "item": "sp09"
+  },
+  {
+   "a": "305:389",
+   "b": "323:567",
+   "pair": "305-323",
+   "label": 1,
+   "overlap_s": 28.6,
+   "group": 11,
+   "source": "spacetime_review",
+   "item": "sp10"
+  },
+  {
+   "a": "305:389",
+   "b": "323:571",
+   "pair": "305-323",
+   "label": 1,
+   "overlap_s": 24.4,
+   "group": 11,
+   "source": "spacetime_review",
+   "item": "sp11"
+  },
+  {
+   "a": "305:199",
+   "b": "318:157",
+   "pair": "305-318",
+   "label": 1,
+   "overlap_s": 21.8,
+   "group": 5,
+   "source": "spacetime_review",
+   "item": "sp12"
+  },
+  {
+   "a": "305:503",
+   "b": "323:411",
+   "pair": "305-323",
+   "label": 0,
+   "overlap_s": 21.2,
+   "group": 9,
+   "source": "spacetime_review",
+   "item": "sp13"
+  },
+  {
+   "a": "320:161",
+   "b": "323:501",
+   "pair": "320-323",
+   "label": 0,
+   "overlap_s": 20.0,
+   "group": 1,
+   "source": "spacetime_review",
+   "item": "sp14"
+  },
+  {
+   "a": "305:115",
+   "b": "343:50",
+   "pair": "305-343",
+   "label": 0,
+   "overlap_s": 19.8,
+   "group": 10,
+   "source": "spacetime_review",
+   "item": "sp15"
+  },
+  {
+   "a": "305:650",
+   "b": "323:411",
+   "pair": "305-323",
+   "label": 0,
+   "overlap_s": 19.4,
+   "group": 9,
+   "source": "spacetime_review",
+   "item": "sp16"
+  },
+  {
+   "a": "305:531",
+   "b": "318:356",
+   "pair": "305-318",
+   "label": 1,
+   "overlap_s": 18.8,
+   "group": 7,
+   "source": "spacetime_review",
+   "item": "sp17"
+  },
+  {
+   "a": "305:173",
+   "b": "320:26",
+   "pair": "305-320",
+   "label": 0,
+   "overlap_s": 18.0,
+   "group": 13,
+   "source": "spacetime_review",
+   "item": "sp18"
+  },
+  {
+   "a": "305:728",
+   "b": "323:557",
+   "pair": "305-323",
+   "label": 1,
+   "overlap_s": 17.6,
+   "group": 6,
+   "source": "spacetime_review",
+   "item": "sp19"
+  },
+  {
+   "a": "305:656",
+   "b": "323:411",
+   "pair": "305-323",
+   "label": 0,
+   "overlap_s": 17.6,
+   "group": 9,
+   "source": "spacetime_review",
+   "item": "sp20"
+  },
+  {
+   "a": "318:448",
+   "b": "323:534",
+   "pair": "318-323",
+   "label": 1,
+   "overlap_s": 13.6,
+   "group": 32,
+   "source": "spacetime_review",
+   "item": "sp21"
+  },
+  {
+   "a": "305:115",
+   "b": "343:17",
+   "pair": "305-343",
+   "label": 0,
+   "overlap_s": 13.2,
+   "group": 10,
+   "source": "spacetime_review",
+   "item": "sp22"
+  },
+  {
+   "a": "305:189",
+   "b": "318:131",
+   "pair": "305-318",
+   "label": 1,
+   "overlap_s": 13.2,
+   "group": 21,
+   "source": "spacetime_review",
+   "item": "sp23"
+  },
+  {
+   "a": "305:115",
+   "b": "316:196",
+   "pair": "305-316",
+   "label": 1,
+   "overlap_s": 12.0,
+   "group": 10,
+   "source": "spacetime_review",
+   "item": "sp24"
+  },
+  {
+   "a": "316:116",
+   "b": "318:120",
+   "pair": "316-318",
+   "label": 1,
+   "overlap_s": 11.8,
+   "group": 31,
+   "source": "spacetime_review",
+   "item": "sp25"
+  },
+  {
+   "a": "316:113",
+   "b": "323:209",
+   "pair": "316-323",
+   "label": 0,
+   "overlap_s": 11.6,
+   "group": 20,
+   "source": "spacetime_review",
+   "item": "sp26"
+  },
+  {
+   "a": "316:257",
+   "b": "318:342",
+   "pair": "316-318",
+   "label": 1,
+   "overlap_s": 10.2,
+   "group": 28,
+   "source": "spacetime_review",
+   "item": "sp27"
+  }
+ ]
+}

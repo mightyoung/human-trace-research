@@ -1,0 +1,283 @@
+{
+ "_meta": {
+  "min_overlap_s": 1.0,
+  "max_clique": [
+   "305",
+   "318",
+   "320"
+  ],
+  "peak_limit": 3,
+  "note": "L1=真值同人对（硬证据）；L2=身份图合并对（合并正确才成立）"
+ },
+ "table": {
+  "305-316": {
+   "verdict": "HANDOFF",
+   "src": "L1",
+   "L1": {
+    "n": 2,
+    "n_overlap": 0,
+    "overlap_frac": 0.0,
+    "med_ov": null,
+    "med_gap": 117.8
+   },
+   "L2": {
+    "n": 22,
+    "n_overlap": 2,
+    "overlap_frac": 0.091,
+    "med_ov": 8.8,
+    "med_gap": -0.5
+   },
+   "visual": null,
+   "uncertain": false
+  },
+  "305-318": {
+   "verdict": "COVIS",
+   "src": "L2",
+   "L1": null,
+   "L2": {
+    "n": 25,
+    "n_overlap": 11,
+    "overlap_frac": 0.44,
+    "med_ov": 6.9,
+    "med_gap": -0.9
+   },
+   "visual": true,
+   "uncertain": false
+  },
+  "305-320": {
+   "verdict": "COVIS",
+   "src": "L2",
+   "L1": null,
+   "L2": {
+    "n": 21,
+    "n_overlap": 8,
+    "overlap_frac": 0.381,
+    "med_ov": 9.2,
+    "med_gap": 29.6
+   },
+   "visual": true,
+   "uncertain": false
+  },
+  "305-323": {
+   "verdict": "MIXED",
+   "src": "L2",
+   "L1": null,
+   "L2": {
+    "n": 14,
+    "n_overlap": 4,
+    "overlap_frac": 0.286,
+    "med_ov": 22.6,
+    "med_gap": 149.6
+   },
+   "visual": null,
+   "uncertain": false
+  },
+  "305-343": {
+   "verdict": "HANDOFF",
+   "src": "L2",
+   "L1": null,
+   "L2": {
+    "n": 10,
+    "n_overlap": 1,
+    "overlap_frac": 0.1,
+    "med_ov": 19.8,
+    "med_gap": -108.0
+   },
+   "visual": null,
+   "uncertain": true
+  },
+  "316-318": {
+   "verdict": "HANDOFF",
+   "src": "L1",
+   "L1": {
+    "n": 2,
+    "n_overlap": 0,
+    "overlap_frac": 0.0,
+    "med_ov": null,
+    "med_gap": 171.1
+   },
+   "L2": {
+    "n": 29,
+    "n_overlap": 1,
+    "overlap_frac": 0.034,
+    "med_ov": 1.2,
+    "med_gap": -12.1
+   },
+   "visual": null,
+   "uncertain": false
+  },
+  "316-320": {
+   "verdict": "HANDOFF",
+   "src": "L2",
+   "L1": null,
+   "L2": {
+    "n": 13,
+    "n_overlap": 0,
+    "overlap_frac": 0.0,
+    "med_ov": null,
+    "med_gap": 7.1
+   },
+   "visual": null,
+   "uncertain": true
+  },
+  "316-323": {
+   "verdict": "HANDOFF",
+   "src": "L1",
+   "L1": {
+    "n": 2,
+    "n_overlap": 0,
+    "overlap_frac": 0.0,
+    "med_ov": null,
+    "med_gap": 119.8
+   },
+   "L2": {
+    "n": 16,
+    "n_overlap": 5,
+    "overlap_frac": 0.312,
+    "med_ov": 11.6,
+    "med_gap": 85.4
+   },
+   "visual": null,
+   "uncertain": false
+  },
+  "316-343": {
+   "verdict": "HANDOFF",
+   "src": "L1",
+   "L1": {
+    "n": 13,
+    "n_overlap": 1,
+    "overlap_frac": 0.077,
+    "med_ov": 1.0,
+    "med_gap": -18.2
+   },
+   "L2": {
+    "n": 13,
+    "n_overlap": 2,
+    "overlap_frac": 0.154,
+    "med_ov": 3.2,
+    "med_gap": -12.0
+   },
+   "visual": null,
+   "uncertain": false
+  },
+  "318-320": {
+   "verdict": "COVIS",
+   "src": "L1",
+   "L1": {
+    "n": 11,
+    "n_overlap": 11,
+    "overlap_frac": 1.0,
+    "med_ov": 3.5,
+    "med_gap": null
+   },
+   "L2": {
+    "n": 16,
+    "n_overlap": 6,
+    "overlap_frac": 0.375,
+    "med_ov": 3.6,
+    "med_gap": -6.8
+   },
+   "visual": true,
+   "uncertain": false
+  },
+  "318-323": {
+   "verdict": "HANDOFF",
+   "src": "L1",
+   "L1": {
+    "n": 3,
+    "n_overlap": 0,
+    "overlap_frac": 0.0,
+    "med_ov": null,
+    "med_gap": 66.6
+   },
+   "L2": {
+    "n": 21,
+    "n_overlap": 3,
+    "overlap_frac": 0.143,
+    "med_ov": 2.5,
+    "med_gap": 30.1
+   },
+   "visual": null,
+   "uncertain": false
+  },
+  "318-343": {
+   "verdict": "HANDOFF",
+   "src": "L2",
+   "L1": null,
+   "L2": {
+    "n": 13,
+    "n_overlap": 0,
+    "overlap_frac": 0.0,
+    "med_ov": null,
+    "med_gap": -19.3
+   },
+   "visual": null,
+   "uncertain": true
+  },
+  "320-323": {
+   "verdict": "MIXED",
+   "src": "L2",
+   "L1": null,
+   "L2": {
+    "n": 7,
+    "n_overlap": 1,
+    "overlap_frac": 0.143,
+    "med_ov": 10.6,
+    "med_gap": -9.3
+   },
+   "visual": null,
+   "uncertain": false
+  },
+  "320-343": {
+   "verdict": "HANDOFF",
+   "src": "L2",
+   "L1": null,
+   "L2": {
+    "n": 8,
+    "n_overlap": 0,
+    "overlap_frac": 0.0,
+    "med_ov": null,
+    "med_gap": -100.9
+   },
+   "visual": null,
+   "uncertain": true
+  },
+  "323-343": {
+   "verdict": "HANDOFF",
+   "src": "L1",
+   "L1": {
+    "n": 1,
+    "n_overlap": 0,
+    "overlap_frac": 0.0,
+    "med_ov": null,
+    "med_gap": -149.2
+   },
+   "L2": {
+    "n": 12,
+    "n_overlap": 1,
+    "overlap_frac": 0.083,
+    "med_ov": 31.8,
+    "med_gap": -84.4
+   },
+   "visual": null,
+   "uncertain": false
+  }
+ },
+ "adj": {
+  "305": [
+   "318",
+   "320"
+  ],
+  "316": [],
+  "318": [
+   "305",
+   "320"
+  ],
+  "320": [
+   "305",
+   "318"
+  ],
+  "323": [],
+  "343": []
+ }
+}

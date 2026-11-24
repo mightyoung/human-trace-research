@@ -1,0 +1,103 @@
+{
+  "_note": "label_set 的登记定义。条数不在这里写死：ops_claims truth 会打开 uri 实测，与这里的 declared 不一致就报错。",
+  "sets": [
+    {
+      "name": "T1",
+      "kind": "binary_items",
+      "uri": "deliverable/gt_long35/gt_long35.json",
+      "path": "items",
+      "label_field": "label",
+      "same": [1, "1"],
+      "diff": [0, "0"],
+      "sampling": "prior-sampled：按系统认为像的对抽样（规则测试集）",
+      "domain": "D1",
+      "annotator": "单标注人",
+      "reviewer": "",
+      "declared": {"n_items": 126, "n_same": 34, "n_diff": 92},
+      "note": "T1 与 T2 永不合并计算精度：两个总体不同"
+    },
+    {
+      "name": "T2",
+      "kind": "binary_items",
+      "uri": "deliverable/spacetime_review/gt_spacetime_items.json",
+      "path": "items",
+      "label_field": "label",
+      "same": [1, "1"],
+      "diff": [0, "0"],
+      "sampling": "contradiction-triggered：已合并且时空矛盾的可疑对（错误触发集）",
+      "domain": "D1",
+      "annotator": "单标注人（盲，20-30 min / 27 项）",
+      "reviewer": "",
+      "declared": {"n_items": 27, "n_same": 12, "n_diff": 15},
+      "note": "只用于合并精度，不可用于 AUC / 召回"
+    },
+    {
+      "name": "judged_merges",
+      "kind": "three_way",
+      "uri": "deliverable/gt_long35/recheck_ai_qc.json",
+      "path": "items",
+      "label_field": "ai",
+      "same": ["same"],
+      "diff": ["diff"],
+      "unsure": ["unsure"],
+      "sampling": "attribute-gate 精度：76 次合并逐条判读，41 条异判复核后 13 条不决剔除",
+      "domain": "D1",
+      "annotator": "单标注人 + AI 复核",
+      "reviewer": "同一裁定人（41 条异判复核）",
+      "declared": {"n_items": 76, "n_same": 46, "n_diff": 17, "n_unlabeled": 13},
+      "note": "判读分母 63 = 76 − 13 不决；40/43 = 0.930 是带闸门后的口径"
+    },
+    {
+      "name": "audited_groups",
+      "kind": "groups_of",
+      "uri": "deliverable/spacetime_review/gt_spacetime_items.json",
+      "path": "items",
+      "group_field": "group",
+      "label_field": "label",
+      "same": [1, "1"],
+      "diff": [0, "0"],
+      "sampling": "T2 按跨机位子集 multi 的 group 聚合；mixed = 组内至少一条判异",
+      "domain": "D1",
+      "annotator": "单标注人",
+      "reviewer": "",
+      "declared": {"n_items": 15, "n_same": 8, "n_diff": 7},
+      "note": "group 字段是「跨机位子集 multi」的下标，不是全 443 组的下标"
+    },
+    {
+      "name": "gallery_double",
+      "kind": "kappa_layer",
+      "uri": "tmp/kappa_round2.json",
+      "layer": "gallery",
+      "sampling": "图库层逐轨命名，两位标注人各自独立编号后对齐（28 映射 / 4 一对多）",
+      "domain": "D1",
+      "annotator": "第一标注人",
+      "reviewer": "第二标注人（盲）",
+      "declared": {"n_items": 257},
+      "note": "原始表 tmp/gt_variant/review_kappa_FILLED.csv 与第二标注人回表；κ 见 rule_json 的三个口径与 10-26 第二版"
+    },
+    {
+      "name": "gallery_round1",
+      "kind": "kappa_layer",
+      "uri": "deliverable/data-request-v2/results/kappa_a3_by_layer.round1.json",
+      "layer": "gallery",
+      "sampling": "图库层逐轨命名，第一版（2026-10-25）盲标对齐，论文 r2 引用的就是这一版",
+      "domain": "D1",
+      "annotator": "第一标注人",
+      "reviewer": "第二标注人（盲）",
+      "declared": {"n_items": 257},
+      "note": "论文 κ 0.925 [0.891,0.958] 的唯一存活产物；第二版见 gallery_double"
+    },
+    {
+      "name": "gallery_round1_person",
+      "kind": "kappa_layer",
+      "uri": "deliverable/data-request-v2/results/kappa_a3_by_layer.round1.json",
+      "layer": "gallery.person_only",
+      "sampling": "同上，剔除 shadow/cloth 等非人物命名后的子集（仅人物）",
+      "domain": "D1",
+      "annotator": "第一标注人",
+      "reviewer": "第二标注人（盲）",
+      "declared": {"n_items": 236},
+      "note": "论文 0.945 (0.913–0.972)：κ 逐位吻合，CI 下界产物为 0.9124"
+    }
+  ]
+}

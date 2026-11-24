@@ -1,0 +1,303 @@
+{
+ "image": {
+  "w": 1920,
+  "h": 1080,
+  "name": ""
+ },
+ "n_persons": 4,
+ "persons": [
+  {
+   "idx": 0,
+   "box": [
+    1438.9,
+    336.6,
+    1541.6,
+    504.6
+   ],
+   "h": 168.0,
+   "band": "M",
+   "det_conf": 0.8857,
+   "is_person": 0.9949,
+   "attrs": {
+    "gender": {
+     "v": "男",
+     "conf": 0.9998,
+     "cap": "ok"
+    },
+    "top_color": {
+     "v": "蓝",
+     "conf": 0.7505,
+     "cap": "ok"
+    },
+    "top_type": {
+     "v": "长袖",
+     "conf": 0.9604,
+     "cap": "ok"
+    },
+    "bottom_color": {
+     "v": "黑",
+     "conf": 0.9745,
+     "cap": "ref"
+    },
+    "bottom_type": {
+     "v": "长裤",
+     "conf": 0.9906,
+     "cap": "ref"
+    },
+    "glasses": {
+     "v": "是",
+     "conf": 0.9999,
+     "cap": "ref"
+    },
+    "hat": {
+     "v": "否",
+     "conf": 1.0,
+     "cap": "ok"
+    },
+    "backpack": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "M 档不可判（框高 168px，该字段没有可靠证据）"
+    },
+    "carrying": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "M 档不可判（框高 168px，该字段没有可靠证据）"
+    }
+   },
+   "not_judgeable": [
+    "backpack",
+    "carrying"
+   ]
+  },
+  {
+   "idx": 2,
+   "box": [
+    828.1,
+    225.0,
+    928.7,
+    345.1
+   ],
+   "h": 120.1,
+   "band": "M",
+   "det_conf": 0.4952,
+   "is_person": 0.9999,
+   "attrs": {
+    "gender": {
+     "v": "男",
+     "conf": 0.965,
+     "cap": "ok"
+    },
+    "top_color": {
+     "v": "黑",
+     "conf": 0.6943,
+     "cap": "ok"
+    },
+    "top_type": {
+     "v": "短袖",
+     "conf": 0.8475,
+     "cap": "ok"
+    },
+    "bottom_color": {
+     "v": "黑",
+     "conf": 0.9985,
+     "cap": "ref"
+    },
+    "bottom_type": {
+     "v": "长裤",
+     "conf": 0.9965,
+     "cap": "ref"
+    },
+    "glasses": {
+     "v": "是",
+     "conf": 0.6573,
+     "cap": "ref"
+    },
+    "hat": {
+     "v": "否",
+     "conf": 1.0,
+     "cap": "ok"
+    },
+    "backpack": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "M 档不可判（框高 120px，该字段没有可靠证据）"
+    },
+    "carrying": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "M 档不可判（框高 120px，该字段没有可靠证据）"
+    }
+   },
+   "not_judgeable": [
+    "backpack",
+    "carrying"
+   ]
+  },
+  {
+   "idx": 1,
+   "box": [
+    1011.5,
+    204.0,
+    1077.8,
+    273.4
+   ],
+   "h": 69.4,
+   "band": "S",
+   "det_conf": 0.6472,
+   "is_person": 0.9982,
+   "attrs": {
+    "gender": {
+     "v": "男",
+     "conf": 0.9994,
+     "cap": "ok"
+    },
+    "top_color": {
+     "v": "蓝",
+     "conf": 0.9629,
+     "cap": "ok"
+    },
+    "top_type": {
+     "v": "短袖",
+     "conf": 0.9929,
+     "cap": "ref"
+    },
+    "bottom_color": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 69px，该字段没有可靠证据）"
+    },
+    "bottom_type": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 69px，该字段没有可靠证据）"
+    },
+    "glasses": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 69px，该字段没有可靠证据）"
+    },
+    "hat": {
+     "v": "否",
+     "conf": 0.9999,
+     "cap": "ok"
+    },
+    "backpack": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 69px，该字段没有可靠证据）"
+    },
+    "carrying": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 69px，该字段没有可靠证据）"
+    }
+   },
+   "not_judgeable": [
+    "bottom_color",
+    "bottom_type",
+    "glasses",
+    "backpack",
+    "carrying"
+   ]
+  },
+  {
+   "idx": 3,
+   "box": [
+    816.7,
+    149.1,
+    850.1,
+    190.6
+   ],
+   "h": 41.5,
+   "band": "S",
+   "det_conf": 0.3618,
+   "is_person": 0.918,
+   "attrs": {
+    "gender": {
+     "v": "男",
+     "conf": 0.977,
+     "cap": "ok"
+    },
+    "top_color": {
+     "v": "棕",
+     "conf": 0.995,
+     "cap": "ok"
+    },
+    "top_type": {
+     "v": "短袖",
+     "conf": 0.938,
+     "cap": "ref"
+    },
+    "bottom_color": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 42px，该字段没有可靠证据）"
+    },
+    "bottom_type": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 42px，该字段没有可靠证据）"
+    },
+    "glasses": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 42px，该字段没有可靠证据）"
+    },
+    "hat": {
+     "v": "否",
+     "conf": 1.0,
+     "cap": "ok"
+    },
+    "backpack": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 42px，该字段没有可靠证据）"
+    },
+    "carrying": {
+     "v": null,
+     "conf": null,
+     "cap": null,
+     "reason": "S 档不可判（框高 42px，该字段没有可靠证据）"
+    }
+   },
+   "not_judgeable": [
+    "bottom_color",
+    "bottom_type",
+    "glasses",
+    "backpack",
+    "carrying"
+   ]
+  }
+ ],
+ "model": {
+  "heads_built": "2026-11-12 21:42",
+  "is_person_min": 0.5,
+  "det_conf": 0.35,
+  "device": "cuda:0"
+ },
+ "timing_ms": {
+  "det": 35.1,
+  "crop": 36.4,
+  "emb": 229.0,
+  "head": 17.6,
+  "total": 284.2
+ },
+ "_proxy": {
+  "url": "http://192.168.11.16:18080",
+  "ms": 363.0
+ }
+}

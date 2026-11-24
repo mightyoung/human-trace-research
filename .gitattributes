@@ -1,0 +1,25 @@
+# 统一换行，避免 Windows/Linux 往返产生伪改动
+* text=auto eol=lf
+
+# 源码与数据一律按文本处理（便于 diff）
+*.rs    text eol=lf
+*.py    text eol=lf
+*.sh    text eol=lf
+*.md    text eol=lf
+*.tex   text eol=lf
+*.bib   text eol=lf
+*.csv   text eol=lf
+*.json  text eol=lf
+*.toml  text eol=lf
+*.sql   text eol=lf
+*.vue   text eol=lf
+*.ts    text eol=lf
+*.css   text eol=lf
+
+# 二进制：不做换行转换、不参与 diff
+*.pdf   binary
+*.docx  binary
+*.xlsx  binary
+*.so    binary
+*.dll   binary
+*.db    binary

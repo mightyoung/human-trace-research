@@ -1,0 +1,1950 @@
+{
+  "_note": "V3 复算配方。每条 check 都必须是可执行的算式：prop = 二项比例+Clopper-Pearson；set_expr = 从 label_set 实测值做加减。expect 是按论文显示精度写的字符串，比对时把复算值截到同样位数再比。",
+  "specs": [
+    {
+      "claim": "pc_49ff7c739f",
+      "why": "L2 判读精度与属性闸门精度的两个分母（§11 表）",
+      "checks": [
+        {
+          "kind": "prop",
+          "k": 46,
+          "n": 63,
+          "expect": [
+            "0.730"
+          ]
+        },
+        {
+          "kind": "prop",
+          "k": 40,
+          "n": 43,
+          "expect": [
+            "0.930"
+          ]
+        }
+      ],
+      "_was_display": "E11-155"
+    },
+    {
+      "claim": "pc_97ffc2db94",
+      "why": "L2 判读精度 46/63 与其 95% 区间",
+      "checks": [
+        {
+          "kind": "prop",
+          "k": 46,
+          "n": 63,
+          "expect": [
+            "0.730",
+            "0.60",
+            "0.83"
+          ]
+        }
+      ],
+      "_was_display": "E12-179",
+      "inputs": [
+        "deliverable/gt_long35/attr_filter_ingraph.json"
+      ]
+    },
+    {
+      "claim": "pc_f5b7ec70d6",
+      "why": "L2 带闸门 40/43 与其 95% 区间",
+      "checks": [
+        {
+          "kind": "prop",
+          "k": 40,
+          "n": 43,
+          "expect": [
+            "0.930",
+            "0.81",
+            "0.99"
+          ]
+        }
+      ],
+      "_was_display": "E12-180",
+      "inputs": [
+        "deliverable/gt_long35/attr_filter_ingraph.json"
+      ]
+    },
+    {
+      "claim": "pc_bfac00307f",
+      "why": "L2+ 选择器 S0 召回 101/179 与其 95% 区间（百分数）",
+      "checks": [
+        {
+          "kind": "prop",
+          "k": 101,
+          "n": 179,
+          "percent": true,
+          "expect": [
+            "56.4",
+            "48.8",
+            "63.8"
+          ]
+        }
+      ],
+      "_was_display": "E12-181",
+      "inputs": [
+        "tmp/full/pose_pool_real.json"
+      ]
+    },
+    {
+      "claim": "pc_9ec2d16f48",
+      "why": "L2+ 选择器 S1 召回 122/179 与其 95% 区间（百分数）",
+      "checks": [
+        {
+          "kind": "prop",
+          "k": 122,
+          "n": 179,
+          "percent": true,
+          "expect": [
+            "68.2",
+            "60.8",
+            "74.9"
+          ]
+        }
+      ],
+      "_was_display": "E12-182",
+      "inputs": [
+        "tmp/full/pose_pool_real.json"
+      ]
+    },
+    {
+      "claim": "pc_5050eb4634",
+      "why": "T1 条数 = 34 同 + 92 异，取自真值文件实测",
+      "checks": [
+        {
+          "kind": "set_expr",
+          "set": "T1",
+          "expr": "n_items",
+          "expect": "126"
+        },
+        {
+          "kind": "set_expr",
+          "set": "T1",
+          "expr": "n_same+n_diff",
+          "expect": "126"
+        }
+      ],
+      "_was_display": "E02-015"
+    },
+    {
+      "claim": "pc_85d8680aac",
+      "why": "T2 条数 = 12 同 + 15 异",
+      "checks": [
+        {
+          "kind": "set_expr",
+          "set": "T2",
+          "expr": "n_items",
+          "expect": "27"
+        },
+        {
+          "kind": "set_expr",
+          "set": "T2",
+          "expr": "n_same+n_diff",
+          "expect": "27"
+        }
+      ],
+      "_was_display": "E02-016"
+    },
+    {
+      "claim": "pc_d3b3aea238",
+      "why": "无门 76 次合并、63 条带判读（76 − 13 不决）",
+      "checks": [
+        {
+          "kind": "set_expr",
+          "set": "judged_merges",
+          "expr": "n_items",
+          "expect": "76"
+        },
+        {
+          "kind": "set_expr",
+          "set": "judged_merges",
+          "expr": "n_items-n_unlabeled",
+          "expect": "63"
+        }
+      ],
+      "_was_display": "E11-157"
+    },
+    {
+      "claim": "pc_3000657304",
+      "why": "九格表 10-22→10-22 的 coverage/same/fm/可评估对，直接读 tex 行与 matrix.json 比对",
+      "checks": [
+        {
+          "kind": "matrix_row",
+          "file": "main.tex",
+          "label": "tab:xday",
+          "row": 1,
+          "cell": "2026-10-22__to__2026-10-22",
+          "variant": "剔除无效段",
+          "theta": "0.9"
+        }
+      ],
+      "_was_display": "E08-115"
+    },
+    {
+      "claim": "pc_fb15b29262",
+      "why": "九格表 10-22→10-23 的 coverage/same/fm/可评估对，直接读 tex 行与 matrix.json 比对",
+      "checks": [
+        {
+          "kind": "matrix_row",
+          "file": "main.tex",
+          "label": "tab:xday",
+          "row": 2,
+          "cell": "2026-10-22__to__2026-10-23",
+          "variant": "剔除无效段",
+          "theta": "0.9"
+        }
+      ],
+      "_was_display": "E08-116"
+    },
+    {
+      "claim": "pc_fe64b9ca88",
+      "why": "九格表 10-22→10-26 的 coverage/same/fm/可评估对，直接读 tex 行与 matrix.json 比对",
+      "checks": [
+        {
+          "kind": "matrix_row",
+          "file": "main.tex",
+          "label": "tab:xday",
+          "row": 3,
+          "cell": "2026-10-22__to__2026-10-26",
+          "variant": "剔除无效段",
+          "theta": "0.9"
+        }
+      ],
+      "_was_display": "E08-117"
+    },
+    {
+      "claim": "pc_0150c7ad23",
+      "why": "九格表 10-23→10-23 的 coverage/same/fm/可评估对，直接读 tex 行与 matrix.json 比对",
+      "checks": [
+        {
+          "kind": "matrix_row",
+          "file": "main.tex",
+          "label": "tab:xday",
+          "row": 4,
+          "cell": "2026-10-23__to__2026-10-23",
+          "variant": "剔除无效段",
+          "theta": "0.9"
+        }
+      ],
+      "_was_display": "E08-118"
+    },
+    {
+      "claim": "pc_a8625bbe7e",
+      "why": "九格表 10-23→10-22 的 coverage/same/fm/可评估对，直接读 tex 行与 matrix.json 比对",
+      "checks": [
+        {
+          "kind": "matrix_row",
+          "file": "main.tex",
+          "label": "tab:xday",
+          "row": 5,
+          "cell": "2026-10-23__to__2026-10-22",
+          "variant": "剔除无效段",
+          "theta": "0.9"
+        }
+      ],
+      "_was_display": "E08-119"
+    },
+    {
+      "claim": "pc_4f328782dd",
+      "why": "九格表 10-23→10-26 的 coverage/same/fm/可评估对，直接读 tex 行与 matrix.json 比对",
+      "checks": [
+        {
+          "kind": "matrix_row",
+          "file": "main.tex",
+          "label": "tab:xday",
+          "row": 6,
+          "cell": "2026-10-23__to__2026-10-26",
+          "variant": "剔除无效段",
+          "theta": "0.9"
+        }
+      ],
+      "_was_display": "E08-120"
+    },
+    {
+      "claim": "pc_9fc56f6fd3",
+      "why": "九格表 10-26→10-26 的 coverage/same/fm/可评估对，直接读 tex 行与 matrix.json 比对",
+      "checks": [
+        {
+          "kind": "matrix_row",
+          "file": "main.tex",
+          "label": "tab:xday",
+          "row": 7,
+          "cell": "2026-10-26__to__2026-10-26",
+          "variant": "剔除无效段",
+          "theta": "0.9"
+        }
+      ],
+      "_was_display": "E08-121"
+    },
+    {
+      "claim": "pc_8eddb4e0e9",
+      "why": "九格表 10-26→10-22 的 coverage/same/fm/可评估对，直接读 tex 行与 matrix.json 比对",
+      "checks": [
+        {
+          "kind": "matrix_row",
+          "file": "main.tex",
+          "label": "tab:xday",
+          "row": 8,
+          "cell": "2026-10-26__to__2026-10-22",
+          "variant": "剔除无效段",
+          "theta": "0.9"
+        }
+      ],
+      "_was_display": "E08-122"
+    },
+    {
+      "claim": "pc_8e5c3b713c",
+      "why": "九格表 10-26→10-23 的 coverage/same/fm/可评估对，直接读 tex 行与 matrix.json 比对",
+      "checks": [
+        {
+          "kind": "matrix_row",
+          "file": "main.tex",
+          "label": "tab:xday",
+          "row": 9,
+          "cell": "2026-10-26__to__2026-10-23",
+          "variant": "剔除无效段",
+          "theta": "0.9"
+        }
+      ],
+      "_was_display": "E08-123"
+    },
+    {
+      "claim": "pc_1fe23b2ae1",
+      "why": "集中度表 10-22→10-22（K/Covered/H-logK/Max）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "分簇份额向量未留存：matrix.json 与逐格 CSV 只有 coverage/same/fm/ev，H/logK 与 Max 无法重算",
+          "file_tex": "supplement.tex",
+          "label": "Same cells",
+          "row": 0,
+          "_cell": "2026-10-22__to__2026-10-22"
+        }
+      ],
+      "_was_display": "E08-124"
+    },
+    {
+      "claim": "pc_fdc1badc4b",
+      "why": "集中度表 10-22→10-23（K/Covered/H-logK/Max）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "分簇份额向量未留存：matrix.json 与逐格 CSV 只有 coverage/same/fm/ev，H/logK 与 Max 无法重算",
+          "file_tex": "supplement.tex",
+          "label": "Same cells",
+          "row": 1,
+          "_cell": "2026-10-22__to__2026-10-23"
+        }
+      ],
+      "_was_display": "E08-125"
+    },
+    {
+      "claim": "pc_18eabfd7af",
+      "why": "集中度表 10-22→10-26（K/Covered/H-logK/Max）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "分簇份额向量未留存：matrix.json 与逐格 CSV 只有 coverage/same/fm/ev，H/logK 与 Max 无法重算",
+          "file_tex": "supplement.tex",
+          "label": "Same cells",
+          "row": 2,
+          "_cell": "2026-10-22__to__2026-10-26"
+        }
+      ],
+      "_was_display": "E08-126"
+    },
+    {
+      "claim": "pc_05b8bd1cbe",
+      "why": "集中度表 10-23→10-23（K/Covered/H-logK/Max）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "分簇份额向量未留存：matrix.json 与逐格 CSV 只有 coverage/same/fm/ev，H/logK 与 Max 无法重算",
+          "file_tex": "supplement.tex",
+          "label": "Same cells",
+          "row": 3,
+          "_cell": "2026-10-23__to__2026-10-23"
+        }
+      ],
+      "_was_display": "E08-127"
+    },
+    {
+      "claim": "pc_a1058f60ed",
+      "why": "集中度表 10-23→10-22（K/Covered/H-logK/Max）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "分簇份额向量未留存：matrix.json 与逐格 CSV 只有 coverage/same/fm/ev，H/logK 与 Max 无法重算",
+          "file_tex": "supplement.tex",
+          "label": "Same cells",
+          "row": 4,
+          "_cell": "2026-10-23__to__2026-10-22"
+        }
+      ],
+      "_was_display": "E08-128"
+    },
+    {
+      "claim": "pc_18d51c3b73",
+      "why": "集中度表 10-23→10-26（K/Covered/H-logK/Max）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "分簇份额向量未留存：matrix.json 与逐格 CSV 只有 coverage/same/fm/ev，H/logK 与 Max 无法重算",
+          "file_tex": "supplement.tex",
+          "label": "Same cells",
+          "row": 5,
+          "_cell": "2026-10-23__to__2026-10-26"
+        }
+      ],
+      "_was_display": "E08-129"
+    },
+    {
+      "claim": "pc_ae25d4cce0",
+      "why": "集中度表 10-26→10-26（K/Covered/H-logK/Max）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "分簇份额向量未留存：matrix.json 与逐格 CSV 只有 coverage/same/fm/ev，H/logK 与 Max 无法重算",
+          "file_tex": "supplement.tex",
+          "label": "Same cells",
+          "row": 6,
+          "_cell": "2026-10-26__to__2026-10-26"
+        }
+      ],
+      "_was_display": "E08-130"
+    },
+    {
+      "claim": "pc_1277d400ee",
+      "why": "集中度表 10-26→10-22（K/Covered/H-logK/Max）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "分簇份额向量未留存：matrix.json 与逐格 CSV 只有 coverage/same/fm/ev，H/logK 与 Max 无法重算",
+          "file_tex": "supplement.tex",
+          "label": "Same cells",
+          "row": 7,
+          "_cell": "2026-10-26__to__2026-10-22"
+        }
+      ],
+      "_was_display": "E08-131"
+    },
+    {
+      "claim": "pc_43c75536c1",
+      "why": "集中度表 10-26→10-23（K/Covered/H-logK/Max）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "分簇份额向量未留存：matrix.json 与逐格 CSV 只有 coverage/same/fm/ev，H/logK 与 Max 无法重算",
+          "file_tex": "supplement.tex",
+          "label": "Same cells",
+          "row": 8,
+          "_cell": "2026-10-26__to__2026-10-23"
+        }
+      ],
+      "_was_display": "E08-132"
+    },
+    {
+      "claim": "pc_0f09375a80",
+      "why": "tab:gate 第 1 行：无闸门 434 组 / 76 次合并 / T1 5-34 与 0-80 / 46-63 (0.730)",
+      "checks": [
+        {
+          "kind": "gate_run",
+          "file": "deliverable/gt_long35/attr_filter_ingraph.json",
+          "mode": "base",
+          "file_tex": "main.tex",
+          "label": "tab:gate",
+          "row": 1
+        }
+      ],
+      "_was_display": "E05-057"
+    },
+    {
+      "claim": "pc_872c67aa86",
+      "why": "tab:gate 第 2 行：attr8 闸门 443 组 / 67 次合并 / 40-43 (0.930)",
+      "checks": [
+        {
+          "kind": "gate_run",
+          "file": "deliverable/gt_long35/attr_filter_ingraph.json",
+          "mode": "attr8",
+          "file_tex": "main.tex",
+          "label": "tab:gate",
+          "row": 2
+        }
+      ],
+      "_was_display": "E05-058"
+    },
+    {
+      "claim": "pc_ce49435522",
+      "why": "身份数 v0 = 443 组（与 attr8 闸门后的组数同一产物）",
+      "checks": [
+        {
+          "kind": "gate_field",
+          "file": "deliverable/gt_long35/attr_filter_ingraph.json",
+          "mode": "attr8",
+          "idx": 0,
+          "expect": "443"
+        }
+      ],
+      "_was_display": "E01-008"
+    },
+    {
+      "claim": "pc_69abee15fd",
+      "why": "身份数 v1 = 450（人工修正 443→450）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "组数 450 是人工图着色修正后的值（verifier_split.json 的 v0 记 443，差 7 组来自人工删边），无脚本可重放；同行的 T1 真对 5 与 T2 保留 12/12 与 v0 一致",
+          "file_tex": "main.tex",
+          "label": "tab:verifier",
+          "row": 1
+        }
+      ],
+      "_was_display": "E07-108"
+    },
+    {
+      "claim": "pc_eb35d0bad7",
+      "why": "tab:merge frame-index spans（v0）：身份数/合并数/T1 同/异/精度，读 tex 行与 spacetime_ingraph.json 逐列比",
+      "checks": [
+        {
+          "kind": "run_fields",
+          "file": "tmp/full/spacetime_ingraph.json",
+          "mode": "base",
+          "fields": [
+            "n_after",
+            "merged",
+            "pos_hit",
+            "pos_n",
+            "neg_hit",
+            "neg_n",
+            "prec"
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:merge",
+          "row": 1
+        }
+      ]
+    },
+    {
+      "claim": "pc_2f9e85cc2c",
+      "why": "tab:merge OSD 绝对时钟：身份数/合并数/T1 同/异/精度，读 tex 行与 spacetime_ingraph.json 逐列比",
+      "checks": [
+        {
+          "kind": "run_fields",
+          "file": "tmp/full/spacetime_ingraph.json",
+          "mode": "osd",
+          "fields": [
+            "n_after",
+            "merged",
+            "pos_hit",
+            "pos_n",
+            "neg_hit",
+            "neg_n",
+            "prec"
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:merge",
+          "row": 2
+        }
+      ]
+    },
+    {
+      "claim": "pc_2835964b7c",
+      "why": "tab:merge OSD + 共视 >60 s：身份数/合并数/T1 同/异/精度，读 tex 行与 spacetime_ingraph.json 逐列比",
+      "checks": [
+        {
+          "kind": "run_fields",
+          "file": "tmp/full/spacetime_ingraph.json",
+          "mode": "covis60",
+          "fields": [
+            "n_after",
+            "merged",
+            "pos_hit",
+            "pos_n",
+            "neg_hit",
+            "neg_n",
+            "prec"
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:merge",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "claim": "pc_74c8ef99c8",
+      "why": "tab:merge OSD + 共视 >300 s：身份数/合并数/T1 同/异/精度，读 tex 行与 spacetime_ingraph.json 逐列比",
+      "checks": [
+        {
+          "kind": "run_fields",
+          "file": "tmp/full/spacetime_ingraph.json",
+          "mode": "covis300",
+          "fields": [
+            "n_after",
+            "merged",
+            "pos_hit",
+            "pos_n",
+            "neg_hit",
+            "neg_n",
+            "prec"
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:merge",
+          "row": 4
+        }
+      ]
+    },
+    {
+      "claim": "pc_1aa09774d5",
+      "why": "tab:selector S0 库均值 56.4%（101/179），无池，读 tex 行与 pose_pool_real.json 比对",
+      "checks": [
+        {
+          "kind": "pool_cell",
+          "file": "tmp/full/pose_pool_real.json",
+          "tau": "0.8",
+          "key": "s0",
+          "file_tex": "main.tex",
+          "label": "tab:selector",
+          "row": 1,
+          "extra": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_6b676f58a8",
+      "why": "tab:selector S1 形态加权 68.2%（122/179），无池，读 tex 行与 pose_pool_real.json 比对",
+      "checks": [
+        {
+          "kind": "pool_cell",
+          "file": "tmp/full/pose_pool_real.json",
+          "tau": "0.8",
+          "key": "s5",
+          "file_tex": "main.tex",
+          "label": "tab:selector",
+          "row": 2,
+          "extra": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_f33c6aef75",
+      "why": "tab:selector S1+池真实识别 69.8%（125/179），池 19，读 tex 行与 pose_pool_real.json 比对",
+      "checks": [
+        {
+          "kind": "pool_cell",
+          "file": "tmp/full/pose_pool_real.json",
+          "tau": "0.8",
+          "key": "s5+real",
+          "file_tex": "main.tex",
+          "label": "tab:selector",
+          "row": 3,
+          "pool": "w_real"
+        }
+      ]
+    },
+    {
+      "claim": "pc_9cd40bb9d7",
+      "why": "tab:selector S0+池身份全对 79.3%（142/179），池 65，读 tex 行与 pose_pool_real.json 比对",
+      "checks": [
+        {
+          "kind": "pool_cell",
+          "file": "tmp/full/pose_pool_real.json",
+          "tau": "0.8",
+          "key": "s0+gt",
+          "file_tex": "main.tex",
+          "label": "tab:selector",
+          "row": 4,
+          "pool": "w_gt"
+        }
+      ]
+    },
+    {
+      "claim": "pc_892e9d9c10",
+      "why": "tab:selector S1+池身份全对 83.2%（149/179），池 65，读 tex 行与 pose_pool_real.json 比对",
+      "checks": [
+        {
+          "kind": "pool_cell",
+          "file": "tmp/full/pose_pool_real.json",
+          "tau": "0.8",
+          "key": "s5+gt",
+          "file_tex": "main.tex",
+          "label": "tab:selector",
+          "row": 5,
+          "pool": "w_gt"
+        }
+      ]
+    },
+    {
+      "claim": "pc_f521f69831",
+      "why": "tab:selector 上限 92.7%：全天素材（非因果）口径，只记在 docs/mainline-pose-pool-2026-11-11.md §4",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "上限口径未留存中间产物：该值由「当天该身份全部其他轨（中位 22 条，含下午，非因果）」重算，脚本与分簇结果均未保留，只在文档 §4 表格记录"
+        }
+      ]
+    },
+    {
+      "claim": "pc_1cb95ff059",
+      "why": "tab:verifier @0.20：组数/T1 真对/T2 保留对数，读 tex 行与 verifier_split.json 比对",
+      "checks": [
+        {
+          "kind": "run_fields",
+          "file": "tmp/full/verifier_split.json",
+          "mode": "v2@0.2",
+          "fields": [
+            "groups",
+            "tp",
+            "kept_same"
+          ],
+          "extra": [
+            12
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:verifier",
+          "row": 2
+        }
+      ]
+    },
+    {
+      "claim": "pc_e539da4987",
+      "why": "tab:verifier @0.25：组数/T1 真对/T2 保留对数，读 tex 行与 verifier_split.json 比对",
+      "checks": [
+        {
+          "kind": "run_fields",
+          "file": "tmp/full/verifier_split.json",
+          "mode": "v2@0.25",
+          "fields": [
+            "groups",
+            "tp",
+            "kept_same"
+          ],
+          "extra": [
+            12
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:verifier",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "claim": "pc_ebb153cc9c",
+      "why": "tab:verifier @0.30：组数/T1 真对/T2 保留对数，读 tex 行与 verifier_split.json 比对",
+      "checks": [
+        {
+          "kind": "run_fields",
+          "file": "tmp/full/verifier_split.json",
+          "mode": "v2@0.3",
+          "fields": [
+            "groups",
+            "tp",
+            "kept_same"
+          ],
+          "extra": [
+            12
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:verifier",
+          "row": 4
+        }
+      ]
+    },
+    {
+      "claim": "pc_4fc57c86c0",
+      "why": "tab:verifier @0.40：组数/T1 真对/T2 保留对数，读 tex 行与 verifier_split.json 比对",
+      "checks": [
+        {
+          "kind": "run_fields",
+          "file": "tmp/full/verifier_split.json",
+          "mode": "v2@0.4",
+          "fields": [
+            "groups",
+            "tp",
+            "kept_same"
+          ],
+          "extra": [
+            12
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:verifier",
+          "row": 5
+        }
+      ]
+    },
+    {
+      "claim": "pc_30ab566b2c",
+      "why": "tab:d1 机位数与分辨率：直接数 tracks/*.json 的 cam 与 (w,h)，不读汇总产物",
+      "checks": [
+        {
+          "kind": "pack",
+          "metric": "cams",
+          "file_tex": "main.tex",
+          "label": "tab:d1",
+          "row": 1
+        },
+        {
+          "kind": "pack",
+          "metric": "resolution",
+          "file_tex": "main.tex",
+          "label": "tab:d1",
+          "row": 2
+        }
+      ]
+    },
+    {
+      "claim": "pc_9b7624d991",
+      "why": "tab:d1 时长与帧率：六机位 nframes/fps 的均值（2098.7→2099）与 fps 中位",
+      "checks": [
+        {
+          "kind": "pack",
+          "metric": "duration",
+          "file_tex": "main.tex",
+          "label": "tab:d1",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "claim": "pc_3e30c0f0fc",
+      "why": "tab:d1 总轨迹：六机位 tracks 字典长度求和",
+      "checks": [
+        {
+          "kind": "pack",
+          "metric": "tracks",
+          "file_tex": "main.tex",
+          "label": "tab:d1",
+          "row": 4
+        }
+      ]
+    },
+    {
+      "claim": "pc_17db4c46cc",
+      "why": "tab:d1 进图轨迹：long35_crosscam_attr8.json 各 group 成员数之和",
+      "checks": [
+        {
+          "kind": "graph",
+          "metric": "members",
+          "file": "tmp/full/long35_crosscam_attr8.json",
+          "file_tex": "main.tex",
+          "label": "tab:d1",
+          "row": 5
+        }
+      ]
+    },
+    {
+      "claim": "pc_5e63ddb60c",
+      "why": "tab:d1 跨机位组：groups 中机位数 >1 的组数",
+      "checks": [
+        {
+          "kind": "graph",
+          "metric": "crosscam",
+          "file": "tmp/full/long35_crosscam_attr8.json",
+          "file_tex": "main.tex",
+          "label": "tab:d1",
+          "row": 7
+        }
+      ]
+    },
+    {
+      "claim": "pc_a590d39c4b",
+      "why": "tab:d1 最大组：groups 最大成员数",
+      "checks": [
+        {
+          "kind": "graph",
+          "metric": "largest",
+          "file": "tmp/full/long35_crosscam_attr8.json",
+          "file_tex": "main.tex",
+          "label": "tab:d1",
+          "row": 8
+        }
+      ]
+    },
+    {
+      "claim": "pc_ef0fe784bc",
+      "why": "tab:d1 可用人脸嵌入 150/1,894（7.9%）：三份可机读产物给出三个不同值",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "口径并存且未与 1,894 轨全集对齐：`tmp/full/face/usable_tracks.json`（18 卷 462 轨、1286 条观测）的可用轨为 **130**；`tmp/full/face_anchor_verify.json` 记 `n_face_tracks=154`；论文写 150＝「能对上 v0 身份」的轨数（docs/mainline-identity-graph-2026-11-11.md:144），而标签写的是 Usable → 数值在 matched 口径下成立，但无法由现存产物复核为 150",
+          "file_tex": "main.tex",
+          "label": "tab:d1",
+          "row": 9
+        }
+      ]
+    },
+    {
+      "claim": "pc_b3bccdcbc7",
+      "why": "tab:d1 中位脸宽 52 px：现存人脸观测给出 37（全部观测）/60（可用观测），无 52",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "现存 `tmp/full/face/face/*.jsonl` 的中位脸宽为 37 px（全部观测 1286 条）与 60 px（可用观测 336 条），均非 52；生成 52 的那次扫描（含 1,894 轨全集）未随包保留",
+          "file_tex": "main.tex",
+          "label": "tab:d1",
+          "row": 10
+        }
+      ]
+    },
+    {
+      "claim": "pc_3ade6a353d",
+      "why": "分关系召回：重跑 diag_recall_by_rel.py（thr .78 基线），输出存证后按行取值",
+      "checks": [
+        {
+          "kind": "text_value",
+          "file": "ops/claims/artifacts/recall_by_rel_thr078.txt",
+          "label": "同段",
+          "expect": [
+            "53.8"
+          ]
+        },
+        {
+          "kind": "text_value",
+          "file": "ops/claims/artifacts/recall_by_rel_thr078.txt",
+          "label": "同机位·跨时段",
+          "expect": [
+            "42.3"
+          ]
+        },
+        {
+          "kind": "text_value",
+          "file": "ops/claims/artifacts/recall_by_rel_thr078.txt",
+          "label": "跨机位",
+          "expect": [
+            "3.7"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_693ac964be",
+      "why": "碎片化 5.5 轨/人、断口 63% >10 s",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "只在 docs/mainline-break-appearance-2026-11-10.md 记录，生成脚本与中间产物未随包保留；断口统计依赖逐轨时间戳重建，非现有产物可直接复算",
+          "file_tex": "main.tex",
+          "label": "tab:protocol",
+          "row": 1
+        }
+      ]
+    },
+    {
+      "claim": "pc_1ca7950d07",
+      "why": "矛盾数 27：gt_spacetime_items.json 的条目数（与 T2 label_set 同一文件）",
+      "checks": [
+        {
+          "kind": "json_count",
+          "file": "deliverable/spacetime_review/gt_spacetime_items.json",
+          "path": "items",
+          "expect": [
+            "27"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_1529e57d1c",
+      "why": "L3 约束遵守：27 项判读在 v1 图（450 组）上是否全被遵守",
+      "checks": [
+        {
+          "kind": "constraints",
+          "gt": "deliverable/spacetime_review/gt_spacetime_items.json",
+          "graph": "tmp/full/long35_crosscam_attr8_v1.json",
+          "expect": [
+            "15",
+            "15",
+            "12",
+            "12"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_725e55d3e1",
+      "why": "人工成本 20–30 min / 27 项",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "人工耗时是操作记录（20–30 min 为 2026-11-23 判读批次的实测区间），无机器可读计时产物；同行的 27 项已由 E06-082 复算",
+          "file_tex": "main.tex",
+          "label": "tab:protocol",
+          "row": 5
+        }
+      ]
+    },
+    {
+      "claim": "pc_64f64207a1",
+      "why": "§12.5 对照表的一行：记录论文集度表与 matrix.json 的差异本身，不是可复算结果",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "该行是「论文全量口径 vs matrix.json」的对照记录：矩阵两列可由 tmp/e21_xday/matrix.json 复算，论文列（K/Covered）无产物支撑；已在 §12.5 与 E08-123…131 登记，故按不可复算处理，不重复计覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_13199266d7",
+      "why": "§12.5 对照表的一行：记录论文集度表与 matrix.json 的差异本身，不是可复算结果",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "该行是「论文全量口径 vs matrix.json」的对照记录：矩阵两列可由 tmp/e21_xday/matrix.json 复算，论文列（K/Covered）无产物支撑；已在 §12.5 与 E08-123…131 登记，故按不可复算处理，不重复计覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_35674ceab4",
+      "why": "§12.5 对照表的一行：记录论文集度表与 matrix.json 的差异本身，不是可复算结果",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "该行是「论文全量口径 vs matrix.json」的对照记录：矩阵两列可由 tmp/e21_xday/matrix.json 复算，论文列（K/Covered）无产物支撑；已在 §12.5 与 E08-123…131 登记，故按不可复算处理，不重复计覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_70adfa9379",
+      "why": "§12.5 对照表的一行：记录论文集度表与 matrix.json 的差异本身，不是可复算结果",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "该行是「论文全量口径 vs matrix.json」的对照记录：矩阵两列可由 tmp/e21_xday/matrix.json 复算，论文列（K/Covered）无产物支撑；已在 §12.5 与 E08-123…131 登记，故按不可复算处理，不重复计覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_21d8bcddad",
+      "why": "§12.5 对照表的一行：记录论文集度表与 matrix.json 的差异本身，不是可复算结果",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "该行是「论文全量口径 vs matrix.json」的对照记录：矩阵两列可由 tmp/e21_xday/matrix.json 复算，论文列（K/Covered）无产物支撑；已在 §12.5 与 E08-123…131 登记，故按不可复算处理，不重复计覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_0bc1821410",
+      "why": "§12.5 对照表的一行：记录论文集度表与 matrix.json 的差异本身，不是可复算结果",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "该行是「论文全量口径 vs matrix.json」的对照记录：矩阵两列可由 tmp/e21_xday/matrix.json 复算，论文列（K/Covered）无产物支撑；已在 §12.5 与 E08-123…131 登记，故按不可复算处理，不重复计覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_0d28d84dc4",
+      "why": "§12.5 对照表的一行：记录论文集度表与 matrix.json 的差异本身，不是可复算结果",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "该行是「论文全量口径 vs matrix.json」的对照记录：矩阵两列可由 tmp/e21_xday/matrix.json 复算，论文列（K/Covered）无产物支撑；已在 §12.5 与 E08-123…131 登记，故按不可复算处理，不重复计覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_bd96943cca",
+      "why": "§12.5 对照表的一行：记录论文集度表与 matrix.json 的差异本身，不是可复算结果",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "该行是「论文全量口径 vs matrix.json」的对照记录：矩阵两列可由 tmp/e21_xday/matrix.json 复算，论文列（K/Covered）无产物支撑；已在 §12.5 与 E08-123…131 登记，故按不可复算处理，不重复计覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_b52cfa75ab",
+      "why": "§12.5 对照表的一行：记录论文集度表与 matrix.json 的差异本身，不是可复算结果",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "该行是「论文全量口径 vs matrix.json」的对照记录：矩阵两列可由 tmp/e21_xday/matrix.json 复算，论文列（K/Covered）无产物支撑；已在 §12.5 与 E08-123…131 登记，故按不可复算处理，不重复计覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_fbc720a485",
+      "why": "tab:agg osnet：同人中位/异人中位/AUC 与 95% CI，读 emb_auc_out.txt 的 osnet 行",
+      "checks": [
+        {
+          "kind": "auc_block",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet",
+          "file_tex": "main.tex",
+          "label": "tab:agg",
+          "row": 2
+        }
+      ]
+    },
+    {
+      "claim": "pc_c1ea575d6d",
+      "why": "tab:agg osnet+cc：同人中位/异人中位/AUC 与 95% CI，读 emb_auc_out.txt 的 osnet+cc 行",
+      "checks": [
+        {
+          "kind": "auc_block",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet+cc",
+          "file_tex": "main.tex",
+          "label": "tab:agg",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "claim": "pc_6a4daa6e29",
+      "why": "tab:agg osnet+cw：同人中位/异人中位/AUC 与 95% CI，读 emb_auc_out.txt 的 osnet+cw 行",
+      "checks": [
+        {
+          "kind": "auc_block",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet+cw",
+          "file_tex": "main.tex",
+          "label": "tab:agg",
+          "row": 4
+        }
+      ]
+    },
+    {
+      "claim": "pc_c68fea4a9f",
+      "why": "tab:agg eg2：同人中位/异人中位/AUC 与 95% CI，读 emb_auc_out.txt 的 eg2 行",
+      "checks": [
+        {
+          "kind": "auc_block",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "eg2",
+          "file_tex": "main.tex",
+          "label": "tab:agg",
+          "row": 5
+        }
+      ]
+    },
+    {
+      "claim": "pc_552c16b0ab",
+      "why": "tab:agg eg2+cc：同人中位/异人中位/AUC 与 95% CI，读 emb_auc_out.txt 的 eg2+cc 行",
+      "checks": [
+        {
+          "kind": "auc_block",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "eg2+cc",
+          "file_tex": "main.tex",
+          "label": "tab:agg",
+          "row": 6
+        }
+      ]
+    },
+    {
+      "claim": "pc_51be5a6f59",
+      "why": "tab:agg eg2+cw：同人中位/异人中位/AUC 与 95% CI，读 emb_auc_out.txt 的 eg2+cw 行",
+      "checks": [
+        {
+          "kind": "auc_block",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "eg2+cw",
+          "file_tex": "main.tex",
+          "label": "tab:agg",
+          "row": 7
+        }
+      ]
+    },
+    {
+      "claim": "pc_bd93d2eabf",
+      "why": "tab:pair 318-320：同/异对数与 AUC，读 emb_auc_out.txt 的 osnet 分机位对块",
+      "checks": [
+        {
+          "kind": "auc_pair",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet",
+          "pair": "318-320",
+          "file_tex": "main.tex",
+          "label": "tab:pair",
+          "row": 1,
+          "tex_idx": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_ff691318f8",
+      "why": "tab:pair 316-343：同/异对数与 AUC，读 emb_auc_out.txt 的 osnet 分机位对块",
+      "checks": [
+        {
+          "kind": "auc_pair",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet",
+          "pair": "316-343",
+          "file_tex": "main.tex",
+          "label": "tab:pair",
+          "row": 2,
+          "tex_idx": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_87312a2ae0",
+      "why": "tab:pair 316-323：同/异对数与 AUC，读 emb_auc_out.txt 的 osnet 分机位对块",
+      "checks": [
+        {
+          "kind": "auc_pair",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet",
+          "pair": "316-323",
+          "file_tex": "main.tex",
+          "label": "tab:pair",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "claim": "pc_1db6b0c3bc",
+      "why": "tab:pair 318-323：同/异对数与 AUC，读 emb_auc_out.txt 的 osnet 分机位对块",
+      "checks": [
+        {
+          "kind": "auc_pair",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet",
+          "pair": "318-323",
+          "file_tex": "main.tex",
+          "label": "tab:pair",
+          "row": 4
+        }
+      ]
+    },
+    {
+      "claim": "pc_90b0a670cd",
+      "why": "tab:pair 323-343：同/异对数与 AUC，读 emb_auc_out.txt 的 osnet 分机位对块",
+      "checks": [
+        {
+          "kind": "auc_pair",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet",
+          "pair": "323-343",
+          "file_tex": "main.tex",
+          "label": "tab:pair",
+          "row": 5
+        }
+      ]
+    },
+    {
+      "claim": "pc_a083b2056c",
+      "why": "§12.2 318–320 的 95% CI（bootstrap 2000 次）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "区间由 tmp/full/emb_auc.py 的 percentile bootstrap 产出，脚本未固定随机种子 → 只能复现到 ±0.01；同表的同/异对数与 AUC 已由 E03-031 复算一致",
+          "file_tex": "main.tex",
+          "label": "tab:pair",
+          "row": 1
+        }
+      ]
+    },
+    {
+      "claim": "pc_6234b9c6fc",
+      "why": "§12.2 316–343 的 95% CI（bootstrap 2000 次）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "同上：bootstrap 未固定 seed，无法逐位复现；AUC 0.231 已由 E03-034 复算一致",
+          "file_tex": "main.tex",
+          "label": "tab:pair",
+          "row": 2
+        }
+      ]
+    },
+    {
+      "claim": "pc_4ca37d50a2",
+      "why": "tab:protocol L1：318–320 上 OSNet 0.904 / E2 0.994 / 11 正例；316–343 上 0.231（同一产物两块）",
+      "checks": [
+        {
+          "kind": "auc_pair",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet",
+          "pair": "318-320",
+          "pick": [
+            2,
+            0
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:protocol",
+          "row": 2,
+          "tex_idx": [
+            0,
+            2
+          ]
+        },
+        {
+          "kind": "auc_pair",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "eg2",
+          "pair": "318-320",
+          "pick": [
+            2
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:protocol",
+          "row": 2,
+          "tex_idx": [
+            1
+          ]
+        },
+        {
+          "kind": "auc_pair",
+          "file": "tmp/full/emb_auc_out.txt",
+          "block": "osnet",
+          "pair": "316-343",
+          "pick": [
+            2
+          ],
+          "file_tex": "main.tex",
+          "label": "tab:protocol",
+          "row": 2,
+          "tex_idx": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_6b7258d2a1",
+      "why": "tab:pair 第 6 行：305–316 与 316–318 两对各 2 同 / 0 异",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "AUC 未定义（0 个异人）。同/异对数 2/0 与 2/0 与 emb_auc_out.txt 的分机位对块一致，但该行无论文数值可比（表内写 --- / no negatives），按不可复算登记"
+        }
+      ]
+    },
+    {
+      "claim": "pc_2d679db9db",
+      "why": "补充材料第 1 行：图库层 κ 第一版（r2 引用值），全层",
+      "checks": [
+        {
+          "kind": "set_rule",
+          "set": "gallery_round1",
+          "path": "n_items",
+          "expect": [
+            "257"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 1,
+          "tex_idx": [
+            0
+          ]
+        },
+        {
+          "kind": "set_rule",
+          "set": "gallery_round1",
+          "path": "k",
+          "expect": [
+            "0.925"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 1,
+          "tex_idx": [
+            1
+          ]
+        },
+        {
+          "kind": "set_rule",
+          "set": "gallery_round1",
+          "path": "ci95.0",
+          "expect": [
+            "0.891"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 1,
+          "tex_idx": [
+            2
+          ]
+        },
+        {
+          "kind": "set_rule",
+          "set": "gallery_round1",
+          "path": "ci95.1",
+          "expect": [
+            "0.958"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_6e16b07bb7",
+      "why": "补充材料第 2 行：仅人物子集 κ；CI 下界产物 0.9124，论文写 0.913，按 ±0.001 舍入容差",
+      "checks": [
+        {
+          "kind": "set_rule",
+          "set": "gallery_round1_person",
+          "path": "n_items",
+          "expect": [
+            "236"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 2,
+          "tex_idx": [
+            0
+          ]
+        },
+        {
+          "kind": "set_rule",
+          "set": "gallery_round1_person",
+          "path": "k",
+          "expect": [
+            "0.945"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 2,
+          "tex_idx": [
+            1
+          ]
+        },
+        {
+          "kind": "set_rule",
+          "set": "gallery_round1_person",
+          "path": "ci95.0",
+          "expect": [
+            "0.913"
+          ],
+          "tol": 0.001,
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 2,
+          "tex_idx": [
+            2
+          ]
+        },
+        {
+          "kind": "set_rule",
+          "set": "gallery_round1_person",
+          "path": "ci95.1",
+          "expect": [
+            "0.972"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_5b30976ca4",
+      "why": "补充材料第 5 行：41 条异判 → 17 判异 / 11 改同 / 13 不决",
+      "checks": [
+        {
+          "kind": "json_filter_count",
+          "file": "deliverable/gt_long35/recheck_ai_qc.json",
+          "path": "items",
+          "where": {
+            "user": "diff"
+          },
+          "expect": [
+            "41"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 5,
+          "tex_idx": [
+            0
+          ]
+        },
+        {
+          "kind": "json_filter_count",
+          "file": "deliverable/gt_long35/recheck_ai_qc.json",
+          "path": "items",
+          "where": {
+            "user": "diff",
+            "ai": "diff"
+          },
+          "expect": [
+            "17"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 5,
+          "tex_idx": [
+            1
+          ]
+        },
+        {
+          "kind": "json_filter_count",
+          "file": "deliverable/gt_long35/recheck_ai_qc.json",
+          "path": "items",
+          "where": {
+            "user": "diff",
+            "ai": "same"
+          },
+          "expect": [
+            "11"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 5,
+          "tex_idx": [
+            2
+          ]
+        },
+        {
+          "kind": "json_filter_count",
+          "file": "deliverable/gt_long35/recheck_ai_qc.json",
+          "path": "items",
+          "where": {
+            "user": "diff",
+            "ai": "unsure"
+          },
+          "expect": [
+            "13"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 5,
+          "tex_idx": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_7ffa87d986",
+      "why": "Adjudicated pairs 合计行：T1+T2 求和与机位对并集",
+      "checks": [
+        {
+          "kind": "sum_sets",
+          "sets": [
+            "T1",
+            "T2"
+          ],
+          "field": "n_items",
+          "expect": [
+            "153"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Adjudicated pairs",
+          "row": 3,
+          "tex_idx": [
+            0
+          ]
+        },
+        {
+          "kind": "sum_sets",
+          "sets": [
+            "T1",
+            "T2"
+          ],
+          "field": "n_same",
+          "expect": [
+            "46"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Adjudicated pairs",
+          "row": 3,
+          "tex_idx": [
+            1
+          ]
+        },
+        {
+          "kind": "sum_sets",
+          "sets": [
+            "T1",
+            "T2"
+          ],
+          "field": "n_diff",
+          "expect": [
+            "107"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Adjudicated pairs",
+          "row": 3,
+          "tex_idx": [
+            2
+          ]
+        },
+        {
+          "kind": "camera_pairs",
+          "sets": [
+            "T1",
+            "T2"
+          ],
+          "expect": [
+            "12"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Adjudicated pairs",
+          "row": 3,
+          "tex_idx": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_b744387435",
+      "why": "合计 153 对 = T1 126 + T2 27（两集合实测相加，不手写）",
+      "checks": [
+        {
+          "kind": "sum_sets",
+          "sets": [
+            "T1",
+            "T2"
+          ],
+          "field": "n_items",
+          "expect": [
+            "153"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Adjudicated pairs",
+          "row": 3,
+          "tex_idx": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_89045f3877",
+      "why": "D2 具名轨 445/14/62：只有文档，现行 gt 为 494/18/71",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "三份 gt 副本（tmp/full/gt_8seg.json 494 轨、gt_8seg_fixed.json 493 轨）实测 26 身份、中位 18、最大 71，与 445/14/62 均不符；445 只出现在 docs/mainline-pose-pool-2026-11-11.md §1，当时的 gt 与生成脚本未保留",
+          "file_tex": "supplement.tex",
+          "label": "Domains",
+          "row": 2,
+          "tex_idx": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_2ddb1a80df",
+      "why": "现行 gt 实测值，钉住 D2 445 的差异（验证的是产物，不是论文）",
+      "checks": [
+        {
+          "kind": "map_stats",
+          "file": "tmp/full/gt_8seg.json",
+          "expect": [
+            "494",
+            "26",
+            "18",
+            "71"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_8ecfd45aab",
+      "why": "D3 天数与路数：天数可数，路数在 10-23 多一条 1b",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "deliverable/e21-allday-2026-11-23/metrics_*.json 可数出 3 天（10-22/23/26）；路数为 10-22 六路、10-26 六路、10-23 七路（办公区1 与 办公区1b 为同位置两次拍摄），无归并 1b 的脚本口径 → 「每日 6 机位」不作可复算",
+          "file_tex": "supplement.tex",
+          "label": "Domains",
+          "row": 3,
+          "tex_idx": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_d201a7bd1b",
+      "why": "§12.9 的 D3 天数/路数行，与 pc_8ecfd45aab 同一判断",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "3 天可数；10-23 的七路含 办公区1b（同位置二次拍摄），「每日 6 路」需人工归并才成立，无脚本口径",
+          "file_tex": "supplement.tex",
+          "label": "Domains",
+          "row": 3,
+          "tex_idx": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_ace1b1d2d9",
+      "why": "D3 建库段 0–720 s：生成脚本常量 TRAIN_DUR",
+      "checks": [
+        {
+          "kind": "code_const",
+          "file": "tools/run_6cam_det.py",
+          "name": "TRAIN_DUR",
+          "expect": [
+            "720"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Domains",
+          "row": 3,
+          "tex_idx": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_436f3755ff",
+      "why": "D3 隔离缓冲：TEST_START 810 − TRAIN_DUR 720 = 90 s",
+      "checks": [
+        {
+          "kind": "code_const",
+          "file": "tools/run_6cam_det.py",
+          "name": "TRAIN_DUR",
+          "expect": [
+            "720"
+          ]
+        },
+        {
+          "kind": "code_const",
+          "file": "tools/run_6cam_det.py",
+          "name": "TEST_START",
+          "expect": [
+            "810"
+          ]
+        },
+        {
+          "kind": "code_const",
+          "file": "tools/run_6cam_det.py",
+          "expr": "TEST_START-TRAIN_DUR",
+          "expect": [
+            "90"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_84f2aa7ff2",
+      "why": "D3 查询段起点由脚本常量复算；当日窗口尾只在计划文档记录",
+      "checks": [
+        {
+          "kind": "code_const",
+          "file": "tools/run_6cam_det.py",
+          "name": "TEST_START",
+          "expect": [
+            "810"
+          ]
+        },
+        {
+          "kind": "unverifiable",
+          "reason": "10-23 的 1260 s 与 10-26 的 1979 s 是当日可用窗上限，只在 docs/e20-6cam-crossday-plan-2026-10-26.md 记录；tmp/e21_face/*_te.json 不含窗口元数据，10-23 的 tr/te 产物未保留",
+          "file_tex": "supplement.tex",
+          "label": "Domains",
+          "row": 3,
+          "tex_idx": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_e20ca9e037",
+      "why": "§12.9 的 D3 分段窗口行，与正文三条 claim 同源",
+      "checks": [
+        {
+          "kind": "code_const",
+          "file": "tools/run_6cam_det.py",
+          "name": "TRAIN_DUR",
+          "expect": [
+            "720"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Domains",
+          "row": 3,
+          "tex_idx": [
+            2
+          ]
+        },
+        {
+          "kind": "code_const",
+          "file": "tools/run_6cam_det.py",
+          "name": "TEST_START",
+          "expect": [
+            "810"
+          ],
+          "file_tex": "supplement.tex",
+          "label": "Domains",
+          "row": 3,
+          "tex_idx": [
+            3
+          ]
+        },
+        {
+          "kind": "code_const",
+          "file": "tools/run_6cam_det.py",
+          "expr": "TEST_START-TRAIN_DUR",
+          "expect": [
+            "90"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_4877afb55a",
+      "why": "矛盾触发集的同/异构成（12 同 / 15 异）",
+      "checks": [
+        {
+          "kind": "set_expr",
+          "set": "T2",
+          "expr": "n_same",
+          "expect": [
+            "12"
+          ]
+        },
+        {
+          "kind": "set_expr",
+          "set": "T2",
+          "expr": "n_diff",
+          "expect": [
+            "15"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_77f66ef2e0",
+      "why": "T2 的 15 组：7 混 / 8 纯",
+      "checks": [
+        {
+          "kind": "set_expr",
+          "set": "audited_groups",
+          "expr": "n_items",
+          "expect": [
+            "15"
+          ]
+        },
+        {
+          "kind": "set_expr",
+          "set": "audited_groups",
+          "expr": "n_diff",
+          "expect": [
+            "7"
+          ]
+        },
+        {
+          "kind": "set_expr",
+          "set": "audited_groups",
+          "expr": "n_same",
+          "expect": [
+            "8"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_f856ee2481",
+      "why": "第一版 κ 的日期（标注轮次，不是计算结果）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "2026-10-25 是标注轮次日期，记录在 docs/kappa-a3-query-2026-10-25.md 标题上，无数据可复算"
+        }
+      ]
+    },
+    {
+      "claim": "pc_681724adb2",
+      "why": "第二版 κ 的日期（标注轮次，不是计算结果）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "2026-10-26 是第二遍对齐日期，记录在 docs/kappa-a3-revision-2026-10-26.md，tmp/kappa_round2.json 不含日期字段"
+        }
+      ]
+    },
+    {
+      "claim": "pc_679cfeea55",
+      "why": "部署工作点未在 179 条上调参：流程事实",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "四档 τ 的召回排序可由 tmp/full/pose_pool_real.json 逐档复核，但「部署工作点未在 179 条上调参」是流程事实，无产物可证；正文数值另由 tab:selector 覆盖"
+        }
+      ]
+    },
+    {
+      "claim": "pc_3c1987c22a",
+      "why": "76 次合并逐条判读的原始分布（34 同 / 41 异 / 1 不决；AI 复核 13 不决）",
+      "checks": [
+        {
+          "kind": "json_filter_count",
+          "file": "deliverable/gt_long35/recheck_ai_qc.json",
+          "path": "items",
+          "where": {
+            "user": "same"
+          },
+          "expect": [
+            "34"
+          ]
+        },
+        {
+          "kind": "json_filter_count",
+          "file": "deliverable/gt_long35/recheck_ai_qc.json",
+          "path": "items",
+          "where": {
+            "user": "diff"
+          },
+          "expect": [
+            "41"
+          ]
+        },
+        {
+          "kind": "json_filter_count",
+          "file": "deliverable/gt_long35/recheck_ai_qc.json",
+          "path": "items",
+          "where": {
+            "user": "unsure"
+          },
+          "expect": [
+            "1"
+          ]
+        },
+        {
+          "kind": "json_filter_count",
+          "file": "deliverable/gt_long35/recheck_ai_qc.json",
+          "path": "items",
+          "where": {
+            "ai": "unsure"
+          },
+          "expect": [
+            "13"
+          ]
+        },
+        {
+          "kind": "set_expr",
+          "set": "judged_merges",
+          "expr": "n_items",
+          "expect": [
+            "76"
+          ]
+        }
+      ]
+    },
+    {
+      "claim": "pc_01192e9962",
+      "why": "257 轨 κ 的域归属（D1 图库层四机位）",
+      "checks": [
+        {
+          "kind": "unverifiable",
+          "reason": "回表 deliverable/data-request-v2/gt/review_kappa_FILLED.csv 只有 3 行（部分回填），覆盖不到 257 条；四机位归属记录在 docs/kappa-a3-query-2026-10-25.md §5.1 的分机位表，无逐轨机位列可复算",
+          "file_tex": "supplement.tex",
+          "label": "Annotation reliability",
+          "row": 1
+        }
+      ]
+    }
+  ],
+  "_id_note": "claim 存 hash id；_was_display 是迁移时的 display_id，仅供人读"
+}

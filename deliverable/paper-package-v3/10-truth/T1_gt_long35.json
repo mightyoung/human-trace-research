@@ -1,0 +1,1195 @@
+{
+ "_meta": {
+  "n": 126,
+  "n_conflict": 0,
+  "by_pair": {
+   "318-320": {
+    "1": 11,
+    "L1_1": 11,
+    "0": 64,
+    "L1_0": 64
+   },
+   "316-343": {
+    "1": 13,
+    "L1_1": 13,
+    "0": 18,
+    "L1_0": 18
+   },
+   "316-318": {
+    "1": 2,
+    "L2_1": 2
+   },
+   "316-323": {
+    "1": 2,
+    "L2_1": 2,
+    "0": 5,
+    "L2_0": 5
+   },
+   "323-343": {
+    "0": 1,
+    "L2_0": 1,
+    "1": 1,
+    "L2_1": 1
+   },
+   "318-323": {
+    "1": 3,
+    "L2_1": 3,
+    "0": 4,
+    "L2_0": 4
+   },
+   "305-316": {
+    "1": 2,
+    "L2_1": 2
+   }
+  },
+  "missing": {},
+  "raw_stat": {
+   "gil_pair_unclear": 25,
+   "gil_pair_1": 13,
+   "gil_pair_0": 18,
+   "gil_relay_confirmed": 11,
+   "gil_relay_rejected": 10,
+   "verdict_unclear": 4,
+   "verdict_1": 6,
+   "verdict_0": 7
+  },
+  "level_note": "track=L1 轨对级；entity=L2 实体对展开，同人看「至少一对合并」，异人只在双方单轨时算硬负例"
+ },
+ "items": [
+  {
+   "a": "318:14",
+   "b": "320:3",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "318:120",
+   "b": "320:18",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "318:37",
+   "b": "320:11",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "318:120",
+   "b": "320:23",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "318:128",
+   "b": "320:21",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "MODERATE"
+  },
+  {
+   "a": "318:69",
+   "b": "320:14",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "318:139",
+   "b": "320:24",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "318:1",
+   "b": "320:1",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "318:146",
+   "b": "320:28",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "318:123",
+   "b": "320:18",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:111",
+   "b": "320:18",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:14",
+   "b": "320:1",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:3",
+   "b": "320:1",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:50",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:7",
+   "b": "320:1",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:57",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:124",
+   "b": "320:18",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:43",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:131",
+   "b": "320:24",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:53",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:131",
+   "b": "320:23",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:10",
+   "b": "320:1",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:126",
+   "b": "320:18",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:3",
+   "b": "320:4",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:61",
+   "b": "320:14",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:123",
+   "b": "320:19",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:131",
+   "b": "320:28",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:127",
+   "b": "320:19",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:142",
+   "b": "320:26",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:98",
+   "b": "320:26",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:146",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:132",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:131",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:7",
+   "b": "320:18",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:14",
+   "b": "320:4",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "318:46",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:15",
+   "b": "320:1",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:104",
+   "b": "320:18",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:7",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:1",
+   "b": "320:3",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:123",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:7",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:7",
+   "b": "320:4",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:120",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:98",
+   "b": "320:18",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:1",
+   "b": "320:4",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:132",
+   "b": "320:24",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:98",
+   "b": "320:24",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:146",
+   "b": "320:27",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:15",
+   "b": "320:4",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:58",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:98",
+   "b": "320:19",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:142",
+   "b": "320:28",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:132",
+   "b": "320:25",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:131",
+   "b": "320:25",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:128",
+   "b": "320:19",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:131",
+   "b": "320:27",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:142",
+   "b": "320:27",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:142",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:146",
+   "b": "320:26",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:98",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:139",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:131",
+   "b": "320:26",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:98",
+   "b": "320:25",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:132",
+   "b": "320:26",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:61",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:98",
+   "b": "320:23",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:132",
+   "b": "320:23",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:7",
+   "b": "320:19",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:72",
+   "b": "320:14",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:7",
+   "b": "320:14",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:7",
+   "b": "320:3",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:3",
+   "b": "320:3",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:127",
+   "b": "320:21",
+   "label": 0,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "REJ"
+  },
+  {
+   "a": "318:120",
+   "b": "320:19",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF"
+  },
+  {
+   "a": "343:11",
+   "b": "316:22",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:11",
+   "b": "316:45",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:11",
+   "b": "316:49",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:12",
+   "b": "316:26",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:12",
+   "b": "316:27",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "343:12",
+   "b": "316:28",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "343:12",
+   "b": "316:33",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:13",
+   "b": "316:24",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:13",
+   "b": "316:26",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:17",
+   "b": "316:52",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:17",
+   "b": "316:53",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:19",
+   "b": "316:53",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:31",
+   "b": "316:70",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:32",
+   "b": "316:63",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:35",
+   "b": "316:70",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:35",
+   "b": "316:75",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:35",
+   "b": "316:78",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:40",
+   "b": "316:82",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:42",
+   "b": "316:82",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:48",
+   "b": "316:88",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "343:48",
+   "b": "316:92",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:48",
+   "b": "316:95",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:50",
+   "b": "316:94",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:53",
+   "b": "316:94",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "343:53",
+   "b": "316:99",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "343:53",
+   "b": "316:102",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "343:53",
+   "b": "316:106",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "343:53",
+   "b": "316:112",
+   "label": 0,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user"
+  },
+  {
+   "a": "343:53",
+   "b": "316:113",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "343:56",
+   "b": "316:116",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "343:57",
+   "b": "316:134",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed"
+  },
+  {
+   "a": "316:22",
+   "b": "318:66",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-318",
+   "note": "edge136:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "a": "316:62",
+   "b": "318:76",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-318",
+   "note": "edge138:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "a": "316:99",
+   "b": "323:130",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-323",
+   "note": "edge141:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "a": "316:102",
+   "b": "323:139",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-323",
+   "note": "edge143:人工否证（PRT 批）→ 建议 rejected/复检"
+  },
+  {
+   "a": "323:105",
+   "b": "343:50",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "323-343",
+   "note": "edge152:人工否证（PRT 批）→ 建议 rejected/复检"
+  },
+  {
+   "a": "323:3",
+   "b": "318:21",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge158:判为同一人 → relay 边成立；身份层漏接（邻居 g0150 vs 源 ['"
+  },
+  {
+   "a": "323:3",
+   "b": "318:23",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge158:判为同一人 → relay 边成立；身份层漏接（邻居 g0150 vs 源 ['"
+  },
+  {
+   "a": "323:65",
+   "b": "316:65",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-323",
+   "note": "edge160:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "a": "323:28",
+   "b": "318:51",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge162:人工否证（PRT 批）→ 建议 rejected/复检"
+  },
+  {
+   "a": "316:28",
+   "b": "305:147",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "305-316",
+   "note": "edge171:判为同一人 → relay 边成立；身份层漏接（邻居 g0041 vs 源 ['"
+  },
+  {
+   "a": "305:94",
+   "b": "316:11",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "305-316",
+   "note": "edge177:人工确认（PRT 批）→ 支持 active"
+  },
+  {
+   "a": "323:48",
+   "b": "318:71",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge187:判为不同人 → relay 边为假链（候选剔除）"
+  },
+  {
+   "a": "316:56",
+   "b": "323:76",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-323",
+   "note": "edge198:判为不同人 → relay 边为假链（候选剔除）"
+  },
+  {
+   "a": "343:53",
+   "b": "323:112",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "323-343",
+   "note": "edge202:判为同一人 → relay 边成立；身份层漏接（邻居 g0077 vs 源 ['"
+  },
+  {
+   "a": "318:45",
+   "b": "323:48",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge216:判为不同人 → relay 边为假链（候选剔除）"
+  },
+  {
+   "a": "323:48",
+   "b": "316:65",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-323",
+   "note": "edge220:判为不同人 → relay 边为假链（候选剔除）"
+  },
+  {
+   "a": "318:54",
+   "b": "323:48",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge221:判为不同人 → relay 边为假链（候选剔除）"
+  },
+  {
+   "a": "323:112",
+   "b": "316:113",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-323",
+   "note": "edge228:判为不同人 → relay 边为假链（候选剔除）"
+  },
+  {
+   "a": "323:3",
+   "b": "318:25",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge238:判为同一人 → relay 边成立；身份层漏接（邻居 g0073 vs 源 ['"
+  },
+  {
+   "a": "316:89",
+   "b": "323:112",
+   "label": 0,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-323",
+   "note": "edge241:判为不同人 → relay 边为假链（候选剔除）"
+  }
+ ],
+ "conflicts": []
+}

@@ -1,0 +1,235 @@
+{
+  "n_clusters": 22,
+  "n_clusters_with_query": 7,
+  "n_mixed": 7,
+  "n_harmful": 1,
+  "auc_mixed": 0.5524,
+  "auc_harmful_all": 0.0952,
+  "auc_harmful_with_query": 0.3333,
+  "auc_harmful_ci": [
+    0.0,
+    0.75
+  ],
+  "clusters": [
+    {
+      "cluster": 0,
+      "d_max": 0.2523,
+      "n_lab": 3,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 1,
+      "d_max": 0.1209,
+      "n_lab": 2,
+      "n_ids": 2,
+      "mixed": 1,
+      "n_query": 4,
+      "harmful": 1,
+      "n_wrong": 3
+    },
+    {
+      "cluster": 2,
+      "d_max": 0.2434,
+      "n_lab": 9,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 3,
+      "d_max": 0.2016,
+      "n_lab": 5,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 4,
+      "d_max": 0.2208,
+      "n_lab": 1,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 5,
+      "d_max": 0.2432,
+      "n_lab": 7,
+      "n_ids": 2,
+      "mixed": 1,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 6,
+      "d_max": 0.3169,
+      "n_lab": 19,
+      "n_ids": 2,
+      "mixed": 1,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 7,
+      "d_max": 0.2633,
+      "n_lab": 20,
+      "n_ids": 3,
+      "mixed": 1,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 8,
+      "d_max": 0.1233,
+      "n_lab": 0,
+      "n_ids": 0,
+      "mixed": 0,
+      "n_query": 2,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 9,
+      "d_max": 0.3051,
+      "n_lab": 19,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 2,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 10,
+      "d_max": 0.2743,
+      "n_lab": 5,
+      "n_ids": 2,
+      "mixed": 1,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 11,
+      "d_max": 0.2467,
+      "n_lab": 2,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 12,
+      "d_max": 0.3352,
+      "n_lab": 25,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 3,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 13,
+      "d_max": 0.0991,
+      "n_lab": 2,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 1,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 14,
+      "d_max": 0.1094,
+      "n_lab": 0,
+      "n_ids": 0,
+      "mixed": 0,
+      "n_query": 1,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 15,
+      "d_max": 0.1777,
+      "n_lab": 2,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 16,
+      "d_max": 0.2254,
+      "n_lab": 7,
+      "n_ids": 2,
+      "mixed": 1,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 17,
+      "d_max": 0.2458,
+      "n_lab": 2,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 18,
+      "d_max": 0.1527,
+      "n_lab": 4,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 19,
+      "d_max": 0.3281,
+      "n_lab": 0,
+      "n_ids": 0,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 20,
+      "d_max": 0.2252,
+      "n_lab": 1,
+      "n_ids": 1,
+      "mixed": 0,
+      "n_query": 0,
+      "harmful": 0,
+      "n_wrong": 0
+    },
+    {
+      "cluster": 21,
+      "d_max": 0.1342,
+      "n_lab": 3,
+      "n_ids": 2,
+      "mixed": 1,
+      "n_query": 1,
+      "harmful": 0,
+      "n_wrong": 0
+    }
+  ]
+}

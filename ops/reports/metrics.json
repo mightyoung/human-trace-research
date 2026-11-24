@@ -1,0 +1,23 @@
+{
+ "schema": "metrics/v1",
+ "split": "all",
+ "items": [
+  {
+   "name": "pending_items",
+   "value": 331,
+   "n": 633,
+   "note": "待判条目数"
+  },
+  {
+   "name": "done_pct",
+   "value": 47.7,
+   "n": 633,
+   "note": "标注完成率（按候选全集口径）"
+  },
+  {
+   "name": "runs_total",
+   "value": 2,
+   "n": 2
+  }
+ ]
+}

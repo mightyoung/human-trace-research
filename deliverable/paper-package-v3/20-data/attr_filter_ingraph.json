@@ -1,0 +1,44 @@
+{
+ "_meta": {
+  "thr": 0.75,
+  "n_groups": 510,
+  "n_review": 76
+ },
+ "runs": [
+  {
+   "mode": "base",
+   "n_after": 434,
+   "merged": 76,
+   "blocked": {
+    "cam_overlap": 2035,
+    "peak": 16
+   },
+   "pos_hit": 5,
+   "pos_n": 34,
+   "neg_hit": 0,
+   "neg_n": 80,
+   "surv": 76,
+   "judged": 63,
+   "good": 46,
+   "prec": 0.7301587301587301
+  },
+  {
+   "mode": "attr8",
+   "n_after": 443,
+   "merged": 67,
+   "blocked": {
+    "cam_overlap": 2005,
+    "peak": 23,
+    "attr": 28
+   },
+   "pos_hit": 5,
+   "pos_n": 34,
+   "neg_hit": 0,
+   "neg_n": 80,
+   "surv": 54,
+   "judged": 43,
+   "good": 40,
+   "prec": 0.9302325581395349
+  }
+ ]
+}

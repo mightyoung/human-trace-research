@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="300" fill="#ffffff"/>
+
+  <!-- ========== 左：AUC ========== -->
+  <text x="14" y="18" font-size="9.5" fill="#1a1a1a" letter-spacing="1.1">FACE VERIFICATION vs FACE WIDTH</text>
+
+  <line x1="60" y1="176" x2="368" y2="176" stroke="#555" stroke-width="1.1" marker-end="url(#ax)"/>
+
+  <g stroke="#e6e6e6" stroke-width="1">
+    <line x1="60" y1="52" x2="60" y2="176"/>
+    <line x1="137" y1="52" x2="137" y2="176"/>
+    <line x1="214" y1="52" x2="214" y2="176"/>
+    <line x1="291" y1="52" x2="291" y2="176"/>
+    <line x1="368" y1="52" x2="368" y2="176"/>
+  </g>
+  <g font-size="9" fill="#777" text-anchor="middle">
+    <text x="60" y="191">0</text>
+    <text x="137" y="191">.25</text>
+    <text x="214" y="191">.50</text>
+    <text x="291" y="191">.75</text>
+    <text x="368" y="191">1.0</text>
+  </g>
+  <text x="368" y="205" font-size="9" text-anchor="end" fill="#5a5a5a">AUC</text>
+
+  <!-- chance -->
+  <line x1="214" y1="46" x2="214" y2="176" stroke="#8a1c1c" stroke-width="1.1" stroke-dasharray="4 3"/>
+  <text x="218" y="44" font-size="9" fill="#8a1c1c">chance = .50</text>
+
+  <!-- <60 -->
+  <text x="60" y="66" font-size="10" fill="#1a1a1a">&lt; 60 px — not usable</text>
+  <rect x="60" y="72" width="108" height="30" fill="#c9b8b0" stroke="#8a1c1c" stroke-width="1.1"/>
+  <text x="176" y="92" font-size="12" fill="#8a1c1c">.352</text>
+
+  <!-- >=60 -->
+  <text x="60" y="122" font-size="10" fill="#1a1a1a">≥ 60 px — usable</text>
+  <rect x="60" y="128" width="254" height="30" fill="#cfe0d2" stroke="#2f6b4f" stroke-width="1.1"/>
+  <text x="322" y="148" font-size="12" fill="#2f6b4f">.847</text>
+
+  <text x="60" y="224" font-size="9.5" fill="#5a5a5a">Usable faces: 150 / 1,894 tracks (7.9%)</text>
+  <text x="60" y="239" font-size="9.5" fill="#5a5a5a">Face channel as a merge bridge: 434 → 422,</text>
+  <text x="60" y="253" font-size="9.5" fill="#5a5a5a">adding 0 verifiable true pairs.</text>
+
+  <!-- 分隔 -->
+  <line x1="392" y1="34" x2="392" y2="262" stroke="#d8d8d8" stroke-width="1"/>
+
+  <!-- ========== 右：像素轴 ========== -->
+  <text x="412" y="18" font-size="9.5" fill="#1a1a1a" letter-spacing="1.1">WHERE THIS FLOOR SITS</text>
+
+  <line x1="420" y1="130" x2="676" y2="130" stroke="#555" stroke-width="1.1" marker-end="url(#ax)"/>
+  <g font-size="9" fill="#777" text-anchor="middle">
+    <line x1="420" y1="125" x2="420" y2="135" stroke="#555"/><text x="420" y="149">0</text>
+    <line x1="480" y1="125" x2="480" y2="135" stroke="#555"/><text x="480" y="149">25</text>
+    <line x1="540" y1="125" x2="540" y2="135" stroke="#555"/><text x="540" y="149">50</text>
+    <line x1="600" y1="125" x2="600" y2="135" stroke="#555"/><text x="600" y="149">75</text>
+    <line x1="660" y1="125" x2="660" y2="135" stroke="#555"/><text x="660" y="149">100</text>
+  </g>
+  <text x="676" y="163" font-size="9" text-anchor="end" fill="#5a5a5a">face width (px)</text>
+
+  <!-- 中位 52 -->
+  <circle cx="544.8" cy="130" r="4.5" fill="#8a1c1c"/>
+  <line x1="544.8" y1="130" x2="544.8" y2="96" stroke="#8a1c1c" stroke-width="1.1"/>
+  <text x="541" y="90" font-size="9.5" text-anchor="end" fill="#8a1c1c">median 52 px</text>
+
+  <!-- 60 门槛 -->
+  <line x1="564" y1="76" x2="564" y2="130" stroke="#2f6b4f" stroke-width="1.5"/>
+  <text x="568" y="80" font-size="9.5" fill="#2f6b4f">60 px threshold</text>
+  <text x="568" y="92" font-size="8.5" fill="#5a5a5a">GB/T 31488-2015</text>
+
+  <!-- 80 目标 -->
+  <line x1="612" y1="106" x2="612" y2="130" stroke="#777" stroke-width="1.1" stroke-dasharray="3 3"/>
+  <text x="616" y="118" font-size="9" fill="#777">80 px re-capture</text>
+
+  <rect x="412" y="176" width="264" height="44" fill="#faf6f3" stroke="#d8c8c0" stroke-width="1"/>
+  <text x="422" y="193" font-size="9.5" fill="#1a1a1a">At 1440p, 60 px ≈ 5 m from the lens.</text>
+  <text x="422" y="208" font-size="9.5" fill="#5a5a5a">Most seated occupants are farther</text>
+  <text x="422" y="220" font-size="9.5" fill="#5a5a5a">than that from every camera.</text>
+
+  <text x="412" y="250" font-size="8.8" fill="#8a1c1c">Two physical remedies: widen faces (≥80 px) or</text>
+  <text x="412" y="263" font-size="8.8" fill="#8a1c1c">add 5–10% view overlap between neighbours.</text>
+</svg>

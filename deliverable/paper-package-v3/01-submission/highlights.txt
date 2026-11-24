@@ -1,0 +1,7 @@
+Highlights
+
+- Three site probes predict which identity functions a camera network can support
+- A five-tier protocol gives every identity function a measured acceptance benefit
+- Cross-camera appearance is at chance except where two cameras share a region
+- A pairwise verifier with AUC 0.833 destroys three of five correct merges
+- An attribute veto lifts merge precision from 0.730 to 0.930 at fixed recall

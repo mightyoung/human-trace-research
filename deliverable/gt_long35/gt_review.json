@@ -1,0 +1,6226 @@
+{
+ "_meta": {
+  "n_items": 156,
+  "n_pairs": 690,
+  "counts": {
+   "probe_diff": 86,
+   "merge_same": 31,
+   "merge_diff": 35,
+   "unsure": 10,
+   "probe_same": 4
+  },
+  "unknown_ids": []
+ },
+ "items": [
+  {
+   "a": "316:113",
+   "b": "318:339",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-03:probe:diff"
+  },
+  {
+   "a": "316:113",
+   "b": "318:338",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-03:probe:diff"
+  },
+  {
+   "a": "316:146",
+   "b": "318:339",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-03:probe:diff"
+  },
+  {
+   "a": "316:146",
+   "b": "318:338",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-03:probe:diff"
+  },
+  {
+   "a": "316:53",
+   "b": "318:339",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-03:probe:diff"
+  },
+  {
+   "a": "316:53",
+   "b": "318:338",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-03:probe:diff"
+  },
+  {
+   "a": "305:27",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-01:probe:diff"
+  },
+  {
+   "a": "305:27",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-01:probe:diff"
+  },
+  {
+   "a": "305:27",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-01:probe:diff"
+  },
+  {
+   "a": "305:66",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-01:probe:diff"
+  },
+  {
+   "a": "305:66",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-01:probe:diff"
+  },
+  {
+   "a": "305:66",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-01:probe:diff"
+  },
+  {
+   "a": "305:340",
+   "b": "316:297",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M038:merge:same"
+  },
+  {
+   "a": "305:340",
+   "b": "316:200",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M038:merge:same"
+  },
+  {
+   "a": "305:340",
+   "b": "316:196",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M038:merge:same"
+  },
+  {
+   "a": "305:115",
+   "b": "316:297",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M038:merge:same"
+  },
+  {
+   "a": "305:115",
+   "b": "316:200",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M038:merge:same"
+  },
+  {
+   "a": "305:115",
+   "b": "316:196",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M038:merge:same"
+  },
+  {
+   "a": "305:82",
+   "b": "320:42",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-06:probe:diff"
+  },
+  {
+   "a": "305:82",
+   "b": "320:41",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-06:probe:diff"
+  },
+  {
+   "a": "305:485",
+   "b": "320:42",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-06:probe:diff"
+  },
+  {
+   "a": "305:485",
+   "b": "320:41",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-06:probe:diff"
+  },
+  {
+   "a": "305:79",
+   "b": "320:42",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-06:probe:diff"
+  },
+  {
+   "a": "305:79",
+   "b": "320:41",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-06:probe:diff"
+  },
+  {
+   "a": "323:202",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-06:probe:diff"
+  },
+  {
+   "a": "323:202",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-06:probe:diff"
+  },
+  {
+   "a": "323:202",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-06:probe:diff"
+  },
+  {
+   "a": "323:206",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-06:probe:diff"
+  },
+  {
+   "a": "323:206",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-06:probe:diff"
+  },
+  {
+   "a": "323:206",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-06:probe:diff"
+  },
+  {
+   "a": "305:82",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-04:probe:diff"
+  },
+  {
+   "a": "305:82",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-04:probe:diff"
+  },
+  {
+   "a": "305:82",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-04:probe:diff"
+  },
+  {
+   "a": "305:485",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-04:probe:diff"
+  },
+  {
+   "a": "305:485",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-04:probe:diff"
+  },
+  {
+   "a": "305:485",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-04:probe:diff"
+  },
+  {
+   "a": "305:79",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-04:probe:diff"
+  },
+  {
+   "a": "305:79",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-04:probe:diff"
+  },
+  {
+   "a": "305:79",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-04:probe:diff"
+  },
+  {
+   "a": "305:173",
+   "b": "320:178",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M039:merge:diff"
+  },
+  {
+   "a": "305:745",
+   "b": "320:178",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M039:merge:diff"
+  },
+  {
+   "a": "305:113",
+   "b": "320:178",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M039:merge:diff"
+  },
+  {
+   "a": "316:84",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-03:probe:diff"
+  },
+  {
+   "a": "316:84",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-03:probe:diff"
+  },
+  {
+   "a": "316:84",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-03:probe:diff"
+  },
+  {
+   "a": "316:95",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-03:probe:diff"
+  },
+  {
+   "a": "316:95",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-03:probe:diff"
+  },
+  {
+   "a": "316:95",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-03:probe:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "318:307",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M010:merge:same"
+  },
+  {
+   "a": "316:235",
+   "b": "318:16",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M010:merge:same"
+  },
+  {
+   "a": "316:235",
+   "b": "318:14",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M010:merge:same"
+  },
+  {
+   "a": "316:70",
+   "b": "318:307",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M010:merge:same"
+  },
+  {
+   "a": "316:70",
+   "b": "318:16",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M010:merge:same"
+  },
+  {
+   "a": "316:70",
+   "b": "318:14",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M010:merge:same"
+  },
+  {
+   "a": "316:12",
+   "b": "318:307",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M010:merge:same"
+  },
+  {
+   "a": "316:12",
+   "b": "318:16",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M010:merge:same"
+  },
+  {
+   "a": "316:12",
+   "b": "318:14",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M010:merge:same"
+  },
+  {
+   "a": "305:80",
+   "b": "323:493",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M075:merge:same"
+  },
+  {
+   "a": "305:80",
+   "b": "323:507",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M075:merge:same"
+  },
+  {
+   "a": "320:121",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-02:probe:diff"
+  },
+  {
+   "a": "320:121",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-02:probe:diff"
+  },
+  {
+   "a": "320:121",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-02:probe:diff"
+  },
+  {
+   "a": "320:120",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-02:probe:diff"
+  },
+  {
+   "a": "320:120",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-02:probe:diff"
+  },
+  {
+   "a": "320:120",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-02:probe:diff"
+  },
+  {
+   "a": "320:5",
+   "b": "323:143",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-05:probe:diff"
+  },
+  {
+   "a": "323:545",
+   "b": "343:53",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-05:probe:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "323:524",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M013:merge:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "323:524",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M013:merge:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "323:524",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M013:merge:diff"
+  },
+  {
+   "a": "320:45",
+   "b": "343:12",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-06:probe:diff"
+  },
+  {
+   "a": "320:27",
+   "b": "343:12",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-06:probe:diff"
+  },
+  {
+   "a": "320:159",
+   "b": "343:12",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-06:probe:diff"
+  },
+  {
+   "a": "305:531",
+   "b": "318:241",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M059:merge:same"
+  },
+  {
+   "a": "305:531",
+   "b": "318:192",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M059:merge:same"
+  },
+  {
+   "a": "305:531",
+   "b": "318:22",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M059:merge:same"
+  },
+  {
+   "a": "305:187",
+   "b": "318:228",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-02:probe:diff"
+  },
+  {
+   "a": "305:187",
+   "b": "318:278",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-02:probe:diff"
+  },
+  {
+   "a": "305:576",
+   "b": "318:228",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-02:probe:diff"
+  },
+  {
+   "a": "305:576",
+   "b": "318:278",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-02:probe:diff"
+  },
+  {
+   "a": "305:92",
+   "b": "320:42",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-04:probe:diff"
+  },
+  {
+   "a": "305:92",
+   "b": "320:41",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-04:probe:diff"
+  },
+  {
+   "a": "305:142",
+   "b": "318:90",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M067:merge:same"
+  },
+  {
+   "a": "305:142",
+   "b": "318:66",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M067:merge:same"
+  },
+  {
+   "a": "323:536",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-01:probe:diff"
+  },
+  {
+   "a": "323:536",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-01:probe:diff"
+  },
+  {
+   "a": "323:536",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-01:probe:diff"
+  },
+  {
+   "a": "305:136",
+   "b": "316:88",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M031:merge:same"
+  },
+  {
+   "a": "305:136",
+   "b": "316:50",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M031:merge:same"
+  },
+  {
+   "a": "305:139",
+   "b": "316:88",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M031:merge:same"
+  },
+  {
+   "a": "305:139",
+   "b": "316:50",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M031:merge:same"
+  },
+  {
+   "a": "305:187",
+   "b": "343:28",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M036:merge:diff"
+  },
+  {
+   "a": "305:576",
+   "b": "343:28",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M036:merge:diff"
+  },
+  {
+   "a": "305:563",
+   "b": "323:246",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M044:merge:diff"
+  },
+  {
+   "a": "305:728",
+   "b": "323:246",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M044:merge:diff"
+  },
+  {
+   "a": "305:496",
+   "b": "323:246",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M044:merge:diff"
+  },
+  {
+   "a": "316:275",
+   "b": "320:101",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-03:probe:diff"
+  },
+  {
+   "a": "316:265",
+   "b": "320:101",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-03:probe:diff"
+  },
+  {
+   "a": "316:138",
+   "b": "320:101",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-03:probe:diff"
+  },
+  {
+   "a": "323:139",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-04:probe:diff"
+  },
+  {
+   "a": "323:139",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-04:probe:diff"
+  },
+  {
+   "a": "323:139",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-04:probe:diff"
+  },
+  {
+   "a": "323:257",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-04:probe:diff"
+  },
+  {
+   "a": "323:257",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-04:probe:diff"
+  },
+  {
+   "a": "323:257",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-04:probe:diff"
+  },
+  {
+   "a": "316:118",
+   "b": "320:121",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-05:probe:diff"
+  },
+  {
+   "a": "316:118",
+   "b": "320:120",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-05:probe:diff"
+  },
+  {
+   "a": "316:62",
+   "b": "323:441",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-04:probe:diff"
+  },
+  {
+   "a": "316:62",
+   "b": "323:122",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-04:probe:diff"
+  },
+  {
+   "a": "316:62",
+   "b": "323:420",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-04:probe:diff"
+  },
+  {
+   "a": "305:719",
+   "b": "318:175",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M006:merge:diff"
+  },
+  {
+   "a": "305:719",
+   "b": "318:337",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M006:merge:diff"
+  },
+  {
+   "a": "305:719",
+   "b": "318:354",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M006:merge:diff"
+  },
+  {
+   "a": "318:37",
+   "b": "323:411",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-06:probe:diff"
+  },
+  {
+   "a": "318:485",
+   "b": "323:411",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-06:probe:diff"
+  },
+  {
+   "a": "318:140",
+   "b": "320:148",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "M026:merge:diff"
+  },
+  {
+   "a": "318:140",
+   "b": "320:151",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "M026:merge:diff"
+  },
+  {
+   "a": "318:63",
+   "b": "320:148",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "M026:merge:diff"
+  },
+  {
+   "a": "318:63",
+   "b": "320:151",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "M026:merge:diff"
+  },
+  {
+   "a": "318:466",
+   "b": "320:148",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "M026:merge:diff"
+  },
+  {
+   "a": "318:466",
+   "b": "320:151",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "M026:merge:diff"
+  },
+  {
+   "a": "316:227",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-03:probe:diff"
+  },
+  {
+   "a": "316:227",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-03:probe:diff"
+  },
+  {
+   "a": "318:110",
+   "b": "323:351",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M068:merge:diff"
+  },
+  {
+   "a": "318:110",
+   "b": "323:485",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M068:merge:diff"
+  },
+  {
+   "a": "318:110",
+   "b": "323:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M068:merge:diff"
+  },
+  {
+   "a": "318:106",
+   "b": "323:351",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M068:merge:diff"
+  },
+  {
+   "a": "318:106",
+   "b": "323:485",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M068:merge:diff"
+  },
+  {
+   "a": "318:106",
+   "b": "323:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M068:merge:diff"
+  },
+  {
+   "a": "305:390",
+   "b": "320:38",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M071:merge:diff"
+  },
+  {
+   "a": "305:390",
+   "b": "320:150",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M071:merge:diff"
+  },
+  {
+   "a": "305:390",
+   "b": "320:93",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M071:merge:diff"
+  },
+  {
+   "a": "305:507",
+   "b": "320:38",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M071:merge:diff"
+  },
+  {
+   "a": "305:507",
+   "b": "320:150",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M071:merge:diff"
+  },
+  {
+   "a": "305:507",
+   "b": "320:93",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M071:merge:diff"
+  },
+  {
+   "a": "305:528",
+   "b": "320:38",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M071:merge:diff"
+  },
+  {
+   "a": "305:528",
+   "b": "320:150",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M071:merge:diff"
+  },
+  {
+   "a": "305:528",
+   "b": "320:93",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M071:merge:diff"
+  },
+  {
+   "a": "305:187",
+   "b": "323:536",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-02:probe:diff"
+  },
+  {
+   "a": "305:576",
+   "b": "323:536",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-02:probe:diff"
+  },
+  {
+   "a": "316:180",
+   "b": "318:172",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M050:merge:same"
+  },
+  {
+   "a": "305:438",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-01:probe:diff"
+  },
+  {
+   "a": "305:438",
+   "b": "320:12",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-01:probe:diff"
+  },
+  {
+   "a": "305:220",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-01:probe:diff"
+  },
+  {
+   "a": "305:220",
+   "b": "320:12",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-01:probe:diff"
+  },
+  {
+   "a": "305:696",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-01:probe:diff"
+  },
+  {
+   "a": "305:696",
+   "b": "320:12",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-01:probe:diff"
+  },
+  {
+   "a": "316:26",
+   "b": "320:42",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-06:probe:diff"
+  },
+  {
+   "a": "316:26",
+   "b": "320:41",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-06:probe:diff"
+  },
+  {
+   "a": "305:438",
+   "b": "323:441",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M048:merge:diff"
+  },
+  {
+   "a": "305:438",
+   "b": "323:122",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M048:merge:diff"
+  },
+  {
+   "a": "305:438",
+   "b": "323:420",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M048:merge:diff"
+  },
+  {
+   "a": "305:220",
+   "b": "323:441",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M048:merge:diff"
+  },
+  {
+   "a": "305:220",
+   "b": "323:122",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M048:merge:diff"
+  },
+  {
+   "a": "305:220",
+   "b": "323:420",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M048:merge:diff"
+  },
+  {
+   "a": "305:696",
+   "b": "323:441",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M048:merge:diff"
+  },
+  {
+   "a": "305:696",
+   "b": "323:122",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M048:merge:diff"
+  },
+  {
+   "a": "305:696",
+   "b": "323:420",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M048:merge:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "343:94",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-01:probe:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "343:97",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-01:probe:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "343:94",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-01:probe:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "343:97",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-01:probe:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "343:94",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-01:probe:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "343:97",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-01:probe:diff"
+  },
+  {
+   "a": "318:1",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-01:probe:diff"
+  },
+  {
+   "a": "318:1",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-01:probe:diff"
+  },
+  {
+   "a": "318:1",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-01:probe:diff"
+  },
+  {
+   "a": "316:291",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-05:probe:diff"
+  },
+  {
+   "a": "316:291",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-05:probe:diff"
+  },
+  {
+   "a": "316:291",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-05:probe:diff"
+  },
+  {
+   "a": "316:15",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-05:probe:diff"
+  },
+  {
+   "a": "316:15",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-05:probe:diff"
+  },
+  {
+   "a": "316:15",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-05:probe:diff"
+  },
+  {
+   "a": "316:253",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-05:probe:diff"
+  },
+  {
+   "a": "316:253",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-05:probe:diff"
+  },
+  {
+   "a": "316:253",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-05:probe:diff"
+  },
+  {
+   "a": "316:113",
+   "b": "323:158",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M017:merge:same"
+  },
+  {
+   "a": "316:113",
+   "b": "323:239",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M017:merge:same"
+  },
+  {
+   "a": "316:113",
+   "b": "323:132",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M017:merge:same"
+  },
+  {
+   "a": "316:146",
+   "b": "323:158",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M017:merge:same"
+  },
+  {
+   "a": "316:146",
+   "b": "323:239",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M017:merge:same"
+  },
+  {
+   "a": "316:146",
+   "b": "323:132",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M017:merge:same"
+  },
+  {
+   "a": "316:53",
+   "b": "323:158",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M017:merge:same"
+  },
+  {
+   "a": "316:53",
+   "b": "323:239",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M017:merge:same"
+  },
+  {
+   "a": "316:53",
+   "b": "323:132",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M017:merge:same"
+  },
+  {
+   "a": "320:4",
+   "b": "343:12",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-04:probe:diff"
+  },
+  {
+   "a": "320:96",
+   "b": "343:12",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-04:probe:diff"
+  },
+  {
+   "a": "320:4",
+   "b": "343:31",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-01:probe:diff"
+  },
+  {
+   "a": "320:4",
+   "b": "343:29",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-01:probe:diff"
+  },
+  {
+   "a": "320:96",
+   "b": "343:31",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-01:probe:diff"
+  },
+  {
+   "a": "320:96",
+   "b": "343:29",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-01:probe:diff"
+  },
+  {
+   "a": "316:88",
+   "b": "323:155",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M012:merge:same"
+  },
+  {
+   "a": "316:88",
+   "b": "323:91",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M012:merge:same"
+  },
+  {
+   "a": "316:88",
+   "b": "323:154",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M012:merge:same"
+  },
+  {
+   "a": "316:50",
+   "b": "323:155",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M012:merge:same"
+  },
+  {
+   "a": "316:50",
+   "b": "323:91",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M012:merge:same"
+  },
+  {
+   "a": "316:50",
+   "b": "323:154",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M012:merge:same"
+  },
+  {
+   "a": "318:251",
+   "b": "323:361",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M060:merge:same"
+  },
+  {
+   "a": "318:258",
+   "b": "323:361",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M060:merge:same"
+  },
+  {
+   "a": "318:494",
+   "b": "323:536",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-03:probe:diff"
+  },
+  {
+   "a": "318:495",
+   "b": "323:536",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-03:probe:diff"
+  },
+  {
+   "a": "318:493",
+   "b": "323:536",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-03:probe:diff"
+  },
+  {
+   "a": "305:599",
+   "b": "323:524",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-06:probe:diff"
+  },
+  {
+   "a": "320:101",
+   "b": "318:213",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M042:merge:diff"
+  },
+  {
+   "a": "320:101",
+   "b": "318:65",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M042:merge:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "318:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-01:probe:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "318:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-01:probe:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "318:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-01:probe:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "318:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-01:probe:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "318:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-01:probe:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "318:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-01:probe:diff"
+  },
+  {
+   "a": "305:173",
+   "b": "318:37",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M008:merge:same"
+  },
+  {
+   "a": "305:173",
+   "b": "318:485",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M008:merge:same"
+  },
+  {
+   "a": "305:745",
+   "b": "318:37",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M008:merge:same"
+  },
+  {
+   "a": "305:745",
+   "b": "318:485",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M008:merge:same"
+  },
+  {
+   "a": "305:113",
+   "b": "318:37",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M008:merge:same"
+  },
+  {
+   "a": "305:113",
+   "b": "318:485",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M008:merge:same"
+  },
+  {
+   "a": "316:231",
+   "b": "318:268",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M002:merge:diff"
+  },
+  {
+   "a": "316:231",
+   "b": "318:36",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M002:merge:diff"
+  },
+  {
+   "a": "316:231",
+   "b": "318:56",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M002:merge:diff"
+  },
+  {
+   "a": "316:43",
+   "b": "318:268",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M002:merge:diff"
+  },
+  {
+   "a": "316:43",
+   "b": "318:36",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M002:merge:diff"
+  },
+  {
+   "a": "316:43",
+   "b": "318:56",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M002:merge:diff"
+  },
+  {
+   "a": "316:223",
+   "b": "318:268",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M002:merge:diff"
+  },
+  {
+   "a": "316:223",
+   "b": "318:36",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M002:merge:diff"
+  },
+  {
+   "a": "316:223",
+   "b": "318:56",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M002:merge:diff"
+  },
+  {
+   "a": "320:121",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-01:probe:diff"
+  },
+  {
+   "a": "320:121",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-01:probe:diff"
+  },
+  {
+   "a": "320:120",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-01:probe:diff"
+  },
+  {
+   "a": "320:120",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-01:probe:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "343:9",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "M073:merge:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "343:22",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "M073:merge:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "343:39",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "M073:merge:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "343:9",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "M073:merge:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "343:22",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "M073:merge:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "343:39",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "M073:merge:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "343:9",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "M073:merge:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "343:22",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "M073:merge:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "343:39",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "M073:merge:diff"
+  },
+  {
+   "a": "320:38",
+   "b": "343:31",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-03:probe:diff"
+  },
+  {
+   "a": "320:38",
+   "b": "343:29",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-03:probe:diff"
+  },
+  {
+   "a": "320:150",
+   "b": "343:31",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-03:probe:diff"
+  },
+  {
+   "a": "320:150",
+   "b": "343:29",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-03:probe:diff"
+  },
+  {
+   "a": "320:93",
+   "b": "343:31",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-03:probe:diff"
+  },
+  {
+   "a": "320:93",
+   "b": "343:29",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-03:probe:diff"
+  },
+  {
+   "a": "305:719",
+   "b": "316:295",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M007:merge:same"
+  },
+  {
+   "a": "305:719",
+   "b": "316:272",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M007:merge:same"
+  },
+  {
+   "a": "320:37",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-04:probe:diff"
+  },
+  {
+   "a": "320:37",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-04:probe:diff"
+  },
+  {
+   "a": "305:114",
+   "b": "323:524",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-05:probe:diff"
+  },
+  {
+   "a": "305:337",
+   "b": "323:524",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-05:probe:diff"
+  },
+  {
+   "a": "316:166",
+   "b": "318:157",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-06:probe:same"
+  },
+  {
+   "a": "316:166",
+   "b": "318:108",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-06:probe:same"
+  },
+  {
+   "a": "316:166",
+   "b": "318:187",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-06:probe:same"
+  },
+  {
+   "a": "316:174",
+   "b": "318:157",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-06:probe:same"
+  },
+  {
+   "a": "316:174",
+   "b": "318:108",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-06:probe:same"
+  },
+  {
+   "a": "316:174",
+   "b": "318:187",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-06:probe:same"
+  },
+  {
+   "a": "316:56",
+   "b": "323:538",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M055:merge:diff"
+  },
+  {
+   "a": "316:56",
+   "b": "323:473",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M055:merge:diff"
+  },
+  {
+   "a": "316:225",
+   "b": "323:538",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M055:merge:diff"
+  },
+  {
+   "a": "316:225",
+   "b": "323:473",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M055:merge:diff"
+  },
+  {
+   "a": "320:101",
+   "b": "323:526",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-06:probe:diff"
+  },
+  {
+   "a": "320:101",
+   "b": "323:495",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-06:probe:diff"
+  },
+  {
+   "a": "318:307",
+   "b": "343:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-02:probe:diff"
+  },
+  {
+   "a": "318:16",
+   "b": "343:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-02:probe:diff"
+  },
+  {
+   "a": "318:14",
+   "b": "343:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-02:probe:diff"
+  },
+  {
+   "a": "316:227",
+   "b": "323:534",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M033:merge:same"
+  },
+  {
+   "a": "318:100",
+   "b": "323:456",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-02:probe:diff"
+  },
+  {
+   "a": "316:88",
+   "b": "343:12",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M015:merge:same"
+  },
+  {
+   "a": "316:50",
+   "b": "343:12",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M015:merge:same"
+  },
+  {
+   "a": "316:231",
+   "b": "323:76",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M040:merge:diff"
+  },
+  {
+   "a": "316:231",
+   "b": "323:230",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M040:merge:diff"
+  },
+  {
+   "a": "316:231",
+   "b": "323:379",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M040:merge:diff"
+  },
+  {
+   "a": "316:43",
+   "b": "323:76",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M040:merge:diff"
+  },
+  {
+   "a": "316:43",
+   "b": "323:230",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M040:merge:diff"
+  },
+  {
+   "a": "316:43",
+   "b": "323:379",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M040:merge:diff"
+  },
+  {
+   "a": "316:223",
+   "b": "323:76",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M040:merge:diff"
+  },
+  {
+   "a": "316:223",
+   "b": "323:230",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M040:merge:diff"
+  },
+  {
+   "a": "316:223",
+   "b": "323:379",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M040:merge:diff"
+  },
+  {
+   "a": "305:563",
+   "b": "318:480",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M066:merge:same"
+  },
+  {
+   "a": "305:728",
+   "b": "318:480",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M066:merge:same"
+  },
+  {
+   "a": "305:496",
+   "b": "318:480",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M066:merge:same"
+  },
+  {
+   "a": "318:155",
+   "b": "323:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-05:probe:diff"
+  },
+  {
+   "a": "318:155",
+   "b": "323:8",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-05:probe:diff"
+  },
+  {
+   "a": "318:10",
+   "b": "323:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-05:probe:diff"
+  },
+  {
+   "a": "318:10",
+   "b": "323:8",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-05:probe:diff"
+  },
+  {
+   "a": "318:117",
+   "b": "323:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-05:probe:diff"
+  },
+  {
+   "a": "318:117",
+   "b": "323:8",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-05:probe:diff"
+  },
+  {
+   "a": "305:187",
+   "b": "323:355",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-03:probe:diff"
+  },
+  {
+   "a": "305:576",
+   "b": "323:355",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-03:probe:diff"
+  },
+  {
+   "a": "318:46",
+   "b": "320:168",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-04:probe:diff"
+  },
+  {
+   "a": "318:46",
+   "b": "320:175",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-04:probe:diff"
+  },
+  {
+   "a": "318:46",
+   "b": "320:170",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-04:probe:diff"
+  },
+  {
+   "a": "318:97",
+   "b": "320:168",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-04:probe:diff"
+  },
+  {
+   "a": "318:97",
+   "b": "320:175",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-04:probe:diff"
+  },
+  {
+   "a": "318:97",
+   "b": "320:170",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-04:probe:diff"
+  },
+  {
+   "a": "318:59",
+   "b": "320:168",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-04:probe:diff"
+  },
+  {
+   "a": "318:59",
+   "b": "320:175",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-04:probe:diff"
+  },
+  {
+   "a": "318:59",
+   "b": "320:170",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-04:probe:diff"
+  },
+  {
+   "a": "316:190",
+   "b": "318:155",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M001:merge:same"
+  },
+  {
+   "a": "316:190",
+   "b": "318:10",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M001:merge:same"
+  },
+  {
+   "a": "316:190",
+   "b": "318:117",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M001:merge:same"
+  },
+  {
+   "a": "316:161",
+   "b": "318:155",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M001:merge:same"
+  },
+  {
+   "a": "316:161",
+   "b": "318:10",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M001:merge:same"
+  },
+  {
+   "a": "316:161",
+   "b": "318:117",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M001:merge:same"
+  },
+  {
+   "a": "316:42",
+   "b": "318:155",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M001:merge:same"
+  },
+  {
+   "a": "316:42",
+   "b": "318:10",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M001:merge:same"
+  },
+  {
+   "a": "316:42",
+   "b": "318:117",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M001:merge:same"
+  },
+  {
+   "a": "305:719",
+   "b": "316:56",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-04:probe:diff"
+  },
+  {
+   "a": "305:719",
+   "b": "316:225",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-04:probe:diff"
+  },
+  {
+   "a": "305:143",
+   "b": "323:529",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M062:merge:same"
+  },
+  {
+   "a": "305:143",
+   "b": "323:567",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M062:merge:same"
+  },
+  {
+   "a": "305:143",
+   "b": "323:571",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M062:merge:same"
+  },
+  {
+   "a": "305:389",
+   "b": "323:529",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M062:merge:same"
+  },
+  {
+   "a": "305:389",
+   "b": "323:567",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M062:merge:same"
+  },
+  {
+   "a": "305:389",
+   "b": "323:571",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M062:merge:same"
+  },
+  {
+   "a": "318:37",
+   "b": "343:94",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-06:probe:diff"
+  },
+  {
+   "a": "318:37",
+   "b": "343:97",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-06:probe:diff"
+  },
+  {
+   "a": "318:485",
+   "b": "343:94",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-06:probe:diff"
+  },
+  {
+   "a": "318:485",
+   "b": "343:97",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-06:probe:diff"
+  },
+  {
+   "a": "318:61",
+   "b": "320:148",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-01:probe:diff"
+  },
+  {
+   "a": "318:61",
+   "b": "320:151",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-01:probe:diff"
+  },
+  {
+   "a": "316:190",
+   "b": "323:10",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M032:merge:same"
+  },
+  {
+   "a": "316:190",
+   "b": "323:4",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M032:merge:same"
+  },
+  {
+   "a": "316:161",
+   "b": "323:10",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M032:merge:same"
+  },
+  {
+   "a": "316:161",
+   "b": "323:4",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M032:merge:same"
+  },
+  {
+   "a": "316:42",
+   "b": "323:10",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M032:merge:same"
+  },
+  {
+   "a": "316:42",
+   "b": "323:4",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M032:merge:same"
+  },
+  {
+   "a": "316:297",
+   "b": "318:39",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M003:merge:same"
+  },
+  {
+   "a": "316:297",
+   "b": "318:476",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M003:merge:same"
+  },
+  {
+   "a": "316:297",
+   "b": "318:204",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M003:merge:same"
+  },
+  {
+   "a": "316:200",
+   "b": "318:39",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M003:merge:same"
+  },
+  {
+   "a": "316:200",
+   "b": "318:476",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M003:merge:same"
+  },
+  {
+   "a": "316:200",
+   "b": "318:204",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M003:merge:same"
+  },
+  {
+   "a": "316:196",
+   "b": "318:39",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M003:merge:same"
+  },
+  {
+   "a": "316:196",
+   "b": "318:476",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M003:merge:same"
+  },
+  {
+   "a": "316:196",
+   "b": "318:204",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M003:merge:same"
+  },
+  {
+   "a": "305:148",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-06:probe:diff"
+  },
+  {
+   "a": "305:148",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-06:probe:diff"
+  },
+  {
+   "a": "305:148",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-06:probe:diff"
+  },
+  {
+   "a": "305:425",
+   "b": "320:42",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-02:probe:diff"
+  },
+  {
+   "a": "305:425",
+   "b": "320:41",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-02:probe:diff"
+  },
+  {
+   "a": "305:176",
+   "b": "320:42",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-02:probe:diff"
+  },
+  {
+   "a": "305:176",
+   "b": "320:41",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-02:probe:diff"
+  },
+  {
+   "a": "305:336",
+   "b": "320:42",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-02:probe:diff"
+  },
+  {
+   "a": "305:336",
+   "b": "320:41",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-02:probe:diff"
+  },
+  {
+   "a": "305:738",
+   "b": "323:534",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-04:probe:diff"
+  },
+  {
+   "a": "305:161",
+   "b": "323:534",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-04:probe:diff"
+  },
+  {
+   "a": "323:504",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-03:probe:diff"
+  },
+  {
+   "a": "323:504",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-03:probe:diff"
+  },
+  {
+   "a": "323:504",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-03:probe:diff"
+  },
+  {
+   "a": "323:462",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-03:probe:diff"
+  },
+  {
+   "a": "323:462",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-03:probe:diff"
+  },
+  {
+   "a": "323:462",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-03:probe:diff"
+  },
+  {
+   "a": "305:258",
+   "b": "320:101",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M045:merge:diff"
+  },
+  {
+   "a": "305:340",
+   "b": "318:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-05:probe:diff"
+  },
+  {
+   "a": "305:115",
+   "b": "318:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-05:probe:diff"
+  },
+  {
+   "a": "316:27",
+   "b": "318:37",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-05:probe:diff"
+  },
+  {
+   "a": "316:27",
+   "b": "318:485",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-05:probe:diff"
+  },
+  {
+   "a": "305:146",
+   "b": "323:480",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M028:merge:same"
+  },
+  {
+   "a": "305:146",
+   "b": "323:510",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M028:merge:same"
+  },
+  {
+   "a": "305:146",
+   "b": "323:196",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M028:merge:same"
+  },
+  {
+   "a": "318:140",
+   "b": "323:542",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-01:probe:diff"
+  },
+  {
+   "a": "318:140",
+   "b": "323:148",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-01:probe:diff"
+  },
+  {
+   "a": "318:140",
+   "b": "323:314",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-01:probe:diff"
+  },
+  {
+   "a": "318:63",
+   "b": "323:542",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-01:probe:diff"
+  },
+  {
+   "a": "318:63",
+   "b": "323:148",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-01:probe:diff"
+  },
+  {
+   "a": "318:63",
+   "b": "323:314",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-01:probe:diff"
+  },
+  {
+   "a": "318:466",
+   "b": "323:542",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-01:probe:diff"
+  },
+  {
+   "a": "318:466",
+   "b": "323:148",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-01:probe:diff"
+  },
+  {
+   "a": "318:466",
+   "b": "323:314",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-01:probe:diff"
+  },
+  {
+   "a": "318:87",
+   "b": "320:148",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-05:probe:diff"
+  },
+  {
+   "a": "318:87",
+   "b": "320:151",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-05:probe:diff"
+  },
+  {
+   "a": "323:50",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-02:probe:diff"
+  },
+  {
+   "a": "323:50",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-02:probe:diff"
+  },
+  {
+   "a": "323:50",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-02:probe:diff"
+  },
+  {
+   "a": "323:80",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-02:probe:diff"
+  },
+  {
+   "a": "323:80",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-02:probe:diff"
+  },
+  {
+   "a": "323:80",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-02:probe:diff"
+  },
+  {
+   "a": "323:198",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-02:probe:diff"
+  },
+  {
+   "a": "323:198",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-02:probe:diff"
+  },
+  {
+   "a": "323:198",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "P323343-02:probe:diff"
+  },
+  {
+   "a": "316:56",
+   "b": "305:173",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M043:merge:diff"
+  },
+  {
+   "a": "316:56",
+   "b": "305:745",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M043:merge:diff"
+  },
+  {
+   "a": "316:56",
+   "b": "305:113",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M043:merge:diff"
+  },
+  {
+   "a": "316:225",
+   "b": "305:173",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M043:merge:diff"
+  },
+  {
+   "a": "316:225",
+   "b": "305:745",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M043:merge:diff"
+  },
+  {
+   "a": "316:225",
+   "b": "305:113",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M043:merge:diff"
+  },
+  {
+   "a": "316:169",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M009:merge:diff"
+  },
+  {
+   "a": "316:169",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M009:merge:diff"
+  },
+  {
+   "a": "316:169",
+   "b": "343:2",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M009:merge:diff"
+  },
+  {
+   "a": "316:203",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M009:merge:diff"
+  },
+  {
+   "a": "316:203",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M009:merge:diff"
+  },
+  {
+   "a": "316:203",
+   "b": "343:2",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M009:merge:diff"
+  },
+  {
+   "a": "316:288",
+   "b": "318:307",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-02:probe:diff"
+  },
+  {
+   "a": "316:288",
+   "b": "318:16",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-02:probe:diff"
+  },
+  {
+   "a": "316:288",
+   "b": "318:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-02:probe:diff"
+  },
+  {
+   "a": "318:217",
+   "b": "343:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-04:probe:diff"
+  },
+  {
+   "a": "305:743",
+   "b": "316:264",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-02:probe:diff"
+  },
+  {
+   "a": "305:738",
+   "b": "318:432",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M049:merge:diff"
+  },
+  {
+   "a": "305:738",
+   "b": "318:64",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M049:merge:diff"
+  },
+  {
+   "a": "305:738",
+   "b": "318:67",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M049:merge:diff"
+  },
+  {
+   "a": "305:161",
+   "b": "318:432",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M049:merge:diff"
+  },
+  {
+   "a": "305:161",
+   "b": "318:64",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M049:merge:diff"
+  },
+  {
+   "a": "305:161",
+   "b": "318:67",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M049:merge:diff"
+  },
+  {
+   "a": "316:84",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-06:probe:diff"
+  },
+  {
+   "a": "316:84",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-06:probe:diff"
+  },
+  {
+   "a": "316:84",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-06:probe:diff"
+  },
+  {
+   "a": "316:95",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-06:probe:diff"
+  },
+  {
+   "a": "316:95",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-06:probe:diff"
+  },
+  {
+   "a": "316:95",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-06:probe:diff"
+  },
+  {
+   "a": "305:621",
+   "b": "318:157",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M004:merge:same"
+  },
+  {
+   "a": "305:621",
+   "b": "318:108",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M004:merge:same"
+  },
+  {
+   "a": "305:621",
+   "b": "318:187",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M004:merge:same"
+  },
+  {
+   "a": "305:199",
+   "b": "318:157",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M004:merge:same"
+  },
+  {
+   "a": "305:199",
+   "b": "318:108",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M004:merge:same"
+  },
+  {
+   "a": "305:199",
+   "b": "318:187",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M004:merge:same"
+  },
+  {
+   "a": "305:29",
+   "b": "318:157",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M004:merge:same"
+  },
+  {
+   "a": "305:29",
+   "b": "318:108",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M004:merge:same"
+  },
+  {
+   "a": "305:29",
+   "b": "318:187",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M004:merge:same"
+  },
+  {
+   "a": "318:39",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-03:probe:diff"
+  },
+  {
+   "a": "318:39",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-03:probe:diff"
+  },
+  {
+   "a": "318:39",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-03:probe:diff"
+  },
+  {
+   "a": "318:476",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-03:probe:diff"
+  },
+  {
+   "a": "318:476",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-03:probe:diff"
+  },
+  {
+   "a": "318:476",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-03:probe:diff"
+  },
+  {
+   "a": "318:204",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-03:probe:diff"
+  },
+  {
+   "a": "318:204",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-03:probe:diff"
+  },
+  {
+   "a": "318:204",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-03:probe:diff"
+  },
+  {
+   "a": "316:63",
+   "b": "323:156",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M016:merge:same"
+  },
+  {
+   "a": "316:63",
+   "b": "343:80",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M016:merge:same"
+  },
+  {
+   "a": "316:240",
+   "b": "323:156",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M016:merge:same"
+  },
+  {
+   "a": "316:240",
+   "b": "343:80",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M016:merge:same"
+  },
+  {
+   "a": "320:45",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-05:probe:diff"
+  },
+  {
+   "a": "320:45",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-05:probe:diff"
+  },
+  {
+   "a": "320:45",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-05:probe:diff"
+  },
+  {
+   "a": "320:27",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-05:probe:diff"
+  },
+  {
+   "a": "320:27",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-05:probe:diff"
+  },
+  {
+   "a": "320:27",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-05:probe:diff"
+  },
+  {
+   "a": "320:159",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-05:probe:diff"
+  },
+  {
+   "a": "320:159",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-05:probe:diff"
+  },
+  {
+   "a": "320:159",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-343",
+   "note": "P320343-05:probe:diff"
+  },
+  {
+   "a": "318:1",
+   "b": "323:87",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-04:probe:same"
+  },
+  {
+   "a": "318:1",
+   "b": "323:21",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-04:probe:same"
+  },
+  {
+   "a": "318:1",
+   "b": "323:32",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "P318323-04:probe:same"
+  },
+  {
+   "a": "316:288",
+   "b": "318:445",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M058:merge:same"
+  },
+  {
+   "a": "316:288",
+   "b": "318:411",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M058:merge:same"
+  },
+  {
+   "a": "305:783",
+   "b": "320:110",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M035:merge:same"
+  },
+  {
+   "a": "305:783",
+   "b": "320:111",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M035:merge:same"
+  },
+  {
+   "a": "305:466",
+   "b": "343:94",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-05:probe:diff"
+  },
+  {
+   "a": "305:466",
+   "b": "343:97",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-05:probe:diff"
+  },
+  {
+   "a": "316:113",
+   "b": "318:1",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M018:merge:same"
+  },
+  {
+   "a": "316:146",
+   "b": "318:1",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M018:merge:same"
+  },
+  {
+   "a": "316:53",
+   "b": "318:1",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M018:merge:same"
+  },
+  {
+   "a": "305:420",
+   "b": "316:296",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M005:merge:diff"
+  },
+  {
+   "a": "305:361",
+   "b": "316:296",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M005:merge:diff"
+  },
+  {
+   "a": "305:114",
+   "b": "318:339",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-04:probe:diff"
+  },
+  {
+   "a": "305:114",
+   "b": "318:338",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-04:probe:diff"
+  },
+  {
+   "a": "305:337",
+   "b": "318:339",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-04:probe:diff"
+  },
+  {
+   "a": "305:337",
+   "b": "318:338",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-04:probe:diff"
+  },
+  {
+   "a": "318:362",
+   "b": "320:178",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-06:probe:diff"
+  },
+  {
+   "a": "318:177",
+   "b": "320:178",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-06:probe:diff"
+  },
+  {
+   "a": "318:361",
+   "b": "320:178",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-06:probe:diff"
+  },
+  {
+   "a": "316:113",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-02:probe:diff"
+  },
+  {
+   "a": "316:113",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-02:probe:diff"
+  },
+  {
+   "a": "316:113",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-02:probe:diff"
+  },
+  {
+   "a": "316:146",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-02:probe:diff"
+  },
+  {
+   "a": "316:146",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-02:probe:diff"
+  },
+  {
+   "a": "316:146",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-02:probe:diff"
+  },
+  {
+   "a": "316:53",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-02:probe:diff"
+  },
+  {
+   "a": "316:53",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-02:probe:diff"
+  },
+  {
+   "a": "316:53",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-02:probe:diff"
+  },
+  {
+   "a": "305:27",
+   "b": "316:121",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M053:merge:same"
+  },
+  {
+   "a": "305:66",
+   "b": "316:121",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M053:merge:same"
+  },
+  {
+   "a": "316:275",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-02:probe:diff"
+  },
+  {
+   "a": "316:275",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-02:probe:diff"
+  },
+  {
+   "a": "316:265",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-02:probe:diff"
+  },
+  {
+   "a": "316:265",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-02:probe:diff"
+  },
+  {
+   "a": "316:138",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-02:probe:diff"
+  },
+  {
+   "a": "316:138",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-02:probe:diff"
+  },
+  {
+   "a": "316:18",
+   "b": "323:2",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M025:merge:same"
+  },
+  {
+   "a": "316:7",
+   "b": "323:2",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M025:merge:same"
+  },
+  {
+   "a": "316:9",
+   "b": "323:2",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M025:merge:same"
+  },
+  {
+   "a": "305:450",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-01:probe:diff"
+  },
+  {
+   "a": "305:450",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-01:probe:diff"
+  },
+  {
+   "a": "305:218",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-01:probe:diff"
+  },
+  {
+   "a": "305:218",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "P305323-01:probe:diff"
+  },
+  {
+   "a": "305:173",
+   "b": "316:56",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-05:probe:diff"
+  },
+  {
+   "a": "305:173",
+   "b": "316:225",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-05:probe:diff"
+  },
+  {
+   "a": "305:745",
+   "b": "316:56",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-05:probe:diff"
+  },
+  {
+   "a": "305:745",
+   "b": "316:225",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-05:probe:diff"
+  },
+  {
+   "a": "305:113",
+   "b": "316:56",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-05:probe:diff"
+  },
+  {
+   "a": "305:113",
+   "b": "316:225",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-05:probe:diff"
+  },
+  {
+   "a": "305:291",
+   "b": "318:329",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-03:probe:diff"
+  },
+  {
+   "a": "305:291",
+   "b": "318:104",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-03:probe:diff"
+  },
+  {
+   "a": "305:291",
+   "b": "318:214",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-03:probe:diff"
+  },
+  {
+   "a": "305:231",
+   "b": "318:329",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-03:probe:diff"
+  },
+  {
+   "a": "305:231",
+   "b": "318:104",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-03:probe:diff"
+  },
+  {
+   "a": "305:231",
+   "b": "318:214",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-03:probe:diff"
+  },
+  {
+   "a": "305:240",
+   "b": "318:329",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-03:probe:diff"
+  },
+  {
+   "a": "305:240",
+   "b": "318:104",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-03:probe:diff"
+  },
+  {
+   "a": "305:240",
+   "b": "318:214",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-03:probe:diff"
+  },
+  {
+   "a": "318:125",
+   "b": "320:157",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-02:probe:diff"
+  },
+  {
+   "a": "318:125",
+   "b": "320:90",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-02:probe:diff"
+  },
+  {
+   "a": "318:125",
+   "b": "320:118",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-02:probe:diff"
+  },
+  {
+   "a": "318:230",
+   "b": "320:157",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-02:probe:diff"
+  },
+  {
+   "a": "318:230",
+   "b": "320:90",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-02:probe:diff"
+  },
+  {
+   "a": "318:230",
+   "b": "320:118",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-02:probe:diff"
+  },
+  {
+   "a": "318:401",
+   "b": "320:157",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-02:probe:diff"
+  },
+  {
+   "a": "318:401",
+   "b": "320:90",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-02:probe:diff"
+  },
+  {
+   "a": "318:401",
+   "b": "320:118",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-02:probe:diff"
+  },
+  {
+   "a": "316:275",
+   "b": "343:94",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M024:merge:same"
+  },
+  {
+   "a": "316:275",
+   "b": "343:97",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M024:merge:same"
+  },
+  {
+   "a": "316:265",
+   "b": "343:94",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M024:merge:same"
+  },
+  {
+   "a": "316:265",
+   "b": "343:97",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M024:merge:same"
+  },
+  {
+   "a": "316:138",
+   "b": "343:94",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M024:merge:same"
+  },
+  {
+   "a": "316:138",
+   "b": "343:97",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M024:merge:same"
+  },
+  {
+   "a": "320:176",
+   "b": "323:245",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "M046:merge:diff"
+  },
+  {
+   "a": "320:176",
+   "b": "323:275",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "M046:merge:diff"
+  },
+  {
+   "a": "320:113",
+   "b": "323:245",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "M046:merge:diff"
+  },
+  {
+   "a": "320:113",
+   "b": "323:275",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "M046:merge:diff"
+  },
+  {
+   "a": "320:138",
+   "b": "323:245",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "M046:merge:diff"
+  },
+  {
+   "a": "320:138",
+   "b": "323:275",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "M046:merge:diff"
+  },
+  {
+   "a": "318:140",
+   "b": "323:501",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M054:merge:diff"
+  },
+  {
+   "a": "318:140",
+   "b": "323:506",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M054:merge:diff"
+  },
+  {
+   "a": "318:63",
+   "b": "323:501",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M054:merge:diff"
+  },
+  {
+   "a": "318:63",
+   "b": "323:506",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M054:merge:diff"
+  },
+  {
+   "a": "318:466",
+   "b": "323:501",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M054:merge:diff"
+  },
+  {
+   "a": "318:466",
+   "b": "323:506",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-323",
+   "note": "M054:merge:diff"
+  },
+  {
+   "a": "318:339",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-05:probe:diff"
+  },
+  {
+   "a": "318:339",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-05:probe:diff"
+  },
+  {
+   "a": "318:339",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-05:probe:diff"
+  },
+  {
+   "a": "318:338",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-05:probe:diff"
+  },
+  {
+   "a": "318:338",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-05:probe:diff"
+  },
+  {
+   "a": "318:338",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-343",
+   "note": "P318343-05:probe:diff"
+  },
+  {
+   "a": "316:28",
+   "b": "318:339",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M022:merge:diff"
+  },
+  {
+   "a": "316:28",
+   "b": "318:338",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M022:merge:diff"
+  },
+  {
+   "a": "316:94",
+   "b": "323:503",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M052:merge:diff"
+  },
+  {
+   "a": "316:94",
+   "b": "323:221",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M052:merge:diff"
+  },
+  {
+   "a": "316:94",
+   "b": "323:187",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M052:merge:diff"
+  },
+  {
+   "a": "305:683",
+   "b": "320:11",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-03:probe:diff"
+  },
+  {
+   "a": "305:683",
+   "b": "320:12",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-03:probe:diff"
+  },
+  {
+   "a": "316:273",
+   "b": "343:50",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-04:probe:diff"
+  },
+  {
+   "a": "316:273",
+   "b": "343:99",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-04:probe:diff"
+  },
+  {
+   "a": "316:273",
+   "b": "343:17",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "P316343-04:probe:diff"
+  },
+  {
+   "a": "316:178",
+   "b": "323:246",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-06:probe:same"
+  },
+  {
+   "a": "305:258",
+   "b": "318:445",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-01:probe:diff"
+  },
+  {
+   "a": "305:258",
+   "b": "318:411",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-01:probe:diff"
+  },
+  {
+   "a": "316:178",
+   "b": "320:45",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-02:probe:diff"
+  },
+  {
+   "a": "316:178",
+   "b": "320:27",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-02:probe:diff"
+  },
+  {
+   "a": "316:178",
+   "b": "320:159",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-02:probe:diff"
+  },
+  {
+   "a": "316:178",
+   "b": "318:268",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-04:probe:diff"
+  },
+  {
+   "a": "316:178",
+   "b": "318:36",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-04:probe:diff"
+  },
+  {
+   "a": "316:178",
+   "b": "318:56",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "P316318-04:probe:diff"
+  },
+  {
+   "a": "316:171",
+   "b": "320:121",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-04:probe:diff"
+  },
+  {
+   "a": "316:171",
+   "b": "320:120",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-04:probe:diff"
+  },
+  {
+   "a": "316:127",
+   "b": "320:121",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-04:probe:diff"
+  },
+  {
+   "a": "316:127",
+   "b": "320:120",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-04:probe:diff"
+  },
+  {
+   "a": "320:133",
+   "b": "323:155",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-02:probe:diff"
+  },
+  {
+   "a": "320:133",
+   "b": "323:91",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-02:probe:diff"
+  },
+  {
+   "a": "320:133",
+   "b": "323:154",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-02:probe:diff"
+  },
+  {
+   "a": "305:329",
+   "b": "320:45",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M023:merge:diff"
+  },
+  {
+   "a": "305:329",
+   "b": "320:27",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M023:merge:diff"
+  },
+  {
+   "a": "305:329",
+   "b": "320:159",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M023:merge:diff"
+  },
+  {
+   "a": "305:391",
+   "b": "320:45",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M023:merge:diff"
+  },
+  {
+   "a": "305:391",
+   "b": "320:27",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M023:merge:diff"
+  },
+  {
+   "a": "305:391",
+   "b": "320:159",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M023:merge:diff"
+  },
+  {
+   "a": "305:436",
+   "b": "320:45",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M023:merge:diff"
+  },
+  {
+   "a": "305:436",
+   "b": "320:27",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M023:merge:diff"
+  },
+  {
+   "a": "305:436",
+   "b": "320:159",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "M023:merge:diff"
+  },
+  {
+   "a": "320:49",
+   "b": "323:526",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-03:probe:diff"
+  },
+  {
+   "a": "320:49",
+   "b": "323:495",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-03:probe:diff"
+  },
+  {
+   "a": "320:65",
+   "b": "323:526",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-03:probe:diff"
+  },
+  {
+   "a": "320:65",
+   "b": "323:495",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-03:probe:diff"
+  },
+  {
+   "a": "320:43",
+   "b": "323:526",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-03:probe:diff"
+  },
+  {
+   "a": "320:43",
+   "b": "323:495",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "320-323",
+   "note": "P320323-03:probe:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "318:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-06:probe:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "318:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-06:probe:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "318:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-06:probe:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "318:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-06:probe:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "318:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-06:probe:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "318:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "P305318-06:probe:diff"
+  },
+  {
+   "a": "305:312",
+   "b": "316:171",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M014:merge:diff"
+  },
+  {
+   "a": "305:312",
+   "b": "316:127",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M014:merge:diff"
+  },
+  {
+   "a": "305:245",
+   "b": "316:171",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M014:merge:diff"
+  },
+  {
+   "a": "305:245",
+   "b": "316:127",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M014:merge:diff"
+  },
+  {
+   "a": "305:479",
+   "b": "316:171",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M014:merge:diff"
+  },
+  {
+   "a": "305:479",
+   "b": "316:127",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M014:merge:diff"
+  },
+  {
+   "a": "305:187",
+   "b": "318:362",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M021:merge:diff"
+  },
+  {
+   "a": "305:187",
+   "b": "318:177",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M021:merge:diff"
+  },
+  {
+   "a": "305:187",
+   "b": "318:361",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M021:merge:diff"
+  },
+  {
+   "a": "305:576",
+   "b": "318:362",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M021:merge:diff"
+  },
+  {
+   "a": "305:576",
+   "b": "318:177",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M021:merge:diff"
+  },
+  {
+   "a": "305:576",
+   "b": "318:361",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M021:merge:diff"
+  },
+  {
+   "a": "318:37",
+   "b": "320:101",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-03:probe:diff"
+  },
+  {
+   "a": "318:485",
+   "b": "320:101",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "318-320",
+   "note": "P318320-03:probe:diff"
+  },
+  {
+   "a": "305:143",
+   "b": "316:220",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M020:merge:same"
+  },
+  {
+   "a": "305:143",
+   "b": "316:218",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M020:merge:same"
+  },
+  {
+   "a": "305:143",
+   "b": "316:1",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M020:merge:same"
+  },
+  {
+   "a": "305:389",
+   "b": "316:220",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M020:merge:same"
+  },
+  {
+   "a": "305:389",
+   "b": "316:218",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M020:merge:same"
+  },
+  {
+   "a": "305:389",
+   "b": "316:1",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M020:merge:same"
+  },
+  {
+   "a": "305:147",
+   "b": "316:62",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M051:merge:same"
+  },
+  {
+   "a": "305:150",
+   "b": "316:62",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M051:merge:same"
+  },
+  {
+   "a": "305:438",
+   "b": "320:121",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-05:probe:diff"
+  },
+  {
+   "a": "305:438",
+   "b": "320:120",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-05:probe:diff"
+  },
+  {
+   "a": "305:220",
+   "b": "320:121",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-05:probe:diff"
+  },
+  {
+   "a": "305:220",
+   "b": "320:120",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-05:probe:diff"
+  },
+  {
+   "a": "305:696",
+   "b": "320:121",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-05:probe:diff"
+  },
+  {
+   "a": "305:696",
+   "b": "320:120",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-320",
+   "note": "P305320-05:probe:diff"
+  },
+  {
+   "a": "305:450",
+   "b": "323:498",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M070:merge:diff"
+  },
+  {
+   "a": "305:450",
+   "b": "323:388",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M070:merge:diff"
+  },
+  {
+   "a": "305:450",
+   "b": "323:423",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M070:merge:diff"
+  },
+  {
+   "a": "305:218",
+   "b": "323:498",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M070:merge:diff"
+  },
+  {
+   "a": "305:218",
+   "b": "323:388",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M070:merge:diff"
+  },
+  {
+   "a": "305:218",
+   "b": "323:423",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M070:merge:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "343:87",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "M030:merge:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "343:36",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "M030:merge:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "343:87",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "M030:merge:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "343:36",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "M030:merge:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "343:87",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "M030:merge:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "343:36",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "M030:merge:diff"
+  },
+  {
+   "a": "305:312",
+   "b": "316:308",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-03:probe:diff"
+  },
+  {
+   "a": "305:245",
+   "b": "316:308",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-03:probe:diff"
+  },
+  {
+   "a": "305:479",
+   "b": "316:308",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-03:probe:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "316:116",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M037:merge:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "316:116",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M037:merge:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "316:116",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "M037:merge:diff"
+  },
+  {
+   "a": "305:627",
+   "b": "318:100",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M065:merge:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "316:227",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-06:probe:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "316:227",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-06:probe:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "316:227",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-06:probe:diff"
+  },
+  {
+   "a": "305:136",
+   "b": "343:12",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-03:probe:same"
+  },
+  {
+   "a": "305:139",
+   "b": "343:12",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-03:probe:same"
+  },
+  {
+   "a": "305:438",
+   "b": "318:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M011:merge:diff"
+  },
+  {
+   "a": "305:438",
+   "b": "318:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M011:merge:diff"
+  },
+  {
+   "a": "305:220",
+   "b": "318:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M011:merge:diff"
+  },
+  {
+   "a": "305:220",
+   "b": "318:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M011:merge:diff"
+  },
+  {
+   "a": "305:696",
+   "b": "318:483",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M011:merge:diff"
+  },
+  {
+   "a": "305:696",
+   "b": "318:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-318",
+   "note": "M011:merge:diff"
+  },
+  {
+   "a": "323:293",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "M019:merge:diff"
+  },
+  {
+   "a": "323:293",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "M019:merge:diff"
+  },
+  {
+   "a": "323:293",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "M019:merge:diff"
+  },
+  {
+   "a": "323:557",
+   "b": "343:44",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "M019:merge:diff"
+  },
+  {
+   "a": "323:557",
+   "b": "343:13",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "M019:merge:diff"
+  },
+  {
+   "a": "323:557",
+   "b": "343:72",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "323-343",
+   "note": "M019:merge:diff"
+  },
+  {
+   "a": "316:56",
+   "b": "343:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "M047:merge:diff"
+  },
+  {
+   "a": "316:225",
+   "b": "343:14",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-343",
+   "note": "M047:merge:diff"
+  },
+  {
+   "a": "316:264",
+   "b": "320:131",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M029:merge:same"
+  },
+  {
+   "a": "316:264",
+   "b": "320:25",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M029:merge:same"
+  },
+  {
+   "a": "316:264",
+   "b": "320:129",
+   "label": 1,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-318",
+   "note": "M029:merge:same"
+  },
+  {
+   "a": "316:264",
+   "b": "320:38",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-01:probe:diff"
+  },
+  {
+   "a": "316:264",
+   "b": "320:150",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-01:probe:diff"
+  },
+  {
+   "a": "316:264",
+   "b": "320:93",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-320",
+   "note": "P316320-01:probe:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "316:28",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-01:probe:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "316:28",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-01:probe:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "316:28",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-316",
+   "note": "P305316-01:probe:diff"
+  },
+  {
+   "a": "316:84",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-05:probe:diff"
+  },
+  {
+   "a": "316:84",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-05:probe:diff"
+  },
+  {
+   "a": "316:95",
+   "b": "323:1",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-05:probe:diff"
+  },
+  {
+   "a": "316:95",
+   "b": "323:331",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-05:probe:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "323:410",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M041:merge:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "323:356",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M041:merge:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "323:347",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M041:merge:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "323:410",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M041:merge:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "323:356",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M041:merge:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "323:347",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M041:merge:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "323:410",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M041:merge:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "323:356",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M041:merge:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "323:347",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "M041:merge:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "323:498",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-01:probe:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "323:388",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-01:probe:diff"
+  },
+  {
+   "a": "316:235",
+   "b": "323:423",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-01:probe:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "323:498",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-01:probe:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "323:388",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-01:probe:diff"
+  },
+  {
+   "a": "316:70",
+   "b": "323:423",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-01:probe:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "323:498",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-01:probe:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "323:388",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-01:probe:diff"
+  },
+  {
+   "a": "316:12",
+   "b": "323:423",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "316-323",
+   "note": "P316323-01:probe:diff"
+  },
+  {
+   "a": "305:500",
+   "b": "323:293",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M069:merge:diff"
+  },
+  {
+   "a": "305:500",
+   "b": "323:557",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-323",
+   "note": "M069:merge:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "343:9",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-02:probe:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "343:22",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-02:probe:diff"
+  },
+  {
+   "a": "305:611",
+   "b": "343:39",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-02:probe:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "343:9",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-02:probe:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "343:22",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-02:probe:diff"
+  },
+  {
+   "a": "305:692",
+   "b": "343:39",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-02:probe:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "343:9",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-02:probe:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "343:22",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-02:probe:diff"
+  },
+  {
+   "a": "305:799",
+   "b": "343:39",
+   "label": 0,
+   "level": "track",
+   "src": "human_review",
+   "pair": "305-343",
+   "note": "P305343-02:probe:diff"
+  }
+ ]
+}

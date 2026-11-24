@@ -1,0 +1,41 @@
+# 本地构建配置
+#
+# 说明：本项目**不需要 libclang / OpenCV**。
+# 早期版本用 opencv crate 拉 RTSP，需要 libclang 生成绑定；
+# 现改为调用外部 ffmpeg 可执行文件（见 src/capture.rs），
+# 构建期零原生依赖。
+
+[build]
+# 无 GPU，全程 CPU。
+jobs = 4
+# 早期 target 目录下出现过一个 NTFS 元数据损坏的文件
+# （icacls 读 ACL 都返回 ACCESS_DENIED、takeown 报"找不到文件"，
+#  即 MFT 项不一致，无法删除也无法覆写）。改用独立的全新构建目录绕开。
+target-dir = "D:/hc2"
+
+[env]
+# 用预下载的 ONNX Runtime，避免 ort-sys 的 build script 在构建期联网下载。
+# 本机上 ort-sys 的 build-script-build.exe 一被编译出来就会被安全软件
+# 拦截（执行时 Permission denied / os error 5），导致构建中断。
+# 预先手工下载并解压到 vendor/ort 后，配合 ORT_SKIP_DOWNLOAD=1
+# 让 build script 直接读取本地目录，不再触发下载分支。
+#
+# 注意 ORT_LIB_LOCATION 必须指向**直接包含 onnxruntime.lib 的目录**
+# （build script 会在该目录下直接找 onnxruntime.lib），
+# 而不是 .tgz 解压出的顶层目录。
+ORT_LIB_LOCATION = "D:/dev/human-count/vendor/ort/onnxruntime/lib"
+ORT_SKIP_DOWNLOAD = "1"
+
+[target.x86_64-pc-windows-msvc]
+# 预下载的这个 ORT 发行包内部仍启用了 DirectML（含 DirectML.dll），
+# 其 onnxruntime.lib 引用了 DML 相关符号。
+# 正常走 ort-sys 自动下载时，build script 会自己加这些链接库；
+# 而走 ORT_LIB_LOCATION 手工指定时它不再加（using_pyke_libs=false），
+# 因此这里显式补上，避免 DXCoreCreateAdapterFactory / DMLCreateDevice1 未解析。
+rustflags = [
+    "-l", "dxguid",
+    "-l", "DXCORE",
+    "-l", "DXGI",
+    "-l", "D3D12",
+    "-l", "DirectML",
+]

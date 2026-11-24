@@ -1,0 +1,694 @@
+{
+  "_built_from": {
+    "sha256": "790e8dafb2488447566b4fa8b60d6973e23249411f40c5f0b2407a2359c37e69",
+    "date": "2026-11-24",
+    "note": "由 ops_claims --rebind 更新"
+  },
+  "_note": "claims 里的 E 号是 EVIDENCE.md 的解析行号；EVIDENCE 增删行后会变，import 时会比对 sha256 并提示复核。i 是表内行下标（0 起，含表头行），expect 是该行首格文本，用于定位失配。",
+  "tables": [
+    {
+      "file": "main.tex",
+      "label": "tab:d1",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "Cameras",
+          "claims": [
+            "pc_30ab566b2c"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "Resolution",
+          "claims": [
+            "pc_30ab566b2c"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "Duration",
+          "claims": [
+            "pc_9b7624d991"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "Tracks produced",
+          "claims": [
+            "pc_3e30c0f0fc"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "Tracks in the identity",
+          "claims": [
+            "pc_17db4c46cc"
+          ]
+        },
+        {
+          "i": 6,
+          "expect": "Identity hypotheses",
+          "claims": [
+            "pc_ce49435522"
+          ]
+        },
+        {
+          "i": 7,
+          "expect": "Cross-camera groups",
+          "claims": [
+            "pc_5e63ddb60c"
+          ]
+        },
+        {
+          "i": 8,
+          "expect": "Largest group",
+          "claims": [
+            "pc_a590d39c4b"
+          ]
+        },
+        {
+          "i": 9,
+          "expect": "Usable face embeddings",
+          "claims": [
+            "pc_ef0fe784bc"
+          ]
+        },
+        {
+          "i": 10,
+          "expect": "Median face-box width",
+          "claims": [
+            "pc_b3bccdcbc7"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "main.tex",
+      "label": "tab:agg",
+      "rows": [
+        {
+          "i": 2,
+          "expect": "OSNet",
+          "claims": [
+            "pc_fbc720a485"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "OSNet",
+          "claims": [
+            "pc_c1ea575d6d"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "OSNet",
+          "claims": [
+            "pc_6a4daa6e29"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "E2",
+          "claims": [
+            "pc_c68fea4a9f"
+          ]
+        },
+        {
+          "i": 6,
+          "expect": "E2",
+          "claims": [
+            "pc_552c16b0ab"
+          ]
+        },
+        {
+          "i": 7,
+          "expect": "E2",
+          "claims": [
+            "pc_51be5a6f59"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "main.tex",
+      "label": "tab:pair",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "318--320",
+          "claims": [
+            "pc_bd93d2eabf",
+            "pc_a083b2056c"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "316--343",
+          "claims": [
+            "pc_ff691318f8",
+            "pc_6234b9c6fc"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "316--323",
+          "claims": [
+            "pc_87312a2ae0"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "318--323",
+          "claims": [
+            "pc_1db6b0c3bc"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "323--343",
+          "claims": [
+            "pc_90b0a670cd"
+          ]
+        },
+        {
+          "i": 6,
+          "expect": "305--316",
+          "claims": [
+            "pc_6b7258d2a1"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "main.tex",
+      "label": "tab:protocol",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "L0",
+          "claims": [
+            "pc_3ade6a353d",
+            "pc_693ac964be"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "L1",
+          "claims": [
+            "pc_bd93d2eabf",
+            "pc_ff691318f8",
+            "pc_4ca37d50a2"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "L2",
+          "claims": [
+            "pc_49ff7c739f",
+            "pc_3c1987c22a",
+            "pc_97ffc2db94",
+            "pc_f5b7ec70d6"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "L2+",
+          "claims": [
+            "pc_1aa09774d5",
+            "pc_6b676f58a8",
+            "pc_f33c6aef75",
+            "pc_679cfeea55",
+            "pc_bfac00307f",
+            "pc_9ec2d16f48"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "L3",
+          "claims": [
+            "pc_1ca7950d07",
+            "pc_725e55d3e1",
+            "pc_1529e57d1c"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "main.tex",
+      "label": "tab:gate",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "no gate",
+          "claims": [
+            "pc_0f09375a80",
+            "pc_49ff7c739f",
+            "pc_3c1987c22a"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "gate",
+          "claims": [
+            "pc_872c67aa86",
+            "pc_49ff7c739f"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "main.tex",
+      "label": "tab:selector",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "S0",
+          "claims": [
+            "pc_1aa09774d5"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "S1",
+          "claims": [
+            "pc_6b676f58a8"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "S1 + pool, measured",
+          "claims": [
+            "pc_f33c6aef75"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "S0 + pool, oracle",
+          "claims": [
+            "pc_9cd40bb9d7"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "S1 + pool, oracle",
+          "claims": [
+            "pc_892e9d9c10"
+          ]
+        },
+        {
+          "i": 6,
+          "expect": "Full-day",
+          "claims": [
+            "pc_f521f69831"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "main.tex",
+      "label": "tab:verifier",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "v1",
+          "claims": [
+            "pc_69abee15fd",
+            "pc_bea898a5c1"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "+ verifier at",
+          "claims": [
+            "pc_1cb95ff059"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "+ verifier at",
+          "claims": [
+            "pc_e539da4987"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "+ verifier at",
+          "claims": [
+            "pc_ebb153cc9c"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "+ verifier at",
+          "claims": [
+            "pc_4fc57c86c0"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "main.tex",
+      "label": "tab:merge",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "frame-index",
+          "claims": [
+            "pc_eb35d0bad7",
+            "pc_49ff7c739f"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "OSD clock",
+          "claims": [
+            "pc_2f9e85cc2c"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "OSD + co-vis",
+          "claims": [
+            "pc_2835964b7c"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "OSD + co-vis",
+          "claims": [
+            "pc_74c8ef99c8"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "main.tex",
+      "label": "tab:xday",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "10-22",
+          "claims": [
+            "pc_3000657304"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "10-22",
+          "claims": [
+            "pc_fb15b29262"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "10-22",
+          "claims": [
+            "pc_fe64b9ca88"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "10-23",
+          "claims": [
+            "pc_0150c7ad23"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "10-23",
+          "claims": [
+            "pc_a8625bbe7e"
+          ]
+        },
+        {
+          "i": 6,
+          "expect": "10-23",
+          "claims": [
+            "pc_4f328782dd"
+          ]
+        },
+        {
+          "i": 7,
+          "expect": "10-26",
+          "claims": [
+            "pc_9fc56f6fd3"
+          ]
+        },
+        {
+          "i": 8,
+          "expect": "10-26",
+          "claims": [
+            "pc_8eddb4e0e9"
+          ]
+        },
+        {
+          "i": 9,
+          "expect": "10-26",
+          "claims": [
+            "pc_8e5c3b713c"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "supplement.tex",
+      "caption": "Domains",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "D1",
+          "claims": [
+            "pc_30ab566b2c",
+            "pc_9b7624d991"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "D2",
+          "claims": [
+            "pc_89045f3877"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "D3",
+          "claims": [
+            "pc_8ecfd45aab",
+            "pc_ace1b1d2d9",
+            "pc_436f3755ff",
+            "pc_84f2aa7ff2",
+            "pc_e20ca9e037",
+            "pc_d201a7bd1b"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "supplement.tex",
+      "caption": "Adjudicated pairs",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "T1",
+          "claims": [
+            "pc_5050eb4634"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "T2",
+          "claims": [
+            "pc_85d8680aac"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "Total",
+          "claims": [
+            "pc_b744387435",
+            "pc_7ffa87d986"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "supplement.tex",
+      "caption": "Annotation reliability",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "Gallery membership",
+          "claims": [
+            "pc_01192e9962",
+            "pc_f856ee2481",
+            "pc_2d679db9db"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "Gallery membership, person",
+          "claims": [
+            "pc_f856ee2481",
+            "pc_681724adb2",
+            "pc_6e16b07bb7"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "Pair verdicts",
+          "claims": [
+            "pc_b744387435"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "Judged merges",
+          "claims": [
+            "pc_49ff7c739f"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "Judged-merge re-check",
+          "claims": [
+            "pc_3c1987c22a",
+            "pc_5b30976ca4"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "supplement.tex",
+      "caption": "Same cells as the nine-cell",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "10-22",
+          "claims": [
+            "pc_64f64207a1"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "10-22",
+          "claims": [
+            "pc_13199266d7"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "10-22",
+          "claims": [
+            "pc_35674ceab4"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "10-23",
+          "claims": [
+            "pc_70adfa9379"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "10-23",
+          "claims": [
+            "pc_21d8bcddad"
+          ]
+        },
+        {
+          "i": 6,
+          "expect": "10-23",
+          "claims": [
+            "pc_0bc1821410"
+          ]
+        },
+        {
+          "i": 7,
+          "expect": "10-26",
+          "claims": [
+            "pc_0d28d84dc4"
+          ]
+        },
+        {
+          "i": 8,
+          "expect": "10-26",
+          "claims": [
+            "pc_bd96943cca"
+          ]
+        },
+        {
+          "i": 9,
+          "expect": "10-26",
+          "claims": [
+            "pc_b52cfa75ab"
+          ]
+        }
+      ],
+      "_note": "补充材料这张是「全量」口径（covered 469/110/342…），EVIDENCE 第八节第二张表记的是「剔除无效段」口径，只有第 1 行相同 → 整表待补证据行。"
+    },
+    {
+      "file": "supplement.tex",
+      "caption": "The form in which a system",
+      "rows": [
+        {
+          "i": 1,
+          "expect": "Same-camera",
+          "claims": [
+            "pc_3ade6a353d"
+          ]
+        },
+        {
+          "i": 2,
+          "expect": "Cross-camera identity, 318",
+          "claims": [
+            "pc_bd93d2eabf"
+          ]
+        },
+        {
+          "i": 3,
+          "expect": "Cross-camera identity, other",
+          "claims": [
+            "pc_ff691318f8"
+          ]
+        },
+        {
+          "i": 4,
+          "expect": "Precision on judged merges",
+          "claims": [
+            "pc_49ff7c739f"
+          ]
+        },
+        {
+          "i": 5,
+          "expect": "Contradiction-triggered",
+          "claims": [
+            "pc_1ca7950d07",
+            "pc_4877afb55a",
+            "pc_77f66ef2e0"
+          ]
+        },
+        {
+          "i": 6,
+          "expect": "Selector recall",
+          "claims": [
+            "pc_1aa09774d5",
+            "pc_6b676f58a8",
+            "pc_679cfeea55"
+          ]
+        },
+        {
+          "i": 7,
+          "expect": "Face-based verification",
+          "claims": [
+            "pc_ef0fe784bc",
+            "pc_b3bccdcbc7"
+          ]
+        }
+      ]
+    }
+  ],
+  "_id_note": "claims 存 hash id（pc_*），display_id 只是人读标签；EVIDENCE 改了某行文本会让该行 hash id 变化，从而在锚定时报错而不是静默指错",
+  "_id_migrated_at": "2026-11-24T19:43:22"
+}

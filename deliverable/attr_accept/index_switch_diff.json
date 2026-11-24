@@ -1,0 +1,171 @@
+{
+ "old_built": "2026-11-11 07:57",
+ "new_built": "2026-11-12 22:13",
+ "heads_built": "2026-11-12 21:42",
+ "n_entities": 1028,
+ "training": {
+  "dom": 457,
+  "pa": 8000,
+  "dom_reps": 30
+ },
+ "fields": {
+  "gender": {
+   "changed": 43,
+   "changed_pct": 4.18,
+   "dist_new": {
+    "男": 796,
+    "女": 232
+   },
+   "dist_old": {
+    "男": 811,
+    "女": 217
+   },
+   "holdout_acc": 0.9736,
+   "ood_acc": 0.8938
+  },
+  "top_color": {
+   "changed": 0,
+   "changed_pct": 0.0,
+   "dist_new": {
+    "黑": 281,
+    "蓝": 245,
+    "棕": 237,
+    "红": 83,
+    "绿": 79,
+    "白": 65,
+    "紫": 21,
+    "灰": 17
+   },
+   "dist_old": {
+    "黑": 281,
+    "蓝": 245,
+    "棕": 237,
+    "红": 83,
+    "绿": 79,
+    "白": 65,
+    "紫": 21,
+    "灰": 17
+   },
+   "holdout_acc": 0.8884,
+   "ood_acc": null
+  },
+  "top_type": {
+   "changed": 87,
+   "changed_pct": 8.46,
+   "dist_new": {
+    "长袖": 775,
+    "短袖": 253
+   },
+   "dist_old": {
+    "长袖": 810,
+    "短袖": 218
+   },
+   "holdout_acc": 0.941,
+   "ood_acc": 0.8991
+  },
+  "bottom_color": {
+   "changed": 0,
+   "changed_pct": 0.0,
+   "dist_new": {
+    "黑": 764,
+    "蓝": 133,
+    "白": 131
+   },
+   "dist_old": {
+    "黑": 764,
+    "蓝": 133,
+    "白": 131
+   },
+   "holdout_acc": 0.9135,
+   "ood_acc": null
+  },
+  "bottom_type": {
+   "changed": 11,
+   "changed_pct": 1.07,
+   "dist_new": {
+    "长裤": 998,
+    "短裤": 24,
+    "裙": 6
+   },
+   "dist_old": {
+    "长裤": 1004,
+    "短裤": 24
+   },
+   "holdout_acc": 0.9541,
+   "ood_acc": 0.8808
+  },
+  "glasses": {
+   "changed": 216,
+   "changed_pct": 21.01,
+   "dist_new": {
+    "是": 565,
+    "否": 463
+   },
+   "dist_old": {
+    "是": 727,
+    "否": 301
+   },
+   "holdout_acc": 0.9238,
+   "ood_acc": 0.8375
+  },
+  "hat": {
+   "changed": 16,
+   "changed_pct": 1.56,
+   "dist_new": {
+    "否": 996,
+    "是": 32
+   },
+   "dist_old": {
+    "否": 1012,
+    "是": 16
+   },
+   "holdout_acc": 0.9887,
+   "ood_acc": 0.895
+  },
+  "backpack": {
+   "changed": 107,
+   "changed_pct": 10.41,
+   "dist_new": {
+    "否": 906,
+    "是": 122
+   },
+   "dist_old": {
+    "否": 1003,
+    "是": 25
+   },
+   "holdout_acc": 0.9477,
+   "ood_acc": 0.6963
+  },
+  "carrying": {
+   "changed": 39,
+   "changed_pct": 3.79,
+   "dist_new": {
+    "否": 983,
+    "是": 45
+   },
+   "dist_old": {
+    "否": 988,
+    "是": 40
+   },
+   "holdout_acc": 0.9153,
+   "ood_acc": 0.74
+  }
+ },
+ "invariant_checks": {
+  "color_fields_changed": 0,
+  "is_person_below_0.5_new": 355,
+  "is_person_below_0.5_old": 355
+ },
+ "skirt_gate": {
+  "all": 6,
+  "shown_default": 3,
+  "excluded_false_box": [
+   "323-E060",
+   "323-E112"
+  ],
+  "excluded_conf": [
+   "316-E014"
+  ],
+  "note": "2 条 is_person 0.001/0.011 的假框 + 1 条 conf .592 未过 .60"
+ }
+}

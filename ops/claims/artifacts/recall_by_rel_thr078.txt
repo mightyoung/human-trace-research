@@ -1,0 +1,10 @@
+# cmd: python tmp/full/diag_recall_by_rel.py --clu deliverable/step1_baseline/clusters_thr0.78.json --gt deliverable/paper-package-2026-11-10/20-data/e4-full-corpus/gt_8seg.json --emb-dir tmp/full/emb12 --segs "305_train_529,305_test_544,318_train_525,318_test_534,320_train_514,320_test_518,323_train_510,323_test_527" --label "thr 0.78"
+# at: 2026-11-24 20:23:06
+
+【thr 0.78】评估集 445 轨 / 26 身份 / 119 簇
+  关系                  轨对       召回
+  同段                2559    53.8%
+  同机位·跨时段           2126    42.3%
+  跨机位               2155     3.7%
+  合计                6840    34.5%   ← 微平均
+  按身份宏平均召回 42.0%（23 个身份；最大贡献者占轨对 28%）

@@ -1,0 +1,494 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+
+% ---- Author queries: set \AQfalse to hide them in the submitted PDF ----
+\newif\ifAQ \AQtrue
+\newcounter{aq}
+\DeclareRobustCommand{\AQ}[1]{\ifAQ\stepcounter{aq}{\color{red}\textbf{[AQ\arabic{aq}: #1]}}\fi}
+
+\newcommand{\ra}{$\rightarrow$}
+\hyphenation{co-visi-bil-ity re-iden-ti-fi-ca-tion}
+
+\begin{document}
+
+\title{How Much Identity Can a Camera Network Deliver? A Three-Probe Diagnostic and a Tiered Delivery Protocol for Cross-Camera Re-Identification}
+
+\author{[Given~Name]~[Family~Name], [Given~Name]~[Family~Name], and~[Given~Name]~[Family~Name]%
+\thanks{Manuscript received [Month] [day], 2026. \emph{(Corresponding author: [Name].)}}%
+\thanks{[Author 1] and [Author 2] are with [Department], [Institution], [City] [Postcode], [Country] (e-mail: [address]).}%
+\thanks{[Author 3] is with [Department], [Institution], [City] [Postcode], [Country].}%
+\thanks{This work involved human subjects. \AQ{Ethical approval: [institution] --- [review board] --- approval no.\ [number], [date]; or, if the board determined the study exempt, the exemption basis. Add the consent statement (obtained / waived). This wording must match the submission form verbatim.}}%
+\thanks{This article has supplementary material provided by the authors.}}
+
+\markboth{IEEE Transactions on Biometrics, Behavior, and Identity Science}{[Author 1] \MakeLowercase{\textit{et al.}}: How Much Identity Can a Camera Network Deliver?}
+
+\maketitle
+
+\begin{abstract}
+Benchmark accuracy does not tell an integrator which identity functions a given camera network supports. We treat that question as a measurement problem and answer it with a deployment protocol, developed on one office floor with a frozen, off-the-shelf encoder: a six-camera, 35-minute capture (1,574 tracks), a named corpus of 26 identities from the same floor, and three further capture days. Three label-free site probes (face pixel budget, regional co-visibility, wardrobe diversity) gate five delivery tiers. Aggregate cross-camera appearance is at chance in all six encoder and alignment configurations (AUC 0.450--0.622, every interval covering 0.5), yet the one camera pair that shares a region reaches AUC 0.904. An attribute-consistency veto raises precision on judged merges from 0.730 to 0.930 with recall on labelled pairs unchanged at 5/34, and weighting gallery templates by body scale raises same-camera selector recall from 56.4\% to 68.2\% without any face. In this graph, local repairs did not compose: deleting adjudicated-wrong edges split no group, and a pairwise verifier removed three of five known-correct merges. Across capture days a label-free coverage statistic moved by 0.001 while a co-occurrence merge-error estimate doubled. All boundaries are calibrated on a single site; we report which findings we expect to transfer and which we do not.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Person re-identification, biometric evaluation protocol, benchmarking, confidence interval estimation, surveillance, human-in-the-loop.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\IEEEPARstart{A}{vendor} demonstrating cross-camera re-identification (ReID) shows two crops of one person and a similarity score. A facilities manager signing the contract needs a different object: a statement of the form ``with this network you can answer this class of question, at this accuracy, with this much operator time''. Benchmark mAP does not supply it, because benchmark conditions (tight upright crops, viewpoints shared with training, no seated subject at 50~px) are not those of an office.
+
+This paper constructs the second object. We propose no new representation: the encoder is off-the-shelf, frozen, and never tuned on the site. The question is:
+
+\emph{Given a fixed camera network and a frozen encoder, which identity functions can an integrator legitimately promise, and how can this be known before deployment?}
+
+Our answer is a protocol with three parts.
+
+\emph{Three site probes.} Whether appearance-based identity is available depends on quantities unrelated to model choice: how many pixels a face occupies (P1), whether two cameras observe a common region (P2), and how repetitive the population's clothing is (P3). Each needs no identity labels. Their novelty is uneven. P1 is a resolution threshold of the kind surveillance standards already specify, and P3 is a class-size statistic. What we add is P2's unit of answer: co-visibility is a property of regions, not of camera pairs.
+
+\emph{Five tiers.} L0 (same camera across time), L1 (cross-camera inside a co-visible region), L2 (attribute-consistent merging), L2+ (pose-conditioned templates) and L3 (human adjudication), each with an acceptance condition, a measured benefit and a stated failure mode.
+
+\emph{Two cautions.} In our identity graph, local repairs of a merged partition did not compose (Section~\ref{sec:noncomp}), which is why appearance signals are used to order human review and not to decide. And label-free acceptance statistics did not register a change of capture day that a co-occurrence error estimate did (Section~\ref{sec:xday}).
+
+\subsection{Contributions}
+\begin{enumerate}
+\item A three-probe deployment diagnostic with calibrated boundaries, including a stratified analysis showing that an aggregate cross-camera AUC at chance decomposes into one pair at 0.904 and one at 0.231 (Section~\ref{sec:probes}).
+\item A tiered delivery protocol with measured rungs on one site, including two training-free components that give a measurable gain: an attribute veto and a body-scale template kernel (Section~\ref{sec:tiers}).
+\item An empirical design rule, with three observations from one graph, that pairwise evidence should rank review items instead of editing a transitive partition (Section~\ref{sec:noncomp}).
+\item A capture-change case study showing which label-free statistics move and which do not, including one camera-day whose statistics were perfect because its tracking had failed (Section~\ref{sec:xday}).
+\end{enumerate}
+
+The scope is one site, one organisation and, for the pair-level truth, one adjudicator (Section~\ref{sec:limits}). No contribution is claimed to be a general theorem.
+
+\section{Related Work}
+\subsection{Representations and camera bias}
+Supervised ReID matured on Market-1501~\cite{zheng2015} and MSMT17~\cite{wei2018} with strong backbones and part-based or transformer aggregation~\cite{zhou2019,he2021,ye2022}. Reported gains are measured under the capture conditions of training, and camera identity is a known confound that motivated camera-aware training~\cite{tang2026,wang2026carr,xiao2026}. We take the encoder as given and measure where it is informative.
+
+\subsection{Identity graphs, constraints and partition editing}
+Pseudo-label pipelines build identities by clustering tracklet features~\cite{tang2026,ge2020}. Imposing pairwise constraints on a partition is a long-studied problem: constrained clustering with must-link and cannot-link relations~\cite{wagstaff2001}, correlation clustering~\cite{bansal2004}, and multicut formulations for multi-person and multi-camera tracking~\cite{tang2017,ristani2018}. These methods optimise the partition jointly, which is precisely what a post-hoc ``cut the bad edge'' repair does not do. Section~\ref{sec:noncomp} is an empirical illustration of that gap in a deployed greedy pipeline; we do not compare against a joint optimiser, and say so in Section~\ref{sec:limits}.
+
+\subsection{Spatio-temporal constraints and topology}
+Transition-time priors assume a synchronised clock and a known camera topology~\cite{ristani2016,ristani2018,makris2004}; multi-camera tracking benchmarks make both assumptions~\cite{aicity2026}. We report how each fails on an ordinary office floor.
+
+\subsection{Capture standards and face resolution}
+Planning a surveillance installation by pixel density is established practice: IEC~62676-4 assigns pixel densities to operational levels from detection to identification~\cite{iec62676}, and GB/T~31488-2015 sets resolution requirements for surveillance face recognition~\cite{gbt31488}. Low-resolution surveillance face recognition is known to degrade sharply~\cite{cheng2018}. P1 is an application of this body of work to tier selection, not a new threshold.
+
+\subsection{Evaluation protocols in identity science}
+FERET fixed the pattern of defining partitions and statistics before comparing systems~\cite{phillips2000}; ISO/IEC~19795-1 codifies performance testing and reporting~\cite{iso19795}; Best-Rowden and Jain showed that a single operating point hides a temporal decay curve~\cite{bestrowden2018}. Kang asks whether synthetic corpora are valid for benchmarking generalisable ReID~\cite{kang2025}; our question is the field-capture analogue. Long-term and clothes-changing ReID~\cite{yang2021,gu2022} is the closest literature to Section~\ref{sec:xday}. Selective prediction~\cite{geifman2017} and risk-controlling calibration~\cite{angelopoulos2025} motivate L3 as an explicit abstention tier; open-set gallery analysis with frozen encoders is studied in~\cite{wang2026sensors}, and an applied multi-camera deployment in~\cite{ding2025}.
+
+\section{Data and Pipeline}\label{sec:data}
+\subsection{Three evidence domains}
+\emph{D1} is one office floor (open work area, tea room, glass-walled corridor, multi-purpose space) recorded by six cameras for 35 minutes (Table~\ref{tab:d1}). There is no calibration and no depth sensor. D1 carries deployment-scale structure and the pair-level truth sets.
+
+\emph{D2} is a second capture of the same floor in eight segments, with 445 named tracks over 26 identities (median 14 tracks per identity, maximum 62). It is the only domain in which track identity is known. Its detector and tracker configuration differs from D1's, so D2 is used for identity-level recall and never for merge precision.
+
+\emph{D3} is three further capture days (10-22, 10-23, 10-26), six cameras per day, used only in Section~\ref{sec:xday}. Each camera-day is split into a build portion (0--720~s) and a query portion (from 810~s). D3 has different camera positions and detector configuration from D1 and carries no identity truth, so it supports label-free statistics only. Its build portions hold between 7 and 95 tracks per camera.
+
+The three domains are never pooled.
+
+\begin{table}[t]
+\caption{D1 Capture and Graph Statistics}\label{tab:d1}
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Item & Value\\
+\midrule
+Cameras & 6 (305, 316, 318, 320, 323, 343)\\
+Resolution & 4 at 2560$\times$1440; 2 at 1920$\times$1080\\
+Duration / frame rate & 2,099 s / 25 fps\\
+Tracks produced & 1,894\\
+Tracks in the identity graph & 1,574\\
+Identity hypotheses (graph v0) & 443\\
+Cross-camera groups & 56\\
+Largest group & 67 tracks\\
+Usable face embeddings & 150 / 1,894 tracks (7.9\%)\\
+Median face-box width & 52 px\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 443 groups of graph v0 are hypotheses, not people. We cannot state an over-segmentation factor: the capture was not head-counted. What is visible without one is that 443 hypotheses cover 1,574 tracks, so the median hypothesis is small and the dominant error is fragmentation, not over-merging.
+
+\subsection{Clock}
+The six D1 streams start at different wall-clock moments: frame-0 offsets relative to camera 318 are 0, $+$1, $+$2, $+$16, $+$25 and $+$121~s. The temporal audit (Section~\ref{sec:l3}) uses the on-screen-display (OSD) absolute clock. The reference graph v0, however, was built earlier with a co-occurrence block computed from per-stream frame indices, which turns some genuine co-occurrences into apparent handovers. We keep v0 as the reference because the adjudication queue and every downstream graph experiment were run on it, and report the OSD-corrected build beside it in Table~\ref{tab:merge}: recall on labelled same-person pairs rises from 5/34 to 7/34, one labelled different-person pair becomes merged (1/80), and the group count is unchanged. We recommend stating the clock convention in any multi-camera study that reports temporal constraints.
+
+\subsection{Pipeline}
+Detection and tracking run per camera (YOLO8, person class, official pretrained weights, not fine-tuned on this site; ByteTrack~\cite{zhang2022} with a lowered activation threshold, without the association refinements of~\cite{du2023}). Each track is encoded by OSNet-x1.0~\cite{zhou2019} with MSMT17~\cite{wei2018} weights, frozen, as the 512-d mean over 8 temporally uniform frames. The graph is built in two stages: within-camera average-linkage clustering at cosine distance 0.15, then greedy cross-camera merging of cluster representatives at cosine $\ge 0.75$, subject to a same-frame co-occurrence block, a camera-overlap block and an attribute-agreement gate ($\ge 8$ of 9 clothing attributes). Merging is transitive. Fig.~\ref{fig:pipeline} summarises the pipeline.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{Figure_1.pdf}
+\caption{The deployed pipeline and the three probe points. Stage 2 produces a transitive closure, which is what makes the observations of Section~\ref{sec:noncomp} possible.}\label{fig:pipeline}
+\end{figure*}
+
+The encoder was not fine-tuned. A diagnostic must predict the behaviour of a given encoder, not of one fitted to the site, and the attempt here argues for the choice: fine-tuning cut operating-point recall from 24.2\% to 11.0\%, and a closed-set linear discriminant that reached AUC 0.986 on the identities it had seen fell to 0.595 and 0.554 when identities were held out.
+
+\section{Evaluation Protocol}\label{sec:eval}
+\subsection{Truth sets}
+\emph{T1, prior-sampled pairs (126).} 34 same-person and 92 different-person cross-camera pairs over 7 camera pairs, drawn to test the merge rule. T1 is biased toward pairs the system found plausible. All 34 same-person pairs and 80 of the 92 different-person pairs have OSNet embeddings for both tracks; AUC and merge counts are therefore reported over 34/80. The 12 missing pairs are one artefact, not attrition: each pairs a 320 track with one of three 318 detections that never entered the graph (318:53, 98, 142). Two of the three are 24--28~px boxes whose centre moves less than 3~px over 539 and 1,104 frames --- static false positives at a fixed point in the frame. They are person-versus-not-a-person comparisons, so dropping them corrects the negative set rather than shrinking it.
+
+\emph{T2, contradiction-triggered pairs (27).} Pairs that the system had merged and that the temporal audit flags as physically impossible under the surveyed camera topology: 12 same-person, 15 different-person, over 10 camera pairs. T2 is biased toward errors.
+
+\emph{Judged merges (63).} The precision figures of Section~\ref{sec:l2} use a third set, neither T1 nor T2. The ungated graph performs 76 merge operations; each was shown as a three-frame strip per side at matched OSD instants and given a verdict by the same adjudicator: 34 same, 41 different, one unclear. Because only the different verdicts move a precision figure, all 41 were shown again without their earlier verdict --- 17 confirmed different, 11 revised to same, 13 left unresolved and excluded; the one unclear case was resolved to same on the second pass. The judged set is the 76 minus those 13 unresolved: 63 merges, 46 of them same-person. It is not a subset of T1, whose five known-correct merges are five other merges, and it is not T2, which samples contradictions. Precision recomputed from T1 alone is 5/5, because T1 contains no adjudicated false merge; that is why the two are never pooled.
+
+T1 and T2 are never pooled into one precision figure. All pair verdicts were made by one person (Section~\ref{sec:limits}).
+
+\subsection{Levels and reporting rules}
+A labelled pair is correct at \emph{pair level} if its tracks share a group exactly when the label says same person. A group is \emph{mixed} if it contains an adjudicated different-person pair, and pure otherwise. The two levels answer different questions: on T2, 12 of 27 merged pairs are same-person (0.444), while 7 of the 15 groups touched are mixed. We report both. Multi-camera tracking metrics~\cite{luiten2021,ristani2016} score trajectories; our unit is the merge decision.
+
+Three rules are applied throughout: (i) numbers from different detector configurations are not compared; (ii) every proportion carries its denominator; (iii) every aggregate names the sampling mechanism of its truth set. Proportions are given with exact (Clopper--Pearson) 95\% intervals. AUC intervals in Table~\ref{tab:agg} are percentile bootstrap (2,000 resamples) over pairs, which is optimistic: pairs share tracks and the 34 same-person pairs cover fewer than 34 people. Identity names were not recorded at adjudication, so a by-identity resample cannot be run and we report none; Table~\ref{tab:pair}'s intervals assume independent pairs and should be read as lower bounds on the uncertainty.
+
+\section{The Three-Probe Diagnostic}\label{sec:probes}
+\subsection{P1: face pixel budget}
+\emph{Measurement.} On a random sample of tracks (we use 200), run a face detector inside each person box and record the distribution of face-box widths and the fraction of tracks yielding a usable face.
+
+\emph{Reading on D1.} 150 of 1,894 tracks (7.9\%) yield a face embedding, and the median face-box width is 52~px. Face verification behaves as a step, not a slope (Fig.~\ref{fig:pixel}): AUC is 0.352 over the three same-person pairs below 60~px, 0.847 over three drawn from 20 tracks at 60--80~px, and 0.847 over 18 drawn from 36 tracks at or above 80~px. Two upper bins agreeing is what makes this a step rather than an artefact of the cut point. The weakness is the positive count --- 3 and 18 against roughly 1,200 different-person pairs above 60~px --- so we report counts, not per-bin intervals. Used as a merge bridge, the face channel took the ungated graph from 434 to 422 groups while adding no labelled same-person pair.
+
+\emph{Relation to standards.} We split on face-box width because that is what the detector reports. Capture standards are stricter and use other units. GB/T~31488-2015 \S5.1 requires an inter-pupil distance of at least 60~px with yaw within $\pm30^\circ$, pitch within $\pm20^\circ$ and roll within $\pm45^\circ$~\cite{gbt31488}, and we know of no superseding edition. Inter-pupil distance is roughly half the face-box width, so our 60~px split is about 30~px inter-pupil, half the requirement; IEC~62676-4:2014 asks for 250~px/m at the identification level~\cite{iec62676}. The pose clause binds as tightly as the pixel clause, and it is the one this floor fails. The 60~px split is therefore an empirical boundary on this site and a lenient one; a site below it fails the standards by a wide margin. We tested one face model (SCRFD detection, ArcFace embedding), so independence from the face model is an expectation, not a result.
+
+\emph{What box size does not see.} On D3 the administrative corridor has the largest person boxes of any camera (median 298--336~px) but yields a usable face on 8\% of tracks, while the lift lobby (244--308~px) yields 40\%, and 83\% in the segment where people wait facing the lens. The corridor is filmed from behind. A site should report measured face yield, not median box size.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{Figure_2.pdf}
+\caption{The pixel budget on D1. Left: face verification split at a face-box width of 60~px. Right: the floor's median face-box width (52~px). The 60~px mark is our empirical split; see the text for its relation to GB/T~31488-2015.}\label{fig:pixel}
+\end{figure*}
+
+\subsection{P2: regional co-visibility}
+\emph{Measurement.} For each camera pair, decide whether the two fields of view share a region, and which. The cheap version is a walk-through with a shared marker; the reproducible version is a homography test on a common planar patch or a statistic over simultaneous detections.
+
+\emph{Aggregate.} Table~\ref{tab:agg} evaluates two representations (OSNet, and a second image-embedding model, E2 (EmbeddingGemma-2, 768-d image embeddings), covering 1,322 of 1,574 tracks) under three alignments. No configuration separates same-person from different-person pairs: all six intervals contain 0.5. Per-camera mean subtraction moves E2 to 0.622 but collapses both score distributions near zero; at a 2\% false-accept rate it recovers 7 of 28 true pairs.
+
+\begin{table}[t]
+\caption{Cross-Camera Discrimination on T1 (OSNet: 34 Same / 80 Different; E2: 28 / 61)}\label{tab:agg}
+\centering
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llcccc@{}}
+\toprule
+Repr. & Alignment & \multicolumn{2}{c}{Median cosine} & AUC & 95\% CI\\
+ & & same & diff & & \\
+\midrule
+OSNet & raw (deployed) & 0.499 & 0.532 & 0.490 & [0.350, 0.625]\\
+OSNet & camera mean-sub. & 0.022 & 0.015 & 0.531 & [0.403, 0.666]\\
+OSNet & camera whitening & 0.016 & $-$0.011 & 0.511 & [0.397, 0.626]\\
+E2 & raw & 0.759 & 0.777 & 0.499 & [0.330, 0.658]\\
+E2 & camera mean-sub. & 0.160 & 0.029 & 0.622 & [0.470, 0.765]\\
+E2 & camera whitening & $-$0.052 & 0.012 & 0.450 & [0.321, 0.585]\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{Stratified by camera pair.} The aggregate hides two opposite regimes (Table~\ref{tab:pair}). Pair 318--320, a tea room seen from two sides whose overlap is confirmed by SIFT-homography registration, reaches 0.904, and E2 reaches 0.994 on the same pair. Pair 316--343, with the largest sample, is at 0.231: its interval excludes 0.5, so the encoder ranks strangers above the same person there. This is inversion, not chance, and we do not have a verified explanation for it. We do not report the identity composition of the positives per row: T1 was adjudicated without recording identity names, so neither the distinct-identity count nor the dominant share can be computed afterwards. An earlier draft reported one doubly-named identity moving a pair from 0.280 to 0.946; that pair cannot be identified from the current files and the claim is withdrawn. Table~\ref{tab:pair} uses the labels exactly as adjudicated, with no pair relabelled.
+
+\begin{table}[t]
+\caption{Per-Pair AUC on T1 (OSNet Raw). Intervals Are Hanley--McNeil Approximations~\cite{hanley1982} Assuming Independent Pairs}\label{tab:pair}
+\centering
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccl@{}}
+\toprule
+Camera pair & same / diff & AUC & 95\% CI\\
+\midrule
+318--320 & 11 / 52 & 0.904 & [0.78, 1.00]\\
+316--343 & 13 / 18 & 0.231 & [0.07, 0.40]\\
+316--323 & 2 / 5 & 0.600 & n too small\\
+318--323 & 3 / 4 & 0.250 & n too small\\
+323--343 & 1 / 1 & 0.000 & n too small\\
+305--316, 316--318 & 2 / 0, 2 / 0 & --- & no negatives\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A threshold tuned on 318--320 is harmful on 316--343, which is consistent with our observation that lowering the global threshold triples the merge count without adding labelled true pairs.
+
+\emph{Why the unit is a region.} The site survey marked 318--320 as the only overlapping pair, leaving fourteen of the fifteen pairs disjoint. As a guide to where appearance works, Table~\ref{tab:pair} agrees with the survey. As a physical constraint the survey is wrong: of the 27 merges that it declares impossible, 12 were adjudicated same-person, and one person is simultaneously visible for 815~s in cameras 305 and 320, a pair the survey calls disjoint, because two cameras on opposite sides of an open floor both see one workstation. A pair-level table therefore cannot serve as a hard gate (Section~\ref{sec:noncomp}), and the correct object is a map of shared regions.
+
+We have not measured appearance AUC inside the shared regions of pairs the survey called disjoint. P2 predicts that L1 is available there; this prediction is untested and is the most direct experiment missing from this paper.
+
+\subsection{P3: wardrobe diversity}
+\emph{Measurement.} Over a day of detections, count distinct clothing-attribute combinations and the size of the largest class, using the attribute head already in the pipeline.
+
+\emph{Reading on D1.} 673 per-camera person entities --- the entities of the attribute index that pass a person filter at 0.5, out of 1,202; a per-camera count, which is why it exceeds the 443 cross-camera hypotheses --- fall into 35 combinations; the modal one (blue long-sleeved upper, black lower) has 118 members, 17.5\%.
+
+The evidence is asymmetric. Disagreement on clothing is a usable veto. Agreement carries little identity information when one outfit has 118 wearers. On a uniformed site every pair agrees and the channel becomes uninformative. P3 therefore reports the size of the modal class.
+
+\subsection{Routing rule}
+\begin{itemize}
+\item P1, median face-box width: below 60~px, no face-dependent tier; 60--80~px, face on a minority of tracks, bonus only; above 80~px, face tiers may be considered, subject to measured yield.
+\item P2, shared region: yes, L1 available for that region; no, L0 and L3 only.
+\item P3, modal clothing class: below about 5\%, veto informative; above about 20\%, veto weak.
+\end{itemize}
+
+The cut points 80~px, 5\% and 20\% are working values, not fitted boundaries: each rests on one site. D1's modal class (17.5\%) lies between the two P3 cut points, where the rule gives no verdict; the veto was nevertheless effective there (Section~\ref{sec:l2}), so the upper cut point is at least not too high. The probes were defined after D1 was analysed and D2 is the same floor, so agreement with D1 and D2 is a consistency check, not a validation. Validation needs a second site with the readings written down before the tiers are measured.
+
+\section{A Tiered Delivery Protocol}\label{sec:tiers}
+Table~\ref{tab:protocol} lists the tiers. Lower tiers rest on geometry; higher tiers rest on appearance and need probe support.
+
+\begin{table*}[t]
+\caption{The Protocol. Intervals Are Exact 95\% Binomial Intervals Computed from the Stated Counts}\label{tab:protocol}
+\centering
+\begin{tabular}{@{}p{0.6cm}p{2.9cm}p{2.6cm}p{6.3cm}p{4.0cm}@{}}
+\toprule
+Tier & Function & Acceptance condition & Measured benefit (domain) & Failure mode\\
+\midrule
+L0 & Same-camera identity across time & One camera & 42.3\% recall on same-camera cross-period pairs (D2) & Fragmentation: 5.5 tracks per person per segment\\
+L1 & Cross-camera identity in a co-visible region & P2 certifies a shared region & AUC 0.904 (OSNet), 0.994 (E2), one pair, 11 positives (D1) & A threshold tuned here is harmful elsewhere (0.231 on 316--343)\\
+L2 & Attribute-consistent merging & P3: modal class not dominant & Precision on judged merges 46/63 = 0.730 [0.60, 0.83] \ra\ 40/43 = 0.930 [0.81, 0.99]; T1 recall 5/34 unchanged (D1) & Uninformative on a uniformed population\\
+L2+ & Pose-conditioned templates, same camera & $\ge 3$ observable poses per identity & Selector recall 101/179 = 56.4\% [48.8, 63.8] \ra\ 122/179 = 68.2\% [60.8, 74.9], no face (D2) & Untested on cross-camera queries\\
+L3 & Human adjudication queue & Operator budget & 27 items in 20--30 min; 15/15 negative and 12/12 positive constraints honoured (D1) & Queue grows with capture length\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{L0: same camera across time}
+Within one camera, appearance compares like with like. On D2, 42.3\% of same-camera cross-period pairs are resolved at the operating point (threshold 0.78); the corresponding figures are 53.8\% within a segment and 3.7\% across cameras, over 2,126, 2,559 and 2,155 same-identity pairs respectively. The dominant error is fragmentation (5.5 tracks per person within a segment; 63\% of breaks longer than 10~s), which is recoverable by adding evidence over time.
+
+Within a camera, appearance fails when the same person changes pose class. On D2 a person's box height spans a median factor of 3.76 (maximum 11.6) over a day. Same-person similarity falls from a median of 0.887 at comparable box height to 0.557 at very different box height, in 14 of 14 identities with enough samples (median correlation $-$0.48), and pair-level AUC falls from 0.982 to 0.644. Different-person similarity is flat (0.519--0.553), so raising the threshold does not help. This motivates L2+.
+
+\subsection{L1: cross-camera identity in a co-visible region}
+Where two views share a region and differ mainly in azimuth, cross-camera matching approaches same-viewpoint matching (Table~\ref{tab:pair}). The acceptance condition is geometric. The evidence is one pair with 11 positives, so the expected AUC at another site is not established.
+
+\subsection{L2: attribute-consistency gate}\label{sec:l2}
+Nine clothing attributes are predicted per track. A candidate merge is accepted only if the two entities agree on at least 8 of 9 fields.
+
+\begin{table}[t]
+\caption{Effect of the Attribute Gate (D1, Graph v0 Settings, Threshold 0.75)}\label{tab:gate}
+\centering
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+ & Groups & Merges & T1 same & T1 diff & Judged correct\\
+\midrule
+no gate & 434 & 76 & 5/34 & 0/80 & 46/63 (0.730)\\
+gate ($\ge 8/9$) & 443 & 67 & 5/34 & 0/80 & 40/43 (0.930)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The gate removes 9 merge operations (Table~\ref{tab:gate}) but 20 judged merges, because the runs are not nested: blocking an early merge changes which clusters remain available, so a verdict recorded for one cluster pair may correspond to no merge in the gated run. The gated graph has 67 merges of which 43 carry a verdict, against 76 and 63 ungated; those 11 lost verdicts are why 9 fewer operations remove 20 judged merges. Among merges that do carry a verdict, wrong falls from 17 to 3 and correct from 46 to 40, so the gate is strongly but not perfectly selective. On T1, the recall of 5/34 (14.7\%, interval 5.0--31.1\%) and the absence of labelled false merges are unchanged; the precision gain is therefore a gain at low recall. Leave-one-out over the 63 judged pairs selected $\ge 8$ in every fold. Five attribute fields reach 0.88--0.99 agreement; carrying and backpack reach 0.656 and 0.458 and are not decisive in the gate. For scale, raising the similarity threshold from 0.75 to 0.82 bought about one fifth of the precision gain and lost recall.
+
+\subsection{L2+: pose-conditioned templates}
+The setting is D2: 179 queries whose identity has a morning gallery entry in the same camera, scored at $\tau = 0.80$ (Table~\ref{tab:selector}). $\tau$ is the deployed selector's operating point and was not tuned here: the ordering holds at 0.70, 0.75, 0.80 and 0.85. $\sigma$ was chosen by five-fold cross-validation over identities; 0.30--0.60 is a plateau and performance degrades only at $\sigma \ge 0.90$, so 0.6 is the top of the plateau rather than a fitted optimum.
+
+\begin{table}[t]
+\caption{Selector Recall at $\tau = 0.80$ (D2, 179 Queries)}\label{tab:selector}
+\centering
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Configuration & Recall & Pool & Face channel\\
+\midrule
+S0: gallery mean & 56.4\% & 0 & none\\
+S1: S0 + box-height kernel, $\sigma = 0.6$ & 68.2\% & 0 & none\\
+S1 + pool, measured identification & 69.8\% & 19 & measured\\
+S0 + pool, oracle identity & 79.3\% & 65 & oracle\\
+S1 + pool, oracle identity & 83.2\% & 65 & oracle\\
+Full-day material + kernel (bound) & 92.7\% & --- & n/a\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{The kernel.} Weighting gallery templates by $\exp(-|\log h_q - \log h_t| / \sigma)$, where $h$ is box height, raises recall by 11.8 points (21 queries) with no training and no face. The mechanism is comparison against a template of the same body composition: among pool hits where the gallery had failed, the pool sample differs from the query in $|\delta h|$ by a median of 0.06 against 1.05 for the gallery mean. This is the deliverable.
+
+\emph{The face-identified pool.} A same-day pool written under oracle identity adds 41 queries to S0 (79.3\%), 35 of them at extreme pose difference ($|\delta h| \ge 0.8$: 7.0\% \ra\ 88.4\%), and 27 queries to S1 (83.2\%). These are upper bounds on a mechanism. With a measured face channel (similarity gate 0.80, margin 0.02, crop quality gate) the pool receives 19 entries instead of 65 and recall is 69.8\%: three queries more than S1, a difference well inside either interval. The loss is coverage: 54 of 445 tracks (12.1\%) yield a usable face, and face prototypes cover 9 of 48 camera-by-identity cells. Of the 19 writes, 18 are correct, but with a median of 3 candidate identities per query that is not evidence of face recognition quality. P1 predicts this outcome for a site with a 52~px median face.
+
+Training a pose-conditioned projection is not feasible on D2: of 1,028 cross-pose pairs, 799 (78\%) belong to one identity.
+
+\subsection{L3: human adjudication queue}\label{sec:l3}
+\emph{Item selection.} The temporal audit on the OSD clock lists merged pairs that are simultaneously visible in cameras the survey calls disjoint: 27 items in 15 groups.
+
+\emph{Presentation.} Three frames per side at identical OSD instants, cropped from native-resolution video with the target box drawn. Instants are chosen to maximise the minimum box height over the two sides; uniform sampling lands on monitors in a seated office.
+
+\emph{Write-back.} Verdicts are ingested as must-link and must-differ constraints, never as a similarity threshold. ``Cannot see'' and ``mixed on one side'' are recorded and excluded from the truth set.
+
+\emph{Yield.} All 27 items were adjudicated by one person in 20--30 minutes: 12 same-person, 15 different-person. Seven of the 15 groups are mixed. Of the 56 cross-camera groups, 41 raised no contradiction and remain unaudited; no contradiction is not purity.
+
+The protocol requires two numbers to be reported together: precision on judged merges (0.930) and the mixed fraction of audited groups (7 of 15). Either alone describes one population and omits the other.
+
+\section{Local Repairs Did Not Compose}\label{sec:noncomp}
+A pipeline has produced a partition and there is evidence that one relation inside it is wrong. The natural repair acts on that relation. We report three attempts on graph v0. They are observations on one graph, and each has a caveat.
+
+\subsection{Deleting wrong edges}
+The 15 adjudicated different-person pairs lie in 7 groups. Removing exactly those 15 edges from the merge graph and recomputing connected components leaves every group intact, because the endpoints remain connected through other members. This is elementary; we report it because it is the repair most often proposed.
+
+\subsection{Constrained colouring}
+Contracting must-link edges and colouring the conflict graph of must-differ edges (DSATUR) takes the graph from 443 to 450 groups. All 15 different-person pairs are separated, all 12 same-person pairs are preserved, and T1 is unchanged (5 true, 0 false). The constraints are satisfied, but the graph is barely repaired: a 32-track group constrained by one pair sheds one track (blocks of 31 and 1), and its other tracks were never examined. Constraint satisfaction is a lower bound on correction. L3's acceptance condition is therefore ``all adjudicated relations are honoured and no known-correct merge is broken'', not ``the graph is fixed''.
+
+\subsection{A pairwise verifier as a post-hoc splitter}
+On the 27 T2 pairs, appearance signals discriminate: OSNet camera-mean-subtracted cosine reaches AUC 0.833 (95\% CI [0.639, 0.978]), E2 0.826, and a three-feature leave-one-out logistic model 0.856. Box-height ratio is inverted (0.233): the same person's two boxes differ in scale more than two strangers' boxes do.
+
+Cutting every merged pair below a threshold of the first signal and recomputing components gives Table~\ref{tab:verifier}. Every operating point separates the 15 confirmed errors and also removes merges that were correct: at 0.30, three of the five T1 true pairs (exact 95\% interval 15--95\%).
+
+\begin{table}[t]
+\caption{Partition-Level Effect of the Pairwise Verifier}\label{tab:verifier}
+\centering
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Configuration & Groups & T1 true pairs & T2 same kept\\
+\midrule
+v1 (human constraints) & 450 & 5 & 12/12\\
++ verifier at 0.20 & 475 & 4 & 10/12\\
++ verifier at 0.25 & 483 & 4 & 10/12\\
++ verifier at 0.30 & 491 & 2 & 9/12\\
++ verifier at 0.40 & 511 & 1 & 7/12\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two caveats limit what this shows. First, the verifier's 0.833 was measured on the 27 error-triggered pairs; the same signal has AUC 0.531 on T1 (Table~\ref{tab:agg}). Applied to all merged pairs it operates largely outside the population where it discriminates, so the damage reflects distribution shift as well as transitivity. Second, the graph contains only five known-correct merges to observe. What the experiment does establish is narrower and still useful: a pairwise AUC measured on review candidates does not predict partition-level utility.
+
+\subsection{A temporal hard gate}
+Table~\ref{tab:merge} compares merge strategies. The OSD clock correction adds two labelled true pairs and one labelled false merge. Adding a strict co-visibility gate, which blocks a merge on any simultaneous appearance across a camera set the survey calls disjoint, blocks one merge and changes no T1 count. Greedy merging has redundant paths, so blocking one edge does not prevent two clusters from joining through a third.
+
+\begin{table}[t]
+\caption{Merge Strategies at Threshold 0.75 (D1, Attribute Gate on)}\label{tab:merge}
+\centering
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Strategy & Groups & Merges & T1 same & T1 diff & Prec.\\
+\midrule
+frame-index spans (v0) & 443 & 67 & 5/34 & 0/80 & 0.930\\
+OSD clock & 443 & 67 & 7/34 & 1/80 & 0.907\\
+OSD + co-vis. gate ($>$60 s) & 444 & 66 & 7/34 & 1/80 & 0.905\\
+OSD + co-vis. gate ($>$300 s) & 444 & 66 & 7/34 & 1/80 & 0.907\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The precision column is judged-correct over judged merges, with denominators 40/43, 39/43, 38/42 and 39/43. The last two rows share every count except one judged merge, which is why 38/42 sits below 39/43; four rows differing by at most two verdicts are not an ordering of strategies.
+
+\subsection{Design rule}
+In a transitively merged graph, use pairwise evidence to rank review items, apply human verdicts as constraints on groups, and test any automatic splitter by counting known-correct merges before and after. Joint formulations~\cite{bansal2004,tang2017} are the principled alternative and were not evaluated here.
+
+\section{Acceptance Statistics Across a Capture Change}\label{sec:xday}
+\subsection{Design}
+On D3 we form nine cells: three gallery days by three query days, the diagonals being same-day controls. The gallery is the concatenation of the six build portions of the gallery day and the queries are the six query portions of the query day. The configuration is that of the deployed gallery-assignment stage (within-camera clustering, cross-camera merge, co-occurrence block), with scores normalised within the query domain. The score is not a raw cosine: for each query track the stage writes two scores, one per feature view, calibrated against the query's own camera by centring the cosine and dividing by a reference standard deviation. $\theta$ is therefore dimensionless and values above 2 are admissible (the grid runs 0.90--2.50); it must not be quoted against the raw-cosine threshold of 0.75 used on D1. This stage also differs from the D1 graph in sampling stride and decision rule: assignment to a fixed gallery, not greedy transitive merging.
+
+Three label-free statistics are computed at a fixed $\theta = 0.90$:
+\begin{itemize}
+\item \emph{coverage}: fraction of queries for which two feature sets from the same track both exceed $\theta$;
+\item \emph{same}: fraction of covered queries whose two feature sets fall in the same cluster;
+\item \emph{fm}: among pairs of covered queries that are simultaneously visible in one camera, the fraction placed in one cluster. Simultaneous visibility implies two people, so this is a negative-only error estimate.
+\end{itemize}
+
+Two corrections were needed. Among evaluable pairs, 6.6--11.1\% had boxes overlapping at IoU $\ge 0.3$ (one person detected twice) and were dropped. One camera-day was excluded and is discussed in Section~\ref{sec:broken}.
+
+\subsection{Results}
+\begin{table}[t]
+\caption{Nine Gallery-Day by Query-Day Cells at $\theta = 0.90$ (D3)}\label{tab:xday}
+\centering
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+Gallery & Query & coverage & same & fm & Eval.\ pairs\\
+\midrule
+10-22 & 10-22 & 0.491 & 0.904 & 5.2\% & 523\\
+10-22 & 10-23 & 0.490 & 0.891 & 10.7\% & 363\\
+10-22 & 10-26 & 0.367 & 0.882 & 9.8\% & 112\\
+10-23 & 10-23 & 0.580 & 0.809 & 8.8\% & 375\\
+10-23 & 10-22 & 0.446 & 0.775 & 20.0\% & 70\\
+10-23 & 10-26 & 0.367 & 0.745 & 36.4\% & 22\\
+10-26 & 10-26 & 0.650 & 0.836 & 7.2\% & 264\\
+10-26 & 10-22 & 0.396 & 0.756 & 30.0\% & 20\\
+10-26 & 10-23 & 0.383 & 0.730 & 41.2\% & 17\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In the first two rows of Table~\ref{tab:xday}, coverage differs by 0.001 while fm rises from 5.2\% to 10.7\%; the gap stays positive for every $\theta$ from 0.90 to 2.50. An acceptance test written on coverage would pass both. In every gallery, cross-day fm exceeds same-day fm. The gallery with the highest same-day coverage (10-26, 0.650) shows the largest cross-day fm, but this is an ordering of three galleries, and three cells rest on fewer than 25 evaluable pairs; we read them for direction only. Elapsed time does not order the cells: 10-22\ra10-23 and 10-22\ra10-26 are close (10.7\%, 9.8\%).
+
+The denominators belong to the query day, not to the gallery: 766 query tracks on 10-22, 957 on 10-23, 300 on 10-26, with covered counts of 376/342/303, 469/555/367 and 110/110/195. An earlier supplement divided by a gallery-dependent count and is superseded.
+
+\subsection{Interpretation and its limits}
+Three explanations are compatible with these numbers and D3 cannot separate them. (i) Clothing: the same-day control queries the same people in the same clothes minutes after the gallery was built, whereas cross-day queries face a clothing change, the known difficulty of long-term ReID~\cite{yang2021,gu2022}. (ii) Population: some cross-day queries have no counterpart in the gallery and are assigned to their nearest stranger. (iii) Cluster structure: fm depends on how concentrated the assignment is, and the galleries have 27, 61 and 55 clusters; fm should be compared with its chance level under the observed cluster shares, which we have not done: the per-cell share vectors are not retained by the audit script, so $\sum_k p_k^2$ cannot be recovered from the files we keep, and we decline to estimate it after the fact. This is the largest quantitative gap in this section. The measurement that would settle the matter is a set of labelled same-person pairs spanning two capture days, which D3 does not contain.
+
+Cluster concentration screens only when read as a \emph{change} against the gallery's own same-day cell: the same-day largest-cluster share is 16\%, 40\% and 50\% across the three galleries, so no absolute threshold transfers. Read as a change, the largest cluster grows in all six cross-day cells (by 3.8 to 36.1 points) and normalised entropy falls in five of six. What it cannot do is size the error or name its cause, since a garment change and a population change both concentrate assignments.
+
+\subsection{The cell that looked healthiest}\label{sec:broken}
+For the 10-23 query portion of one work-area camera, the statistics read coverage 1.000, same 1.000, fm 100\%. One track holds a box at a fixed position across all 9,510 frames and a second set of boxes repeats at another fixed position: static false positives. Every query has a simultaneous partner and the whole set collapses onto the cluster containing the static box. All three statistics are computed over the tracks the system produced, so a detector failure is invisible to them. A static-track check (box-centre variance over a long track) is a cheap independent guard.
+
+\subsection{Consequence for acceptance}
+Label-free statistics are useful for screening. They did not, on this site, detect a change that an error estimate did, and they certified a camera whose tracking had failed. Acceptance should include labelled pairs across the boundary the system will operate over, and should be repeated when the capture changes.
+
+\section{Discussion}
+\subsection{What we expect to transfer}
+\emph{Stratify before thresholding.} An aggregate cross-camera AUC can be at chance while individual camera pairs sit at 0.9 and 0.2. Reporting per pair, with the number of identities behind each estimate, costs little.
+
+\emph{Measure face yield before buying a face tier.} Median face width and, separately, the fraction of tracks that yield a usable face.
+
+\emph{Use clothing as a veto.} The asymmetry follows from class sizes and does not depend on the encoder.
+
+\emph{Weight templates by body scale} when subjects alternate between seated and standing views.
+
+\emph{Test a splitter at partition level.} Count known-correct merges before and after.
+
+\subsection{What is site-specific}
+Every AUC, the 443 groups, the 27-item queue, the cut points of the routing rule and the size of the attribute gate's gain are properties of this capture, detector and encoder. We expect the sign of each probe reading to replicate, not the values.
+
+\subsection{Procurement}
+A tender that asks for ``cross-camera ReID at 90\% accuracy'' cannot be verified on a site like this one. A tender that asks for L0 everywhere, L1 for regions certified by P2, L2 with an attribute veto, an L3 queue of stated length, and precision on judged merges reported together with the mixed-group fraction, can be priced and checked. The supplement reports the measured operating cost.
+
+\section{Limitations}\label{sec:limits}
+\begin{enumerate}
+\item \emph{One site.} One building and one organisation. Probe boundaries are calibrated and checked on the same floor. No second site, and no public-benchmark run of the partition-level experiments.
+\item \emph{One adjudicator for pair verdicts.} The 153 T1 and T2 pairs and the 63 judged merges were labelled by one person. A second, blind annotator exists only for a gallery-membership layer (257 tracks, Cohen's $\kappa = 0.925$, 95\% CI 0.891--0.958; supplement), which the main results do not use. No second annotator exists for the pair verdicts that carry the article's results, and we state that rather than describe the layers as if they were equivalent.
+\item \emph{Small samples.} L1 rests on 11 positives in one pair; the verifier result on five known-correct merges; the measured face channel on three queries; three D3 cells on fewer than 25 pairs.
+\item \emph{Biased truth sets.} T1 was drawn to test a rule and T2 to surface errors. Neither estimates a population rate. Only 15 of 56 cross-camera groups were audited.
+\item \emph{Mixed clock conventions.} The reference graph predates the OSD correction (Section~\ref{sec:data}); a rebuilt reference graph would move the headline counts slightly (Table~\ref{tab:merge}).
+\item \emph{No joint-optimisation baseline} for Section~\ref{sec:noncomp}, and no region-level AUC for P2.
+\item \emph{D3 has no identity truth} and a different configuration from D1; Section~\ref{sec:xday} bounds an error estimate and cannot state recall.
+\item \emph{L2+ is same-camera only}, on 179 queries over 26 identities.
+\item \emph{Data cannot be released} (Data Availability).
+\end{enumerate}
+Gait was also measured as a candidate fourth probe and found too weak on this floor; the supplement reports it.
+
+\section{Conclusion}
+We asked what an integrator can promise after installing six cameras and answered with a measurement procedure: three site probes and five tiers, each with a condition and a measured benefit on one office floor. The clearest findings are that an aggregate cross-camera AUC at chance concealed one usable pair and one inverted pair; that a clothing veto and a body-scale kernel gave measurable, training-free gains; that post-hoc repairs of a transitive graph did not behave as their pairwise statistics suggested; and that label-free acceptance statistics missed both a capture change and a failed tracker. On this site the binding constraint was capture geometry. Whether the boundaries hold elsewhere requires a second site.
+
+\section*{Data Availability}
+The raw video, track tables and crops record identifiable individuals on a client site under an authorisation that prohibits redistribution, and cannot be released. The scripts and the derived result files --- label files, track tables without pixels, embeddings and per-cell statistics --- are available from the corresponding author on request under the same agreement; they are not attached to this submission and we make no claim that they are. The supplementary material names the entry point and result file behind every number reported here. Researchers who need the underlying media for verification may request access under a data-use agreement from the corresponding author.
+
+\section*{Acknowledgment}
+The authors thank [site contact] for facilitating capture. \AQ{Funding: replace with one of ``This work was supported by [agency] under grant [number].'' or ``This work received no specific grant from any funding agency.''} \AQ{Declare, or state the absence of, any commercial relationship between an author and the client site or a video-analytics vendor.} The authors used a large language model to draft and edit prose and to check the internal consistency of reported figures; it produced no measurement, analysis or figure. The authors reviewed and edited the content and take full responsibility for it.
+
+\begin{thebibliography}{10}
+\bibitem{zheng2015} L. Zheng, L. Shen, L. Tian, S. Wang, J. Wang, and Q. Tian, ``Scalable person re-identification: A benchmark,'' in \emph{Proc. IEEE Int. Conf. Comput. Vis. (ICCV)}, 2015, pp. 1116--1124.
+\bibitem{wei2018} L. Wei, S. Zhang, W. Gao, and Q. Tian, ``Person transfer GAN to bridge domain gap for person re-identification,'' in \emph{Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR)}, 2018, pp. 79--88.
+\bibitem{zhou2019} K. Zhou, Y. Yang, A. Cavallaro, and T. Xiang, ``Omni-scale feature learning for person re-identification,'' in \emph{Proc. IEEE/CVF Int. Conf. Comput. Vis. (ICCV)}, 2019, pp. 3701--3711.
+\bibitem{he2021} S. He, H. Luo, P. Wang, F. Wang, H. Li, and W. Jiang, ``TransReID: Transformer-based object re-identification,'' in \emph{Proc. IEEE/CVF Int. Conf. Comput. Vis. (ICCV)}, 2021, pp. 14993--15002.
+\bibitem{ye2022} M. Ye, J. Shen, G. Lin, T. Xiang, L. Shao, and S. C. H. Hoi, ``Deep learning for person re-identification: A survey and outlook,'' \emph{IEEE Trans. Pattern Anal. Mach. Intell.}, vol. 44, no. 6, pp. 2872--2893, 2022.
+\bibitem{tang2026} N. Tang, Z. Fan, Y. Zhu, and T. Zhang, ``Unsupervised person re-identification via camera-aware multi-level label refinement,'' \emph{Neural Netw.}, vol. 195, Art. no. 108292, 2026.
+\bibitem{wang2026carr} J. Wang, H. Fu, and L. Dou, ``CARR: Camera-aware reciprocal refinement for unsupervised visible-infrared person re-identification,'' \emph{Appl. Soft Comput.}, vol. 188, Art. no. 114445, 2026.
+\bibitem{xiao2026} Y. Xiao, T. Zhu, F. Guan, H. Sun, J. Huang, and A. Grau Saldes, ``Cross-camera reliability modeling with soft contrastive learning for unsupervised person re-identification,'' \emph{Knowl.-Based Syst.}, vol. 349, Art. no. 116403, 2026.
+\bibitem{ge2020} Y. Ge, F. Zhu, D. Chen, R. Zhao, and H. Li, ``Self-paced contrastive learning with hybrid memory for domain adaptive object re-ID,'' in \emph{Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)}, vol. 33, 2020.
+\bibitem{wagstaff2001} K. Wagstaff, C. Cardie, S. Rogers, and S. Schr\"odl, ``Constrained k-means clustering with background knowledge,'' in \emph{Proc. Int. Conf. Mach. Learn. (ICML)}, 2001, pp. 577--584.
+\bibitem{bansal2004} N. Bansal, A. Blum, and S. Chawla, ``Correlation clustering,'' \emph{Mach. Learn.}, vol. 56, pp. 89--113, 2004.
+\bibitem{tang2017} S. Tang, M. Andriluka, B. Andres, and B. Schiele, ``Multiple people tracking by lifted multicut and person re-identification,'' in \emph{Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR)}, 2017, pp. 3539--3548.
+\bibitem{ristani2018} E. Ristani and C. Tomasi, ``Features for multi-target multi-camera tracking and re-identification,'' in \emph{Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR)}, 2018, pp. 6036--6046.
+\bibitem{ristani2016} E. Ristani, F. Solera, R. Zou, R. Cucchiara, and C. Tomasi, ``Performance measures and a data set for multi-target, multi-camera tracking,'' in \emph{Proc. Eur. Conf. Comput. Vis. Workshops (ECCVW)}, 2016, pp. 17--35.
+\bibitem{makris2004} D. Makris, T. Ellis, and J. Black, ``Bridging the gaps between cameras,'' in \emph{Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR)}, vol. 2, 2004, pp. 205--210.
+\bibitem{aicity2026} Z. Tang \emph{et al.}, ``The 10th AI City Challenge,'' in \emph{Proc. Eur. Conf. Comput. Vis. Workshops (ECCVW)}, 2026, arXiv:2608.17044.
+\bibitem{iec62676} \emph{Video Surveillance Systems for Use in Security Applications---Part 4: Application Guidelines}, IEC 62676-4, Int. Electrotech. Commission, Geneva, Switzerland, 2014.
+\bibitem{gbt31488} \emph{Technical Requirements for Face Identification of Video Surveillance in Security Systems}, GB/T 31488-2015, Standardization Administration of China, Beijing, China, 2015.
+\bibitem{cheng2018} Z. Cheng, X. Zhu, and S. Gong, ``Surveillance face recognition challenge,'' 2018, arXiv:1804.09691.
+\bibitem{phillips2000} P. J. Phillips, H. Moon, S. A. Rizvi, and P. J. Rauss, ``The FERET evaluation methodology for face-recognition algorithms,'' \emph{IEEE Trans. Pattern Anal. Mach. Intell.}, vol. 22, no. 10, pp. 1090--1104, 2000.
+\bibitem{iso19795} \emph{Information Technology---Biometric Performance Testing and Reporting---Part 1: Principles and Framework}, ISO/IEC 19795-1, Int. Org. Standardization, Geneva, Switzerland, 2021.
+\bibitem{bestrowden2018} L. Best-Rowden and A. K. Jain, ``Longitudinal study of automatic face recognition,'' \emph{IEEE Trans. Pattern Anal. Mach. Intell.}, vol. 40, no. 1, pp. 148--162, 2018.
+\bibitem{kang2025} C. Kang, ``Are synthetic datasets reliable for benchmarking generalizable person re-identification?'' \emph{IEEE Trans. Biom. Behav. Identity Sci.}, vol. 7, pp. 146--155, 2025.
+\bibitem{yang2021} Q. Yang, A. Wu, and W.-S. Zheng, ``Person re-identification by contour sketch under moderate clothing change,'' \emph{IEEE Trans. Pattern Anal. Mach. Intell.}, vol. 43, no. 6, pp. 2029--2046, 2021.
+\bibitem{gu2022} X. Gu, H. Chang, B. Ma, S. Bai, S. Shan, and X. Chen, ``Clothes-changing person re-identification with RGB modality only,'' in \emph{Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)}, 2022, pp. 1060--1069.
+\bibitem{geifman2017} Y. Geifman and R. El-Yaniv, ``Selective classification for deep neural networks,'' in \emph{Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)}, vol. 30, 2017.
+\bibitem{angelopoulos2025} A. N. Angelopoulos, S. Bates, E. J. Cand\`es, M. I. Jordan, and L. Lei, ``Learn then test: Calibrating predictive algorithms to achieve risk control,'' \emph{Ann. Appl. Stat.}, vol. 19, pp. 1641--1662, 2025.
+\bibitem{wang2026sensors} J. Wang, J. Cao, and C. Song, ``Gallery-distance profiles for open-set person re-identification with frozen encoders in camera networks,'' \emph{Sensors}, vol. 26, Art. no. 5479, 2026.
+\bibitem{ding2025} Y. Ding, X. Chen, Y. Zhang, and X. Huang, ``Smart building evacuation by tracking multi-camera network and explainable re-identification model,'' \emph{Eng. Appl. Artif. Intell.}, vol. 148, Art. no. 110394, 2025.
+\bibitem{zhang2022} Y. Zhang, P. Sun, Y. Jiang, D. Yu, F. Weng, and Z. Yuan, ``ByteTrack: Multi-object tracking by associating every detection box,'' in \emph{Proc. Eur. Conf. Comput. Vis. (ECCV)}, 2022, pp. 1--21.
+\bibitem{du2023} Y. Du \emph{et al.}, ``StrongSORT: Make DeepSORT great again,'' \emph{IEEE Trans. Multimedia}, vol. 25, pp. 8725--8737, 2023.
+\bibitem{luiten2021} J. Luiten \emph{et al.}, ``HOTA: A higher order metric for evaluating multi-object tracking,'' \emph{Int. J. Comput. Vis.}, vol. 129, pp. 548--578, 2021.
+\bibitem{hanley1982} J. A. Hanley and B. J. McNeil, ``The meaning and use of the area under a receiver operating characteristic (ROC) curve,'' \emph{Radiology}, vol. 143, no. 1, pp. 29--36, 1982.
+\end{thebibliography}
+
+\end{document}

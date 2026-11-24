@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "total_diff": 0,
+ "detail": {
+  "t_pair_318x320": {
+   "source": "labels.json:pair_decisions",
+   "items": 75,
+   "db_labeled": 33,
+   "json_labeled": 33,
+   "missing_in_db": [],
+   "n_missing_in_db": 0,
+   "missing_in_json": [],
+   "n_missing_in_json": 0,
+   "conflict": [],
+   "n_conflict": 0
+  },
+  "t_mirror_6cam": {
+   "source": "labels.json:mirror_decisions",
+   "items": 56,
+   "db_labeled": 56,
+   "json_labeled": 56,
+   "missing_in_db": [],
+   "n_missing_in_db": 0,
+   "missing_in_json": [],
+   "n_missing_in_json": 0,
+   "conflict": [],
+   "n_conflict": 0
+  },
+  "t_s6b_pending": {
+   "source": "labels.json 与 truth/labels.json（前缀键合并）",
+   "items": 75,
+   "db_labeled": 70,
+   "json_labeled": 70,
+   "missing_in_db": [],
+   "n_missing_in_db": 0,
+   "missing_in_json": [],
+   "n_missing_in_json": 0,
+   "conflict": [],
+   "n_conflict": 0
+  },
+  "t_truth_pair": {
+   "source": "truth/labels.json:pair（排除 S6-b 前缀）",
+   "items": 241,
+   "db_labeled": 40,
+   "json_labeled": 40,
+   "missing_in_db": [],
+   "n_missing_in_db": 0,
+   "missing_in_json": [],
+   "n_missing_in_json": 0,
+   "conflict": [],
+   "n_conflict": 0
+  },
+  "t_face_pair": {
+   "source": "faces_labels.json:pairs",
+   "items": 28,
+   "db_labeled": 28,
+   "json_labeled": 28,
+   "missing_in_db": [],
+   "n_missing_in_db": 0,
+   "missing_in_json": [],
+   "n_missing_in_json": 0,
+   "conflict": [],
+   "n_conflict": 0
+  },
+  "t_face_person": {
+   "source": "faces_labels.json:persons",
+   "items": 45,
+   "db_labeled": 45,
+   "json_labeled": 45,
+   "missing_in_db": [],
+   "n_missing_in_db": 0,
+   "missing_in_json": [],
+   "n_missing_in_json": 0,
+   "conflict": [],
+   "n_conflict": 0
+  }
+ }
+}

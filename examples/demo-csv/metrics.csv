@@ -1,0 +1,4 @@
+﻿method,recall_at_10,ndcg_at_10,coverage
+baseline,0.412,0.318,0.87
+candidate,0.468,0.351,0.84
+oracle,0.512,0.389,0.91

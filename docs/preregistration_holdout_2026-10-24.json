@@ -1,0 +1,369 @@
+{
+  "version": "holdout-v3-frozen3",
+  "status": "FROZEN_UNSIGNED",
+  "created": "2026-10-24",
+  "paper_section": "6.4",
+  "purpose": "Independent replication of the evaluation-unit claim on unused same-day material.",
+  "rule_script": "tools/prereg_holdout_window.py",
+  "selection_rules": {
+    "R1": "1012 same-day material only",
+    "R2": "window must be covered by all four cameras continuously",
+    "R3": "any overlap with the 12 existing train/val/test segments excludes the window (0 s tolerance)",
+    "R4": "inter-volume gaps <= 60 s count as continuous; > 60 s breaks the window; an overlap counts as continuous too (the 320 seam overlaps by 4 s)",
+    "R5": "gallery window is fixed at 60 min, matching the main experiment",
+    "R6": "query window is fixed at 15 min and must start >= 60 min after the gallery ends",
+    "R7": "candidates ranked by number of volume seams, then by start time; first one wins"
+  },
+  "main_experiment": {
+    "gallery_min": 60,
+    "query_min": 15,
+    "gallery_wall": "08:03-10:28 (four 60-min segments starting 08:03 / 08:22 / 08:35 / 09:28)",
+    "query_wall": "13:45-15:18",
+    "gap_min": 250
+  },
+  "segments": {
+    "gallery": {
+      "wall": "10:46-11:46",
+      "dur_s": 3600,
+      "max_seams_per_camera": 1,
+      "total_seams": 2,
+      "per_camera": {
+        "305": [
+          {
+            "vol": "0100000252900000000.mp4",
+            "offset_s": 4680,
+            "dur_s": 2293
+          },
+          {
+            "vol": "0100000251700000000.mp4",
+            "offset_s": 0,
+            "dur_s": 1307
+          }
+        ],
+        "318": [
+          {
+            "vol": "0100000252500000000.mp4",
+            "offset_s": 8590,
+            "dur_s": 3600
+          }
+        ],
+        "320": [
+          {
+            "vol": "0100000254000000000.mp4",
+            "offset_s": 1500,
+            "dur_s": 2359
+          },
+          {
+            "vol": "0100000254300000000.mp4",
+            "offset_s": 4,
+            "dur_s": 1200
+          }
+        ],
+        "323": [
+          {
+            "vol": "0100000251300000000.mp4",
+            "offset_s": 0,
+            "dur_s": 3600
+          }
+        ]
+      }
+    },
+    "query": {
+      "wall": "12:57-13:12",
+      "dur_s": 900,
+      "max_seams_per_camera": 0,
+      "total_seams": 0,
+      "per_camera": {
+        "305": [
+          {
+            "vol": "0100000251700000000.mp4",
+            "offset_s": 5580,
+            "dur_s": 900
+          }
+        ],
+        "318": [
+          {
+            "vol": "0100000252500000000.mp4",
+            "offset_s": 16450,
+            "dur_s": 900
+          }
+        ],
+        "320": [
+          {
+            "vol": "0100000251900000000.mp4",
+            "offset_s": 1080,
+            "dur_s": 900
+          }
+        ],
+        "323": [
+          {
+            "vol": "0100000252700000000.mp4",
+            "offset_s": 0,
+            "dur_s": 900
+          }
+        ]
+      }
+    }
+  },
+  "gap_minutes": 71,
+  "known_asymmetries": [
+    "gallery-to-query gap is 71 min, versus more than 4 h in the main experiment; appearance changes less, so the holdout is an easier setting",
+    "the gallery crosses a volume boundary on 305 and on 320; the 320 seam is a 4 s overlap (543 starts at 11:26:12, before 540 ends at 11:26:16), skipped by starting the second slice at offset 4 s",
+    "volumes 529 and 517 on camera 305 meet at 11:24:52 with no gap and no overlap (the last frame of 529 and the first frame of 517 carry the same OSD timestamp); the second slice therefore starts at offset 0 s"
+  ],
+  "excluded": {
+    "segments": [
+      "305_train_529",
+      "305_val_517",
+      "305_test_544",
+      "318_train_525",
+      "318_val_525",
+      "318_test_534",
+      "320_train_514",
+      "320_val_519",
+      "320_test_518",
+      "323_train_510",
+      "323_val_538",
+      "323_test_527"
+    ],
+    "extra": {
+      "318_test_534b": "expansion segment from 14:22, 107 tracks / 80 unlabelled / 0 truth; already used in a CI diagnostic, therefore contaminated",
+      "short_320_volumes": [
+        "542",
+        "549",
+        "560",
+        "519"
+      ]
+    }
+  },
+  "pipeline": {
+    "detector": "YOLO26s-seg via tools/yolo_track_det.py (first version; sha256 54f052d30a50bbc8afc7e5580cbabed2a352cbd91feb7d2910bf4e377b633fad), weights yolo26s-seg.pt (sha256 3da1d83e31caec96f9300eb4064f4f62882c133c7c264d63dfe61a7c197837a4), imgsz 1280, conf 0.10, NMS iou 0.7 (pass --iou 0.7 explicitly; the script default changed to 0.5), classes=[0]",
+    "tracker": {
+      "name": "Ultralytics built-in ByteTrack via model.track(persist=True) with tools/bytetrack_1012.yaml",
+      "config_file": "tools/bytetrack_1012.yaml",
+      "config_sha256": "ca36e87481830bd896967a2e32e0289471ccb10337295f3bb92ea8eea0c293ae",
+      "params": {
+        "track_high_thresh": 0.1,
+        "track_low_thresh": 0.05,
+        "new_track_thresh": 0.12,
+        "match_thresh": 0.85,
+        "track_buffer": 60,
+        "fuse_score": true
+      },
+      "buffer_semantics": "counted in processed frames: about 24 s real time in gallery segments (stride 10) and 12 s in query segments (stride 5); kept as in the main experiment, not corrected",
+      "superseded": "an earlier draft froze GatedByteTrack defaults from tools/yolo_track_det_v2.py (high 0.35 / low 0.10 / new 0.45 / match 0.80 / buffer 2.0 s) and NMS 0.5; withdrawn on 2026-10-24 because it is not the production implementation"
+    },
+    "encoder": "OSNet osnet_x1_0_msmt17_combineall_256x128_amsgrad_ep150_stp60_lr0.0015_b64_fb10_softmax_labelsmooth_flip_jitter.pth (sha256 48df972f72887b95cf3b43b3a07c3a7d2398381aea0f9cae64a7ef11d512b727), one embedding per half, BGR channel order",
+    "clustering": "camera-aware: within-camera average 0.15, cross-camera complete 0.25, no same-camera merge",
+    "selection": "self-cal: same >= 0.90 and evaluable >= 100, maximise coverage",
+    "veto_dmax": null,
+    "configurations": 42,
+    "slicing_note": "the 4 s overlap at the 320 seam (11:26:12-11:26:16) is skipped by starting the second slice at offset 4 s: no frame interpolation, no cross-volume stitching",
+    "sampling": {
+      "gallery_stride": 10,
+      "gallery_fps": 2.5,
+      "query_stride": 5,
+      "query_fps": 5,
+      "evidence": "frame indices in the stored detections: train segments step 10, test segments step 5 at 25 fps"
+    },
+    "same_frame_dedup": {
+      "stage": "after tracking, before half-split and encoding",
+      "method": "per-frame greedy NMS: rank boxes by detection confidence descending, drop a candidate if its IoU with any already-kept box is >= 0.5",
+      "script": "tools/dedup_detections.py --iou 0.5",
+      "class_agnostic": true,
+      "reassigns_track_ids": false,
+      "drop_semantics": "a dropped box is simply absent in that frame; its track continues in later frames",
+      "not_used": "mask-containment >= 0.9 (--dedup-mask); default off and rejected in an earlier ablation",
+      "script_sha256": "f021690af0b69ed24e2f30d65371799b5c51bb0822cfb6e7f6c867aca6592e08"
+    },
+    "provenance": {
+      "confirmed_from_artifacts": [
+        "detector weights and sha256",
+        "encoder weights and sha256",
+        "imgsz / conf",
+        "NMS iou 0.7 (tools/run_yolo_u1.sh lines 25-27; BASELINE_FREEZE.md)",
+        "detection/tracking script and ByteTrack config (tools/yolo_track_det.py, tools/bytetrack_1012.yaml; hashes match the 2026-10-24 export MANIFEST)",
+        "same-frame dedup (tools/run_yolo_u1.sh line 54)",
+        "sampling strides (tools/run_yolo_u1.sh lines 4-5; stored frame indices)"
+      ],
+      "decision": "2026-10-24: project owner chose production values for all pipeline parameters",
+      "pre_run_check": "verify local sha256 of tools/yolo_track_det.py, tools/bytetrack_1012.yaml, tools/dedup_detections.py against the values above; any mismatch is a deviation under section 6"
+    },
+    "runner_script": "tools/run_holdout.sh",
+    "hash_checker": "tools/verify_preeg_hashes.py"
+  },
+  "conventions": {
+    "tie_rule": "TIE_AS_UNRESOLVED",
+    "evaluable": "both halves encodable",
+    "answerable": "evaluable AND not non-person AND identity present in gallery",
+    "gallery_out": "excluded from C/W/U entirely",
+    "precision": "C / (C + W)",
+    "C_over_N": "C / N, N = evaluable queries",
+    "CI": "identity-clustered bootstrap, 4000 resamples, 95%",
+    "paired_test": "exact McNemar, two-sided, over all answerable queries"
+  },
+  "hypotheses": [
+    {
+      "id": "H1a",
+      "claim": "inherited precision negatively rank-correlated with C",
+      "criterion": "spearman_rho <= -0.30",
+      "main_result": -0.418
+    },
+    {
+      "id": "H1b",
+      "claim": "inherited-best configuration loses correct answers",
+      "criterion": "delta_C < 0",
+      "main_result": -61
+    },
+    {
+      "id": "H1c",
+      "claim": "inherited precision understates per-query precision",
+      "criterion": "inherited < per_query",
+      "main_result": "0.585 < 0.967"
+    },
+    {
+      "id": "H2c",
+      "claim": "0.30 veto loses correct answers",
+      "criterion": "delta_C < 0 AND mcnemar_p < 0.05",
+      "main_result": "-27, p=1.1e-7"
+    },
+    {
+      "id": "H3",
+      "claim": "unanswered exceeds wrong",
+      "criterion": "unanswered > W",
+      "main_result": "73 > 4"
+    }
+  ],
+  "not_replicated": [
+    "H2a",
+    "H2b"
+  ],
+  "not_replicated_reason": "mechanistic, not primary; holdout size insufficient for stable cluster-level AUC",
+  "infeasible_guard": {
+    "min_answerable": 100,
+    "min_coverage": 0.1,
+    "verdict": "UNDECIDABLE",
+    "note": "report descriptive numbers regardless of the verdict"
+  },
+  "expected_scale": {
+    "evaluable": [
+      120,
+      180
+    ],
+    "answerable": [
+      80,
+      140
+    ],
+    "note": "lunch-time trough; may fall below the 100 guard; declared in advance, not a criterion"
+  },
+  "no_window_switching": "only 10:46-11:46 / 12:57-13:12 are valid; if the material turns out damaged, record it as a deviation, do not silently pick another window",
+  "freeze": {
+    "files": [
+      "docs/PREREGISTRATION_holdout_2026-10-24.md",
+      "docs/preregistration_holdout_2026-10-24.json",
+      "tools/prereg_holdout_window.py",
+      "tools/run_holdout.sh",
+      "tools/verify_preeg_hashes.py",
+      "tools/run_holdout_analysis.sh",
+      "tools/holdout_eval.py",
+      "tools/holdout_make_templates.py"
+    ],
+    "hash_file": "docs/preeg_freeze_2026-10-24.sha256",
+    "requires": [
+      "two author signatures (left blank on 2026-10-24 by decision; recorded on the signature sheet)",
+      "date"
+    ],
+    "note": "frozen 2026-10-24 with the signature lines intentionally left blank. The signature sheet is kept outside the hashed set: putting the signatures inside this document would change its hash on signing and invalidate the manifest. Load-bearing files and scripts are not edited after freezing; signing is a ratification of the same text.",
+    "signature_sheet": "docs/preeg_signature_2026-10-24.md",
+    "hashed_set_note": "load-bearing set = the two preregistration files and six scripts listed in files; the signature sheet is excluded so that signing does not change any hash",
+    "external_timestamp": "before the run, send the manifest to a place whose timestamp the authors cannot alter (e-mail to co-authors, a pushed remote commit, or an OSF registration) and record the location on the signature sheet",
+    "refrozen": "2026-10-24: second freeze after renaming segments, recording both smoke runs, and adding the annotation protocol and analysis scripts; no data-dependent change"
+  },
+  "known_limitations": [
+    "personnel may overlap between the holdout window and the segments already used",
+    "single day, single site, four uncalibrated cameras",
+    "gallery-to-query gap is 71 min versus more than 4 h in the main experiment, so the holdout is easier",
+    "the query window sits in the lunch-time trough, so answerable queries may fall below 100",
+    "the gallery crosses one volume boundary on 305 and one on 320; the 320 seam carries a 4 s overlap which the slice skips, so the 320 gallery covers 3559 s rather than 3600 s",
+    "H2a and H2b are not replicated",
+    "track_buffer = 60 processed frames: about 24 s in gallery segments (stride 10) and 12 s in query segments (stride 5); kept as in the main experiment"
+  ],
+  "frozen_at": "2026-10-24",
+  "pre_run_observations": [
+    {
+      "date": "2026-10-24",
+      "what": "smoke run on the 323 query piece (then named H_qry_323, now 323_hqry): 400 sampled frames = 2000 source frames = 80 s from 12:57",
+      "result": "0 boxes detected, 0 tracks after the a/b split",
+      "corroboration": "density probes: 320 at 12:58 and 13:14 = 0 persons, 323 at 13:03 = 0 persons",
+      "decision": "WINDOW_UNCHANGED",
+      "rationale": "changing the window after seeing an unfavourable signal would be a data-dependent design change; the infeasible guard (answerable < 100 -> UNDECIDABLE) covers this case",
+      "reporting": "descriptive numbers are reported regardless of the verdict"
+    },
+    {
+      "date": "2026-10-24",
+      "what": "smoke run on the first 305 gallery piece (then named H_gal_305_p1, now 305_hgal_p1): 400 sampled frames = 4000 source frames = 160 s from 10:46",
+      "result": "about 286 / 297 tracks after the a/b split; encoded (512-d)",
+      "decision": "NO_DESIGN_CHANGE",
+      "rationale": "used only to confirm the command chain runs and to estimate run time; no clustering, no annotation, no identity or correctness information was produced"
+    },
+    {
+      "date": "2026-10-24",
+      "time": "17:20",
+      "what": "seam audit before the run, read off the OSD timestamp burned into the video (no detection, no annotation): first and last frame of all 10 pieces decoded",
+      "result": "305: last frame of 529 and first frame of 517 both read 11:24:52 and their OSD pixels are identical, so the previous offset of 13 s dropped a 13 s stretch; 320: 540 ends at 11:26:16 while 543 starts at 11:26:12, i.e. a 4 s overlap, not the 41 s hole recorded earlier",
+      "decision": "CORRECTED_BEFORE_UNBLINDING",
+      "change": "305_hgal_p2 offset 13 -> 0; 320_hgal_p2 offset 0 -> 4",
+      "rationale": "a parameter error can be fixed before the run without touching any identity or correctness information; the same change after unblinding would have to be reported as a deviation",
+      "evidence": "docs/holdout-seam-check-2026-10-24.md"
+    }
+  ],
+  "segment_names": {
+    "rule": "segment names must start with the camera id; downstream code (d7_sweep.py line 67 and others) takes the camera as seg.split('_')[0], and camera-aware clustering depends on it",
+    "gallery": [
+      "305_hgal_p1",
+      "305_hgal_p2",
+      "318_hgal",
+      "320_hgal_p1",
+      "320_hgal_p2",
+      "323_hgal"
+    ],
+    "query": [
+      "305_hqry",
+      "318_hqry",
+      "320_hqry",
+      "323_hqry"
+    ],
+    "renamed_from": "H_gal_* / H_qry_* (first freeze); the old names would have parsed all four cameras as 'H'"
+  },
+  "smoke_outputs": {
+    "location": "tmp/holdout_smoke/",
+    "policy": "not reused; the formal run writes to output_crosscam_local/holdout/ from scratch"
+  },
+  "annotation_protocol": {
+    "script": "tools/holdout_make_templates.py",
+    "query_scope": "all evaluable queries of A_baseline",
+    "gallery_scope": "all members of clusters that received at least one accepted query in A_baseline or C_dmax0.30 (union); reproduces the 257 labelled gallery tracks of the main experiment exactly",
+    "blinding": "templates carry only track id, segment and camera; no cluster id, score or acceptance; rows shuffled with seed 20261024",
+    "labels": "main-experiment roster codes; new people get new codes; retired codes (e.g. female4) are not reused; no-human for shadows/reflections/objects; shadow* for unresolvable far-field figures; UNK for unclear",
+    "outputs": [
+      "gt/gt_gallery_members_FILLED.csv (track_id, person_id)",
+      "gt/gt_query_gt_FILLED.csv (query_id, person_id)"
+    ]
+  },
+  "analysis": {
+    "runner": "tools/run_holdout_analysis.sh",
+    "evaluator": "tools/holdout_eval.py",
+    "sweep": "d7_sweep.py --min-eval 100 --same-min 0.90 (primary); --robust-margin 0.10 as a supplementary table only",
+    "h1b_tie_break": "if several configurations share the highest inherited precision, take the lexicographically smallest name and list the others",
+    "ci": "C/N identity-clustered bootstrap, 4000 resamples, seed 20261024",
+    "validation": "on the main-experiment data the evaluator reproduces C 117 / W 4 / U 2, precision 0.9669, C/N 0.5109, rho -0.418, H1b -61, H1c 0.585, H2c -27 (p = 1.1e-7), H3 73 vs 4, and 22 Bonferroni-significant configurations, all negative",
+    "locked_dependencies_sha256": {
+      "tools/d7_sweep.py": "bfb1b2650d756d06196898ba1243aceb17a208c37483ca68e3abafc06f1b3e60",
+      "tools/session_selector_v1.py": "3a344cbc59a7d27ccba54e072e6af8a1ead42457c0ee9ac8bd50acd0ea3d14dc",
+      "tools/eval_mask_variants.py": "549c12f622145627b67756201140bf1981aeb6495c9902daf5e54fa19ae9d171",
+      "tools/cluster_camera_aware.py": "85eb338b8ad48b430edd3687d52a3d1b2deb575c5b64cf9515b2889d0c4ad1f2",
+      "tools/eval_selector_1012test.py": "854314b9d5be0ee41e4665072dc611686d33bf4b0a4b2bd225f5386f06e3b0b6",
+      "tools/selector.py": "57e83fb7477db10a2dfdccf8bd76ec837bf3d760aad11f7d5c73d72946e5042f"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+# analysis side (supplementary S2)
+numpy
+scipy
+scikit-learn
+opencv-python
+onnxruntime-gpu

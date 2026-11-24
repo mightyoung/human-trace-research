@@ -1,0 +1,1529 @@
+{
+ "created": "2026-11-23 11:15:06",
+ "wall_s": 1955.2,
+ "n_running_jobs_at_start": 0,
+ "n_segments": 19,
+ "segments": [
+  {
+   "seg": "2026-10-22|办公区1",
+   "name": "2026-10-22_办公区1",
+   "t_start": "10:42:31",
+   "fm_thr_is_distance": true,
+   "n_tracks": 1488,
+   "n_dropped_static": 0,
+   "span_h": 4.85,
+   "tracks_per_hour": 307.1,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 122,
+     "fm_clusters": 3,
+     "fm_cluster_rate": 0.0246,
+     "fm_track_share": 0.1062,
+     "max_cluster_share": 0.1519,
+     "singleton_rate": 0.3607
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 224,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0045,
+     "fm_track_share": 0.002,
+     "max_cluster_share": 0.1499,
+     "singleton_rate": 0.4955
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 394,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.0739,
+     "singleton_rate": 0.5812
+    }
+   },
+   "nostatic": {
+    "n_tracks": 1038,
+    "n_dropped_static": 450,
+    "span_h": 4.8,
+    "tracks_per_hour": 216.2,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 121,
+      "fm_clusters": 3,
+      "fm_cluster_rate": 0.0248,
+      "fm_track_share": 0.105,
+      "max_cluster_share": 0.1108,
+      "singleton_rate": 0.3884
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 202,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.005,
+      "fm_track_share": 0.0029,
+      "max_cluster_share": 0.1089,
+      "singleton_rate": 0.4851
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 362,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.0626,
+      "singleton_rate": 0.6271
+     }
+    }
+   },
+   "n_clusters": 202,
+   "crop_ok": 478,
+   "crop_plan": 501,
+   "cards_n_tracks": 1038,
+   "cards_n_dropped_static": 450,
+   "t_end": "10:44:25"
+  },
+  {
+   "seg": "2026-10-22|办公区2",
+   "name": "2026-10-22_办公区2",
+   "t_start": "10:44:25",
+   "fm_thr_is_distance": true,
+   "n_tracks": 1122,
+   "n_dropped_static": 0,
+   "span_h": 6.58,
+   "tracks_per_hour": 170.6,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 126,
+     "fm_clusters": 4,
+     "fm_cluster_rate": 0.0317,
+     "fm_track_share": 0.066,
+     "max_cluster_share": 0.1791,
+     "singleton_rate": 0.4127
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 211,
+     "fm_clusters": 4,
+     "fm_cluster_rate": 0.019,
+     "fm_track_share": 0.0446,
+     "max_cluster_share": 0.0686,
+     "singleton_rate": 0.4787
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 357,
+     "fm_clusters": 3,
+     "fm_cluster_rate": 0.0084,
+     "fm_track_share": 0.0089,
+     "max_cluster_share": 0.0499,
+     "singleton_rate": 0.6078
+    }
+   },
+   "nostatic": {
+    "n_tracks": 799,
+    "n_dropped_static": 323,
+    "span_h": 6.58,
+    "tracks_per_hour": 121.5,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 110,
+      "fm_clusters": 4,
+      "fm_cluster_rate": 0.0364,
+      "fm_track_share": 0.0889,
+      "max_cluster_share": 0.1202,
+      "singleton_rate": 0.4
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 190,
+      "fm_clusters": 4,
+      "fm_cluster_rate": 0.0211,
+      "fm_track_share": 0.0626,
+      "max_cluster_share": 0.0713,
+      "singleton_rate": 0.5053
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 317,
+      "fm_clusters": 3,
+      "fm_cluster_rate": 0.0095,
+      "fm_track_share": 0.0125,
+      "max_cluster_share": 0.0388,
+      "singleton_rate": 0.6309
+     }
+    }
+   },
+   "n_clusters": 190,
+   "crop_ok": 460,
+   "crop_plan": 460,
+   "cards_n_tracks": 799,
+   "cards_n_dropped_static": 323,
+   "t_end": "10:45:59"
+  },
+  {
+   "seg": "2026-10-22|办公区球机",
+   "name": "2026-10-22_办公区球机",
+   "t_start": "10:45:59",
+   "fm_thr_is_distance": true,
+   "n_tracks": 515,
+   "n_dropped_static": 0,
+   "span_h": 4.01,
+   "tracks_per_hour": 128.4,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 78,
+     "fm_clusters": 3,
+     "fm_cluster_rate": 0.0385,
+     "fm_track_share": 0.0699,
+     "max_cluster_share": 0.1612,
+     "singleton_rate": 0.4103
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 134,
+     "fm_clusters": 2,
+     "fm_cluster_rate": 0.0149,
+     "fm_track_share": 0.0233,
+     "max_cluster_share": 0.1612,
+     "singleton_rate": 0.5299
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 216,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0046,
+     "fm_track_share": 0.0039,
+     "max_cluster_share": 0.134,
+     "singleton_rate": 0.6296
+    }
+   },
+   "nostatic": {
+    "n_tracks": 444,
+    "n_dropped_static": 71,
+    "span_h": 4.01,
+    "tracks_per_hour": 110.7,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 76,
+      "fm_clusters": 3,
+      "fm_cluster_rate": 0.0395,
+      "fm_track_share": 0.0811,
+      "max_cluster_share": 0.0946,
+      "singleton_rate": 0.3947
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 131,
+      "fm_clusters": 2,
+      "fm_cluster_rate": 0.0153,
+      "fm_track_share": 0.027,
+      "max_cluster_share": 0.0878,
+      "singleton_rate": 0.5573
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 210,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.0048,
+      "fm_track_share": 0.0045,
+      "max_cluster_share": 0.0541,
+      "singleton_rate": 0.6571
+     }
+    }
+   },
+   "n_clusters": 131,
+   "crop_ok": 287,
+   "crop_plan": 287,
+   "cards_n_tracks": 444,
+   "cards_n_dropped_static": 71,
+   "t_end": "10:47:50"
+  },
+  {
+   "seg": "2026-10-22|电梯间",
+   "name": "2026-10-22_电梯间",
+   "t_start": "10:47:50",
+   "fm_thr_is_distance": true,
+   "n_tracks": 1632,
+   "n_dropped_static": 0,
+   "span_h": 3.95,
+   "tracks_per_hour": 413.1,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 399,
+     "fm_clusters": 25,
+     "fm_cluster_rate": 0.0627,
+     "fm_track_share": 0.3058,
+     "max_cluster_share": 0.057,
+     "singleton_rate": 0.4461
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 716,
+     "fm_clusters": 22,
+     "fm_cluster_rate": 0.0307,
+     "fm_track_share": 0.0962,
+     "max_cluster_share": 0.0233,
+     "singleton_rate": 0.5573
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 1182,
+     "fm_clusters": 8,
+     "fm_cluster_rate": 0.0068,
+     "fm_track_share": 0.0214,
+     "max_cluster_share": 0.0061,
+     "singleton_rate": 0.7699
+    }
+   },
+   "nostatic": {
+    "n_tracks": 1477,
+    "n_dropped_static": 155,
+    "span_h": 3.95,
+    "tracks_per_hour": 373.8,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 377,
+      "fm_clusters": 26,
+      "fm_cluster_rate": 0.069,
+      "fm_track_share": 0.3311,
+      "max_cluster_share": 0.0528,
+      "singleton_rate": 0.4801
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 655,
+      "fm_clusters": 22,
+      "fm_cluster_rate": 0.0336,
+      "fm_track_share": 0.1097,
+      "max_cluster_share": 0.0257,
+      "singleton_rate": 0.5542
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 1075,
+      "fm_clusters": 8,
+      "fm_cluster_rate": 0.0074,
+      "fm_track_share": 0.0237,
+      "max_cluster_share": 0.0068,
+      "singleton_rate": 0.7702
+     }
+    }
+   },
+   "n_clusters": 655,
+   "crop_ok": 1518,
+   "crop_plan": 1520,
+   "cards_n_tracks": 1477,
+   "cards_n_dropped_static": 155,
+   "t_end": "10:51:56"
+  },
+  {
+   "seg": "2026-10-22|茶水间",
+   "name": "2026-10-22_茶水间",
+   "t_start": "10:51:56",
+   "fm_thr_is_distance": true,
+   "n_tracks": 1564,
+   "n_dropped_static": 0,
+   "span_h": 3.28,
+   "tracks_per_hour": 477.2,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 161,
+     "fm_clusters": 9,
+     "fm_cluster_rate": 0.0559,
+     "fm_track_share": 0.3728,
+     "max_cluster_share": 0.2359,
+     "singleton_rate": 0.4286
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 299,
+     "fm_clusters": 7,
+     "fm_cluster_rate": 0.0234,
+     "fm_track_share": 0.0582,
+     "max_cluster_share": 0.124,
+     "singleton_rate": 0.5017
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 552,
+     "fm_clusters": 5,
+     "fm_cluster_rate": 0.0091,
+     "fm_track_share": 0.0121,
+     "max_cluster_share": 0.1138,
+     "singleton_rate": 0.6341
+    }
+   },
+   "nostatic": {
+    "n_tracks": 1199,
+    "n_dropped_static": 365,
+    "span_h": 3.27,
+    "tracks_per_hour": 366.6,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 162,
+      "fm_clusters": 8,
+      "fm_cluster_rate": 0.0494,
+      "fm_track_share": 0.2744,
+      "max_cluster_share": 0.1526,
+      "singleton_rate": 0.4074
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 297,
+      "fm_clusters": 6,
+      "fm_cluster_rate": 0.0202,
+      "fm_track_share": 0.0609,
+      "max_cluster_share": 0.1334,
+      "singleton_rate": 0.5084
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 530,
+      "fm_clusters": 5,
+      "fm_cluster_rate": 0.0094,
+      "fm_track_share": 0.0158,
+      "max_cluster_share": 0.0575,
+      "singleton_rate": 0.6377
+     }
+    }
+   },
+   "n_clusters": 297,
+   "crop_ok": 700,
+   "crop_plan": 700,
+   "cards_n_tracks": 1199,
+   "cards_n_dropped_static": 365,
+   "t_end": "10:53:51"
+  },
+  {
+   "seg": "2026-10-22|行政走廊通道",
+   "name": "2026-10-22_行政走廊通道",
+   "t_start": "10:53:51",
+   "fm_thr_is_distance": true,
+   "n_tracks": 2578,
+   "n_dropped_static": 0,
+   "span_h": 4.9,
+   "tracks_per_hour": 526.7,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 296,
+     "fm_clusters": 29,
+     "fm_cluster_rate": 0.098,
+     "fm_track_share": 0.6012,
+     "max_cluster_share": 0.1505,
+     "singleton_rate": 0.4696
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 550,
+     "fm_clusters": 27,
+     "fm_cluster_rate": 0.0491,
+     "fm_track_share": 0.3274,
+     "max_cluster_share": 0.0853,
+     "singleton_rate": 0.4927
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 1041,
+     "fm_clusters": 18,
+     "fm_cluster_rate": 0.0173,
+     "fm_track_share": 0.0675,
+     "max_cluster_share": 0.033,
+     "singleton_rate": 0.6004
+    }
+   },
+   "nostatic": {
+    "n_tracks": 2471,
+    "n_dropped_static": 107,
+    "span_h": 4.9,
+    "tracks_per_hour": 504.8,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 282,
+      "fm_clusters": 28,
+      "fm_cluster_rate": 0.0993,
+      "fm_track_share": 0.6184,
+      "max_cluster_share": 0.1518,
+      "singleton_rate": 0.4645
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 528,
+      "fm_clusters": 27,
+      "fm_cluster_rate": 0.0511,
+      "fm_track_share": 0.3331,
+      "max_cluster_share": 0.0886,
+      "singleton_rate": 0.4981
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 1014,
+      "fm_clusters": 18,
+      "fm_cluster_rate": 0.0178,
+      "fm_track_share": 0.07,
+      "max_cluster_share": 0.0344,
+      "singleton_rate": 0.6075
+     }
+    }
+   },
+   "n_clusters": 528,
+   "crop_ok": 1269,
+   "crop_plan": 1272,
+   "cards_n_tracks": 2471,
+   "cards_n_dropped_static": 107,
+   "t_end": "11:00:47"
+  },
+  {
+   "seg": "2026-10-23|办公区1",
+   "name": "2026-10-23_办公区1",
+   "t_start": "11:00:47",
+   "fm_thr_is_distance": true,
+   "n_tracks": 629,
+   "n_dropped_static": 0,
+   "span_h": 1.94,
+   "tracks_per_hour": 324.2,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 81,
+     "fm_clusters": 4,
+     "fm_cluster_rate": 0.0494,
+     "fm_track_share": 0.318,
+     "max_cluster_share": 0.1367,
+     "singleton_rate": 0.4321
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 140,
+     "fm_clusters": 4,
+     "fm_cluster_rate": 0.0286,
+     "fm_track_share": 0.1304,
+     "max_cluster_share": 0.1113,
+     "singleton_rate": 0.5143
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 240,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.0779,
+     "singleton_rate": 0.6042
+    }
+   },
+   "nostatic": {
+    "n_tracks": 518,
+    "n_dropped_static": 111,
+    "span_h": 1.81,
+    "tracks_per_hour": 286.3,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 73,
+      "fm_clusters": 2,
+      "fm_cluster_rate": 0.0274,
+      "fm_track_share": 0.2568,
+      "max_cluster_share": 0.139,
+      "singleton_rate": 0.3973
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 129,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.0078,
+      "fm_track_share": 0.0367,
+      "max_cluster_share": 0.1004,
+      "singleton_rate": 0.4806
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 221,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.0045,
+      "fm_track_share": 0.0154,
+      "max_cluster_share": 0.0811,
+      "singleton_rate": 0.6109
+     }
+    }
+   },
+   "n_clusters": 129,
+   "crop_ok": 327,
+   "crop_plan": 327,
+   "cards_n_tracks": 518,
+   "cards_n_dropped_static": 111,
+   "t_end": "11:01:51"
+  },
+  {
+   "seg": "2026-10-23|办公区1b",
+   "name": "2026-10-23_办公区1b",
+   "t_start": "11:01:51",
+   "fm_thr_is_distance": true,
+   "n_tracks": 715,
+   "n_dropped_static": 0,
+   "span_h": 2.07,
+   "tracks_per_hour": 345.2,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 61,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0164,
+     "fm_track_share": 0.2909,
+     "max_cluster_share": 0.2909,
+     "singleton_rate": 0.3443
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 112,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.1664,
+     "singleton_rate": 0.4911
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 198,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.1497,
+     "singleton_rate": 0.5808
+    }
+   },
+   "nostatic": {
+    "n_tracks": 463,
+    "n_dropped_static": 252,
+    "span_h": 2.07,
+    "tracks_per_hour": 223.5,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 57,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.0175,
+      "fm_track_share": 0.2138,
+      "max_cluster_share": 0.2138,
+      "singleton_rate": 0.386
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 104,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.1555,
+      "singleton_rate": 0.4904
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 181,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.1425,
+      "singleton_rate": 0.6464
+     }
+    }
+   },
+   "n_clusters": 104,
+   "crop_ok": 250,
+   "crop_plan": 250,
+   "cards_n_tracks": 463,
+   "cards_n_dropped_static": 252,
+   "t_end": "11:02:26"
+  },
+  {
+   "seg": "2026-10-23|办公区2",
+   "name": "2026-10-23_办公区2",
+   "t_start": "11:02:26",
+   "fm_thr_is_distance": true,
+   "n_tracks": 429,
+   "n_dropped_static": 0,
+   "span_h": 5.0,
+   "tracks_per_hour": 85.8,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 18,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0556,
+     "fm_track_share": 0.7716,
+     "max_cluster_share": 0.7716,
+     "singleton_rate": 0.2222
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 27,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.037,
+     "fm_track_share": 0.7716,
+     "max_cluster_share": 0.7716,
+     "singleton_rate": 0.4074
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 44,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0227,
+     "fm_track_share": 0.4499,
+     "max_cluster_share": 0.4499,
+     "singleton_rate": 0.5909
+    }
+   },
+   "nostatic": {
+    "n_tracks": 120,
+    "n_dropped_static": 309,
+    "span_h": 4.98,
+    "tracks_per_hour": 24.1,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 18,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.3583,
+      "singleton_rate": 0.3333
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 26,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.3583,
+      "singleton_rate": 0.5
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 40,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.35,
+      "singleton_rate": 0.675
+     }
+    }
+   },
+   "n_clusters": 26,
+   "crop_ok": 69,
+   "crop_plan": 69,
+   "cards_n_tracks": 120,
+   "cards_n_dropped_static": 309,
+   "t_end": "11:02:39"
+  },
+  {
+   "seg": "2026-10-23|办公区球机",
+   "name": "2026-10-23_办公区球机",
+   "t_start": "11:02:39",
+   "fm_thr_is_distance": true,
+   "n_tracks": 468,
+   "n_dropped_static": 0,
+   "span_h": 3.52,
+   "tracks_per_hour": 132.9,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 60,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0167,
+     "fm_track_share": 0.4444,
+     "max_cluster_share": 0.4444,
+     "singleton_rate": 0.3333
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 104,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0096,
+     "fm_track_share": 0.2094,
+     "max_cluster_share": 0.2094,
+     "singleton_rate": 0.4712
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 180,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.1474,
+     "singleton_rate": 0.6667
+    }
+   },
+   "nostatic": {
+    "n_tracks": 348,
+    "n_dropped_static": 120,
+    "span_h": 3.52,
+    "tracks_per_hour": 98.8,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 59,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.0169,
+      "fm_track_share": 0.296,
+      "max_cluster_share": 0.296,
+      "singleton_rate": 0.3051
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 100,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.01,
+      "fm_track_share": 0.1149,
+      "max_cluster_share": 0.1408,
+      "singleton_rate": 0.47
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 170,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.0059,
+      "fm_track_share": 0.0172,
+      "max_cluster_share": 0.092,
+      "singleton_rate": 0.6882
+     }
+    }
+   },
+   "n_clusters": 100,
+   "crop_ok": 234,
+   "crop_plan": 234,
+   "cards_n_tracks": 348,
+   "cards_n_dropped_static": 120,
+   "t_end": "11:03:34"
+  },
+  {
+   "seg": "2026-10-23|电梯间",
+   "name": "2026-10-23_电梯间",
+   "t_start": "11:03:34",
+   "fm_thr_is_distance": true,
+   "n_tracks": 731,
+   "n_dropped_static": 0,
+   "span_h": 6.96,
+   "tracks_per_hour": 105.1,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 140,
+     "fm_clusters": 6,
+     "fm_cluster_rate": 0.0429,
+     "fm_track_share": 0.2517,
+     "max_cluster_share": 0.104,
+     "singleton_rate": 0.4714
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 240,
+     "fm_clusters": 5,
+     "fm_cluster_rate": 0.0208,
+     "fm_track_share": 0.1286,
+     "max_cluster_share": 0.0903,
+     "singleton_rate": 0.5292
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 406,
+     "fm_clusters": 3,
+     "fm_cluster_rate": 0.0074,
+     "fm_track_share": 0.0137,
+     "max_cluster_share": 0.0342,
+     "singleton_rate": 0.6995
+    }
+   },
+   "nostatic": {
+    "n_tracks": 611,
+    "n_dropped_static": 120,
+    "span_h": 6.96,
+    "tracks_per_hour": 87.8,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 135,
+      "fm_clusters": 6,
+      "fm_cluster_rate": 0.0444,
+      "fm_track_share": 0.3044,
+      "max_cluster_share": 0.1178,
+      "singleton_rate": 0.4963
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 222,
+      "fm_clusters": 5,
+      "fm_cluster_rate": 0.0225,
+      "fm_track_share": 0.1391,
+      "max_cluster_share": 0.0933,
+      "singleton_rate": 0.5495
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 372,
+      "fm_clusters": 3,
+      "fm_cluster_rate": 0.0081,
+      "fm_track_share": 0.0164,
+      "max_cluster_share": 0.0409,
+      "singleton_rate": 0.7151
+     }
+    }
+   },
+   "n_clusters": 222,
+   "crop_ok": 516,
+   "crop_plan": 516,
+   "cards_n_tracks": 611,
+   "cards_n_dropped_static": 120,
+   "t_end": "11:05:27"
+  },
+  {
+   "seg": "2026-10-23|茶水间",
+   "name": "2026-10-23_茶水间",
+   "t_start": "11:05:27",
+   "fm_thr_is_distance": true,
+   "n_tracks": 1134,
+   "n_dropped_static": 0,
+   "span_h": 3.28,
+   "tracks_per_hour": 346.0,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 101,
+     "fm_clusters": 3,
+     "fm_cluster_rate": 0.0297,
+     "fm_track_share": 0.3757,
+     "max_cluster_share": 0.3536,
+     "singleton_rate": 0.3861
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 198,
+     "fm_clusters": 5,
+     "fm_cluster_rate": 0.0253,
+     "fm_track_share": 0.3351,
+     "max_cluster_share": 0.1869,
+     "singleton_rate": 0.5152
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 354,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0028,
+     "fm_track_share": 0.0035,
+     "max_cluster_share": 0.1252,
+     "singleton_rate": 0.6215
+    }
+   },
+   "nostatic": {
+    "n_tracks": 884,
+    "n_dropped_static": 250,
+    "span_h": 3.28,
+    "tracks_per_hour": 269.7,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 103,
+      "fm_clusters": 3,
+      "fm_cluster_rate": 0.0291,
+      "fm_track_share": 0.2896,
+      "max_cluster_share": 0.2636,
+      "singleton_rate": 0.3786
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 186,
+      "fm_clusters": 4,
+      "fm_cluster_rate": 0.0215,
+      "fm_track_share": 0.1143,
+      "max_cluster_share": 0.1459,
+      "singleton_rate": 0.5
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 329,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.003,
+      "fm_track_share": 0.0045,
+      "max_cluster_share": 0.0814,
+      "singleton_rate": 0.6383
+     }
+    }
+   },
+   "n_clusters": 186,
+   "crop_ok": 458,
+   "crop_plan": 458,
+   "cards_n_tracks": 884,
+   "cards_n_dropped_static": 250,
+   "t_end": "11:06:39"
+  },
+  {
+   "seg": "2026-10-23|行政走廊通道",
+   "name": "2026-10-23_行政走廊通道",
+   "t_start": "11:06:39",
+   "fm_thr_is_distance": true,
+   "n_tracks": 995,
+   "n_dropped_static": 0,
+   "span_h": 4.31,
+   "tracks_per_hour": 230.7,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 118,
+     "fm_clusters": 11,
+     "fm_cluster_rate": 0.0932,
+     "fm_track_share": 0.3558,
+     "max_cluster_share": 0.1749,
+     "singleton_rate": 0.3814
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 223,
+     "fm_clusters": 8,
+     "fm_cluster_rate": 0.0359,
+     "fm_track_share": 0.1387,
+     "max_cluster_share": 0.0874,
+     "singleton_rate": 0.4484
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 399,
+     "fm_clusters": 4,
+     "fm_cluster_rate": 0.01,
+     "fm_track_share": 0.0693,
+     "max_cluster_share": 0.0543,
+     "singleton_rate": 0.5965
+    }
+   },
+   "nostatic": {
+    "n_tracks": 988,
+    "n_dropped_static": 7,
+    "span_h": 4.31,
+    "tracks_per_hour": 229.0,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 116,
+      "fm_clusters": 11,
+      "fm_cluster_rate": 0.0948,
+      "fm_track_share": 0.3583,
+      "max_cluster_share": 0.1761,
+      "singleton_rate": 0.3879
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 221,
+      "fm_clusters": 8,
+      "fm_cluster_rate": 0.0362,
+      "fm_track_share": 0.1397,
+      "max_cluster_share": 0.0881,
+      "singleton_rate": 0.448
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 397,
+      "fm_clusters": 4,
+      "fm_cluster_rate": 0.0101,
+      "fm_track_share": 0.0698,
+      "max_cluster_share": 0.0547,
+      "singleton_rate": 0.5995
+     }
+    }
+   },
+   "n_clusters": 221,
+   "crop_ok": 556,
+   "crop_plan": 557,
+   "cards_n_tracks": 988,
+   "cards_n_dropped_static": 7,
+   "t_end": "11:08:49"
+  },
+  {
+   "seg": "2026-10-26|办公区1",
+   "name": "2026-10-26_办公区1",
+   "t_start": "11:08:49",
+   "fm_thr_is_distance": true,
+   "n_tracks": 675,
+   "n_dropped_static": 0,
+   "span_h": 1.67,
+   "tracks_per_hour": 404.0,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 85,
+     "fm_clusters": 2,
+     "fm_cluster_rate": 0.0235,
+     "fm_track_share": 0.0385,
+     "max_cluster_share": 0.1274,
+     "singleton_rate": 0.4824
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 139,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.12,
+     "singleton_rate": 0.4676
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 223,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.0607,
+     "singleton_rate": 0.5471
+    }
+   },
+   "nostatic": {
+    "n_tracks": 493,
+    "n_dropped_static": 182,
+    "span_h": 1.67,
+    "tracks_per_hour": 295.1,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 75,
+      "fm_clusters": 2,
+      "fm_cluster_rate": 0.0267,
+      "fm_track_share": 0.0527,
+      "max_cluster_share": 0.1075,
+      "singleton_rate": 0.44
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 125,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.1034,
+      "singleton_rate": 0.456
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 193,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.0771,
+      "singleton_rate": 0.5699
+     }
+    }
+   },
+   "n_clusters": 125,
+   "crop_ok": 325,
+   "crop_plan": 325,
+   "cards_n_tracks": 493,
+   "cards_n_dropped_static": 182,
+   "t_end": "11:09:45"
+  },
+  {
+   "seg": "2026-10-26|办公区2",
+   "name": "2026-10-26_办公区2",
+   "t_start": "11:09:45",
+   "fm_thr_is_distance": true,
+   "n_tracks": 1128,
+   "n_dropped_static": 0,
+   "span_h": 4.63,
+   "tracks_per_hour": 243.6,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 134,
+     "fm_clusters": 5,
+     "fm_cluster_rate": 0.0373,
+     "fm_track_share": 0.2358,
+     "max_cluster_share": 0.1312,
+     "singleton_rate": 0.4776
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 227,
+     "fm_clusters": 3,
+     "fm_cluster_rate": 0.0132,
+     "fm_track_share": 0.1454,
+     "max_cluster_share": 0.1108,
+     "singleton_rate": 0.5154
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 374,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0027,
+     "fm_track_share": 0.0168,
+     "max_cluster_share": 0.0514,
+     "singleton_rate": 0.5749
+    }
+   },
+   "nostatic": {
+    "n_tracks": 857,
+    "n_dropped_static": 271,
+    "span_h": 4.63,
+    "tracks_per_hour": 185.1,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 115,
+      "fm_clusters": 4,
+      "fm_cluster_rate": 0.0348,
+      "fm_track_share": 0.182,
+      "max_cluster_share": 0.1225,
+      "singleton_rate": 0.4783
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 202,
+      "fm_clusters": 2,
+      "fm_cluster_rate": 0.0099,
+      "fm_track_share": 0.0455,
+      "max_cluster_share": 0.0992,
+      "singleton_rate": 0.5099
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 330,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.003,
+      "fm_track_share": 0.0222,
+      "max_cluster_share": 0.049,
+      "singleton_rate": 0.5879
+     }
+    }
+   },
+   "n_clusters": 202,
+   "crop_ok": 501,
+   "crop_plan": 501,
+   "cards_n_tracks": 857,
+   "cards_n_dropped_static": 271,
+   "t_end": "11:10:47"
+  },
+  {
+   "seg": "2026-10-26|办公区球机",
+   "name": "2026-10-26_办公区球机",
+   "t_start": "11:10:47",
+   "fm_thr_is_distance": true,
+   "n_tracks": 112,
+   "n_dropped_static": 0,
+   "span_h": 1.82,
+   "tracks_per_hour": 61.5,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 29,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.1786,
+     "singleton_rate": 0.4138
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 47,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.1161,
+     "singleton_rate": 0.5745
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 64,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.0893,
+     "singleton_rate": 0.6719
+    }
+   },
+   "nostatic": {
+    "n_tracks": 87,
+    "n_dropped_static": 25,
+    "span_h": 1.82,
+    "tracks_per_hour": 47.8,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 28,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.1494,
+      "singleton_rate": 0.4286
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 43,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.1149,
+      "singleton_rate": 0.6047
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 60,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.1149,
+      "singleton_rate": 0.75
+     }
+    }
+   },
+   "n_clusters": 43,
+   "crop_ok": 83,
+   "crop_plan": 83,
+   "cards_n_tracks": 87,
+   "cards_n_dropped_static": 25,
+   "t_end": "11:11:08"
+  },
+  {
+   "seg": "2026-10-26|电梯间",
+   "name": "2026-10-26_电梯间",
+   "t_start": "11:11:08",
+   "fm_thr_is_distance": true,
+   "n_tracks": 235,
+   "n_dropped_static": 0,
+   "span_h": 4.44,
+   "tracks_per_hour": 52.9,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 78,
+     "fm_clusters": 3,
+     "fm_cluster_rate": 0.0385,
+     "fm_track_share": 0.2213,
+     "max_cluster_share": 0.1064,
+     "singleton_rate": 0.4487
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 118,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.0596,
+     "singleton_rate": 0.6017
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 160,
+     "fm_clusters": 0,
+     "fm_cluster_rate": 0.0,
+     "fm_track_share": 0.0,
+     "max_cluster_share": 0.0596,
+     "singleton_rate": 0.8063
+    }
+   },
+   "nostatic": {
+    "n_tracks": 223,
+    "n_dropped_static": 12,
+    "span_h": 4.44,
+    "tracks_per_hour": 50.2,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 75,
+      "fm_clusters": 3,
+      "fm_cluster_rate": 0.04,
+      "fm_track_share": 0.2332,
+      "max_cluster_share": 0.1121,
+      "singleton_rate": 0.4667
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 113,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.0628,
+      "singleton_rate": 0.5841
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 154,
+      "fm_clusters": 0,
+      "fm_cluster_rate": 0.0,
+      "fm_track_share": 0.0,
+      "max_cluster_share": 0.0628,
+      "singleton_rate": 0.8052
+     }
+    }
+   },
+   "n_clusters": 113,
+   "crop_ok": 266,
+   "crop_plan": 266,
+   "cards_n_tracks": 223,
+   "cards_n_dropped_static": 12,
+   "t_end": "11:11:53"
+  },
+  {
+   "seg": "2026-10-26|茶水间",
+   "name": "2026-10-26_茶水间",
+   "t_start": "11:11:53",
+   "fm_thr_is_distance": true,
+   "n_tracks": 764,
+   "n_dropped_static": 0,
+   "span_h": 3.23,
+   "tracks_per_hour": 236.8,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 95,
+     "fm_clusters": 2,
+     "fm_cluster_rate": 0.0211,
+     "fm_track_share": 0.144,
+     "max_cluster_share": 0.144,
+     "singleton_rate": 0.3895
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 159,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0063,
+     "fm_track_share": 0.1257,
+     "max_cluster_share": 0.1257,
+     "singleton_rate": 0.4906
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 267,
+     "fm_clusters": 1,
+     "fm_cluster_rate": 0.0037,
+     "fm_track_share": 0.0118,
+     "max_cluster_share": 0.0838,
+     "singleton_rate": 0.5993
+    }
+   },
+   "nostatic": {
+    "n_tracks": 577,
+    "n_dropped_static": 187,
+    "span_h": 3.22,
+    "tracks_per_hour": 179.3,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 92,
+      "fm_clusters": 3,
+      "fm_cluster_rate": 0.0326,
+      "fm_track_share": 0.1144,
+      "max_cluster_share": 0.1889,
+      "singleton_rate": 0.4457
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 155,
+      "fm_clusters": 2,
+      "fm_cluster_rate": 0.0129,
+      "fm_track_share": 0.0884,
+      "max_cluster_share": 0.1404,
+      "singleton_rate": 0.529
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 251,
+      "fm_clusters": 1,
+      "fm_cluster_rate": 0.004,
+      "fm_track_share": 0.0225,
+      "max_cluster_share": 0.0555,
+      "singleton_rate": 0.6454
+     }
+    }
+   },
+   "n_clusters": 155,
+   "crop_ok": 363,
+   "crop_plan": 363,
+   "cards_n_tracks": 577,
+   "cards_n_dropped_static": 187,
+   "t_end": "11:12:45"
+  },
+  {
+   "seg": "2026-10-26|行政走廊通道",
+   "name": "2026-10-26_行政走廊通道",
+   "t_start": "11:12:45",
+   "fm_thr_is_distance": true,
+   "n_tracks": 919,
+   "n_dropped_static": 0,
+   "span_h": 3.58,
+   "tracks_per_hour": 256.5,
+   "fm": {
+    "0.28": {
+     "cos": 0.72,
+     "n_clusters": 128,
+     "fm_clusters": 12,
+     "fm_cluster_rate": 0.0938,
+     "fm_track_share": 0.4951,
+     "max_cluster_share": 0.1741,
+     "singleton_rate": 0.4453
+    },
+    "0.22": {
+     "cos": 0.78,
+     "n_clusters": 225,
+     "fm_clusters": 10,
+     "fm_cluster_rate": 0.0444,
+     "fm_track_share": 0.2481,
+     "max_cluster_share": 0.1034,
+     "singleton_rate": 0.5111
+    },
+    "0.16": {
+     "cos": 0.84,
+     "n_clusters": 383,
+     "fm_clusters": 6,
+     "fm_cluster_rate": 0.0157,
+     "fm_track_share": 0.0544,
+     "max_cluster_share": 0.0305,
+     "singleton_rate": 0.5718
+    }
+   },
+   "nostatic": {
+    "n_tracks": 895,
+    "n_dropped_static": 24,
+    "span_h": 3.58,
+    "tracks_per_hour": 249.8,
+    "fm": {
+     "0.28": {
+      "cos": 0.72,
+      "n_clusters": 128,
+      "fm_clusters": 11,
+      "fm_cluster_rate": 0.0859,
+      "fm_track_share": 0.4849,
+      "max_cluster_share": 0.1799,
+      "singleton_rate": 0.4609
+     },
+     "0.22": {
+      "cos": 0.78,
+      "n_clusters": 220,
+      "fm_clusters": 9,
+      "fm_cluster_rate": 0.0409,
+      "fm_track_share": 0.2436,
+      "max_cluster_share": 0.1061,
+      "singleton_rate": 0.5091
+     },
+     "0.16": {
+      "cos": 0.84,
+      "n_clusters": 373,
+      "fm_clusters": 5,
+      "fm_cluster_rate": 0.0134,
+      "fm_track_share": 0.0536,
+      "max_cluster_share": 0.0313,
+      "singleton_rate": 0.5791
+     }
+    }
+   },
+   "n_clusters": 220,
+   "crop_ok": 522,
+   "crop_plan": 522,
+   "cards_n_tracks": 895,
+   "cards_n_dropped_static": 24,
+   "t_end": "11:15:06"
+  }
+ ],
+ "note": "只为已有 meta 的段出指标与卡片；det 的 t 是绝对时刻、box 是 960x540 检测帧坐标。FM = 含时空互斥对（时间重叠≥3s 且共同帧最大 IoU<0.2）的簇占比，无真值指标。★ fm 的键是 **cosine 距离**（0.28/0.22/0.16 = cos .72/.78/.84），与 e21_cards_seg 的 --thr 同义。"
+}

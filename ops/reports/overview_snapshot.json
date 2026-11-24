@@ -1,0 +1,129 @@
+{
+ "authority": "local",
+ "db": "ops/ops.db",
+ "generated_at": "2026-11-02 13:36:39",
+ "annotation": {
+  "tasks": 8,
+  "items": 633,
+  "done": 302,
+  "pending": 331,
+  "pct": 47.7,
+  "by_task": [
+   {
+    "task_id": "t_mask_glass",
+    "name": "素材标注 · 玻璃区域掩膜",
+    "kind": "mask",
+    "items": 6,
+    "done": 0,
+    "pending": 6,
+    "pct": 0.0
+   },
+   {
+    "task_id": "t_truth_pair",
+    "name": "真值标注 · 343×316 事件配对",
+    "kind": "truth_pair",
+    "items": 241,
+    "done": 40,
+    "pending": 201,
+    "pct": 16.6
+   },
+   {
+    "task_id": "t_truth_event",
+    "name": "真值标注 · 出入口事件",
+    "kind": "truth_event",
+    "items": 107,
+    "done": 30,
+    "pending": 77,
+    "pct": 28.0
+   },
+   {
+    "task_id": "t_pair_318x320",
+    "name": "素材标注 · 跨机候选对（318×320）",
+    "kind": "pair",
+    "items": 75,
+    "done": 33,
+    "pending": 42,
+    "pct": 44.0
+   },
+   {
+    "task_id": "t_s6b_pending",
+    "name": "待裁决批 · S6-b 倒影 + 门户交接补口",
+    "kind": "s6b",
+    "items": 75,
+    "done": 70,
+    "pending": 5,
+    "pct": 93.3
+   },
+   {
+    "task_id": "t_mirror_6cam",
+    "name": "素材标注 · 倒影 / 源",
+    "kind": "mirror",
+    "items": 56,
+    "done": 56,
+    "pending": 0,
+    "pct": 100.0
+   },
+   {
+    "task_id": "t_face_person",
+    "name": "人脸库 · 人卡判定",
+    "kind": "face_person",
+    "items": 45,
+    "done": 45,
+    "pending": 0,
+    "pct": 100.0
+   },
+   {
+    "task_id": "t_face_pair",
+    "name": "人脸库 · 候选合并对",
+    "kind": "face_pair",
+    "items": 28,
+    "done": 28,
+    "pending": 0,
+    "pct": 100.0
+   }
+  ]
+ },
+ "runs": {
+  "total": 2,
+  "running": 1,
+  "failed": 0,
+  "stale": 0,
+  "recent": [
+   {
+    "id": "run_20261102_133638_a7cc70",
+    "name": "overview-snapshot",
+    "kind": "export",
+    "status": "running",
+    "started_at": "2026-11-02 13:36:38",
+    "ended_at": null
+   },
+   {
+    "id": "run_20261102_133458_9831b1",
+    "name": "verify-projection",
+    "kind": "eval",
+    "status": "succeeded",
+    "started_at": "2026-11-02 13:34:58",
+    "ended_at": "2026-11-02 13:34:59"
+   }
+  ]
+ },
+ "jobs": {
+  "total": 0,
+  "open": 0
+ },
+ "counts": {
+  "adjudication": 0,
+  "annotation_item": 633,
+  "annotation_task": 8,
+  "artifact": 2,
+  "asset": 0,
+  "audit": 314,
+  "dataset": 1,
+  "experiment": 0,
+  "experiment_run": 0,
+  "job": 0,
+  "label": 304,
+  "model": 0,
+  "run": 2
+ }
+}

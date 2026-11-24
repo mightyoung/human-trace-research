@@ -1,0 +1,14 @@
+﻿config,cluster_local,cluster_lab,track_id
+C_dmax0.19,0,2,c1_000g#14
+C_dmax0.19,0,2,c1_000g#2
+C_dmax0.19,1,5,c1_000g#1
+C_dmax0.19,1,5,c1_000g#4
+C_dmax0.19,1,5,c1_000g#9
+C_dmax0.19,2,10,c5_000g#33
+C_dmax0.19,2,10,c5_000g#9
+C_dmax0.19,2,10,c7_000g#14
+C_dmax0.19,2,10,c7_000g#32
+C_dmax0.19,3,14,c1_000g#15
+C_dmax0.19,3,14,c3_000g#19
+C_dmax0.19,4,21,c5_000g#12
+C_dmax0.19,4,21,c6_000g#19

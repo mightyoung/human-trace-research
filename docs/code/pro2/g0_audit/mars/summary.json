@@ -1,0 +1,178 @@
+{
+  "source": "/Users/muyi/Downloads/dev/human-count/docs/1026-v3/human-count-package-2026-10-26",
+  "configuration_count": 42,
+  "accepted_union_queries": 403,
+  "accepted_union_pids": 144,
+  "query_pids_never_seen_as_predicted_cluster_pid": [
+    "0004",
+    "0150",
+    "0364",
+    "0440",
+    "0552",
+    "0570",
+    "0782",
+    "0822",
+    "1312"
+  ],
+  "missing_gt_warning": "Absence from predicted c_pid is not proof of absence from gallery GT. PID 1172 and its two rejected queries are not observable in accepted-only verdicts.",
+  "excluded_accepted_instances": 48,
+  "excluded_query_ids": [
+    "c2_q#65",
+    "c3_q#75"
+  ],
+  "observed_A_spearman": -0.3025105151816633,
+  "observed_A_spearman_input": "Published rounded 4-digit inherited ratios; all C counts independently verified from accepted verdicts.",
+  "best_inherited_config": "C_dmax0.16",
+  "best_inherited_delta_C": -153,
+  "baseline": [
+    {
+      "config": "A_baseline",
+      "policy": "A",
+      "query_denominator": 484,
+      "accepted": 320,
+      "C": 255,
+      "W": 33,
+      "U": 32,
+      "unanswered": 164,
+      "precision": 0.8854166666666666,
+      "C_over_484": 0.5268595041322314,
+      "delta_C": 0,
+      "lost": 0,
+      "gained": 0,
+      "paired_p": 1.0
+    },
+    {
+      "config": "A_baseline",
+      "policy": "B",
+      "query_denominator": 480,
+      "accepted": 318,
+      "C": 255,
+      "W": 32,
+      "U": 31,
+      "unanswered": 162,
+      "precision": 0.8885017421602788,
+      "C_over_484": 0.5268595041322314,
+      "delta_C": 0,
+      "lost": 0,
+      "gained": 0,
+      "paired_p": 1.0
+    },
+    {
+      "config": "A_baseline",
+      "policy": "R",
+      "query_denominator": 484,
+      "accepted": 318,
+      "C": 255,
+      "W": 32,
+      "U": 31,
+      "unanswered": 166,
+      "precision": 0.8885017421602788,
+      "C_over_484": 0.5268595041322314,
+      "delta_C": 0,
+      "lost": 0,
+      "gained": 0,
+      "paired_p": 1.0
+    }
+  ],
+  "H2c": [
+    {
+      "config": "C_dmax0.30",
+      "policy": "A",
+      "query_denominator": 484,
+      "accepted": 297,
+      "C": 240,
+      "W": 30,
+      "U": 27,
+      "unanswered": 187,
+      "precision": 0.8888888888888888,
+      "C_over_484": 0.49586776859504134,
+      "delta_C": -15,
+      "lost": 19,
+      "gained": 4,
+      "paired_p": 0.002599477767944336
+    },
+    {
+      "config": "C_dmax0.30",
+      "policy": "B",
+      "query_denominator": 480,
+      "accepted": 296,
+      "C": 240,
+      "W": 30,
+      "U": 26,
+      "unanswered": 184,
+      "precision": 0.8888888888888888,
+      "C_over_484": 0.49586776859504134,
+      "delta_C": -15,
+      "lost": 19,
+      "gained": 4,
+      "paired_p": 0.002599477767944336
+    },
+    {
+      "config": "C_dmax0.30",
+      "policy": "R",
+      "query_denominator": 484,
+      "accepted": 296,
+      "C": 240,
+      "W": 30,
+      "U": 26,
+      "unanswered": 188,
+      "precision": 0.8888888888888888,
+      "C_over_484": 0.49586776859504134,
+      "delta_C": -15,
+      "lost": 19,
+      "gained": 4,
+      "paired_p": 0.002599477767944336
+    }
+  ],
+  "comparison_mismatches": [],
+  "cluster_metrics": {
+    "A": {
+      "n_clusters": 364,
+      "n_with_query": 178,
+      "n_harmful": 24,
+      "inherited": 0.73125,
+      "inherited_numerator": 234,
+      "auc_mixed": 0.7421875,
+      "auc_harmful_with_query": 0.6711309523809523,
+      "ci95": [
+        0.5697789075117304,
+        0.7743344301794512
+      ],
+      "bootstrap_seed": 7,
+      "bootstrap_n": 2000
+    },
+    "B": {
+      "n_clusters": 364,
+      "n_with_query": 176,
+      "n_harmful": 23,
+      "inherited": 0.7327044025157232,
+      "inherited_numerator": 233,
+      "auc_mixed": 0.7421875,
+      "auc_harmful_with_query": 0.678743961352657,
+      "ci95": [
+        0.5725068986603098,
+        0.7831119044786817
+      ],
+      "bootstrap_seed": 7,
+      "bootstrap_n": 2000
+    },
+    "R": {
+      "n_clusters": 364,
+      "n_with_query": 176,
+      "n_harmful": 23,
+      "inherited": 0.7327044025157232,
+      "inherited_numerator": 233,
+      "auc_mixed": 0.7421875,
+      "auc_harmful_with_query": 0.678743961352657,
+      "ci95": [
+        0.5725068986603098,
+        0.7831119044786817
+      ],
+      "bootstrap_seed": 7,
+      "bootstrap_n": 2000
+    }
+  },
+  "B_R_spearman": "Not independently identifiable: per-configuration cluster n_ids/members missing; baseline n_ids available in harm_auc.json only.",
+  "assumptions_B_R": "Conditionally remove known accepted PID 0782/1172; use B N=480 and R N=484. Full GT query universe absent. R simulates forced rejection and therefore accepted/C/W/U identical to B.",
+  "source_A_cluster_metadata_consistent": true
+}

@@ -1,0 +1,32 @@
+{
+ "experiment": "L2+ pose-conditioned templates and the causal pool (D2)",
+ "source_script": "tools/exp_pose_pool_real.py",
+ "query_set": "179 queries whose identity has a same-camera morning gallery entry",
+ "gallery": "morning (train) segments only; gallery_mode=train (cold start)",
+ "frame_height": "h = median person-box height of the track, native pixels",
+ "kernel": "w = exp(-|log(h_gallery/h_query)| / sigma); sigma = 0.6, five-fold by identity, plateau 0.30-0.60",
+ "sigma": 0.6,
+ "selector_tau": 0.8,
+ "tau_sweep": [
+  0.7,
+  0.75,
+  0.8,
+  0.85
+ ],
+ "pool_rule": "causal: only observations earlier than the query are written; the query itself is excluded",
+ "pool_k": 3,
+ "pool_max": 8,
+ "face_match_tau": 0.35,
+ "face_margin": 0.02,
+ "face_quality_gate": "usable = pd>=20 and fw>=32 and lap>=50 and |yaw|<=0.35 and 0.25<=pitch<=0.95",
+ "note": "face_match_tau is the middle value of the swept list [0.25,0.30,0.35,0.40,0.45]; the paper's 'similarity gate 0.35' refers to this value, not to the selector tau",
+ "write_stats": {
+  "w_gt": 65,
+  "w_gt_usable": 22,
+  "w_gt_gallery": 18,
+  "w_real": 19,
+  "w_real_ok": 18,
+  "w_oracle": 19,
+  "w_real_bad": 1
+ }
+}

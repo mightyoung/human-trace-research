@@ -1,0 +1,15 @@
+# FROZEN (second freeze) 2026-10-24 — signature lines intentionally left blank; see docs/preeg_signature_2026-10-24.md
+# Load-bearing set (8): preregistration (md + json), window-selection script, detection runner, hash checker,
+#   analysis runner, evaluation script, template script.
+# Excluded on purpose: the signature sheet, so that signing later does not change these hashes.
+# External timestamp: send this file somewhere the authors cannot alter the timestamp, before the run.
+# Supersedes: docs/preeg_freeze_2026-10-24.sha256.superseded-5files (first freeze, 5 files).
+# verify from the repository root: sha256sum -c docs/preeg_freeze_2026-10-24.sha256
+e74ef7ef40bccd32db0a560d0236e9df24b2f5c71f079e0564a69b93f0407feb  docs/PREREGISTRATION_holdout_2026-10-24.md
+376c25d5ed9651af40474f9bf4e6ebd91ecb1b56110c9434d35cd227211bbf63  docs/preregistration_holdout_2026-10-24.json
+41a3e181e84658308b094337169e23620cabfc4ca15e2917e338f7a5f425bb54  tools/prereg_holdout_window.py
+1e15fb2ea60725434bd2eac044ff5f2c64a19fb6dad0748ef42b141a00455e82  tools/run_holdout.sh
+4bbd6b6ca839dc371d65b758ff50899636506d11daed532465406c9aee99ebf8  tools/verify_preeg_hashes.py
+3d257ea19722f44d519678e9e267ab5cbfa639cb4e5e38212325267d02918c2e  tools/run_holdout_analysis.sh
+d43fa3e8c0892feb1df2a9553685a0e6806fa1619ac804b677c7fd2b02288048  tools/holdout_eval.py
+031c29265d6ba85906d3e4a3674b0ef95326f5a8d314417896d02cc33232c9bf  tools/holdout_make_templates.py

@@ -1,0 +1,222 @@
+我已按你定义的 **researcher** 角色阅读研究包、当前稿件和 Leader 审查计划。我的判断是：**研究主线值得保留，但下一步应优先补齐评价协议和对照设计，而不是继续换模型；同时，Leader 文件有几处已落后于 v13，不能直接照单执行。**[1][2][3]
+
+下面分别给出方法学点评、关键实验、Leader 优先清单和逐章复核项。以下区分“已确认的问题”和“需要实验验证的疑点”；本次未重跑模型或视频流水线。
+
+## 先纠正审查基线
+
+| 项目 | 当前材料显示 | 对 Leader 的影响 |
+|---|---|---|
+| 双人一致性主报 | v13 明确：第一轮盲标图库 κ=0.925、查询 κ=0.924；0.937 是看过一致性结果后的修订值。[2][4] | Leader 文件仍建议“0.937 主报”，应更新；后续修订作为敏感性结果，而非独立盲标信度 |
+| PDF 状态 | v13 说明正文与 PDF 沿用已编译的 v12，并非 Leader 文件描述的旧版 PDF 状态。[5] | 不重复追赶已经完成的版本；在下一轮实质修稿后统一重编 |
+| 真值复核 | v13 已用 gt v3 重新生成现场结果，42 配置的 C/W/U 与接受数均未改变。[5] | 不再把“确认 gt v3 是否改变主结果”列成未完成实验 |
+| **现场继承指标出现新冲突** | 当前 `onsite_h1.csv` 基线 `inh_strict=0.6016`，按其 42 行复算 Spearman 约为 **−0.426**；canonical 和正文仍引用 **0.585、−0.418**。[3][5][6] | **新增 P0**：核对指标定义、标签规范化及派生物版本。现阶段不能任选一组数字，也不能直接认定新 CSV 就是最终正确值 |
+| 独立身份数 | 229 条可评查询对应24组；196条可答查询仅涉及19个人物身份，v13 已记录正文混用了分母。[7] | 修改正文及统计说明，明确非人组、图库外身份如何进入重采样 |
+
+这里最重要的新发现是：**C/W/U 稳定，不代表论文核心代理指标及其排序已经全部稳定。**现场 inherited 结果必须单独对账，而不能只核对正确数。[3]
+
+## 方法学缺陷
+
+### 评价目标尚未完全对齐
+
+论文主要把“继承精度”与“正确答案数 C”比较，但两者分别强调簇纯净程度和系统产出；目前的负相关还不能单独证明代理指标在**相同风险要求下**选错了方案。选择性分类文献已明确讨论风险—覆盖权衡及评价指标改变方法排序的问题，因此这里需要排除“只是优化目标不同”的解释。[8][9]
+
+此外，代码中的 inherited 是对**接受查询所落入的簇**计分，再除以接受数，并非简单地给所有图库簇等权平均。稿件必须准确称其为“查询加权的簇纯度继承指标”，并检验更合理的簇审计规则是否也失败，否则容易被批评为只反驳了一个过强的纯度规则。[7][3]
+
+### 配对检验仍有独立性缺口
+
+正文承认同一身份贡献多条相关查询，却仍将普通 exact McNemar 作为配置比较的重要依据；相关配对样本并不会因为采用“exact”计算就自动满足独立性条件，已有统计研究专门提出了簇相关配对数据的调整方法。[10][8]
+
+稿件已提供 veto 的身份聚类配对区间，这是一项优点，不能说完全没有处理相关性；但还需把一致的处理扩展到41个配置比较、多重校正和 MARS，而非只对最核心的一项补区间。[5][11]
+
+### veto 效应混合了多个变化
+
+每个图库配置都重新选择 θ，而评分又依赖簇原型及簇外 impostor 统计。因此现有比较估计的是“修改图库并重新校准、选点后的整套配置效应”，不能直接全部归因于“删除混人簇”。[2][8]
+
+建议保留部署整包比较，同时补充冻结评分的局部反事实。**仅固定同一个数值 θ 仍不充分**，因为图库变化可能改变标准化分数的含义。
+
+### 真值覆盖可能影响比较
+
+图库有579条可用轨迹，而标注覆盖257条，标注范围主要由基线和 veto 接收到查询的簇决定。对42配置的比较，需要证明其他配置新增服务的簇没有因真值覆盖不足而更容易被记成 U，或得到不稳定的主体身份。[4][5]
+
+这目前是**待核验的偏倚风险，不是已证实结果错误**。首先应做42配置的标注覆盖审计，再决定是否补标，没必要直接重标全部图库。
+
+### 开集性能尚未闭环
+
+稿件将图库外查询及非人输出排除出 C/W/U 后另报，因此0.967是特定计分集合上的精度，不是完整开集系统的总体可靠性。开集 ReID 的既有评价同时考察已知人物的识别与未知人物的误接受，不能只用已知人物结果支撑完整开集能力。[12][8]
+
+MARS 的 A/B/R 也不是只需“选一个口径”的文字问题：应同时固定已知、未知、非人和不可判定查询的行为定义；若某种 R 分析利用真值强制拒绝未知人物，则只能作为 oracle 敏感性，而不能当作系统真实拒识能力。
+
+### 机制结论超出证据强度
+
+现场“有害簇”只有4个，且定义为至少产生一次错答；这种事件还受簇服务多少查询影响。因此 AUC≈0.41及其宽区间不足以证明“直径不预测危害”，更不能证明纯度与危害普遍无关；MARS 的结果也没有复现该强结论。[6][11]
+
+同样，少数骨干与干预没有净收益，只能支持“已测试方案未突破瓶颈”，不能据此确认“表征或聚类已经不是限制因素”。当前正文从有限负结果推到信息上限，措辞应收缩。[11]
+
+## 关键实验清单
+
+以下是建议增补的研究设计，**不是已经取得的结果**。优先复用现有编码、成员表及逐条输出。
+
+| ID | 优先级 | 补充分析或实验 | 设计与验收标准 |
+|---|---|---|---|
+| E01 | **P0** | **统一评价入口与派生指标对账** | 同一入口生成现场及 MARS 的 C/W/U、inherited、ρ和假设判定；解释现场0.6016/0.585及−0.426/−0.418的来源，禁止手工拼表 |
+| E02 | **P0** | **身份相关的配对推断** | 重算 veto 和41项比较的配对效应、身份聚类区间及适用的簇相关检验；补逐身份净增益、留一身份分析，明确小簇数限制及多重比较家族 |
+| E03 | **P1，核心** | **共同风险／共同覆盖率对照** | 基线、veto及代表性切分配置扫描完整 operating points；比较共同精度约束下的正确产出、共同覆盖率下的错误率，并报告达不到目标的配置；探索性曲线不得冒充独立验证 |
+| E04 | **P1，核心** | **veto 机制分解** | 对照冻结基线评分后屏蔽簇、重建评分但不重新选点、完整重新选点；逐条分解直接拒绝、改派、恢复与新增错误，区分局部效应与部署整包效应 |
+| E05 | **P1，核心** | **更合理的审计代理对照** | 比较严格纯度、人物纯度、查询加权纯度、簇等权指标、接受率及组合规则；检查“选错配置”是否仅发生于当前二元纯度定义，并报告选型损失 |
+| E06 | **P0审计／P1补标** | **42配置真值覆盖审计** | 按配置列成员标注率、新增服务簇、主体投票支持度和 U 来源；只对可能改变排序或比较的缺失部分补标，保留原始与补标后敏感性 |
+| E07 | **P0** | **完整开集行为表** | 固定已知人物、图库外人物、非人三类，分别报告接受、拒绝、正确识别及错误输出；MARS A/B/R 并列，未知样本过少时明确不确定性 |
+| E08 | **P0** | **计数与 RGB 严格口径复核** | 计数用当前真值重算61窗，分门控前后、上下界和机位；RGB复用现有输出重计严格结果，不重新编码。两项在现有材料中仍未关闭。[13][5] |
+| E09 | **条件触发** | **独立日期／场地验证** | 先按身份数、共现对、轨迹长度和预设最小重要效应设计；冻结选点流程后在独立数据上评价。没有合格数据就保留案例研究边界，不降低既有门槛 |
+
+**建议的最小补强组合是 E01、E02、E03、E06、E07；E04最直接增强机制解释。**E09价值很高，但不应成为拖延当前数字和协议修正的理由。
+
+不建议重开已关闭的模型、阈值和融合网格；除非新对照证明原失败机制已改变。现有 Leader 计划也明确将这些方向列为不宜重复投入。[1]
+
+## Leader 优先处理清单
+
+| 顺序 | 决策或任务 | 责任边界 | 完成条件 |
+|---|---|---|---|
+| **1** | 冻结当前证据版本，修正 Leader 文件中的 κ、PDF、已完成项 | Leader组织，engineer核验，researcher指出差异 | 稿件、结果包、审查计划各自版本清楚；不覆写原始记录 |
+| **2** | 将现场 inherited 冲突与 MARS A/B/R 一并列入 G0 | engineer复算；researcher提供评价依据；professior独立审查 | 同一实现生成主表、补充表、图和假设判定；每项差异有解释 |
+| **3** | 完成 E02及E06，确认统计与真值基础 | engineer实施，professior审方法 | 不再把普通配对检验称为已充分处理身份相关；未知标注影响可量化 |
+| **4** | 运行 E03及E05，判断主张是否真正成立 | researcher设计对照，Leader批准，engineer执行 | 能回答“在相同风险要求下，代理指标是否仍选错方案” |
+| **5** | 关闭开集、计数和 RGB 口径 | engineer实施，Leader验收 | 不把条件精度当总体精度；业务计数终点与身份终点分别报告 |
+| **6** | 重写贡献与相关工作，完成伦理及作者材料 | researcher负责文献证据，Leader/作者负责事实与承诺 | 不声称不存在已有研究；伦理与声明不能由技术复算替代 |
+| **7** | 决定是否补独立验证及何时投稿 | Leader与作者裁决，professior给go/no-go建议 | 强结论有独立证据，或主动收缩为边界清楚的部署案例 |
+
+以上不改变既有角色划分：**researcher 提供来源、对照设计与研究定位；不代替 engineer 生成结果，也不代替 professior 作独立统计裁决。**[1]
+
+## 按章节待复核条目
+
+以下对应当前稿件实际结构。[8]
+
+| 位置 | 待复核或修改 | 通过标准 |
+|---|---|---|
+| **题目、摘要、Highlights** | “mislead”是否限定于所研究代理、配置和场景；删除“4/6”旧表述；补 C/N，避免0.967单独主导叙事。[14][6] | 主张不强于证据；MARS按七条逐项呈现，而非只报通过数 |
+| **§1 Introduction** | 区分目标不一致与真正错误选型；将“系统性反转”限定到已检验条件；明确提出的是评价协议与实证发现。[15] | 每项贡献能对应具体对照和证据，不依赖泛化措辞 |
+| **§2 Related work** | 不再将已有工作概括为“都只拒绝查询”；已有研究直接讨论图库 refinement，live ReID也研究自动生成图库质量。[16][17] | 增加图库侧干预、live ReID、选择性分类评价的最近邻对照 |
+| **§3.1 Site and data** | 列清295→229→196的筛选原因；明确单日、同场地、身份重复及难样本排除边界。[5][4] | 流程图、分母与按身份统计一致 |
+| **§3.2 System** | 明确系统输出是簇ID还是具名身份；若簇身份来自评估真值，区分部署机制与事后审计；补评分公式、统计估计及随机性说明。[2] | 不把事后多数派标签默认为无需标注即可部署的身份输出 |
+| **§3.3 Label-free selection** | 统一 coverage 的分母、轨迹来源及 fm 的作用；当前 canonical 与正文对 coverage 的文字定义不一致。[5][4] | 公式、实现、表格同义；区分无标签选点与有统计保证的风险控制 |
+| **§4.1 Ground truth** | 主报盲标0.925/0.924；披露后续非盲修订；审计42配置的标注覆盖和身份编码对齐。[4] | 修订信度不冒充盲标信度；覆盖不足的影响单列 |
+| **§4.2 Correctness** | 对 C/W/U、拒绝、未知人物及非人输出建立闭合行为表；inherited写成准确公式。[8][7] | U不与系统拒绝混用；条件精度与完整系统行为并列 |
+| **§4.3 Statistical inference** | 完成簇相关配对分析；注明区间是微平均查询收益还是身份宏平均收益；说明非人组的处理。[8][7] | 推断单位、估计对象和重采样单位一致 |
+| **§4.4–4.5 Grid／preregistration** | 说明每配置重新选θ；区分现场探索、外部确认和事后修正；逐项列偏离。[8][6] | 无事后口径冒充预先规定；时间证据不足的部分如实披露 |
+| **§5.1–5.2 Baseline／ranking** | 修复现场 inherited 冲突；补共同风险与更合理代理比较。[3] | 主结果可从同一入口重建；不只比较不同目标的排序 |
+| **§5.3 Veto ledger** | 保留已有身份聚类区间；补阈值及评分重建的效应分解。[11] | −27被准确解释为哪一种干预效应 |
+| **§5.4 Diameter** | 将“不预测危害”收缩为当前小样本证据；控制查询服务量，补风险率或错误数分析。[11] | 不用“不显著”证明没有作用，不由四个阳性簇推出普遍规律 |
+| **§5.5–5.6 Loss／closed attempts** | 当前严格结果与历史口径分开；删除“已确认信息上限”的推断。[11] | 负结果仅覆盖实际测试的干预，不外推为所有方法无效 |
+| **§6 External validation** | MARS A/B/R、图库148身份、七条假设统一；CHIRLA和同日留出保留“无法判定”。[13][6] | 阴性、失败、不可判定三类不混淆，不按通过方向挑口径 |
+| **§7 Discussion** | 区分经验启发式与风险保证；计数结论等待当前真值复核。[7][5] | 不将无标签一致性解释成精度保证；计数与身份结论各有证据 |
+| **§8 Limitations** | 修正196条/24组混用；补单场地、标注覆盖、transductive选点和小阳性数。[7] | 限制与具体结论一一对应，而非泛泛写“小样本” |
+| **§9及声明** | 结论与修正后的证据同步；伦理、作者、数据与AI声明由作者确认。[5] | 无待定占位；不承诺无法提供的数据或未经验证的系统能力 |
+
+## 新颖度需要补的依据
+
+已有工作已经涉及**图库侧优化**，例如统计驱动图库 refinement；live ReID也已研究跟踪与异常检测生成高质量图库。因此，“过去都只研究查询拒识，我们首次研究图库侧”不能作为贡献边界。[16][17]
+
+选择性分类评价研究则已证明，评价指标选择本身能够改变方法排名。本文更稳妥的定位应是：**在自动生成、含噪声的跨机位图库中，检验具体审计代理能否支持真实部署选型，并追踪其造成的逐查询收益损失。**这是一条可辩护的差异化方向，但还需要 E03/E05 支撑，而不是仅靠负相关。[9]
+
+另外，LTT已有2025年正式期刊版本；它讨论的是具有明确条件的风险控制，不能为本文无标签 self-cal 自动背书。参考文献更新时，应同时修正出版信息与适用性说明。[18][19]
+
+来源
+[2] Overcoming Common Flaws in the Evaluation of Selective ... https://neurips.cc/virtual/2024/poster/96815
+[3] Analysis of clustered matched‐pair data - Wiley Online Library https://onlinelibrary.wiley.com/doi/10.1002/sim.1438
+[4] ar5iv.labs.arxiv.org › html › 1408[1408.0872] Open-set Person Re-identification - ar5iv https://ar5iv.labs.arxiv.org/html/1408.0872
+[5] Improving open-set person re-identification by statistics-driven ... https://research.tue.nl/en/publications/improving-open-set-person-re-identification-by-statistics-driven-/
+[6] TrADe Re-ID – Live Person Re-Identification using Tracking and Anomaly Detection https://ieeexplore.ieee.org/document/10069848/
+[7] Learn then Test: Calibrating Predictive Algorithms to Achieve ... https://www.gsb.stanford.edu/faculty-research/publications/learn-then-test-calibrating-predictive-algorithms-achieve-risk
+[8] Emmanuel Candes - Stanford Profiles https://profiles.stanford.edu/emmanuel-candes
+[9] Matched analysis for paired binary data (McNemar test) https://linkinghub.elsevier.com/retrieve/pii/S0889540616307636
+[10] Improving and extending the McNemar test using the Bayesian method https://onlinelibrary.wiley.com/doi/10.1002/sim.6875
+[11] Power calculation of adjusted McNemar's test based on clustered data of varying cluster size https://onlinelibrary.wiley.com/doi/10.1002/bimj.201800034
+[12] Adjustment to the McNemar's Test for the Analysis of Clustered Matched-Pair Data https://www.semanticscholar.org/paper/685ef91ca2559ba60bd7f0a6fe990691c2aeb422
+[13] Application of the McNemar test to non-independent matched pair data. https://onlinelibrary.wiley.com/doi/10.1002/sim.4780101211
+[14] E ects and none ects of paired identical observations in comparing proportions with binary matched-pairs data 3 https://www.semanticscholar.org/paper/a59f3832686586934f01a0b7342117b215ce65e4
+[15] Effects and non‐effects of paired identical observations in comparing proportions with binary matched‐pairs data. By A. Agresti and Y. Min. Statistics in Medicine 2004; 23:65–75 https://onlinelibrary.wiley.com/doi/10.1002/sim.1810
+[16] Statistical inference for noninferiority of difference in proportions of clustered matched-pair data from multiple raters https://www.tandfonline.com/doi/full/10.1080/10543406.2016.1148709
+[17] Enabling Open-Set Person Re-Identification for Real-World ... https://research.tue.nl/en/publications/enabling-open-set-person-re-identification-for-real-world-scenari/
+[18] 1 Introduction https://arxiv.org/html/2505.23463v4
+[19] McNemar and Mann-Whitney U Tests - StatPearls - NCBI - NIH https://www.ncbi.nlm.nih.gov/books/NBK560699/
+[20] [2406.04745] Confidence-aware Contrastive Learning for ... https://ar5iv.labs.arxiv.org/html/2406.04745
+[21] proceedings.mlr.press · v97 · geifman19aSelectiveNet: A Deep Neural Network with an Integrated Reject... https://proceedings.mlr.press/v97/geifman19a/geifman19a.pdf
+[22] Selective Classification for Deep Neural Networks - NIPS https://papers.nips.cc/paper_files/paper/2017/hash/4a8423d5e91fda00bb7e46540e2b0cf1-Abstract.html
+[23] Overcoming Common Flaws in the Evaluation of Selective ... - arXiv https://arxiv.org/html/2407.01032v1
+[24] Vol https://gmssrj.com/index.php/main/article/download/141/308
+[25] R Graphics Output https://lirias.kuleuven.be/retrieve/622977
+[26] Identifying Re-identification Challenges: Past, Current and Future ... https://link.springer.com/article/10.1007/s42979-024-03271-9?error=cookies_not_supported&code=b4af91cb-b0dc-4075-8d74-50f5679879f2
+[27] Macro Implementing an Extension of McNemar's Test for Clustered Datasupport.sas.com › papers › proceedings › proceedings › sugi23 › Posters https://support.sas.com/resources/papers/proceedings/proceedings/sugi23/Posters/p204.pdf
+[28] SELECTIVE CLASSIFIER ENSEMBLE https://openreview.net/references/pdf?id=0x-Kuaee08
+[29] The Art of Abstention: Selective Prediction and Error ... https://cs.uwaterloo.ca/~y328yu/publication/xin-tyl-21-b/xin-tyl-21-b.pdf
+[30] Selective Prediction and Error Regularization for Natural ... https://cs.uwaterloo.ca/~jimmylin/publications/Xin_etal_ACL2021.pdf
+[31] Sample Size for Two Proportions in PASS https://www.ncss.com/software/pass/two-proportions-in-pass/
+[32] Open-set Person Re-identification https://www.semanticscholar.org/paper/c75d640b0afbf3527c9d73445c21834df6192599
+[33] Approaches to Improve the Quality of Person Re-Identification for Practical Use https://pmc.ncbi.nlm.nih.gov/articles/PMC10490502/
+[34] Person Re-Identification with RGB-D Camera in Top-View Configuration through Multiple Nearest Neighbor Classifiers and Neighborhood Component Features Selection https://www.mdpi.com/1424-8220/18/10/3471/pdf
+[35] Adaptive Exploration for Unsupervised Person Re-Identification https://arxiv.org/pdf/1907.04194.pdf
+[36] DualFocus: Integrating Plausible Descriptions in Text-based Person
+  Re-identification http://arxiv.org/pdf/2405.07459.pdf
+[37] Occluded Person Re-Identification with Deep Learning: A Survey and
+  Perspectives https://arxiv.org/pdf/2311.00603.pdf
+[38] Tran-GCN: A Transformer-Enhanced Graph Convolutional Network for Person
+  Re-Identification in Monitoring Videos http://arxiv.org/pdf/2409.09391.pdf
+[39] Dynamic Patch-aware Enrichment Transformer for Occluded Person
+  Re-Identification https://arxiv.org/html/2402.10435v1
+[40] Learn then Test: Calibrating Predictive Algorithms to Achieve Risk Control https://www.arxiv.org/abs/2110.01052
+[41] Performance Measures and a Data Set for Multi-Target, Multi-Camera Tracking https://arxiv.org/abs/1609.01775v2
+[42] Multicamera People Tracking with a Probabilistic Occupancy Map (2008) | François Fleuret | 975 Citations https://scispace.com/papers/multicamera-people-tracking-with-a-probabilistic-occupancy-44dcikl83p
+[43] Part-based multiple-person tracking with partial occlusion handling https://scispace.com/papers/part-based-multiple-person-tracking-with-partial-occlusion-1olx45r6n1
+[44] PowerPoint 演示文稿 http://www.cbsr.ia.ac.cn/users/scliao/slides/PRID.Turtorial.ECCV2018.pdf
+[45] CUPR: Contrastive Unsupervised Learning for Person Re-identification https://www.scitepress.org/PublishedPapers/2021/102399/102399.pdf
+[46] Benchmarking Person Re-Identification Datasets and Approaches ... https://www.scitepress.org/Papers/2023/116338/116338.pdf
+[47] Anastasios N. Angelopoulos' contribution to the Discussion of ... https://academic.oup.com/jrsssb/article/86/1/33/7303197
+[48] Recommendation Systemswith Distribution-Free Reliability Guarantees https://ar5iv.labs.arxiv.org/html/2207.01609
+[49] Quantile Learn-Then-Test: Quantile-Based Risk Control for Hyperparameter Optimization https://ar5iv.labs.arxiv.org/html/2407.17358
+[50] Ergys Ristani | Duke University | 8 Publications | 17 Citations | Related Authors https://scispace.com/authors/ergys-ristani-1wn3172ahm
+[52] Standard Form 298 (Rev 8/98) https://apps.dtic.mil/sti/tr/pdf/AD1051617.pdf
+[53] huggingface.co › papers › 2608Hugging Face https://huggingface.co/papers/2608.14639.md
+[55] A robust adjustment to McNemar test when the data are clustered https://www.tandfonline.com/doi/full/10.1080/03610926.2019.1651864
+[57] A goodness-of-fit approach to inference procedures for the kappa statistic: confidence interval construction, significance-testing and sample size estimation. https://onlinelibrary.wiley.com/doi/10.1002/sim.4780111109
+[58] Implementing Asthma Guidelines Using Practice Facilitation and Local Learning Collaboratives: A Randomized Controlled Trial http://www.annfammed.org/cgi/doi/10.1370/afm.1624
+[59] A comparison of methods for testing homogeneity of proportions in teratologic studies. https://onlinelibrary.wiley.com/doi/10.1002/sim.4780131207
+[60] Spatial Mapping Applied to Low Birth Weight Incidence , Indonesia https://jurnal.ugm.ac.id/ijg/article/view/15951
+[61] scispace.com · papers · a-robust-adjustment-to-mcnemar-testA robust adjustment to McNemar test when the data are clustered https://scispace.com/papers/a-robust-adjustment-to-mcnemar-test-when-the-data-are-u5d2krs06k
+[62] Non-inferiority tests for clustered matched pair data - PMC https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2717020/
+[63] Multivariate Extensions of McNemar's Test https://academic.oup.com/biometrics/article/62/3/921/7321763?searchresult=1
+[64] proceedings.neurips.cc https://proceedings.neurips.cc/paper_files/paper/2024/file/047c84ec50bd8ea29349b996fc64af4b-Bibtex-Conference.bib
+[65] ai-conferences/NeurIPS2024 · Datasets at Hugging Face https://huggingface.co/datasets/ai-conferences/NeurIPS2024/viewer/default/train?p=3
+[66] Gallery-Distance Profiles for Open-Set Person Re ... - MDPI https://www.mdpi.com/1424-8220/26/17/5479
+[67] dblp: Overcoming Common Flaws in the Evaluation of Selective Classification Systems. https://dblp.org/rec/journals/corr/abs-2407-01032.html
+[68] OpenReview https://openreview.net/submissions?page=14&venue=NeurIPS.cc/2024/Conference
+[69] Maier-Hein, Klaus H. https://mlanthology.org/authors/m/maier-hein-klaus-h/
+[70] Overcoming Common Flaws in the Evaluation of Selective ... https://www.proceedings.com/079017-0076.html
+[71] Overcoming Common Flaws in the Evaluation of Selective ... https://dblp.org/rec/conf/nips/TraubBL0MMJ24.html
+[72] Learn then Test: Calibrating Predictive Algorithms to Achieve Risk Control https://projecteuclid.org/journals/annals-of-applied-statistics/volume-19/issue-2/Learn-then-test--Calibrating-predictive-algorithms-to-achieve-risk/10.1214/24-AOAS1998.full
+[73] Learn then Test: Calibrating Predictive Algorithms to Achieve Risk
+  Control https://arxiv.org/pdf/2110.01052.pdf
+[74] Adaptive Learn-then-Test: Statistically Valid and Efficient
+  Hyperparameter Selection http://arxiv.org/pdf/2409.15844.pdf
+[75] Program-Aided Reasoners (better) Know What They Know http://arxiv.org/pdf/2311.09553.pdf
+[76] Apprendre puis Tester : La calibration des algorithmes prédictifs ... https://www.alphaxiv.org/fr/abs/2110.01052
+[77] Calibrate-Then-Delegate: Safety Monitoring with Risk and Budget ... https://arxiv.org/html/2604.14251v1
+[78] aclanthology.org › 2025Thought calibration: Efcient and condent test-time scaling https://aclanthology.org/2025.emnlp-main.722.pdf
+[79] SelectiveNet: A Deep Neural Network with an Integrated Reject ... https://tomesphere.com/paper/1901.09192
+[80] Frontiers | Utilizing risk-controlling prediction calibration to reduce false alarm rates in epileptic seizure prediction https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1184990/full
+[82] Recommendation Systems with Distribution-Free Reliability ... https://proceedings.mlr.press/v204/angelopoulos23a/angelopoulos23a.pdf
+[84] [2211.10564] Gumbel-Softmax Selective Networks https://ar5iv.labs.arxiv.org/html/2211.10564
+[85] Open-set Person Re-identification https://arxiv.org/abs/1408.0872
+[86] Benchmarking person re-identification datasets and approaches for practical real-world implementations https://arxiv.org/abs/2212.09981
+[87] Deep learning for visible-infrared cross-modality person re-identification: A comprehensive review https://linkinghub.elsevier.com/retrieve/pii/S1566253522002007
+[88] Survey for person re-identification based on coarse-to-fine feature learning https://link.springer.com/10.1007/s11042-022-12510-1
+[89] Rapid person re-identification retraining strategy for flexible deployment in new environments https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12275/2637415/Rapid-person-re-identification-retraining-strategy-for-flexible-deployment-in/10.1117/12.2637415.full
+[90] Person re-identification using wifi signals https://dl.acm.org/doi/10.1145/3495243.3558252
+[91] Multi-Domain Joint Training for Person Re-Identification https://www.semanticscholar.org/paper/6e8c4124755c56fa16aed54025c17aa48e2c2a47
+[92] Learning with Twin Noisy Labels for Visible-Infrared Person Re-Identification https://ieeexplore.ieee.org/document/9878429/
+[93] open-set metric learning for person re - SigPort https://sigport.org/sites/default/files/docs/Presentation%20Paper%202396.pdf
+[94] Person detection and re-identification in open-world ... https://arxiv.org/html/2505.00772v1
+[95] [PDF] the annals - APPLIED STATISTICS https://www.imstat.org/publications/aoas/aoas_19_2/aoas_19_2.pdf
+[96] [PDF] Emmanuel Candes - Academic CV https://cap.stanford.edu/profiles/viewCV?facultyId=14758&name=Emmanuel_Candes
+[97] raw.githubusercontent.com · mlresearch · v266High Probability Risk Control Under Covariate Shift https://raw.githubusercontent.com/mlresearch/v266/main/assets/almeida25a/almeida25a.pdf
+[98] Live Person Re-Identification using Tracking and Anomaly ... https://arxiv.org/html/2209.06452v1
+[99] Identifying Re-identification Challenges: Past, Current and ... https://link.springer.com/article/10.1007/s42979-024-03271-9
+[100] Benchmarking person re-identification datasets and approaches ... https://www.semanticscholar.org/paper/0ddc51a7f9925fbe1565f878d104e1d15107e022

@@ -1,0 +1,50 @@
+{
+ "v0": {
+  "groups": 443,
+  "tp": 5,
+  "fp": 0,
+  "fn": 29,
+  "kept_same": 12,
+  "cut_diff": 0
+ },
+ "v2@0.2": {
+  "groups": 475,
+  "tp": 4,
+  "fp": 0,
+  "fn": 30,
+  "kept_same": 10,
+  "cut_diff": 15
+ },
+ "v2@0.25": {
+  "groups": 483,
+  "tp": 4,
+  "fp": 0,
+  "fn": 30,
+  "kept_same": 10,
+  "cut_diff": 15
+ },
+ "v2@0.3": {
+  "groups": 491,
+  "tp": 2,
+  "fp": 0,
+  "fn": 32,
+  "kept_same": 9,
+  "cut_diff": 15
+ },
+ "v2@0.35": {
+  "groups": 501,
+  "tp": 3,
+  "fp": 0,
+  "fn": 31,
+  "kept_same": 9,
+  "cut_diff": 15
+ },
+ "v2@0.4": {
+  "groups": 511,
+  "tp": 1,
+  "fp": 0,
+  "fn": 33,
+  "kept_same": 7,
+  "cut_diff": 15
+ }
+}

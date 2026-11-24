@@ -1,0 +1,477 @@
+{
+ "_meta": {
+  "n_pos": 34,
+  "counts": {
+   "OK": 5,
+   "BELOW_THR": 23,
+   "PEAK": 2,
+   "CAM_OVERLAP": 4
+  }
+ },
+ "rows": [
+  {
+   "a": "318:37",
+   "b": "320:11",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.6645,
+   "cos_maxpair": 0.685,
+   "sid": [
+    197,
+    293
+   ]
+  },
+  {
+   "a": "318:69",
+   "b": "320:14",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF",
+   "why": "PEAK",
+   "cos_centroid": 0.8416,
+   "cos_maxpair": 0.8326,
+   "sid": [
+    106,
+    33
+   ]
+  },
+  {
+   "a": "318:139",
+   "b": "320:24",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF",
+   "why": "CAM_OVERLAP",
+   "cos_centroid": 0.8879,
+   "cos_maxpair": 0.8552,
+   "sid": [
+    131,
+    122
+   ]
+  },
+  {
+   "a": "318:1",
+   "b": "320:1",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF",
+   "why": "PEAK",
+   "cos_centroid": 0.824,
+   "cos_maxpair": 0.801,
+   "sid": [
+    174,
+    4
+   ]
+  },
+  {
+   "a": "318:14",
+   "b": "320:4",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF",
+   "why": "CAM_OVERLAP",
+   "cos_centroid": 0.6095,
+   "cos_maxpair": 0.6459,
+   "sid": [
+    185,
+    287
+   ]
+  },
+  {
+   "a": "318:120",
+   "b": "320:19",
+   "label": 1,
+   "level": "track",
+   "src": "labels_json",
+   "pair": "318-320",
+   "note": "CONF",
+   "why": "CAM_OVERLAP",
+   "cos_centroid": 0.5226,
+   "cos_maxpair": 0.5446,
+   "sid": [
+    122,
+    294
+   ]
+  },
+  {
+   "a": "343:11",
+   "b": "316:22",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.3407,
+   "cos_maxpair": 0.3757,
+   "sid": [
+    466,
+    91
+   ]
+  },
+  {
+   "a": "343:11",
+   "b": "316:45",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.2655,
+   "cos_maxpair": 0.2736,
+   "sid": [
+    466,
+    99
+   ]
+  },
+  {
+   "a": "343:11",
+   "b": "316:49",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.244,
+   "cos_maxpair": 0.2725,
+   "sid": [
+    466,
+    100
+   ]
+  },
+  {
+   "a": "343:12",
+   "b": "316:27",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.5404,
+   "cos_maxpair": 0.5404,
+   "sid": [
+    471,
+    94
+   ]
+  },
+  {
+   "a": "343:12",
+   "b": "316:28",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.5451,
+   "cos_maxpair": 0.5451,
+   "sid": [
+    471,
+    95
+   ]
+  },
+  {
+   "a": "343:13",
+   "b": "316:24",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.5828,
+   "cos_maxpair": 0.5901,
+   "sid": [
+    472,
+    92
+   ]
+  },
+  {
+   "a": "343:13",
+   "b": "316:26",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "user",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.6192,
+   "cos_maxpair": 0.6029,
+   "sid": [
+    472,
+    93
+   ]
+  },
+  {
+   "a": "343:48",
+   "b": "316:88",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.4779,
+   "cos_maxpair": 0.4633,
+   "sid": [
+    489,
+    101
+   ]
+  },
+  {
+   "a": "343:53",
+   "b": "316:94",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.3467,
+   "cos_maxpair": 0.3467,
+   "sid": [
+    491,
+    118
+   ]
+  },
+  {
+   "a": "343:53",
+   "b": "316:99",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.4737,
+   "cos_maxpair": 0.4737,
+   "sid": [
+    491,
+    119
+   ]
+  },
+  {
+   "a": "343:53",
+   "b": "316:113",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.4407,
+   "cos_maxpair": 0.4377,
+   "sid": [
+    491,
+    103
+   ]
+  },
+  {
+   "a": "343:56",
+   "b": "316:116",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.4599,
+   "cos_maxpair": 0.4929,
+   "sid": [
+    466,
+    122
+   ]
+  },
+  {
+   "a": "343:57",
+   "b": "316:134",
+   "label": 1,
+   "level": "track",
+   "src": "gil_pair",
+   "pair": "316-343",
+   "note": "seed",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.489,
+   "cos_maxpair": 0.4814,
+   "sid": [
+    401,
+    129
+   ]
+  },
+  {
+   "a": "316:22",
+   "b": "318:66",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-318",
+   "note": "edge136:人工确认（PRT 批）→ 支持 active",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.5156,
+   "cos_maxpair": 0.5043,
+   "sid": [
+    91,
+    210
+   ]
+  },
+  {
+   "a": "316:62",
+   "b": "318:76",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-318",
+   "note": "edge138:人工确认（PRT 批）→ 支持 active",
+   "why": "CAM_OVERLAP",
+   "cos_centroid": 0.5094,
+   "cos_maxpair": 0.5493,
+   "sid": [
+    105,
+    213
+   ]
+  },
+  {
+   "a": "316:99",
+   "b": "323:130",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-323",
+   "note": "edge141:人工确认（PRT 批）→ 支持 active",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.5986,
+   "cos_maxpair": 0.5986,
+   "sid": [
+    119,
+    369
+   ]
+  },
+  {
+   "a": "323:3",
+   "b": "318:21",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge158:判为同一人 → relay 边成立；身份层漏接（邻居 g0150 vs 源 ['",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.4233,
+   "cos_maxpair": 0.4571,
+   "sid": [
+    320,
+    188
+   ]
+  },
+  {
+   "a": "323:3",
+   "b": "318:23",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge158:判为同一人 → relay 边成立；身份层漏接（邻居 g0150 vs 源 ['",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.5686,
+   "cos_maxpair": 0.6468,
+   "sid": [
+    320,
+    189
+   ]
+  },
+  {
+   "a": "323:65",
+   "b": "316:65",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "316-323",
+   "note": "edge160:人工确认（PRT 批）→ 支持 active",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.4306,
+   "cos_maxpair": 0.4655,
+   "sid": [
+    334,
+    107
+   ]
+  },
+  {
+   "a": "316:28",
+   "b": "305:147",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "305-316",
+   "note": "edge171:判为同一人 → relay 边成立；身份层漏接（邻居 g0041 vs 源 ['",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.7108,
+   "cos_maxpair": 0.7149,
+   "sid": [
+    95,
+    32
+   ]
+  },
+  {
+   "a": "305:94",
+   "b": "316:11",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "305-316",
+   "note": "edge177:人工确认（PRT 批）→ 支持 active",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.4164,
+   "cos_maxpair": 0.4164,
+   "sid": [
+    15,
+    87
+   ]
+  },
+  {
+   "a": "343:53",
+   "b": "323:112",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "323-343",
+   "note": "edge202:判为同一人 → relay 边成立；身份层漏接（邻居 g0077 vs 源 ['",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.3505,
+   "cos_maxpair": 0.3505,
+   "sid": [
+    491,
+    365
+   ]
+  },
+  {
+   "a": "323:3",
+   "b": "318:25",
+   "label": 1,
+   "level": "entity",
+   "src": "gil_relay",
+   "pair": "318-323",
+   "note": "edge238:判为同一人 → relay 边成立；身份层漏接（邻居 g0073 vs 源 ['",
+   "why": "BELOW_THR",
+   "cos_centroid": 0.5463,
+   "cos_maxpair": 0.5378,
+   "sid": [
+    320,
+    177
+   ]
+  }
+ ]
+}

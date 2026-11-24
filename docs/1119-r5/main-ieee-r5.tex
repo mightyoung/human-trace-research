@@ -1,0 +1,306 @@
+% Compile with pdfLaTeX (twice) or Tectonic. The matching IEEEtran.cls is supplied.
+\RequirePackage[OT1]{fontenc}
+\documentclass[journal,letterpaper]{IEEEtran}
+\usepackage{amsmath,amssymb,booktabs,array,xcolor,url}
+\urlstyle{same}
+\definecolor{editink}{RGB}{116,62,12}
+\definecolor{ruleink}{RGB}{46,67,78}
+\newcommand{\draftnote}[3]{\par\smallskip\noindent{\footnotesize
+  \textcolor{editink}{\sffamily\bfseries [#2 #1]}\enspace
+  \textcolor{editink}{#3}\par}\smallskip}
+\newcommand{\methodgap}[2]{\draftnote{METHOD}{#1}{#2}}
+\newcommand{\expgap}[2]{\draftnote{EXPERIMENT}{#1}{#2}}
+\newcommand{\authorgap}[2]{\draftnote{AUTHOR}{#1}{#2}}
+\hyphenation{re-iden-ti-fi-ca-tion multi-camera pseudo-ny-mous}
+\begin{document}
+\title{Building and Updating a Multi-Camera\\ Person Gallery with Sparse Face Evidence}
+\author{\textit{Working manuscript, November 2026}}
+\markboth{Working manuscript, November 2026}{Building and Updating a Multi-Camera Person Gallery}
+\maketitle
+
+\begin{abstract}
+In a fixed camera network, the same person may form separate appearance groups across views, postures and changes of clothing. A face is available in only some observations. We study how one such observation can help identify the person on a later track with no usable face. The proposed method clusters individual body crops from historical video using a frozen appearance encoder and camera metadata. A separate face pipeline supplies anonymous site identifiers that can link distinct appearance clusters. The gallery retains those clusters under a shared identity. During replay, a reliable face match can attach a new body template to that identity for later retrieval. Two field measurements establish the support for these choices. In a six-camera recording, 150 of 1,894 tracks yielded face embeddings. Face links reduced an earlier track-based graph from 434 groups to 422 without recovering an additional labeled same-person pair. In a separate capture, weighting existing templates by bounding-box height raised same-camera selector recall from 101/179 to 122/179. With 19 face-guided template writes, the total reached 125/179. These measurements support scale-conditioned template use. The benefit of image-level enrollment and subsequent writes on later, face-unavailable tracks across cameras and clothing changes remains to be measured.
+\end{abstract}
+\begin{IEEEkeywords}
+Person re-identification, gallery construction, camera-aware clustering, face recognition, template update, multi-camera tracking.
+\end{IEEEkeywords}
+
+\section{Introduction}\label{sec:introduction}
+\IEEEPARstart{T}{wo} cameras on the same floor may record a person standing in a corridor and seated at a desk. If that person returns in a different coat, a body-appearance gallery may describe the three observations with three separate clusters. A face captured at the entrance could connect the new coat to a known appearance~\cite{cocas,geff}. The practical test comes later, when a camera records the person from behind. Can the newly acquired body template support that recognition after the face has disappeared?
+
+We study this question in a fixed camera network where people need no named reference photograph. Each selected body crop from historical video contributes a feature vector. The camera identifier supplies context for grouping these observations by appearance. A separate face pipeline clusters historical faces into anonymous site identifiers. Evidence that two body clusters share an identifier can link them while retaining the templates of each cluster. A later face match can add a new appearance to an established identity. The intended output is a time-ordered record of when and where each person appeared.
+
+An erroneous historical link can attach all members of a mixed body cluster to the wrong identity. An erroneous later write can cause a similar-looking person to match that identity in future video. The two decisions act on different evidence and expose different observations to error. Automatic gallery maintenance and face-guided enrichment both have precedents~\cite{geff,casao}. We examine what happens when enrichment starts from identities inferred on site and has to preserve several appearances for each one.
+
+The paper contributes a two-stage gallery formulation and an analysis of previously measured component choices. The formulation separates assigning a group of historical body images to an identity from admitting an individual new template. The field comparisons distinguish the benefit of selecting among existing appearances from the benefit of acquiring additional ones. Height-conditioned template use produced 21 more selector hits on 179 eligible same-camera queries. Face-guided additions produced three more. A separate four-camera audit shows how a change that excludes questionable gallery entries can also turn correct answers into refusals. For the combined method, we specify a chronological test whose primary observations are independent tracks with no usable face after a write.
+
+\section{Related Work}\label{sec:related}
+OSNet learns omni-scale features for comparing body images~\cite{osnet}. Camera-Aware Proxies use camera-specific groups during unsupervised representation learning~\cite{cap}. In our setting the encoder is frozen. The camera identifier is observed metadata available when constructing the historical gallery. Its value can therefore be assessed on the same crop embeddings by varying how the identifier affects cluster membership.
+
+The COCAS authors first cluster body images and manually remove outliers. They retrieve possible matches across outfits by face and have annotators confirm the links~\cite{cocas}. Li \emph{et al.} use faces to refine a hierarchical clustering of tracklets across cameras~\cite{li}. For a gallery built from site video, an important remaining decision is which other body images inherit the identity attached to a face. We make that decision explicit at the level of the body cluster and distinguish it from the manual identity reference used for evaluation.
+
+Casao \emph{et al.} start with an empty gallery, cluster unlabeled observations and maintain several appearance samples per identity under a memory budget~\cite{casao}. A gallery can therefore change both by assigning observations to identities and by changing which samples represent each identity. Sparse faces raise different questions at these two levels. One face may justify adding the body crop that contains it while supplying little evidence about the other members of its cluster.
+
+GEFF starts from an identity-labeled gallery, uses faces to identify new body observations and matches a query crop against the most similar stored body sample for each identity~\cite{geff}. Our starting gallery consists of identities inferred from historical video. A mistaken link may already be present when a new sample arrives. To measure the consequences, our replay design includes a GEFF-style comparison that uses the same initial gallery, the same opportunities to observe a face and the same capacity for stored appearances. It asks whether any additional selection rule changes subsequent body-only decisions.
+
+\section{Historical Gallery and Sequential Recognition}\label{sec:method}
+\subsection{Per-image appearance evidence}
+Let $x_i$ be a selected person crop observed at time $t_i$ by camera $c_i$, with bounding-box height $h_i>0$. A frozen OSNet encoder~\cite{osnet} produces one appearance vector per crop. The input to historical clustering is the collection
+\begin{equation}
+ \mathcal H_T=\{(\mathbf z_i,c_i,t_i)\mid t_i\leq T\},
+ \qquad \mathbf z_i=f_{\mathrm{OSNet}}(x_i),
+ \label{eq:feature}
+\end{equation}
+where $T$ is the end of the enrollment recording. Tracking supplies occurrence boundaries and candidate crops. The historical experiments used ByteTrack for track association~\cite{bytetrack}. All selected images from a track enter the proposed clustering individually. Figure~\ref{fig:gallery} follows two such clusters through historical association and one subsequent template write.
+
+\begin{figure*}[!t]
+\centering
+\begingroup
+\setlength{\unitlength}{1pt}
+\color{ruleink}
+\begin{picture}(482,78)
+  \put(0,64){\makebox(228,11)[l]{\sffamily\small\bfseries Historical video through the gallery cutoff}}
+  \put(244,64){\makebox(238,11)[l]{\sffamily\small\bfseries Later video in acquisition order}}
+  \put(0,61){\line(1,0){230}}
+  \put(245,61){\line(1,0){237}}
+  \put(0,4){\framebox(108,48){\shortstack[l]{\sffamily\footnotesize\bfseries Body appearance\\[2pt]
+        \footnotesize Camera A, cluster $C_a$\\
+        \footnotesize Camera B, cluster $C_b$}}}
+  \put(108,28){\vector(1,0){14}}
+  \put(122,4){\framebox(108,48){\shortstack[l]{\sffamily\footnotesize\bfseries Face-supported link\\[2pt]
+        \footnotesize Anonymous ID $g$\\
+        \footnotesize retains $C_a$ and $C_b$}}}
+  \put(230,28){\vector(1,0){14}}
+  \put(245,4){\framebox(110,48){\shortstack[l]{\sffamily\footnotesize\bfseries Face match at $t_1$\\[2pt]
+        \footnotesize A new body template\\
+        \footnotesize is attached to $g$}}}
+  \put(355,28){\vector(1,0){15}}
+  \put(371,4){\framebox(111,48){\shortstack[l]{\sffamily\footnotesize\bfseries Body query at $t_2$\\[2pt]
+        \footnotesize Later independent track\\
+        \footnotesize Assign an ID or abstain}}}
+\end{picture}
+\endgroup
+\caption{An example of the proposed identity and template updates. The historical face evidence links two body appearance clusters. A later face match adds a new body template. The recognition decision of interest occurs on a separate track at $t_2>t_1$, when no usable face is available.}
+\label{fig:gallery}
+\end{figure*}
+
+The camera label identifies the acquisition stream. For example, restricting candidate neighbors to the same camera would change the pairs considered for clustering, whereas changing their distances would change the clustering even for a fixed candidate set. The choice matters when attempting to recover a person first seen from two different views.
+\methodgap{M1}{Specify person-crop selection, image sampling, clustering parameters, and exactly how categorical camera labels change candidate associations or distances.}
+The earlier field comparator used a 512-dimensional OSNet-x1.0 encoder pretrained on MSMT17 and frozen at the site. It averaged eight uniformly sampled frames per track before clustering. Its results therefore describe track-aggregated construction. Any claim of low annotation cost here concerns local identity labels for building and maintaining the gallery. Pretraining and independent performance annotation have separate label requirements.
+
+\subsection{Anonymous identities and multiple appearances}
+Write the historical body clusters as $\mathcal C=\{C_1,\ldots,C_K\}$, where each $C_k$ contains indices of person images. A separate face detector and face encoder produce face observations from historical video. Clustering those observations supplies a set $\mathcal J$ of site-specific pseudonyms. We use the term \emph{anonymous identity} for such a gallery label without a personal name. In the proposed chronological design, its initial face references use observations available by the cutoff $T$.
+
+Reliable face evidence associated with images in a body cluster can connect that cluster to an anonymous identity. We denote the resulting partial assignment by
+\begin{equation}
+ \pi:\mathcal C\rightharpoonup\mathcal J.
+ \label{eq:assignment}
+\end{equation}
+The mapping $\pi$ records identity membership. When $\pi(C_a)=\pi(C_b)$, the gallery can keep the appearance vectors or representative templates of $C_a$ and $C_b$ separately. An identity may therefore retain distinct examples from two cameras or from two changes of clothing. A cluster without sufficient identity evidence can remain unassigned in this representation.
+
+Identity association and appearance retention answer different questions. The first determines which historical observations refer to one person. The second determines which examples remain available for later comparison. Keeping their states separate allows a body cluster to remain visually distinct after its identity is associated across cameras. For a person observed standing in one view and sitting in another, the intended representation preserves both appearances under the same anonymous identifier. This example describes the design objective and does not imply a measured posture-specific result.
+
+The extent of a face decision is consequential. A face associated with one image may identify that image while leaving other cluster members ambiguous. Assigning an entire cluster requires a rule for extending the evidence, particularly when multiple faces or conflicting identities occur.
+\methodgap{M2}{Specify face-to-body pairing, face clustering and confidence thresholds, reference enrollment times, cluster-wide propagation criteria, and the treatment of conflicting face identities.}
+For a cluster with contradictory face evidence, assigning all of its members to one identity and assigning only the face-supported images have different consequences. Counting which other images would change identity records the cost of that decision.
+
+\subsection{Face-authorized writes and later body matching}
+Let $\mathcal G_j(t^-)$ contain the body templates assigned to identity $j$ immediately before an observation at time $t$. The proposed write associates the embedding of the current body crop with its camera, time and available scale information. Denote this candidate entry by $u_t$. When a face reliably paired with that crop matches an established identity $j$, its gallery entry becomes
+\begin{equation}
+ \mathcal G_j(t^+)=R_j\bigl(\mathcal G_j(t^-)\cup\{u_t\}\bigr),
+ \label{eq:update}
+\end{equation}
+where $R_j$ denotes the rule that retains or replaces templates for $j$. The current body query is scored against the preceding state. The new template becomes eligible for subsequent observations. In the absence of a confirmed face-to-identity link the body observation can still be queried against existing identities, with refusal available when the evidence is insufficient. The body encoder remains frozen throughout.
+
+The value of a write depends on its position in this sequence. A face-confirmed observation of a new coat supplies an identity association at that moment. Its downstream value concerns a different track, recorded later without a usable face, whose body appearance can match the retained observation. Counting the writing observation as a recognition gain would conflate identity acquisition with reuse of the gallery.
+
+For the measured D2 selector, the known template-height weight is
+\begin{equation}
+ w(h_q,h_r)=\exp\!\left(-\frac{|\log h_q-\log h_r|}{\sigma}\right),
+ \qquad \sigma=0.6.
+ \label{eq:height}
+\end{equation}
+This weight favors templates with box heights similar to the query. It does not define the complete identity score or establish a posture label. Exact aggregation and update behavior remain necessary method details.
+\methodgap{M3}{Specify write, retention, deduplication and scoring rules, acceptance thresholds, face-reference refresh or expiry, new identities and how erroneous writes are corrected.}
+
+\section{Evaluation Design}\label{sec:evaluation}
+\subsection{Evidence populations}
+The empirical material comprises distinct historical captures. D1 contains 1,894 tracks from six cameras over 2,099 seconds, with 1,574 tracks entering the identity graph. It supplies a face-acquisition measurement and a historical merge comparison. Its labeled positive pairs cover only part of the capture. D2 contains 445 manually identified tracks over 26 people from eight segments. The selector comparison uses 179 queries whose identity has an earlier morning template in the same camera. These populations support different endpoints and are reported separately.
+
+An additional audit used four non-overlapping cameras, one hour of morning gallery video per camera and 15 minutes of afternoon query video per camera. It produced 295 query tracks. Of the 229 evaluable queries, 196 depict a person present in the gallery, 22 depict a non-person detection and 11 depict a person absent from the gallery. The paired comparison below uses the 196 answerable queries. This audit tests a gallery configuration on future observations in a separate recording.
+
+\subsection{Comparisons and temporal order}
+The historical comparison holds the selected images and initial body clusters constant while varying face-assisted identity association. To isolate the choice of clustering unit, the same selected crops can be represented individually or averaged within their original tracks. Camera conditioning can then be varied on either representation. Pairwise false links and missed links, together with the number of people and camera pairs represented, measure different costs of the resulting partitions.
+\expgap{E1}{Compare per-image and eight-frame track features on identical historical images, then ablate camera input and sparse face association with independent identity labels.}
+
+For sequential recognition, each query is scored before observations from its writing instant enter the gallery. The recorded D2 pool follows temporal order and excludes the query itself. The principal endpoint for the complete method is stricter, covering subsequent faceless tracks independent of any track that supplied a write. Correct assignments, false associations and refusals are counted on identical queries under each condition.
+
+A common cutoff fixes the historical inputs and the identities available when replay begins. Table~\ref{tab:replay} crosses two historical builds with three operating rules. A body-only build can retain face references observed with individual body samples for later matching, but those references do not link its historical body clusters. All updating conditions see the same face observations and have the same template budget. A face that cannot be assigned to a single gallery identity is recorded among the opportunities for a write. Conditioning the comparison on successful writes alone would hide that loss of coverage.
+
+\begin{table}[t]
+\caption{Forward replay comparisons awaiting measurement. Each cell will report correct, wrong and refused assignments on the same eligible later tracks without usable faces.}
+\label{tab:replay}
+\centering
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ & \multicolumn{2}{c}{Historical body clusters}\\
+\cmidrule(lr){2-3}
+Operation during replay & Body only & Face-linked\\
+\midrule
+Frozen gallery & pending & pending\\
+Face append and maximum score & pending & pending\\
+Proposed update and selector & pending & pending\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The second row adapts GEFF's face-assisted enrichment and per-identity maximum similarity to forward replay~\cite{geff}. Comparing the two historical builds within one row tests historical linking. Comparing rows within one column tests how the same starting gallery is used. To attribute an effect specifically to writes, a frozen copy is scored with the same selector and acceptance threshold as its updating counterpart. A complementary comparison fixes the written samples and varies only the selector.
+\expgap{E2}{Evaluate identical later faceless tracks across historical-gallery and update conditions, matching face evidence and capacity, and report paired recoveries, losses, misidentifications, and refusals.}
+
+\subsection{Labels and reporting units}
+Face clustering supplies identity hypotheses for construction. Independent annotations must establish which historical members and later tracks depict the same person. The mapping from anonymous gallery labels to the reference identities is fixed on the enrollment portion before scoring the replay. Evaluation should count mixed or unresolved gallery groups explicitly and record false acceptance of people absent from the gallery separately from within-gallery errors. For each pair of configurations on common queries, the net change in correct answers is the number newly correct minus the number that cease to be correct. Reporting both counts exposes harmful changes that a net gain can conceal. Samples from the same person are correlated, so uncertainty for paired gains should be estimated at the person level where identity coverage permits. Human effort for gallery correction, parameter calibration and evaluation labels should be recorded separately.
+\expgap{E3}{Independently label camera transitions, standing and sitting, clothing changes, face availability, and face errors, then report query counts and paired outcomes within each stratum.}
+
+\section{Component Evidence}\label{sec:results}
+\subsection{Historical association under sparse faces}
+In D1, 150 of 1,894 tracks yielded a usable face embedding, corresponding to 7.9\% acquisition coverage. Adding face-supported links to the graph without the clothing gate reduced its group count from 434 to 422. No additional labeled same-person pair became connected. The evaluable cross-camera reference set contained 34 same-person and 80 different-person pairs selected to test plausible matches. Its limited coverage leaves the correctness of the other new links unresolved. A change of 12 groups cannot be read as 12 correctly merged identities.
+
+The historical body representation averaged eight frames per track. Its cross-camera attribute gate required agreement in at least eight of nine clothing attributes. That setting differs from the per-image construction in Section~\ref{sec:method}. Clothing agreement may support local appearance grouping, while a face-supported global identity can contain distinct clothing appearances. The old gate does not supply a measured rule for that second level. Face thresholds and correspondence rules for the reported bridge also remain unspecified.
+
+\subsection{Existing-template selection and new appearances}
+The D2 recordings provide a reason to retain more than one appearance per identity. Across the day, each person's largest and smallest body boxes differed in height by a median factor of 3.76. Median same-person body similarity fell from 0.887 at comparable heights to 0.557 at very different heights. Box height captures both body presentation and imaging geometry. These measurements motivate the scale weight in~(\ref{eq:height}) without assigning a posture label to a track.
+
+Table~\ref{tab:selector} reports five configurations on the same 179 D2 queries at the selector operating point $\tau=0.80$. The first two configurations use only morning templates. The remaining conditions use earlier same-day observations, assigned either by a measured face match or by the known identity in the oracle comparison.
+
+\begin{table}[t]
+\caption{D2 selector outcomes on the same 179 eligible same-camera queries. Oracle writes use known identities and are an idealized reference.}
+\label{tab:selector}
+\centering
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Configuration & Selector hits & Percent & Writes\\
+\midrule
+S0, gallery mean & 101/179 & 56.4 & 0\\
+S1, height weighting & 122/179 & 68.2 & 0\\
+S1, measured face writes & 125/179 & 69.8 & 19\\
+S0, oracle writes & 142/179 & 79.3 & 65\\
+S1, oracle writes & 149/179 & 83.2 & 65\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Height weighting produced 21 more selector hits than the gallery mean, a difference of 11.7 percentage points from the counts. Both conditions used the same morning templates and no face input. With the same oracle write pool, the corresponding counts were 142 and 149. Thus the marginal gain from assigning more weight to similar heights was seven hits when the gallery already contained a wider range of appearances.
+
+The measured D2 face rule used a similarity threshold of 0.80, a margin of 0.02 and a crop-quality gate. It generated 19 entries from the track data, of which 18 were correctly attributed in the labeled data. Adding these writes to S1 increased the hit count by three queries, from 122 to 125. Face acquisition covered 54 of 445 D2 tracks, and face prototypes covered nine of 48 camera-by-identity combinations. The D2 record establishes the temporal order of body-pool entries. It leaves the time of construction of those face prototypes and the exact within-track representation of each write unreported.
+
+These are net changes in correct counts. Without the paired outcomes for each selector condition, the aggregate gain does not reveal how many previously correct queries became wrong or refused while other queries were recovered. Repeated tracks of one identity also mean that 179 queries do not constitute 179 independent people. The counts support the reported component comparison without establishing a person-level uncertainty estimate for the gains.
+
+Oracle assignment admitted 65 correctly identified writes. Relative to S0, that pool increased selector hits by 41 queries. Relative to S1, it increased the count by 27. The oracle-to-measured difference combines changes in write count, coverage and attribution errors. These aggregates cannot separate their effects or identify which individual queries both selectors recovered. The 179-query population includes no separately reported stratum restricted to independent later tracks with no usable face.
+
+\subsection{A separate paired gallery audit}
+On the four-camera audit's 196 answerable queries, the baseline gave 117 correct answers and the cluster-purity veto configuration gave 90. Matching the decision records by query identifier shows that 28 previously correct answers became refusals and one refusal became correct. The configurations used thresholds of 1.85 and 1.90, respectively. The net loss of 27 answers measures the difference between the two complete configurations. A gallery-size or purity summary alone would hide the direction of these changes.
+% Trace: v15 03_results/site/h1_42.csv (A_baseline and C_dmax0.30); ledger_query_42.csv, same configurations joined by query_id, comparing status/verdict.
+
+\section{Discussion and Limitations}\label{sec:discussion}
+The largest measured gain available without new identity observations came from using the appearance already in the gallery. In the same-camera setting, body height provided a useful cue to which existing templates to consult. Increasing the pool with 65 known-identity writes also helped the mean-based selector. The two effects changed in magnitude when combined. In particular, the added value of height weighting fell from 21 to seven hits once the richer pool was available. The five configurations describe two ways of addressing incomplete appearance coverage under a fixed encoder.
+
+The scope of a face decision links construction to maintenance. Assigning a mixed body cluster to one anonymous identity can spread an initial error across templates. An incorrectly attributed new appearance can affect several subsequent matches. Conversely, declining an uncertain association may remove useful evidence, as the separate paired gallery audit illustrates. End-to-end measurement must therefore retain both improved and degraded query outcomes. A high fraction of correct writes alone cannot quantify their downstream value.
+
+Several boundaries limit interpretation. Box height is an observed scale cue and a proxy for changes in body presentation. The reported results lack independently verified standing, sitting and clothing-change strata. The same-camera eligibility criterion also prevents reading D2 gains as evidence of cross-camera improvement. Sparse positive labels in D1 restrict conclusions about the correctness of additional historical associations. Automated face clusters remain predictions and cannot supply independent identity truth for their own evaluation.
+
+The three-day D3 material provides an additional caution. It uses fixed galleries and lacks identity ground truth. Three of its nine gallery--query combinations apply a later-day gallery to earlier video. Concentrated assignments in that material can motivate an audit, but cannot establish successful chronological updating or recognition accuracy. The complete method's present scope remains historical replay. No live latency, activity classification or complete cross-camera trajectory performance has been measured.
+\expgap{E4}{Evaluate identity-consistent trajectories and camera-specific occurrence records against independent annotations, and measure latency on a named runtime only if claiming live operation.}
+
+In operational use, a missed link splits one person's sequence of camera appearances, while a wrong link joins records belonging to different people. A person-level list of camera transitions, false joins and missed visits would show which error dominates. An activity record in this setting denotes a time and location at which an observation was assigned. Posture or activity categories would require additional verified labels.
+
+\section{Conclusion}\label{sec:conclusion}
+Historical gallery construction and subsequent updating use a reliable face at two different scales. One decision can link body appearance clusters under a shared site identity. A second decision can add a single newly observed appearance for later retrieval. In the same-camera recording, height-conditioned template use increased selector hits from 101 to 122 on 179 eligible queries, and the measured face writes added three. The open empirical question is whether a person in another camera or another outfit benefits after the face that supplied a new appearance is no longer visible. Forward replay on independently identified tracks can measure that benefit alongside the cost of a mistaken link.
+
+\section*{Data Availability}
+The site authorization restricts redistribution of the office recordings and identifiable person crops. The conditions for access to any derived records depend on that agreement.
+
+\section*{Ethics}
+The recordings contain identifiable individuals. Site-local identity numbers avoid the need for a named enrollment gallery. The associated face and body representations still link observations of the same person.
+\authorgap{A1}{Supply the ethics review or exemption determination, consent or waiver, and the access conditions authorized for derived data.}
+
+\section*{Author Contributions, Funding, and Competing Interests}
+\authorgap{A2}{Supply the author names, affiliations, corresponding author and CRediT roles. Confirm the funding source or absence of specific funding, and any competing interests.}
+
+\section*{Use of AI Tools}
+A language model assisted with drafting and editing the manuscript and checking arithmetic against the existing summaries. The reported observations come from the field records described in the paper.
+
+\begin{thebibliography}{10}
+\bibitem{cocas}
+S.~Yu, S.~Li, D.~Chen, R.~Zhao, J.~Yan, and Y.~Qiao,
+``COCAS: A Large-Scale Clothes Changing Person Dataset for Re-Identification,''
+in \emph{Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)},
+2020, pp.~3397--3406,
+doi:~\url{10.1109/CVPR42600.2020.00346}.
+% https://openaccess.thecvf.com/content_CVPR_2020/papers/Yu_COCAS_A_Large-Scale_Clothes_Changing_Person_Dataset_for_Re-Identification_CVPR_2020_paper.pdf
+% https://api.crossref.org/works/10.1109/CVPR42600.2020.00346
+
+\bibitem{geff}
+D.~Arkushin, B.~Cohen, S.~Peleg, and O.~Fried,
+``GEFF: Improving Any Clothes-Changing Person ReID Model Using Gallery Enrichment with Face Features,''
+in \emph{Proc. IEEE/CVF Winter Conf. Appl. Comput. Vis. Workshops (WACVW)},
+2024, pp.~143--153,
+doi:~\url{10.1109/WACVW60836.2024.00021}.
+% DOI-associated IEEE/Crossref and author-institution pagination is 143--153.
+% CVF's workshop-local pagination is 152--162; it denotes the same paper.
+% https://api.crossref.org/works/10.1109/WACVW60836.2024.00021
+% https://cris.huji.ac.il/en/publications/geff-improving-any-clothes-changing-person-reid-model-using-galle/
+% https://openaccess.thecvf.com/content/WACV2024W/RWS/html/Arkushin_GEFF_Improving_Any_Clothes-Changing_Person_ReID_Model_Using_Gallery_Enrichment_WACVW_2024_paper.html
+
+\bibitem{casao}
+S.~Casao, P.~Azagra, A.~C.~Murillo, and E.~Montijano,
+``A Self-Adaptive Gallery Construction Method for Open-World Person Re-Identification,''
+\emph{Sensors}, vol.~23, no.~5, Art.~no.~2662, 2023,
+doi:~\url{10.3390/s23052662}.
+% https://www.mdpi.com/1424-8220/23/5/2662
+% https://api.crossref.org/works/10.3390/s23052662
+
+\bibitem{osnet}
+K.~Zhou, Y.~Yang, A.~Cavallaro, and T.~Xiang,
+``Omni-Scale Feature Learning for Person Re-Identification,''
+in \emph{Proc. IEEE/CVF Int. Conf. Comput. Vis. (ICCV)},
+2019, pp.~3701--3711,
+doi:~\url{10.1109/ICCV.2019.00380}.
+% https://openaccess.thecvf.com/content_ICCV_2019/html/Zhou_Omni-Scale_Feature_Learning_for_Person_Re-Identification_ICCV_2019_paper.html
+% https://api.crossref.org/works/10.1109/ICCV.2019.00380
+
+\bibitem{cap}
+M.~Wang, B.~Lai, J.~Huang, X.~Gong, and X.-S.~Hua,
+``Camera-Aware Proxies for Unsupervised Person Re-Identification,''
+in \emph{Proc. AAAI Conf. Artif. Intell.},
+vol.~35, no.~4, 2021, pp.~2764--2772,
+doi:~\url{10.1609/aaai.v35i4.16381}.
+% https://cdn.aaai.org/ojs/16381/16381-13-19875-1-2-20210518.pdf
+% https://api.crossref.org/works/10.1609/aaai.v35i4.16381
+
+\bibitem{li}
+Z.~Li \emph{et al.},
+``Hierarchical Clustering and Refinement for Generalized Multi-Camera Person Tracking,''
+in \emph{Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. Workshops (CVPRW)},
+2023, pp.~5520--5529,
+doi:~\url{10.1109/CVPRW59228.2023.00584}.
+% Complete author list from Crossref and CVF: Zongyi Li, Runsheng Wang, He Li,
+% Bohao Wei, Yuxuan Shi, Hefei Ling, Jiazhong Chen, Boyuan Liu, Zhongyang Li,
+% Hanqing Zheng.
+% https://openaccess.thecvf.com/content/CVPR2023W/AICity/html/Li_Hierarchical_Clustering_and_Refinement_for_Generalized_Multi-Camera_Person_Tracking_CVPRW_2023_paper.html
+% https://api.crossref.org/works/10.1109/CVPRW59228.2023.00584
+
+\bibitem{bytetrack}
+Y.~Zhang \emph{et al.},
+``ByteTrack: Multi-object Tracking by Associating Every Detection Box,''
+in \emph{Proc. Eur. Conf. Comput. Vis. (ECCV)},
+2022, pp.~1--21,
+doi:~\url{10.1007/978-3-031-20047-2_1}.
+% Complete author list: Yifu Zhang, Peize Sun, Yi Jiang, Dongdong Yu,
+% Fucheng Weng, Zehuan Yuan, Ping Luo, Wenyu Liu, Xinggang Wang.
+% https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/315_ECCV_2022_paper.php
+% https://api.crossref.org/works/10.1007/978-3-031-20047-2_1
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,137 @@
+{
+ "_meta": {
+  "n": 21,
+  "same": 10,
+  "diff": 1,
+  "unsure": 10,
+  "src": "AI 视觉初判（未看算法分数）；采样偏最低分端，误合并率是上界"
+ },
+ "rows": [
+  {
+   "id": "M008",
+   "pair": "305-318",
+   "score": 0.8474,
+   "verdict": "same"
+  },
+  {
+   "id": "M010",
+   "pair": "316-318",
+   "score": 0.8427,
+   "verdict": "same"
+  },
+  {
+   "id": "M020",
+   "pair": "305-316",
+   "score": 0.8245,
+   "verdict": "same"
+  },
+  {
+   "id": "M025",
+   "pair": "316-323",
+   "score": 0.8184,
+   "verdict": "same"
+  },
+  {
+   "id": "M027",
+   "pair": "316-318",
+   "score": 0.8148,
+   "verdict": "unsure"
+  },
+  {
+   "id": "M032",
+   "pair": "316-323",
+   "score": 0.8075,
+   "verdict": "same"
+  },
+  {
+   "id": "M034",
+   "pair": "316-343",
+   "score": 0.8046,
+   "verdict": "unsure"
+  },
+  {
+   "id": "M035",
+   "pair": "305-316",
+   "score": 0.8021,
+   "verdict": "same"
+  },
+  {
+   "id": "M045",
+   "pair": "305-320",
+   "score": 0.7846,
+   "verdict": "diff"
+  },
+  {
+   "id": "M056",
+   "pair": "305-320",
+   "score": 0.7717,
+   "verdict": "unsure"
+  },
+  {
+   "id": "M057",
+   "pair": "318-323",
+   "score": 0.7716,
+   "verdict": "unsure"
+  },
+  {
+   "id": "M058",
+   "pair": "316-318",
+   "score": 0.7696,
+   "verdict": "same"
+  },
+  {
+   "id": "M059",
+   "pair": "305-318",
+   "score": 0.7686,
+   "verdict": "same"
+  },
+  {
+   "id": "M060",
+   "pair": "318-323",
+   "score": 0.7685,
+   "verdict": "same"
+  },
+  {
+   "id": "M061",
+   "pair": "316-323",
+   "score": 0.7678,
+   "verdict": "unsure"
+  },
+  {
+   "id": "M062",
+   "pair": "305-323",
+   "score": 0.7669,
+   "verdict": "same"
+  },
+  {
+   "id": "M063",
+   "pair": "305-320",
+   "score": 0.7668,
+   "verdict": "unsure"
+  },
+  {
+   "id": "M064",
+   "pair": "305-316",
+   "score": 0.7646,
+   "verdict": "unsure"
+  },
+  {
+   "id": "M072",
+   "pair": "305-316",
+   "score": 0.7586,
+   "verdict": "unsure"
+  },
+  {
+   "id": "M074",
+   "pair": "305-320",
+   "score": 0.7541,
+   "verdict": "unsure"
+  },
+  {
+   "id": "M076",
+   "pair": "305-323",
+   "score": 0.7504,
+   "verdict": "unsure"
+  }
+ ]
+}

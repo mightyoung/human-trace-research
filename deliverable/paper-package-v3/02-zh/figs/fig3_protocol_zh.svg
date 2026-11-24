@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 430" width="700" height="430" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5a5a5a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="430" fill="#ffffff"/>
+
+  <text x="14" y="20" font-size="10" fill="#8a1c1c" letter-spacing="0.8">三项探针 · 一天测完</text>
+  <text x="336" y="20" font-size="10" fill="#8a1c1c" letter-spacing="0.8">交付层级 · 能买到的最高一级</text>
+
+  <!-- ===== P1 ===== -->
+  <rect x="14" y="34" width="214" height="94" fill="#f2f7f6" stroke="#1f6f6b" stroke-width="1.4"/>
+  <text x="26" y="52" font-size="11" fill="#1f6f6b" letter-spacing="0.8">P1 · 人脸像素预算</text>
+  <text x="26" y="70" font-size="10" fill="#1a1a1a">测：人脸宽度中位数，</text>
+  <text x="26" y="83" font-size="10" fill="#1a1a1a">200 条轨迹的可用人脸占比</text>
+  <text x="26" y="101" font-size="9" fill="#5a5a5a">80 px 以上 → 有人脸层级</text>
+  <text x="26" y="114" font-size="8.8" fill="#5a5a5a">60 px 以下 → 无（此处 52 px）</text>
+
+  <!-- ===== P2 ===== -->
+  <rect x="14" y="146" width="214" height="94" fill="#f1f4f9" stroke="#2b4f81" stroke-width="1.4"/>
+  <text x="26" y="164" font-size="11" fill="#2b4f81" letter-spacing="0.8">P2 · 区域共视</text>
+  <text x="26" y="182" font-size="10" fill="#1a1a1a">测：每个机位对是否</text>
+  <text x="26" y="195" font-size="9.5" fill="#1a1a1a">共享区域（单应或勘察）</text>
+  <text x="26" y="213" font-size="9" fill="#5a5a5a">是 → 该对 AUC .90 以上</text>
+  <text x="26" y="226" font-size="9.5" fill="#5a5a5a">否 → 该对 L1 不可用</text>
+
+  <!-- ===== P3 ===== -->
+  <rect x="14" y="258" width="214" height="94" fill="#faf5ec" stroke="#a86a1a" stroke-width="1.4"/>
+  <text x="26" y="276" font-size="11" fill="#a86a1a" letter-spacing="0.8">P3 · 服装多样性</text>
+  <text x="26" y="294" font-size="10" fill="#1a1a1a">测：一天内服装</text>
+  <text x="26" y="307" font-size="10" fill="#1a1a1a">众数类的大小</text>
+  <text x="26" y="325" font-size="9.5" fill="#5a5a5a">类小 → 否决有效</text>
+  <text x="26" y="338" font-size="9" fill="#5a5a5a">类大 → 偏弱（此处 118）</text>
+
+  <!-- 汇流 -->
+  <path d="M228,81 L262,81 L262,205 L280,205" fill="none" stroke="#5a5a5a" stroke-width="1.2" marker-end="url(#ar3)"/>
+  <path d="M228,193 L262,193 L262,205" fill="none" stroke="#5a5a5a" stroke-width="1.2"/>
+  <path d="M228,305 L262,305 L262,205" fill="none" stroke="#5a5a5a" stroke-width="1.2"/>
+
+  <!-- ===== 阶梯 ===== -->
+  <g>
+    <!-- L0 -->
+    <rect x="336" y="298" width="350" height="46" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.3"/>
+    <text x="350" y="316" font-size="11.5" fill="#1a1a1a">L0 · 同机位跨时段</text>
+    <text x="350" y="333" font-size="10" fill="#5a5a5a">召回 42.3% · 无需探针</text>
+    <rect x="600" y="305" width="74" height="16" fill="#f0f0f0"/>
+    <text x="637" y="317" font-size="8.5" text-anchor="middle" fill="#5a5a5a">默认可用</text>
+
+    <!-- L1 -->
+    <rect x="356" y="242" width="330" height="46" fill="#ffffff" stroke="#2b4f81" stroke-width="1.3"/>
+    <text x="370" y="260" font-size="11.5" fill="#1a1a1a">L1 · 共视区域</text>
+    <text x="370" y="277" font-size="10" fill="#5a5a5a">AUC .904 (OSNet) / .994 (E2)</text>
+    <rect x="614" y="249" width="60" height="16" fill="#e7edf6"/>
+    <text x="644" y="261" font-size="8.5" text-anchor="middle" fill="#2b4f81">由 P2 闸住</text>
+
+    <!-- L2 -->
+    <rect x="376" y="186" width="310" height="46" fill="#ffffff" stroke="#a86a1a" stroke-width="1.3"/>
+    <text x="390" y="204" font-size="11.5" fill="#1a1a1a">L2 · 属性一致否决</text>
+    <text x="390" y="221" font-size="10" fill="#5a5a5a">合并精度 .730 → .930</text>
+    <rect x="622" y="193" width="52" height="16" fill="#f6eddd"/>
+    <text x="648" y="205" font-size="8.5" text-anchor="middle" fill="#a86a1a">由 P3</text>
+
+    <!-- L2+ -->
+    <rect x="396" y="130" width="290" height="46" fill="#ffffff" stroke="#1f6f6b" stroke-width="1.3"/>
+    <text x="410" y="148" font-size="11.5" fill="#1a1a1a">L2+ · 形态条件化模板</text>
+    <text x="410" y="165" font-size="10" fill="#5a5a5a">选择器召回 56.4 → 68.2 → 79.3%</text>
+    <rect x="628" y="137" width="46" height="16" fill="#e6f0ee"/>
+    <text x="651" y="149" font-size="8.5" text-anchor="middle" fill="#1f6f6b">+P1</text>
+
+    <!-- L3 -->
+    <rect x="416" y="74" width="270" height="46" fill="#faf6f3" stroke="#8a1c1c" stroke-width="1.6"/>
+    <text x="430" y="92" font-size="11.5" fill="#8a1c1c">L3 · 人工复核队列</text>
+    <text x="430" y="109" font-size="10" fill="#5a5a5a">27 条 / 20–30 min · 27/27 满足</text>
+    <rect x="620" y="81" width="54" height="16" fill="#f4e6e6"/>
+    <text x="647" y="93" font-size="8.5" text-anchor="middle" fill="#8a1c1c">人工预算</text>
+  </g>
+
+  <!-- 向上的轴 -->
+  <line x1="322" y1="344" x2="322" y2="74" stroke="#c9c9c9" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- 注脚 -->
+  <line x1="14" y1="366" x2="686" y2="366" stroke="#d8d8d8" stroke-width="1"/>
+  <text x="14" y="385" font-size="9.5" fill="#1a1a1a">集成商买探针与人工预算能支到的最高一级。向上：身份更多，前置条件更强，可用站点更少。</text>
+  <text x="14" y="402" font-size="9.5" fill="#8a1c1c">层级不可折叠：配对 AUC .833 的验证器毁掉了 5 个正确合并中的 3 个，且随阈值单调恶化（§7）。</text>
+  <text x="14" y="419" font-size="9" fill="#5a5a5a">边界只在一个站点上标定；可迁移的是探针的排序。</text>
+</svg>

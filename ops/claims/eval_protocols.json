@@ -1,0 +1,23 @@
+{
+  "_note": "eval_protocol 的登记定义。manifest 逐文件核 sha256，结果写入 verify_json。",
+  "protocols": [
+    {
+      "name": "package-v3",
+      "status": "recorded",
+      "sampling": "D1 long35 六机位 35 min + D2 8 段 26 具名身份 + D3 10-22/23/26 三天",
+      "identity_isolation": "none",
+      "params_json": {
+        "ci_auc": {"method": "percentile bootstrap", "n": 2000, "seed": "未固定（复算不可逐位复现，见 EVIDENCE §三）"},
+        "ci_proportion": {"method": "Clopper-Pearson (exact binomial)", "verified": "4/4 逐位吻合：46/63→[0.6035,0.8343]，40/43→[0.8094,0.9854]，101/179→[0.4883,0.6381]，122/179→[0.6079,0.7491]"},
+        "threshold_merge": 0.75,
+        "threshold_baseline": 0.78,
+        "attr_gate": ">=8/9",
+        "theta_xday": 0.90,
+        "note": "θ 网格 0.70-2.50；主表固定 θ=0.90，因流水线自校准 θ 在 0.90-2.35 间漂 2.6 倍"
+      },
+      "manifest_uri": "deliverable/paper-package-v3/SHA256SUMS.txt",
+      "root": "deliverable/paper-package-v3",
+      "note": "r2 投稿前冻结的论文包；其 00-paper/EVIDENCE.md 是旧版，与 docs/paper/EVIDENCE.md 不同步"
+    }
+  ]
+}

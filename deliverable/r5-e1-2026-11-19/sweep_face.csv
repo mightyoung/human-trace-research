@@ -1,0 +1,13 @@
+eps,unit,camera_mode,n_selected_crops,n_final_groups,n_mixed_groups,pairwise_false_links_fp,pairwise_missed_links_fn,pairwise_same_hits_tp,bcubed_precision,bcubed_recall,bcubed_f1,auditable_identities_covered,person_cam_pairs_linked
+0.22,track_8mean,cam_agnostic,4084,252,11,7285,52706,35045,0.8868,0.4548,0.6012,25/26,8/46
+0.22,track_8mean,cam_offset,4084,294,13,2448,64776,22975,0.9187,0.3212,0.476,26/26,0/46
+0.22,track_8mean,cam_intra_only,4084,294,13,2448,64776,22975,0.9187,0.3212,0.476,26/26,0/46
+0.22,per_image,cam_agnostic,5378,1662,34,589,151189,25371,0.963,0.1825,0.3068,26/26,4/46
+0.22,per_image,cam_offset,5378,1715,31,406,156972,19588,0.9713,0.1382,0.242,26/26,0/46
+0.22,per_image,cam_intra_only,5378,1715,31,406,156972,19588,0.9713,0.1382,0.242,26/26,0/46
+0.26,track_8mean,cam_agnostic,4084,183,19,12531,48116,39635,0.8147,0.5102,0.6274,22/26,8/46
+0.26,track_8mean,cam_offset,4084,234,17,3202,61856,25895,0.8959,0.3484,0.5017,25/26,0/46
+0.26,track_8mean,cam_intra_only,4084,234,17,3202,61856,25895,0.8959,0.3484,0.5017,25/26,0/46
+0.26,per_image,cam_agnostic,5378,1186,41,1777,143766,32794,0.9406,0.2278,0.3667,26/26,12/46
+0.26,per_image,cam_offset,5378,1258,45,1022,150761,25799,0.9491,0.1753,0.2959,26/26,0/46
+0.26,per_image,cam_intra_only,5378,1258,45,1022,150761,25799,0.9491,0.1753,0.2959,26/26,0/46

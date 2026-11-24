@@ -1,0 +1,49 @@
+{
+ "n_tracks": 857,
+ "n_dropped_static": 271,
+ "span_h": 4.63,
+ "tracks_per_hour": 185.1,
+ "dur_s_median": 3.8400000000037835,
+ "dur_s_p10": 0.31999999999970896,
+ "dur_s_p90": 51.26399999999992,
+ "h_median": 163.60000610351562,
+ "n_exclusive_pairs": 204,
+ "thr": {
+  "0.28": {
+   "n_clusters": 115,
+   "size_median": 2.0,
+   "size_p90": 19.0,
+   "size_max": 105,
+   "max_cluster_share": 0.1225,
+   "singleton_rate": 0.4783,
+   "fm_clusters": 4,
+   "fm_cluster_rate": 0.0348,
+   "fm_pairs": 8,
+   "fm_track_share": 0.182
+  },
+  "0.22": {
+   "n_clusters": 202,
+   "size_median": 1.0,
+   "size_p90": 9.0,
+   "size_max": 85,
+   "max_cluster_share": 0.0992,
+   "singleton_rate": 0.5099,
+   "fm_clusters": 2,
+   "fm_cluster_rate": 0.0099,
+   "fm_pairs": 2,
+   "fm_track_share": 0.0455
+  },
+  "0.16": {
+   "n_clusters": 330,
+   "size_median": 1.0,
+   "size_p90": 5.0,
+   "size_max": 42,
+   "max_cluster_share": 0.049,
+   "singleton_rate": 0.5879,
+   "fm_clusters": 1,
+   "fm_cluster_rate": 0.003,
+   "fm_pairs": 1,
+   "fm_track_share": 0.0222
+  }
+ }
+}

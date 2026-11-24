@@ -1,0 +1,144 @@
+{
+ "gender": {
+  "x30": {
+   "dom_ok": 0.9736,
+   "dom_all": 0.9736,
+   "ood": 0.8938,
+   "ood_ok": 0.8938
+  },
+  "x60": {
+   "dom_ok": 0.9736,
+   "dom_all": 0.9736,
+   "ood": 0.8862,
+   "ood_ok": 0.8862
+  }
+ },
+ "top_color": {
+  "x30": {
+   "dom_ok": 0.8815,
+   "dom_all": 0.8815,
+   "ood": NaN,
+   "ood_ok": null
+  },
+  "x60": {
+   "dom_ok": 0.8838,
+   "dom_all": 0.8838,
+   "ood": NaN,
+   "ood_ok": null
+  }
+ },
+ "top_type": {
+  "x30": {
+   "dom_ok": 0.9415,
+   "dom_all": 0.941,
+   "ood": 0.8991,
+   "ood_ok": 0.8991
+  },
+  "x60": {
+   "dom_ok": 0.9415,
+   "dom_all": 0.941,
+   "ood": 0.8886,
+   "ood_ok": 0.8886
+  }
+ },
+ "bottom_color": {
+  "x30": {
+   "dom_ok": 0.942,
+   "dom_all": 0.9135,
+   "ood": NaN,
+   "ood_ok": null
+  },
+  "x60": {
+   "dom_ok": 0.9324,
+   "dom_all": 0.91,
+   "ood": NaN,
+   "ood_ok": null
+  }
+ },
+ "bottom_type": {
+  "x30": {
+   "dom_ok": 0.9524,
+   "dom_all": 0.9541,
+   "ood": 0.8808,
+   "ood_ok": 0.8689
+  },
+  "x60": {
+   "dom_ok": 0.9524,
+   "dom_all": 0.9541,
+   "ood": 0.867,
+   "ood_ok": 0.8525
+  }
+ },
+ "glasses": {
+  "x30": {
+   "dom_ok": 0.9111,
+   "dom_all": 0.9238,
+   "ood": 0.8375,
+   "ood_ok": 0.8424,
+   "ood_tpr": 0.5888,
+   "ood_fpr": 0.0717
+  },
+  "x60": {
+   "dom_ok": 0.8889,
+   "dom_all": 0.9175,
+   "ood": 0.8413,
+   "ood_ok": 0.8478,
+   "ood_tpr": 0.5654,
+   "ood_fpr": 0.058
+  }
+ },
+ "hat": {
+  "x30": {
+   "dom_ok": 0.9887,
+   "dom_all": 0.9887,
+   "ood": 0.895,
+   "ood_ok": 0.895,
+   "ood_tpr": 0.5225,
+   "ood_fpr": 0.045
+  },
+  "x60": {
+   "dom_ok": 0.991,
+   "dom_all": 0.991,
+   "ood": 0.8875,
+   "ood_ok": 0.8875,
+   "ood_tpr": 0.5225,
+   "ood_fpr": 0.0537
+  }
+ },
+ "backpack": {
+  "x30": {
+   "dom_ok": NaN,
+   "dom_all": 0.9477,
+   "ood": 0.6963,
+   "ood_ok": null,
+   "ood_tpr": 0.816,
+   "ood_fpr": 0.3711
+  },
+  "x60": {
+   "dom_ok": NaN,
+   "dom_all": 0.9504,
+   "ood": 0.6425,
+   "ood_ok": null,
+   "ood_tpr": 0.8299,
+   "ood_fpr": 0.4629
+  }
+ },
+ "carrying": {
+  "x30": {
+   "dom_ok": NaN,
+   "dom_all": 0.9153,
+   "ood": 0.74,
+   "ood_ok": null,
+   "ood_tpr": 0.6175,
+   "ood_fpr": 0.2237
+  },
+  "x60": {
+   "dom_ok": NaN,
+   "dom_all": 0.9121,
+   "ood": 0.7013,
+   "ood_ok": null,
+   "ood_tpr": 0.6339,
+   "ood_fpr": 0.2788
+  }
+ }
+}

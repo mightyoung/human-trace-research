@@ -1,0 +1,29 @@
+﻿container_type,container,n_claims,candidate_card,role,confidence,decision,note
+section,十二、V2 补记（2026-11-24）,62,,,,,混合章节，逐条判
+section,六、分级协议各级证据（§6）,36,EXP-001,primary,high,EXP-001,分级协议即「能否接回」的判据
+section,十一、r2 新增/核对的事实（2026-11-14）,29,,,,,混合章节，逐条判
+section,"八、跨采集验收（§8, Table 11 / Table 12）",28,,,,n/a,跨采集验收，对应 D 关
+section,"三、外观天花板与 P2（§5.2, Table 2 / Table 3）",18,EXP-002,primary,high,EXP-002,外观表征上限
+section,七、不可折叠（§7）,17,EXP-001,primary,high,EXP-001,分级不可折叠是等级定义的一部分
+section,"四、人脸像素预算与 P1（§5.1, Figure 2）",12,EXP-003,primary,high,EXP-003,人脸锚定的像素前提
+section,"一、两域与图统计（§3.1, Table 1）",11,,,,n/a,数据集描述，study 级
+section,"五、服装多样性与 P3（§5.3, §6.3, Table 5）",10,EXP-002,primary,medium,EXP-002,外观鲁棒性，归跨镜关联
+section,"二、真值（§4, Appendix A）",6,,,,n/a,真值备料，属 ③ 而非某张卡
+section,九、已知不可用 / 不要引用,6,,,,n/a,负面清单
+section,,3,,,,n/a,无章节归属
+table,tab:protocol,18,EXP-001,primary,high,EXP-001,分级协议主表
+table,tab:protocol,18,EXP-002,supporting,medium,EXP-002,跨镜去重也按此协议计
+table,The form in which a system,12,EXP-001,primary,high,EXP-001,五种协议形态
+table,tab:d1,10,,,,n/a,数据集统计
+table,Annotation reliability,10,,,,n/a,标注质量，属 ③
+table,Domains,9,,,,n/a,域定义
+table,tab:xday,9,,,,n/a,跨采集验收
+table,Same cells as the nine-cell,9,,,,n/a,补充材料核对表
+table,tab:pair,8,EXP-002,primary,high,EXP-002,机位对 AUC
+table,tab:agg,6,EXP-002,primary,high,EXP-002,外观聚合结果
+table,tab:selector,6,,,,n/a,运行时选择器，未立卡
+table,tab:verifier,6,EXP-001,primary,high,EXP-001,验证器分级
+table,tab:gate,5,EXP-002,primary,medium,EXP-002,属性闸门影响合并纯度
+table,tab:merge,5,EXP-001,primary,high,EXP-001,合并结果
+table,tab:merge,5,EXP-002,supporting,medium,EXP-002,合并是跨镜去重的落地
+table,Adjudicated pairs,4,,,,n/a,真值备料

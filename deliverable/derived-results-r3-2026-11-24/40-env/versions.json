@@ -1,0 +1,15 @@
+{
+ "python": "3.13.14",
+ "platform": "Windows-11-10.0.22631-SP0",
+ "packages": {
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "scikit-learn": "1.9.1",
+  "opencv-python": null,
+  "onnxruntime-gpu": null,
+  "python-docx": "1.2.0"
+ },
+ "analysis_env_note": "All embedding and scoring runs used the deployment-side environment (Python 3.11, numpy/scipy/scikit-learn/opencv-python/onnxruntime-gpu), as stated in supplementary S2; the GPU encoder host is a separate node.",
+ "determinism": "Every experiment is deterministic given the track tables and embeddings; no model is trained. Bootstrap intervals do not fix a seed, so an AUC interval recomputes to about +/-0.01.",
+ "code_version": "no VCS checkout on the analysis machine; files are identified by sha256 in MANIFEST.csv instead of a commit hash."
+}
