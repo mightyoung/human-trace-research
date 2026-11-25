@@ -78,11 +78,14 @@ def item_code() -> dict:
     rev = git("rev-parse", "--short", "HEAD")
     dirty = git("status", "--porcelain")
     tracked = git("ls-files")
+    # 恢复点自身落在 ops/recovery/ 下，未跟踪时会把自己算成"脏"，导致每次快照立刻自报漂移
+    dirty_lines = [x for x in dirty.splitlines()
+                   if x.strip() and not x[3:].startswith("ops/recovery/")]
     return dict(kind="ref", restorable=False,
                 value={"git_rev": rev,
-                       "dirty_files": len([x for x in dirty.splitlines() if x.strip()]),
+                       "dirty_files": len(dirty_lines),
                        "tracked_files": len([x for x in tracked.splitlines() if x.strip()])},
-                note="代码版本；恢复需 git checkout <rev>，本工具不回滚代码")
+                note="代码版本；恢复需 git checkout <rev>，本工具不回滚代码（已排除 ops/recovery/ 自身）")
 
 
 def item_pack() -> dict:
