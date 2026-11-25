@@ -109,14 +109,46 @@
 | top-1 排序几乎不变（142→143） | 成立 | `exp003c.json` 的 argmax 字段 |
 | 人脸池 +3 全在 305、同一人、54.6 px | 成立 | 3 条明细均为 `male12 / 305 / 54.6` |
 | 加 60 px 门后人脸池增益消失（107 vs 107） | 成立 | 见上表 h≥60 子集 |
-| 工作台确认未成为执行准入 | 成立 | `tools/ops_run.py` 对 `exp_card`/`exp_gate` **0 处引用**；工作台 API 有 19 处，但执行入口不校验 |
+| 工作台确认未成为执行准入 | 成立，**已修** | 原：`tools/ops_run.py` 对 `exp_card`/`exp_gate` **0 处引用**。现：入口强制校验，见 §6.1 |
 | 「40/43 不能当总体精度」 | 成立 | 63 判读里 43 条是过闸后仍存活的合并，分母是筛选后的子集（论文未点明） |
 | 「修正 AUC 后一切会反转」 | 不成立（审查自己也说不会） | 见 §1，方向零反转 |
 
-## 7. 仍未做（诚实清单）
+## 6.1 执行准入已接通（2026-11-25 09:35）
+
+改了三处：
+
+| 位置 | 改动 |
+|---|---|
+| `tools/ops_db.py` | `run` 增 `card_id` / `card_role` 两列（走既有 `ADDED_COLUMNS` 迁移，老库自动 ALTER）；`create_run()` 接受并写入 |
+| `tools/ops_run.py` | 新增 `gate_check()` / `link_card()`；入口强制校验；`--card` / `--role` / `--no-card` |
+| `tools/ops_run.py` | `--dry-run` 增加准入预检（不落库），演练阶段就能看到会不会被拒 |
+
+**规则**（研究类 `kind ∈ {train, eval, infer, encode}`，会产出被引用数字的）：
+
+1. `--card EXP-00x`：卡必须存在、`state ∈ {approved, building, testing, running}`、且 `exp_gate` 中 A 关最新一条为 `approve`。
+   **只认 A 关记录，不认手改的 state**——沙箱实测把 EXP-003 的 state 直接改成 approved，仍被拒。
+2. `--no-card`：允许，但必须在 `--note` 里写明理由，note 自动加 `[no-card] ` 前缀入库。
+3. 两者都没有 → `exit 4`，报错里列出当前所有卡及其状态。
+
+挂卡成功后 run 同时写两处：`run.card_id/card_role` 与 `exp_card.runs_json`（`[{run_id, role}]`，同 run 幂等）。
+
+**实测**（四条路径全过）：
+
+| 场景 | 结果 |
+|---|---|
+| `kind=eval` 无卡 | 拒，exit 4，列出 5 张卡及状态 |
+| `kind=eval --no-card` | 通过，note 记 `[no-card] 门禁自测` |
+| `--card EXP-001`（proposed） | 拒：`state=proposed，不可执行：待立项审批` |
+| 沙箱库 EXP-001 置 approved + A approve | 通过，`已挂到 EXP-001（role=baseline，第 1 条）`；重复挂幂等 |
+| 沙箱库 EXP-003 手改 approved、无 A 记录 | 拒：`没有 A 关（立项）的 approve 记录` |
+| `--dry-run --kind=train` 无卡 | 预检提示"会被拒绝"，返回 0 |
+
+**范围诚实说明**：只强制 **A 关（立项）**。B（数据与真值）/ C（边界变化）/ D（成果验收）仍是记录性关口，没有做成硬门禁——它们缺可判定的机器条件，硬编会把"没填表"当"不合格"。另外 5 张卡现在**一张都没过 A 关**（EXP-001 proposed，其余 draft），所以此刻研究类 run 只能走 `--no-card`；这不是回归，是台账真实状态的暴露。
+
+
 
 1. **统一恢复点**：模型 / 身份图 / 模板池 / 参数 / 已处理数据范围 / 训练状态，这次只做了参数与版本闸门。
-2. **执行准入**：`ops_run.py` 加 `--require-card`，未批准/未过闸拒跑；现在只是记 fingerprint。
+2. ~~**执行准入**~~：**已做**，见 §6.1。
 3. **完整轨迹指标**：身份切换数、断口时长、交汇/遮挡/站坐分层，都还没有专门评价。
 4. **人工/AI 混合裁定的 κ**：现在只能报图库层 κ=.925，对级 153 条仍无 κ。
 

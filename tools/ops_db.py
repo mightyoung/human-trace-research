@@ -119,6 +119,8 @@ ADDED_COLUMNS = [
     # paper_claim.kind 已于 2026-11-24 迁入通用 claim 表（paper_claim 现为视图），不再需要 ALTER
     ("deliverable_ref", "anchor_id", "TEXT"),  # K0/Q12：能挂锚点就挂，C4 分「锚定/文本」两列
     ("claim", "card_state", "TEXT"),           # K0/Q2：NULL=待归属，'n/a'=豁免（说明/日期类）
+    ("run", "card_id", "TEXT"),                # 执行准入：该 run 挂在哪张 exp_card 下
+    ("run", "card_role", "TEXT"),              # baseline|variant|ablation|explore
 ]
 
 
@@ -302,16 +304,20 @@ def create_run(conn: sqlite3.Connection, name: str, kind: str, entrypoint: str |
                model_id: str | None = None, host: str | None = None, gpu: str | None = None,
                git_rev: str | None = None, out_dir: str | None = None,
                status: str = "running", note: str | None = None,
-               run_id: str | None = None) -> str:
+               run_id: str | None = None, card_id: str | None = None,
+               card_role: str | None = None) -> str:
     rid = run_id or new_id("run")
     conn.execute(
         "INSERT INTO run(id, name, kind, entrypoint, params_json, env_json, dataset_id, model_id, "
-        "host, gpu, git_rev, status, started_at, log_uri, out_dir, note, created_at) "
-        "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        "host, gpu, git_rev, status, started_at, log_uri, out_dir, note, created_at, "
+        "card_id, card_role) "
+        "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         (rid, name, kind, entrypoint, jdump(params) if params is not None else None,
          jdump(env) if env is not None else None, dataset_id, model_id, host, gpu, git_rev,
-         status, now(), None, rel(out_dir) if out_dir else None, note, now()))
-    audit(conn, "ops_run", "run.create", "run", rid, None, {"name": name, "kind": kind})
+         status, now(), None, rel(out_dir) if out_dir else None, note, now(),
+         card_id, card_role))
+    audit(conn, "ops_run", "run.create", "run", rid, None,
+          {"name": name, "kind": kind, "card_id": card_id, "card_role": card_role})
     return rid
 
 

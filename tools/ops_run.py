@@ -25,6 +25,9 @@
 
 约定
 ----
+* **研究类 kind（train/eval/infer/encode）必须先挂实验卡**：`--card EXP-00x` 且该卡已过
+  A 关（`exp_gate` 里 A 最新为 approve）；探索性运行用 `--no-card --note "理由"` 显式声明。
+  两者都没给 → exit 4。`build/export/other` 不受此限。
 * run_id 形如 run_20261102_131500_a1b2c3
 * 日志落 ops/logs/<run_id>.log（相对路径入库）
 * 产物扫 out_dir，只登记 uri + bytes + sha1（大文件超 --max-hash-mb 只记 bytes）
@@ -124,6 +127,63 @@ def collect_params(args: argparse.Namespace, cmd: list[str]) -> dict:
             else:
                 p[kv.strip()] = True
     return p
+
+
+# ------------------------------------------------------------------ 执行准入
+# 研究类 run 会产出被引用的数字，必须先挂在一张**已过 A 关（立项）**的实验卡下；
+# 没有卡就必须显式 --no-card，理由写进 note 存档，不能静默跑。
+RESEARCH_KINDS = {"train", "eval", "infer", "encode"}
+RUNNABLE_STATES = {"approved", "building", "testing", "running"}
+STATE_BLOCK = {
+    "draft": "草稿，尚未提交立项（A 关）",
+    "proposed": "待立项审批，A 关未通过",
+    "revise": "需修订，未重新提交",
+    "paused": "已暂停；要续跑请先转回 building/testing/running",
+    "failed": "已标记失败；请修订后重新过 A 关",
+    "scored": "已进入独立评测，重跑会作废已登记的数字；先新建卡或回退到 running",
+    "reviewed": "已进入自动复核，同上",
+    "accept_pending": "待成果验收，同上",
+    "adopted": "已采纳，不能原地重跑；新问题请开新卡",
+    "archived": "已归档",
+}
+
+
+def gate_check(conn, card_id: str) -> tuple[bool, str]:
+    """校验实验卡是否准入。返回 (ok, 说明)。"""
+    row = conn.execute("SELECT id, state, title FROM exp_card WHERE id=?", (card_id,)).fetchone()
+    if not row:
+        have = [r["id"] for r in conn.execute("SELECT id FROM exp_card ORDER BY id LIMIT 12")]
+        return False, f"实验卡 {card_id} 不存在。现有：{', '.join(have) or '（无）'}"
+    state = (row["state"] or "draft").strip()
+    if state not in RUNNABLE_STATES:
+        why = STATE_BLOCK.get(state, "状态未知")
+        return False, (f"实验卡 {card_id} 当前 state={state}，不可执行：{why}。\n"
+                       f"      先在 #/workbench 过 A 关（立项审批），或确认这是探索性运行并改用 --no-card。")
+    gates = conn.execute(
+        "SELECT gate, decision FROM exp_gate WHERE card_id=? ORDER BY id DESC", (card_id,)).fetchall()
+    latest = {}
+    for g in gates:                        # append-only，最新一条即当前
+        latest.setdefault(g["gate"], g["decision"])
+    if latest.get("A") != "approve":
+        return False, (f"实验卡 {card_id} 没有 A 关（立项）的 approve 记录（最新：{latest.get('A') or '无'}）。\n"
+                       f"      state 可能是手改的；请在 #/workbench 补记 A 关决定。")
+    return True, f"{card_id} state={state}，A 关已通过"
+
+
+def link_card(conn, card_id: str, run_id: str, role: str | None) -> str:
+    """把 run 追加到 exp_card.runs_json（幂等），返回说明。"""
+    row = conn.execute("SELECT runs_json FROM exp_card WHERE id=?", (card_id,)).fetchone()
+    runs = db.jload(row["runs_json"], []) if row else []
+    if not isinstance(runs, list):
+        runs = []
+    if any((r or {}).get("run_id") == run_id for r in runs):
+        return "已挂卡（重复登记已跳过）"
+    runs.append({"run_id": run_id, "role": role or "explore"})
+    conn.execute("UPDATE exp_card SET runs_json=?, updated_at=? WHERE id=?",
+                 (db.jdump(runs), db.now(), card_id))
+    db.audit(conn, "ops_run", "exp_card.attach_run", "exp_card", card_id, None,
+             {"run_id": run_id, "role": role or "explore"})
+    return f"已挂到 {card_id}（role={role or 'explore'}，第 {len(runs)} 条）"
 
 
 # ------------------------------------------------------------------ 产物
@@ -249,6 +309,11 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--out", default=None, help="产物目录（跑完扫这个目录）")
     ap.add_argument("--tag", action="append", help="参数快照 key=value，可多次")
     ap.add_argument("--note", default=None)
+    ap.add_argument("--card", default=None, help="实验卡 id（EXP-00x）；研究类 run 必需")
+    ap.add_argument("--role", default=None, choices=["baseline", "variant", "ablation", "explore"],
+                    help="该 run 在卡内的角色（配合 --card）")
+    ap.add_argument("--no-card", action="store_true",
+                    help="探索性运行：不挂卡，但必须显式声明（理由写进 --note）")
     ap.add_argument("--status", default=None,
                     help="配合 --record-only：succeeded|failed|running")
     ap.add_argument("--record-only", action="store_true", help="只登记，不执行命令")
@@ -276,11 +341,45 @@ def main(argv: list[str]) -> int:
     if args.dry_run:
         print(json.dumps(meta, ensure_ascii=False, indent=1))
         print("\n将执行:", " ".join(cmd) if cmd else "(record-only)")
+        # 演练也要能看到会不会被门禁拒（不落库）
+        c2 = db.connect()
+        try:
+            db.init_db(c2)
+            if args.card:
+                ok, why = gate_check(c2, args.card)
+                print("[ops] 准入预检：%s %s" % ("通过" if ok else "会被拒绝", why))
+            elif args.kind in RESEARCH_KINDS and not args.no_card:
+                print("[ops] 准入预检：会被拒绝（研究类需要 --card 或 --no-card）")
+            else:
+                print("[ops] 准入预检：不挂卡（--no-card 或非研究类）")
+        finally:
+            c2.close()
         return 0
 
     conn = db.connect()
     try:
         db.init_db(conn)
+
+        # 执行准入门禁：研究类 run 必须先挂到一张已过 A 关的实验卡下
+        if args.card:
+            ok, why = gate_check(conn, args.card)
+            if not ok:
+                print(f"[ops] 拒绝启动：{why}", file=sys.stderr)
+                return 4
+            print(f"[ops] 准入：{why}")
+        elif args.no_card or args.record_only:
+            if not args.record_only:
+                print("[ops] 准入：--no-card，本次不挂实验卡（已记入 run.note）")
+                args.note = "[no-card] " + (args.note or "")
+        elif args.kind in RESEARCH_KINDS:
+            cards = [f"{r['id']} {r['state']}" for r in
+                     conn.execute("SELECT id, state FROM exp_card ORDER BY id")]
+            print(f"[ops] 拒绝启动：kind={args.kind} 属研究类，必须二选一：\n"
+                  f"      --card EXP-00x（挂到已过 A 关的实验卡，推荐）\n"
+                  f"      --no-card --note \"理由\"（探索性运行，显式声明）\n"
+                  f"      现有卡：{', '.join(cards) or '（无，先在 #/workbench 建卡）'}", file=sys.stderr)
+            return 4
+
         if args.dataset:
             db.upsert_dataset(conn, args.dataset, args.dataset,
                               root_uri=db.rel(args.dataset_root) if args.dataset_root else None,
@@ -309,7 +408,10 @@ def main(argv: list[str]) -> int:
                                 params=params, env=env, dataset_id=args.dataset,
                                 model_id=args.model, host=env.get("host"), gpu=meta["gpu"],
                                 git_rev=meta["git_rev"], out_dir=args.out,
-                                status=args.status or "succeeded", note=args.note)
+                                status=args.status or "succeeded", note=args.note,
+                                card_id=args.card, card_role=args.role)
+            if args.card:
+                print("[ops] " + link_card(conn, args.card, rid, args.role))
             attach_fingerprint(conn, rid, args.dataset, args.model, env)
             art = scan_artifacts(conn, rid, args.out, args.max_artifacts, args.max_hash_mb)
             db.finish_run(conn, rid, args.status or "succeeded", None,
@@ -325,7 +427,9 @@ def main(argv: list[str]) -> int:
                             params=params, env=env, dataset_id=args.dataset,
                             model_id=args.model, host=env.get("host"), gpu=meta["gpu"],
                             git_rev=meta["git_rev"], out_dir=args.out, note=args.note,
-                            status="running")
+                            status="running", card_id=args.card, card_role=args.role)
+        if args.card:
+            print("[ops] " + link_card(conn, args.card, rid, args.role))
         attach_fingerprint(conn, rid, args.dataset, args.model, env)
         log_path = os.path.join(LOG_DIR, f"{rid}.log")
         conn.execute("UPDATE run SET log_uri=? WHERE id=?", (db.rel(log_path), rid))

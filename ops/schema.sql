@@ -139,6 +139,8 @@ CREATE TABLE IF NOT EXISTS run (
   out_dir      TEXT,
   input_hash      TEXT,               -- 输入指纹：dataset+model+code，stale 判定用
   input_breakdown TEXT,               -- 指纹各分量，出问题时能说清哪个变了
+  card_id      TEXT,                  -- 执行准入：挂在哪张 exp_card 下（不设外键：exp_card 在后文定义）
+  card_role    TEXT,                  -- baseline|variant|ablation|explore
   note         TEXT,
   created_at   TEXT
 );
