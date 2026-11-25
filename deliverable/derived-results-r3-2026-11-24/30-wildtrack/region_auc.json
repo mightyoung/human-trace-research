@@ -16,8 +16,8 @@
    "n_neg_in": 8821,
    "n_pos_out": 121,
    "n_neg_out": 11201,
-   "auc_in": 0.7991,
-   "auc_out": 0.7328,
+   "auc_in": 0.7992,
+   "auc_out": 0.7329,
    "med_in": 0.5258,
    "med_out": 0.4713
   },
@@ -28,8 +28,8 @@
    "n_neg_in": 5453,
    "n_pos_out": 181,
    "n_neg_out": 18727,
-   "auc_in": 0.757,
-   "auc_out": 0.8132,
+   "auc_in": 0.7572,
+   "auc_out": 0.8133,
    "med_in": 0.4902,
    "med_out": 0.5164
   },
@@ -40,8 +40,8 @@
    "n_neg_in": 783,
    "n_pos_out": 14,
    "n_neg_out": 407,
-   "auc_in": 0.8933,
-   "auc_out": 0.7053,
+   "auc_in": 0.8946,
+   "auc_out": 0.7078,
    "med_in": 0.6097,
    "med_out": 0.4265
   },
@@ -52,8 +52,8 @@
    "n_neg_in": 1320,
    "n_pos_out": 1148,
    "n_neg_out": 5652,
-   "auc_in": 0.8099,
-   "auc_out": 0.7737,
+   "auc_in": 0.8107,
+   "auc_out": 0.7739,
    "med_in": 0.4661,
    "med_out": 0.4599
   },
@@ -65,7 +65,7 @@
    "n_pos_out": 102,
    "n_neg_out": 7827,
    "auc_in": 0.7009,
-   "auc_out": 0.8842,
+   "auc_out": 0.8843,
    "med_in": 0.4284,
    "med_out": 0.5261
   },
@@ -76,8 +76,8 @@
    "n_neg_in": 1247,
    "n_pos_out": 313,
    "n_neg_out": 3175,
-   "auc_in": 0.8659,
-   "auc_out": 0.9305,
+   "auc_in": 0.8667,
+   "auc_out": 0.9308,
    "med_in": 0.5139,
    "med_out": 0.532
   },
@@ -88,8 +88,8 @@
    "n_neg_in": 545,
    "n_pos_out": 91,
    "n_neg_out": 6765,
-   "auc_in": 0.7908,
-   "auc_out": 0.7581,
+   "auc_in": 0.7927,
+   "auc_out": 0.7583,
    "med_in": 0.5423,
    "med_out": 0.4945
   },
@@ -101,7 +101,7 @@
    "n_pos_out": 15,
    "n_neg_out": 28,
    "auc_in": null,
-   "auc_out": 0.3595,
+   "auc_out": 0.3952,
    "med_in": 0.3098,
    "med_out": 0.3768
   },
@@ -112,8 +112,8 @@
    "n_neg_in": 132,
    "n_pos_out": 55,
    "n_neg_out": 990,
-   "auc_in": 0.8902,
-   "auc_out": 0.5916,
+   "auc_in": 0.8977,
+   "auc_out": 0.5926,
    "med_in": 0.5035,
    "med_out": 0.3775
   },
@@ -124,8 +124,8 @@
    "n_neg_in": 6449,
    "n_pos_out": 134,
    "n_neg_out": 13573,
-   "auc_in": 0.7169,
-   "auc_out": 0.6631,
+   "auc_in": 0.7171,
+   "auc_out": 0.6632,
    "med_in": 0.3569,
    "med_out": 0.3526
   },
@@ -137,7 +137,7 @@
    "n_pos_out": 47,
    "n_neg_out": 477,
    "auc_in": null,
-   "auc_out": 0.7489,
+   "auc_out": 0.751,
    "med_in": 0.4425,
    "med_out": 0.4261
   },
@@ -148,8 +148,8 @@
    "n_neg_in": 1473,
    "n_pos_out": 272,
    "n_neg_out": 689,
-   "auc_in": 0.7885,
-   "auc_out": 0.9114,
+   "auc_in": 0.7891,
+   "auc_out": 0.9128,
    "med_in": 0.4761,
    "med_out": 0.5378
   },
@@ -160,8 +160,8 @@
    "n_neg_in": 4472,
    "n_pos_out": 57,
    "n_neg_out": 2500,
-   "auc_in": 0.7401,
-   "auc_out": 0.6474,
+   "auc_in": 0.7403,
+   "auc_out": 0.6478,
    "med_in": 0.4135,
    "med_out": 0.3891
   },
@@ -173,7 +173,7 @@
    "n_pos_out": 128,
    "n_neg_out": 12254,
    "auc_in": 0.7135,
-   "auc_out": 0.6573,
+   "auc_out": 0.6574,
    "med_in": 0.3959,
    "med_out": 0.3807
   },
@@ -184,8 +184,8 @@
    "n_neg_in": 977,
    "n_pos_out": 947,
    "n_neg_out": 2103,
-   "auc_in": 0.8761,
-   "auc_out": 0.8064,
+   "auc_in": 0.8771,
+   "auc_out": 0.8069,
    "med_in": 0.4935,
    "med_out": 0.4328
   },
@@ -196,7 +196,7 @@
    "n_neg_in": 214,
    "n_pos_out": 5,
    "n_neg_out": 58,
-   "auc_in": 0.5686,
+   "auc_in": 0.5733,
    "auc_out": null,
    "med_in": 0.3237,
    "med_out": 0.4038
@@ -208,8 +208,8 @@
    "n_neg_in": 64,
    "n_pos_out": 506,
    "n_neg_out": 1496,
-   "auc_in": 0.6188,
-   "auc_out": 0.7724,
+   "auc_in": 0.6345,
+   "auc_out": 0.7731,
    "med_in": 0.3622,
    "med_out": 0.4479
   },
@@ -220,8 +220,8 @@
    "n_neg_in": 249,
    "n_pos_out": 272,
    "n_neg_out": 257,
-   "auc_in": 0.9844,
-   "auc_out": 0.6136,
+   "auc_in": 0.9884,
+   "auc_out": 0.6175,
    "med_in": 0.5794,
    "med_out": 0.379
   },
@@ -232,8 +232,8 @@
    "n_neg_in": 1522,
    "n_pos_out": 1307,
    "n_neg_out": 5450,
-   "auc_in": 0.8634,
-   "auc_out": 0.8209,
+   "auc_in": 0.864,
+   "auc_out": 0.821,
    "med_in": 0.6125,
    "med_out": 0.5635
   },
@@ -244,8 +244,8 @@
    "n_neg_in": 169,
    "n_pos_out": 1234,
    "n_neg_out": 1637,
-   "auc_in": 0.731,
-   "auc_out": 0.9055,
+   "auc_in": 0.737,
+   "auc_out": 0.9061,
    "med_in": 0.5201,
    "med_out": 0.6333
   },
@@ -257,7 +257,7 @@
    "n_pos_out": 1362,
    "n_neg_out": 4160,
    "auc_in": null,
-   "auc_out": 0.8287,
+   "auc_out": 0.829,
    "med_in": null,
    "med_out": 0.5727
   }

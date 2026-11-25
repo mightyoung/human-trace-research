@@ -45,14 +45,18 @@ def load_ann(path):
 
 
 def auc_of(pos, neg):
-    """Mann-Whitney：P(同人得分 > 异人得分)。"""
+    """Mann-Whitney：P(同人得分 > 异人得分)。秩从 1 起算，并列取平均秩（向量化）。
+
+    2026-11-25 修正：原实现用 argsort().argsort() 得到 0 起秩，却代入 1 起公式，
+    结果恒低 1/n_neg（8 正 8 负完全分离时返回 0.875 而非 1.0），且未处理并列。
+    """
     if len(pos) < 5 or len(neg) < 5:
         return None
     allv = np.concatenate([pos, neg])
-    order = allv.argsort().argsort().astype(float)
-    return float((order[:len(pos)].sum() - len(pos) * (len(pos) + 1) / 2)
+    uniq, inv, cnt = np.unique(allv, return_inverse=True, return_counts=True)
+    ranks = (np.cumsum(cnt) - (cnt - 1) / 2.0)[inv]
+    return float((ranks[:len(pos)].sum() - len(pos) * (len(pos) + 1) / 2)
                  / (len(pos) * len(neg)))
-
 
 def main():
     meta = json.loads((OUT / "crops_wt/meta.json").read_text(encoding="utf-8"))

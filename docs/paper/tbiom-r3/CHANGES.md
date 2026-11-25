@@ -165,3 +165,64 @@ EXP-003c（`docs/exp-003a-template-decomposition-2026-11-24.md` §10）在 D2 �
 **处置（22:20，已执行）**：不改正文。重读后发现 §VI-C 的原句是「$\tau$ is the deployed selector's operating point」——这句**字面为真**（τ 确实是部署工作点），它并没有声称查询集等同于部署输入。所以问题在读者推断，不在稿件陈述，属于"稳健性"而非"更正经数"。这类内容的正规去处是补充材料，不是正文（正文余量≈0）。
 
 新增 **supplement §S9**「Sensitivity of the L2+ selector to a box-height floor and to the decision rule」+ 表 S6（上面那张 2×2）。**supplement 仍 5 页，只有 r2 既有的 1 处 4.07 pt overfull；main 未改，仍 10 页。**
+
+## 12. 外部审查后的改动（2026-11-25）
+
+审查方固定在提交 `cc44e4f`，逐条核实记录见 `docs/review-2026-11-25-verification.md`。
+
+### 12.1 已改：AUC 实现缺陷导致的三处数字
+
+WILDTRACK 的 5 个脚本 AUC 用 0 起秩代入 1 起公式（偏差恒为 `1/n_neg`），且未处理并列。
+修正后重算，**结论方向零反转**，但以下数字必须改：
+
+| 位置 | 原 | 现 |
+|---|---|---|
+| 摘要 / §V-B「AUC spans」 | 0.35--0.90 | **0.38--0.90** |
+| 摘要 / §V-B「$r=0.18$」 | 0.18 | **0.17** |
+| S8「0.350--0.901 (median 0.755)」 | — | **0.383--0.902 (median 0.761)** |
+| S8「$r=0.179$」 | 0.179 | **0.170** |
+| S8「$r=-0.05$（掉 <30 身份的 4 对）」 | −0.05 | **−0.06** |
+| S8 分带中位「0.739 / 0.817 / 0.755」 | 0.755 | **0.757** |
+| S8 构成混淆「43 identities: 0.901」 | 0.901 | **0.902** |
+| S8 表 S6 六行（C4--C7、C2--C5、C1--C4、C3--C5、C5--C7、C3--C4） | — | 见 `supplement.tex` |
+| S8「Median Δ=+0.042」 | +0.042 | **+0.043**（仍 11/17 为正） |
+
+编译：main **10 页 / 0 overfull**；supplement 5 页（仍只有 r2 既有的 1 处 4.07 pt）。
+
+### 12.2 待作者确认：合并精度的第二遍裁定来源
+
+§III 写 *"given a verdict by the same adjudicator"*，但 `recheck_ai_qc.json` 的 `_meta.note`
+是「**AI 复核**」，且全部评价脚本读 `q["ai"]`。数字（17 / 11 / 13）对得上，**来源对不上**。
+
+二选一：
+
+1. **补人工复核这 11 条改判**（约 20–30 分钟），原句即可保留；
+2. **改口径**。可直接替换的英文：
+
+> The 41 different-person verdicts were re-examined in a second pass. That pass was run by an
+> AI reviewer and spot-checked by the author: 17 were confirmed different, 11 revised to same
+> and 13 left unresolved. We therefore report the judged-merge precision as
+> author-adjudicated in the first pass and AI-assisted in the second, and treat the 11 revisions
+> as a sensitivity rather than as ground truth.
+
+若选 2，§III 同段的 "the same adjudicator" 与 §Limits 的 "one adjudicator" 都要同步改。
+
+### 12.3 待决定：开放集没有防线（新增实测）
+
+179 条查询全部 `gt_has_gallery=1`（闭集）。补 29 条「本人不在图库」后
+（`tmp/derived/openset_eval.py`）：
+
+| 配置 | 已知正确 | 已知误受 | 陌生人被接受 |
+|---|---:|---:|---:|
+| S0 均值 | 101 | 4 | 5/29（17.2%） |
+| S5 加权 | 122 | 4 | 6/29（20.7%） |
+
+质量门与间隔规则都挡不住（6 条被接受的陌生人全部 ≥60 px）。
+建议在 §V-C 或 §Limits 加一句「our selector has no open-set guard; strangers are accepted at
+17--21\% at $\tau=0.80$」，但正文余量≈0，加就必须删一句。**未改，等作者定。**
+
+### 12.4 已知但未改：40/43 的分母
+
+「0.730 → 0.930」中的 43 是**过属性闸门后仍存活且已判读**的合并（63 判读的子集），
+不是全部 63 条。正文未点明这一点，审稿人可能误读为"全部合并的精度"。
+补一句要占两行，暂记于此。

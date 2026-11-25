@@ -41,6 +41,11 @@ DATA = Path(__file__).resolve().parent / "data"
 REID = DATA / "reid"
 POOL_PATH = REID / "selector_pool.json"
 
+# 数据包标识：模板键只有 cam:tid，跨包复用时 tid 可能指向另一个人。
+# 池文件写入时记下 pack + model_version，加载时不一致就整体忽略（不静默串号）。
+_pack_fp = DATA / ".pack_tag"
+PACK_TAG = _pack_fp.read_text(encoding="utf-8").strip() if _pack_fp.exists() else ""
+
 # 已验证参数（改这些等于改实验结论，不要随手调）
 D_SIGMA = 0.6        # 形态加权带宽：0.2–0.6 是平台，≥0.9 退化
 D_POOL_K = 3         # 池内取最像的 k 条，不是池均值（池混着换衣前的旧样本）
@@ -108,10 +113,37 @@ class Selector:
 
     def _load_pool(self):
         self.pool = {}
+        self.pool_note = ""
         if not POOL_PATH.exists():
             return
         try:
             d = json.loads(POOL_PATH.read_text(encoding="utf-8"))
+
+            # (1) 恢复行为参数。此前只写不读，重启后 sigma/pool_k/...退回默认值：
+            #     模板还在，但算法行为与中断前不同（实测 sigma 0.42 → 0.60）。
+            p = d.get("params") or {}
+            try:
+                if p.get("sigma") is not None:
+                    self.sigma = float(min(1.5, max(0.05, float(p["sigma"]))))
+                if p.get("pool_k") is not None:
+                    self.pool_k = int(min(20, max(1, int(p["pool_k"]))))
+                if p.get("pool_max") is not None:
+                    self.pool_max = int(min(100, max(1, int(p["pool_max"]))))
+                if p.get("min_h") is not None:
+                    self.min_h = float(max(0.0, float(p["min_h"])))
+            except (TypeError, ValueError):
+                pass
+
+            # (2) 版本闸门：模板键只有 cam:tid，跨模型/跨包复用会静默串号。
+            saved_model = str(d.get("model_version") or "")
+            cur_model = str((self.version or {}).get("model_version") or "")
+            if saved_model and cur_model and saved_model != cur_model:
+                self.pool_note = f"模板池属于 {saved_model}，当前库为 {cur_model}，已忽略"
+                return
+            if d.get("pack") and PACK_TAG and d["pack"] != PACK_TAG:
+                self.pool_note = f"模板池属于数据包 {d['pack']}，当前为 {PACK_TAG}，已忽略"
+                return
+
             for e in d.get("entries", []):
                 key = f"{e['cam']}:{int(e['tid'])}"
                 i = self.by_key.get(key)
@@ -128,7 +160,9 @@ class Selector:
             self.pool = {}
 
     def _save_pool(self):
-        out = {"version": 1, "updated": time.strftime("%Y-%m-%d %H:%M:%S"),
+        out = {"version": 2, "updated": time.strftime("%Y-%m-%d %H:%M:%S"),
+               "model_version": (self.version or {}).get("model_version", ""),
+               "pack": PACK_TAG,
                "params": {"sigma": self.sigma, "pool_k": self.pool_k,
                           "pool_max": self.pool_max, "min_h": self.min_h},
                "entries": []}

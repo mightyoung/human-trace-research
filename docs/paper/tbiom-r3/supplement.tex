@@ -134,9 +134,9 @@ Both populations are D1. Of the 1,473 D1 tracks that are evaluable here --- 305:
 
 \emph{Protocol.} 400 annotated frames; 20 frames per view sampled evenly; 1{,}855 crops with 8\% padding; OSNet-x1.0 (MSMT17), 512-d, $\ell_2$-normalised. Co-visibility of a pair is $\sum_t \mathbf{1}[\text{visible in both}] / \sum_t \mathbf{1}[\text{visible in either}]$ over all 400 frames. Positive pairs are the same personID in two views at different times; negatives are random different-personID pairs of equal count. AUC is Mann--Whitney with identity-level bootstrap (1{,}000 draws).
 
-\emph{Co-visibility does not order pairs by AUC.} Across 21 pairs, co-visibility spans 0.00--0.89 and cross-time AUC spans 0.350--0.901 (median 0.755). The two correlate at $r=0.179$ ($\rho=0.161$), and at $r=-0.05$ once pairs with fewer than 30 shared identities are dropped. Banding by co-visibility leaves the medians flat: 0.739, 0.817 and 0.755 for co-visibility $\ge0.5$, 0.2--0.5 and $<0.2$.
+\emph{Co-visibility does not order pairs by AUC.} Across 21 pairs, co-visibility spans 0.00--0.89 and cross-time AUC spans 0.383--0.902 (median 0.761). The two correlate at $r=0.170$ ($\rho=0.161$), and at $r=-0.06$ once pairs with fewer than 30 shared identities are dropped. Banding by co-visibility leaves the medians flat: 0.739, 0.817 and 0.757 for co-visibility $\ge0.5$, 0.2--0.5 and $<0.2$.
 
-\emph{An identity-composition confound, and its control.} Raw pair AUC falls as the shared identity set grows (228 identities: 0.711; 43 identities: 0.901), because the people two distant cameras both see are the salient ones. Resampling 15 identities per pair 200 times removes the trend ($\rho=-0.153$) and leaves the null intact. Any per-pair AUC comparison at a multi-camera site should control this.
+\emph{An identity-composition confound, and its control.} Raw pair AUC falls as the shared identity set grows (228 identities: 0.711; 43 identities: 0.902), because the people two distant cameras both see are the salient ones. Resampling 15 identities per pair 200 times removes the trend ($\rho=-0.153$) and leaves the null intact. Any per-pair AUC comparison at a multi-camera site should control this.
 
 \emph{Region-level A/B.} Box feet are back-projected to the ground plane through the calibrations; a pair of crops counts as in-region when both feet fall in grid cells visible to both cameras (60~cm grid). Of 21 pairs, 17 admit both an in-region and an out-region estimate:
 
@@ -147,19 +147,19 @@ Both populations are D1. Of the 1,473 D1 tracks that are evaluable here --- 305:
 \toprule
 Pair & AUC in & AUC out & $\Delta$ & $n_{\text{pos,in}}$\\
 \midrule
-C4--C7 & 0.984 & 0.614 & $+0.371$ & 174\\
-C2--C5 & 0.890 & 0.592 & $+0.299$ & 8\\
-C1--C4 & 0.893 & 0.705 & $+0.188$ & 453\\
-C3--C5 & 0.740 & 0.647 & $+0.093$ & 1{,}242\\
+C4--C7 & 0.988 & 0.618 & $+0.371$ & 174\\
+C2--C5 & 0.898 & 0.593 & $+0.305$ & 8\\
+C1--C4 & 0.895 & 0.708 & $+0.187$ & 453\\
+C3--C5 & 0.740 & 0.648 & $+0.092$ & 1{,}242\\
 C3--C6 & 0.714 & 0.657 & $+0.056$ & 1{,}542\\
 C1--C6 & 0.701 & 0.884 & $-0.183$ & 1{,}519\\
-C5--C7 & 0.731 & 0.905 & $-0.174$ & 11\\
-C3--C4 & 0.788 & 0.911 & $-0.123$ & 471\\
+C5--C7 & 0.737 & 0.906 & $-0.169$ & 11\\
+C3--C4 & 0.789 & 0.913 & $-0.124$ & 471\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-Median $\Delta=+0.042$; 11 of 17 pairs are positive. Neither optical-axis angle, camera baseline, geometric overlap nor person height explains the residual ($|r|\le0.18$). The camera-index to device-name mapping is not distributed with the archive; we recovered it by maximising agreement between grid-predicted overlap and measured co-visibility over all $7!$ assignments ($\rho=0.639$). The mapping affects the geometric columns only, not the co-visibility result.
+Median $\Delta=+0.043$; 11 of 17 pairs are positive. Neither optical-axis angle, camera baseline, geometric overlap nor person height explains the residual ($|r|\le0.18$). The camera-index to device-name mapping is not distributed with the archive; we recovered it by maximising agreement between grid-predicted overlap and measured co-visibility over all $7!$ assignments ($\rho=0.639$). The mapping affects the geometric columns only, not the co-visibility result.
 
 \emph{Pixel sweep.} The same crops, downsampled to a target person height by area averaging and then restored to the model input size by cubic interpolation; 15 identities per pair, 200 draws:
 
