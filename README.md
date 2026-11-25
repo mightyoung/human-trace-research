@@ -81,7 +81,12 @@ python tmp/derived/exp003e_gate_factorial.py
 # 3) 台账证据链一致性
 python tools/ledger_flow.py && cat ops/reports/ledger/FLOW.md
 
-# 4) 控制台
+# 4) 恢复点：改配置/换数据前先存一个，回来先核对
+python tools/recovery.py snapshot --tag <批次名> --note "<做了什么>"
+python tools/recovery.py verify <rp_id>          # 漂移非零返回 1
+python tools/recovery.py restore <rp_id>         # 只回 pack / pool
+
+# 5) 控制台
 cd webapp/backend && uvicorn main:app --host 127.0.0.1 --port 8010
 ```
 

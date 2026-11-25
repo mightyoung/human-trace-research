@@ -1,0 +1,291 @@
+{
+ "rp_id": "rp_20261125_094441_baseline",
+ "created_at": "2026-11-25 09:44:41",
+ "note": "统一恢复点首次采集（含图库嵌入与索引）",
+ "root": "D:\\dev\\human-count",
+ "items": {
+  "code": {
+   "kind": "ref",
+   "restorable": false,
+   "value": {
+    "git_rev": "ac14a7f",
+    "dirty_files": 1,
+    "tracked_files": 1847
+   },
+   "note": "代码版本；恢复需 git checkout <rev>，本工具不回滚代码",
+   "name": "code"
+  },
+  "pack": {
+   "kind": "state",
+   "restorable": true,
+   "value": {
+    "pack": "long35"
+   },
+   "files": [
+    "D:\\dev\\human-count\\webapp/backend/data/.pack_tag"
+   ],
+   "sha256": "f0fae71849270458e4877969fc107ea79c71b8ee70e27b1df3cee8712fa8a20c",
+   "bytes": 6,
+   "name": "pack",
+   "copies": [
+    "ops/recovery/rp_20261125_094441_baseline/files/.pack_tag"
+   ]
+  },
+  "gallery": {
+   "kind": "state",
+   "restorable": false,
+   "value": {
+    "model_version": "cradio_gemma2_bridge_v4",
+    "dim": 768,
+    "n_tracks": 539,
+    "updated": "2026-10-13 11:46:36"
+   },
+   "parts": {
+    "webapp/backend/data/reid/store_meta.json": {
+     "sha256": "f8f62add44a88fffc761c6c4e3ae0b5fdbd9cdd1cbc6a3248d1658d1ee610a81",
+     "bytes": 90894
+    },
+    "webapp/backend/data/reid/entity_index.json": {
+     "sha256": "1236968f23127eba3d1f4d7593e3e959735f21fecafb3407014e7e5159b397e7",
+     "bytes": 15463
+    }
+   },
+   "note": "图库版本块 + 轨→实体索引；重建需重算嵌入，本工具只校验",
+   "name": "gallery"
+  },
+  "pool": {
+   "kind": "state",
+   "restorable": true,
+   "value": {
+    "params": {
+     "sigma": 0.6,
+     "pool_k": 3,
+     "pool_max": 8,
+     "min_h": 60.0
+    },
+    "n_entries": 20,
+    "model_version": null,
+    "pack": null
+   },
+   "files": [
+    "D:\\dev\\human-count\\webapp/backend/data/reid/selector_pool.json"
+   ],
+   "sha256": "471a2bb9a86afa0beba8b1807573e5939b99650eef3a9b6bc63c44a5976c3b3f",
+   "bytes": 4142,
+   "note": "模板 + 行为参数；这是唯一能整体回退的运行时状态",
+   "name": "pool",
+   "copies": [
+    "ops/recovery/rp_20261125_094441_baseline/files/selector_pool.json"
+   ]
+  },
+  "graph": {
+   "kind": "state",
+   "restorable": false,
+   "value": {
+    "files": [
+     "graph_450_v1.json",
+     "attr_filter_ingraph.json",
+     "attr_gate_runs.json"
+    ]
+   },
+   "parts": {
+    "deliverable/derived-results-r3-2026-11-24/20-graph/graph_450_v1.json": {
+     "sha256": "e05157409a76f05c9ef4f8d9442e08b8ecf81786ae7177d9b80749a6b23ec165",
+     "bytes": 26048
+    },
+    "deliverable/gt_long35/attr_filter_ingraph.json": {
+     "sha256": "c2f8614f11827954fbcce61d9565d38ef3b0bf0db02ca9c987133a9bb02685da",
+     "bytes": 681
+    },
+    "deliverable/derived-results-r3-2026-11-24/20-graph/attr_gate_runs.json": {
+     "sha256": "fd057afb86da91dd5871dc3c74c2ba2618cf6a2e8635978658294c0fb438050f",
+     "bytes": 638
+    }
+   },
+   "note": "生产身份图 + 属性闸门；修改须走 diff+确认，本工具只校验",
+   "name": "graph"
+  },
+  "embeddings": {
+   "kind": "state",
+   "restorable": false,
+   "value": {
+    "n_files": 7,
+    "bytes": 4441092
+   },
+   "parts": {
+    "webapp/backend/data/reid/store_emb.npy": {
+     "sha256": "c248c65e2179c7df45321fecc7857530ce8895b46a0d93bbecdf689d2583e08f",
+     "bytes": 828032
+    },
+    "output_crosscam/long35/embs_osnet/305_emb_long35_osnet.npz": {
+     "sha256": "3c969b46e6de8aef2c692c396862048b437f9a46f4d3eac98bca1599b3706fbd",
+     "bytes": 500490
+    },
+    "output_crosscam/long35/embs_osnet/316_emb_long35_osnet.npz": {
+     "sha256": "7c5549d748e4c1cc1d40945c4bbe50d2aef30789ca44d93b173bb75636f2fccf",
+     "bytes": 344310
+    },
+    "output_crosscam/long35/embs_osnet/318_emb_long35_osnet.npz": {
+     "sha256": "0db251b1b13f23c11e83e90fa6ec766a6f2b1765a66c12300bba8b792a6df87c",
+     "bytes": 957256
+    },
+    "output_crosscam/long35/embs_osnet/320_emb_long35_osnet.npz": {
+     "sha256": "b3ac5d43ae65456a6032b03da054a5b60143c965ea3293138e756844ecf5c9b6",
+     "bytes": 415382
+    },
+    "output_crosscam/long35/embs_osnet/323_emb_long35_osnet.npz": {
+     "sha256": "b3e90a7de3aff89fedb40112ece005a5c63f33f02efcbadda5dd444bcf7beefc",
+     "bytes": 1166204
+    },
+    "output_crosscam/long35/embs_osnet/343_emb_long35_osnet.npz": {
+     "sha256": "cc0f0cbe9f6b955b256c6dee1fcb4bbc74e5daa2b7c91fcfc8b5eacbfc9d691f",
+     "bytes": 229418
+    }
+   },
+   "note": "嵌入；丢失须重跑编码，本工具不回滚",
+   "name": "embeddings"
+  },
+  "tracks_range": {
+   "kind": "state",
+   "restorable": false,
+   "value": {
+    "per_camera": {
+     "305": {
+      "frames_total": 52496,
+      "frames_processed": 10500,
+      "stride": 5,
+      "fps": 24.999,
+      "resolution": [
+       2560,
+       1440
+      ]
+     },
+     "316_long35": {
+      "frames_total": 52423,
+      "frames_processed": 10485,
+      "stride": 5,
+      "fps": 24.999,
+      "resolution": [
+       2560,
+       1440
+      ]
+     },
+     "316": {
+      "frames_total": 52421,
+      "frames_processed": 10485,
+      "stride": 5,
+      "fps": 24.999,
+      "resolution": [
+       2560,
+       1440
+      ]
+     },
+     "318_long35": {
+      "frames_total": 52400,
+      "frames_processed": 10480,
+      "stride": 5,
+      "fps": 24.991,
+      "resolution": [
+       1920,
+       1080
+      ]
+     },
+     "318": {
+      "frames_total": 52396,
+      "frames_processed": 10480,
+      "stride": 5,
+      "fps": 24.991,
+      "resolution": [
+       1920,
+       1080
+      ]
+     },
+     "320_long35": {
+      "frames_total": 52404,
+      "frames_processed": 10481,
+      "stride": 5,
+      "fps": 25.003,
+      "resolution": [
+       2560,
+       1440
+      ]
+     },
+     "320": {
+      "frames_total": 52401,
+      "frames_processed": 10481,
+      "stride": 5,
+      "fps": 25.003,
+      "resolution": [
+       2560,
+       1440
+      ]
+     },
+     "323": {
+      "frames_total": 52581,
+      "frames_processed": 10517,
+      "stride": 5,
+      "fps": 25.042,
+      "resolution": [
+       1920,
+       1080
+      ]
+     },
+     "343": {
+      "frames_total": 52491,
+      "frames_processed": 10499,
+      "stride": 5,
+      "fps": 25.042,
+      "resolution": [
+       2560,
+       1440
+      ]
+     }
+    }
+   },
+   "note": "已处理数据范围；重跑须用同一 stride/fps，否则口径变",
+   "name": "tracks_range"
+  },
+  "labels": {
+   "kind": "state",
+   "restorable": false,
+   "value": {
+    "files": [
+     "gt_long35.json",
+     "recheck_ai_qc.json"
+    ]
+   },
+   "parts": {
+    "deliverable/gt_long35/gt_long35.json": {
+     "sha256": "8d7b8745e9c1978307c3eccefa1807185da417b72e5500e4a4a7f3d4f34195df",
+     "bytes": 21613
+    },
+    "deliverable/gt_long35/recheck_ai_qc.json": {
+     "sha256": "0d27e01bc2397a99d8adc1ea20f490b8c2f3c36eaf61c7dee5dde6b176a0c124",
+     "bytes": 11230
+    }
+   },
+   "note": "人工真值；改动等于改评价基准，须走版本+复核记录",
+   "name": "labels"
+  },
+  "training": {
+   "kind": "state",
+   "restorable": false,
+   "absent": true,
+   "note": "当前没有训练态（无 optimizer/scheduler/rng/采样进度），因此「周期训练中断续跑」暂不可验证；不要把它当成已验证能力",
+   "name": "training"
+  },
+  "ledger": {
+   "kind": "state",
+   "restorable": false,
+   "value": {
+    "runs": 47,
+    "claims": 238,
+    "cards": 5
+   },
+   "sha256": "3112f47fe07b1c01533491c5fd632528f0146a5bf1030539af233a2931f7d0e7",
+   "bytes": 2306048,
+   "note": "台账；记录了哪些 run 存在，但恢复实验状态不依赖它",
+   "name": "ledger"
+  }
+ }
+}
