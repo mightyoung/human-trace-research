@@ -355,6 +355,22 @@ def cmd_verify(args) -> int:
                 print("%-14s %-10s 恢复点记 absent/missing，现在有了" % (name, "新增"))
                 drift += 1
             continue
+        # code 项单独处理：rev 不同只说明代码动了（提交这个快照本身就会让 rev 变），
+        # 不算状态漂移；只有工作区变脏才可能影响结果，才算漂移。
+        if name == "code":
+            sv, cv = saved.get("value") or {}, cur.get("value") or {}
+            rev_changed = sv.get("git_rev") != cv.get("git_rev")
+            dirty_changed = sv.get("dirty_files") != cv.get("dirty_files")
+            if not dirty_changed:
+                label = "rev 变" if rev_changed else "OK"
+                print("%-14s %-10s 代码 %s→%s，脏文件 %s（不算漂移）" % (
+                    name, label, sv.get("git_rev"), cv.get("git_rev"), cv.get("dirty_files")))
+                continue
+            print("%-14s %-10s 脏文件 %s→%s，rev %s→%s" % (
+                name, "已变", sv.get("dirty_files"), cv.get("dirty_files"),
+                sv.get("git_rev"), cv.get("git_rev")))
+            drift += 1
+            continue
         # 比对：优先整体 sha，其次分件
         if saved.get("sha256") and cur.get("sha256"):
             ok = saved["sha256"] == cur["sha256"]
